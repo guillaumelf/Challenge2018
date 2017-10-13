@@ -1,0 +1,46 @@
+---
+title: "Prise en main des donnees"
+author: "Guillaume Le Floch"
+date: "13/10/2017"
+output: html_notebook
+---
+
+# Importation
+
+Dans ce preambule on va regarder le type des variables pour un fichier (*train_1.csv*)
+
+```{r, message=FALSE, warning=FALSE}
+library(data.table)
+```
+
+
+```{r}
+train_1 <- data.table(read.csv("data_meteo/train_1.csv",
+                               header = TRUE,
+                               sep = ";",
+                               dec = ",",
+                               stringsAsFactors = FALSE,
+                               encoding = "UTF-8"))
+head(train_1,10)
+```
+
+# Type des variables
+
+```{r}
+type <- data.frame(type = sapply(train_1,class))
+type
+```
+
+# Transformation des variables caracteres en date et facteurs
+
+```{r}
+train_1[, c("date",
+            "ddH10_rose4",
+            "mois") := list(as.IDate(date),
+                            factor(ddH10_rose4),
+                            factor(mois))]
+```
+
+# Valeurs manquantes
+
+
