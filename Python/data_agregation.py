@@ -47,4 +47,4 @@ df = reduce(concat_data,mapped_values)
 On crée le fichier csv avec les données agrégées dans un unique dataframe
 '''
 
-df.to_csv('data_meteo/data_agregated.csv',sep=';',header=True,decimal='.',encoding='utf-8')
+df.to_csv('data_meteo/data_agregated.csv',sep=';',header=True,decimal=',',encoding='utf-8')
