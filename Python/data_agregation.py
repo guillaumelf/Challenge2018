@@ -7,7 +7,7 @@ Created on Sat Oct 14 13:17:29 2017
 
 ### Imports de librairies
 #########################
- 
+
 import pandas as pd
 import glob
 from concurrent.futures import ThreadPoolExecutor
@@ -27,7 +27,6 @@ def concat_data(df1,df2):
 
 ### Corps principal du script
 #############################
-
 
 '''
 On sépare les tâches pour aller plus vite dans l'importation des 36 fichiers csv

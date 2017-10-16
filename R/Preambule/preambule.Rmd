@@ -35,8 +35,10 @@ type
 
 ```{r}
 train_1[, c("date",
+            "insee",
             "ddH10_rose4",
             "mois") := list(as.IDate(date),
+                            factor(insee),
                             factor(ddH10_rose4),
                             factor(mois))]
 ```
