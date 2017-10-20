@@ -1,18 +1,18 @@
 
 
-Visualisation : 
+Visualisation (MARDI) :
 
 *Stations
-- Corrélation 
-- AFCM/AFM (regroupement de variable)
+- Corrélation et interaction (Gui)
+- AFCM/AFM (regroupement de variable) (Ben) (François HUSSON - https://tice.agrocampus-ouest.fr/course/view.php?id=665&section=6 )
 
 *Echeance
-- TH2OBS ~ THOBS 
+- TH2OBS ~ THOBS (Abde)
 
 
 TRAITEMENT DES NA (fired!!) c u later
 
-1.PREMIER MODELE + AUTOMATISATION DU PROCESS
+1. PREMIER MODELE + AUTOMATISATION DU PROCESS
 (na.omit(data))
 
 2. AR(P) ?
