@@ -1,0 +1,26 @@
+
+
+Visualisation : 
+
+*Stations
+- Corrélation 
+- AFCM/AFM (regroupement de variable)
+
+*Echeance
+- TH2OBS ~ THOBS 
+
+
+TRAITEMENT DES NA (fired!!) c u later
+
+1.PREMIER MODELE + AUTOMATISATION DU PROCESS
+(na.omit(data))
+
+2. AR(P) ?
+
+
+
+
+
+
+
+
