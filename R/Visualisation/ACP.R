@@ -2,7 +2,6 @@
 #### PACKAGE ########
 #####################
 
-setwd("D:/ben/master2/Defi_BIGDATA/Challenge2018/R")
 library(data.table)
 library(FactoMineR)
 library("factoextra")
