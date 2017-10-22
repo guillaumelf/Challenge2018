@@ -10,7 +10,7 @@ library("factoextra")
 #### IMPORTATION #####
 ######################
 
-data_agg=read.csv('data_meteo/data_agregated.csv',sep=';',dec='.',header=T,stringsAsFactors = FALSE,encoding = "UTF-8")
+data_agg=read.csv('R/data_meteo/data_agregated.csv',sep=';',dec='.',header=T,stringsAsFactors = FALSE,encoding = "UTF-8")
 data_agg=data.table(data_agg)
 
 ################################
@@ -119,7 +119,7 @@ fviz_pca_ind(res2_pca,
 
 # Nettoyage data test
 
-test=read.csv('data_meteo/test.csv',sep=';',dec=',',header=T,stringsAsFactors = FALSE,encoding = "UTF-8")
+test=read.csv('R/data_meteo/test.csv',sep=';',dec=',',header=T,stringsAsFactors = FALSE,encoding = "UTF-8")
 test=data.table(test)
 test=na.omit(test)
 test[, "date" := NULL]
