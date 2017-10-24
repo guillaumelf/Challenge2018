@@ -17,6 +17,12 @@ TRAITEMENT DES NA (fired!!) c u later
 
 2. AR(P) ?
 
+AMELIORATION PERFORMANCE :
+
+- Remplacement NA par k-means : amélioration ou non de la régression ?
+- Test d'un SVM non linéaire
+
+
 
 
 
