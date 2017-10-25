@@ -9,13 +9,14 @@ Created on Wed Oct 25 13:53:06 2017
 #########################
 
 import pandas as pd
-#from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor
 #from functools import reduce
 from sklearn import cross_validation, preprocessing
 from sklearn.svm import SVR
 from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.metrics import mean_squared_error
 from math import sqrt
+import numpy as np
 
 ### Définition locale de fonctions
 ##################################
@@ -38,7 +39,7 @@ def preprocess_df(df):
 '''
 On sépare les tâches pour aller plus vite dans l'importation des 36 fichiers csv
 '''
-# e = ThreadPoolExecutor()
+e = ThreadPoolExecutor()
 
 # Exemple pour un fichier
 
@@ -46,7 +47,7 @@ On sépare les tâches pour aller plus vite dans l'importation des 36 fichiers c
 Préparation des données
 '''
 
-train1 = read_df('data_meteo/data_agregated.csv')
+train1 = read_df('data_meteo/train_1.csv')
 processed_df = preprocess_df(train1)
 
 X = processed_df.drop(['tH2_obs'], axis=1).values
@@ -80,6 +81,17 @@ pred = mod.predict(X_test)
 
 
 rmse = sqrt(mean_squared_error(y_test, pred))
+print(rmse)
+
+liste_values = list(set(np.unique(train1['insee'].values)))
+
+train = read_df('data_meteo/data_agregated.csv')
+def subset_train(value):
+    newdata = train[train.insee == value]
+    return(newdata)
+    
+mapped_values = e.map(subset_train, liste_values)
+print(*mapped_values)
 
 
 
