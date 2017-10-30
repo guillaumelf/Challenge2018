@@ -10,7 +10,7 @@ Created on Wed Oct 25 13:53:06 2017
 
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor
-#from functools import reduce
+from functools import reduce
 from sklearn import cross_validation, preprocessing
 from sklearn.svm import SVR
 from sklearn.model_selection import GridSearchCV, KFold
@@ -30,81 +30,62 @@ def preprocess_df(df):
     processed_df = df.copy()
     le = preprocessing.LabelEncoder()
     processed_df.mois = le.fit_transform(processed_df.mois)
-    processed_df = processed_df.drop(['date','insee'],axis=1)
+    processed_df = processed_df.drop(['date','insee','Unnamed: 0','Unnamed: 0.1'],axis=1)
     processed_df = processed_df.dropna()
     return processed_df
 
+def concat_data(df1,df2):
+    frames = [df1, df2]
+    result = pd.concat(frames)
+    return(result)
+
 def perform_svm(file):
-    file = 'data_agg_sep/'+file
-    train1 = read_df(file)
+    file1 = 'data_agg_sep/'+file
+    file2 = 'test_sep/'+file
+    train1 = read_df(file1)
+    test = read_df(file2)
     processed_df = preprocess_df(train1)
+    processed_test = preprocess_df(test)
     
-    X = processed_df.drop(['tH2_obs'], axis=1).values
-    y = processed_df['tH2_obs'].values
-    
-    svr_rbf = SVR(kernel='rbf',C=1, cache_size=200, coef0=0.0, degree=3, epsilon=0.1, gamma='auto', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
-    X_train, X_test, y_train, y_test = cross_validation.train_test_split(X,y,test_size=0.33)
-    mod = svr_rbf.fit(X_train, y_train)
-    return (mod)
+    X_train = processed_df.drop(['tH2_obs'], axis=1).values
+    y_train = processed_df['tH2_obs'].values
+    X_test = processed_test.values
+
+    dict_params = {"C": [0.01,1]}
+    clf = GridSearchCV(estimator=SVR(kernel='rbf'), param_grid=dict_params, cv=KFold(n_splits=10),refit=True,n_jobs=4)
+    best_mod = clf.best_estimator_
+    mod = best_mod.fit(X_train, y_train)
+    pred = mod.predict(X_test)
+    df = pd.DataFrame(pred)
+    return(df)
 
 ### Corps principal du script
 #############################
 
-'''
-On sépare les tâches pour aller plus vite dans l'importation des 36 fichiers csv
-'''
-e = ThreadPoolExecutor()
+#e = ThreadPoolExecutor()
+#
+#files = os.listdir('data_agg_sep')[0:2]
+#mapped_values = e.map(perform_svm, files)
+#df = reduce(concat_data,mapped_values)
 
-# Exemple pour un fichier
+#rmse = sqrt(mean_squared_error(y_test, pred))
+#print(rmse)
 
-'''
-Préparation des données
-'''
-
-train1 = read_df('data_meteo/train_1.csv')
+file = 'data_agg_sep/'+os.listdir('data_agg_sep')[0]
+train1 = read_df(file)
+train1 = train1.ix[0:2000]
 processed_df = preprocess_df(train1)
 
 X = processed_df.drop(['tH2_obs'], axis=1).values
 y = processed_df['tH2_obs'].values
-
-svr_rbf = SVR(kernel='rbf',C=1, cache_size=200, coef0=0.0, degree=3, epsilon=0.1, gamma='auto', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
-
-
-'''
-Validation croisée Hold Out
-'''
-
-X_train, X_test, y_train, y_test = cross_validation.train_test_split(X,y,test_size=0.33)
-
-mod = svr_rbf.fit(X_train, y_train)
-
-'''
-Validation croisée 10 blocs
-'''
-#dict_params = {"C": [.01, .1, 1., 10.]}
-#clf = GridSearchCV(estimator=SVR(kernel='rbf'), param_grid=dict_params, cv=KFold(n_splits=10))
-#clf.fit(X, y)
-#
-#print(clf.best_estimator_)
-
+X_train, X_test, y_train, y_test = cross_validation.train_test_split(X,y,test_size=0.2)
+#dict_params = {"C": [0.01,1]}
+#clf = GridSearchCV(estimator=SVR(kernel='rbf'), param_grid=dict_params, cv=KFold(n_splits=3),refit=True,n_jobs=4)
+clf = SVR(C=0.05, epsilon=0.2)
 #best_mod = clf.best_estimator_
-#best_mod.fit(X_train, y_train)
-#best_mod.score(X_test, y_test)
-
+#mod = best_mod.fit(X_train, y_train)
+mod = clf.fit(X_train, y_train)
 pred = mod.predict(X_test)
-
-
+df = pd.DataFrame(pred)
 rmse = sqrt(mean_squared_error(y_test, pred))
 print(rmse)
-
-###################
-### Cas général ###
-###################
-
-files = os.listdir('data_agg_sep')
-mapped_values = e.map(perform_svm, files)
-
-test_files = os.listdir('test_sep')
-
-
-
