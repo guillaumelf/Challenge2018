@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Oct 24 17:09:50 2017
-KMEANS 
+Separation des fichiers
 @author: BEN
 """
 
@@ -38,7 +38,7 @@ def extract_test(insee):
 
 
 e=ThreadPoolExecutor()
-e.map(extract_test,insee)
+#e.map(extract_test,insee)
 
 
 data_agg=read_df('data_meteo/data_agregated.csv')
@@ -50,8 +50,42 @@ def extract_agg(insee):
     return(data)
 
 
-e.map(extract_agg,insee)
+#e.map(extract_agg,insee)
 
 
-
+#############################
+# fichier stations + ech
  
+l_ech=[]
+for i in range(36):
+    l_ech.append(i+1)
+
+l_final=[]
+for i in insee:
+    for j in l_ech:
+        l_final.append([i,j])
+    
+#data_agg[data_agg.ech == 9][data_agg.insee== 6088001]
+
+
+
+def extract_agg_tot(l):
+    data=data_agg[data_agg.insee == l[0]][data_agg.ech==l[1]]
+    nom=str(l[0])+"_"+str(l[1])+".csv"
+    data.to_csv(nom,sep=";",header=True,decimal='.',encoding='utf-8')
+    return(data)
+
+#e.map(extract_agg_tot,l_final)
+
+
+def extract_test_tot(l):
+    data=test[test.insee == l[0]][test.ech==l[1]]
+    nom=str(l[0])+"_"+str(l[1])+".csv"
+    data.to_csv(nom,sep=";",header=True,decimal='.',encoding='utf-8')
+    return(data)
+
+#e.map(extract_test_tot,l_final)
+
+
+
+
