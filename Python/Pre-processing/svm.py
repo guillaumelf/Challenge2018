@@ -17,6 +17,7 @@ from sklearn.model_selection import GridSearchCV, KFold
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 import numpy as np
+import os
 
 ### Définition locale de fonctions
 ##################################
@@ -32,6 +33,19 @@ def preprocess_df(df):
     processed_df = processed_df.drop(['date','insee'],axis=1)
     processed_df = processed_df.dropna()
     return processed_df
+
+def perform_svm(file):
+    file = 'data_agg_sep/'+file
+    train1 = read_df(file)
+    processed_df = preprocess_df(train1)
+    
+    X = processed_df.drop(['tH2_obs'], axis=1).values
+    y = processed_df['tH2_obs'].values
+    
+    svr_rbf = SVR(kernel='rbf',C=1, cache_size=200, coef0=0.0, degree=3, epsilon=0.1, gamma='auto', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
+    X_train, X_test, y_train, y_test = cross_validation.train_test_split(X,y,test_size=0.33)
+    mod = svr_rbf.fit(X_train, y_train)
+    return (mod)
 
 ### Corps principal du script
 #############################
@@ -53,7 +67,7 @@ processed_df = preprocess_df(train1)
 X = processed_df.drop(['tH2_obs'], axis=1).values
 y = processed_df['tH2_obs'].values
 
-svr_rbf = SVR(kernel='rbf',C=0.01, cache_size=200, coef0=0.0, degree=3, epsilon=0.1, gamma='auto', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
+svr_rbf = SVR(kernel='rbf',C=1, cache_size=200, coef0=0.0, degree=3, epsilon=0.1, gamma='auto', max_iter=-1, shrinking=True, tol=0.001, verbose=False)
 
 
 '''
@@ -83,18 +97,14 @@ pred = mod.predict(X_test)
 rmse = sqrt(mean_squared_error(y_test, pred))
 print(rmse)
 
-liste_values = list(set(np.unique(train1['insee'].values)))
+###################
+### Cas général ###
+###################
 
-train = read_df('data_meteo/data_agregated.csv')
-def subset_train(value):
-    newdata = train[train.insee == value]
-    return(newdata)
-    
-mapped_values = e.map(subset_train, liste_values)
-print(*mapped_values)
+files = os.listdir('data_agg_sep')
+mapped_values = e.map(perform_svm, files)
 
-
-
+test_files = os.listdir('test_sep')
 
 
 
