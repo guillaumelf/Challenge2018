@@ -5,6 +5,7 @@
 library(data.table)
 library(FactoMineR)
 library("factoextra")
+library(explor)
 
 ######################
 #### IMPORTATION #####
@@ -148,6 +149,7 @@ acp_test=test[,q_test,with=FALSE]
 
 res_test=PCA(acp_test,scale.unit = TRUE,ncp = 11)
 
+# explor(res_test) # donne un shiny
 eig.val <- get_eigenvalue(res_test) # 80% de l'inertie à partir de dim11 -> ncp=11
 
 # visu
