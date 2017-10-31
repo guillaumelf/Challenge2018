@@ -41,6 +41,7 @@ transfo <- c("6088001" = "Nice",
           "75114001" = "Paris_Montsouris")
 train$insee <- transfo[train$insee]
 train$insee <- as.factor(train$insee)
+train <- na.omit(train)
 
 matrice <- data.frame(model.matrix(tH2_obs~insee+ddH10_rose4+ech+mois-1,data=train))
 
@@ -132,7 +133,50 @@ ggplot(train)+aes(x=mois,y=tH2_obs)+geom_boxplot(aes(fill=mois))+
   scale_x_discrete(limits=c("janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre",
                             "novembre","décembre"))
 
-ggplot(na.omit(train))+aes(x=ddH10_rose4,y=tH2_obs)+geom_boxplot(aes(fill=ddH10_rose4))+facet_wrap(~insee, nrow=2)
+ggplot(train)+aes(x=ddH10_rose4,y=tH2_obs)+geom_boxplot(aes(fill=ddH10_rose4))+facet_wrap(~insee, nrow=2)
 
 
 ggplot(train)+aes(x=ech,y=tH2_obs)+geom_boxplot(aes(fill=ech))
+
+#######################
+# focus sur flir1SOL0 #
+#######################
+
+ggplot(train)+aes(x=ech,y=flir1SOL0)+geom_boxplot(aes(fill=ech))+facet_wrap(~insee, nrow=2)
+ggplot(train)+aes(x=mois,y=flir1SOL0)+geom_boxplot(aes(fill=mois))+
+  scale_x_discrete(limits=c("janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre",
+                            "novembre","décembre"))+facet_wrap(~insee, nrow=2)
+
+########################
+# focus sur fllat1SOL0 #
+########################
+
+ggplot(train)+aes(x=ech,y=fllat1SOL0)+geom_boxplot(aes(fill=ech))+facet_wrap(~insee, nrow=2)
+ggplot(train)+aes(x=mois,y=fllat1SOL0)+geom_boxplot(aes(fill=mois))+
+  scale_x_discrete(limits=c("janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre",
+                            "novembre","décembre"))+facet_wrap(~insee, nrow=2)
+
+########################
+# focus sur flsen1SOL0 #
+########################
+
+ggplot(train)+aes(x=ech,y=flsen1SOL0)+geom_boxplot(aes(fill=ech))+facet_wrap(~insee, nrow=2)
+ggplot(train)+aes(x=mois,y=flsen1SOL0)+geom_boxplot(aes(fill=mois))+
+  scale_x_discrete(limits=c("janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre",
+                            "novembre","décembre"))+facet_wrap(~insee, nrow=2)
+
+########################
+# focus sur rr1SOL0 #
+########################
+
+ggplot(train)+aes(x=ech,y=rr1SOL0)+geom_boxplot(aes(fill=ech))+facet_wrap(~insee, nrow=2)
+ggplot(train)+aes(x=mois,y=rr1SOL0)+geom_boxplot(aes(fill=mois))+
+  scale_x_discrete(limits=c("janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre",
+                            "novembre","décembre"))+facet_wrap(~insee, nrow=2)
+library(rAmCharts)
+amHist(x = train$rr1SOL0)
+
+
+# Pour les 3 premieres variables : Nice se demarque a chaque fois (station particuliere)
+# variable rr1sol0 : valeurs concentrées entre -2 et 2, peu de dispersion, quelques valeurs extremes
+
