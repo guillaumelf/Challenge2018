@@ -12,8 +12,12 @@ library(randomForest)
 
 #Préparation du jeu de données data_agregated
 
-databigg <- read.csv("R/data_meteo/data_agregated.csv", 
-                      ";", escape_double = FALSE, trim_ws = TRUE)
+databigg <- read.csv("R/data_meteo/data_agregated.csv",
+                     header = TRUE,
+                     sep = ";",
+                     dec = ".",
+                     stringsAsFactors = TRUE,
+                     encoding = "UTF-8")
 databigg <- databigg[,-1]
 databigg = data.frame(databigg)
 
@@ -32,8 +36,12 @@ databigg$daymonth = as.factor(format(datevec, format = "%d - %m"))
 databig <- databigg
 
 #Importation et préparation du fichier test et préparation
-test <- read_delim("C:/Users/abdes/Desktop/Challenge2018/Challenge2018/R/data_meteo/test.csv", 
-                   ";", escape_double = FALSE, trim_ws = TRUE)
+test <- read.csv("R/data_meteo/test.csv",
+                 header = TRUE,
+                 sep = ";",
+                 dec = ",",
+                 stringsAsFactors = TRUE,
+                 encoding = "UTF-8")
 test = data.frame(test)
 
 test$ech <- as.factor(test$ech)

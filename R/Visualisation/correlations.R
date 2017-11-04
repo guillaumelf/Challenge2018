@@ -173,6 +173,11 @@ ggplot(train)+aes(x=ech,y=rr1SOL0)+geom_boxplot(aes(fill=ech))+facet_wrap(~insee
 ggplot(train)+aes(x=mois,y=rr1SOL0)+geom_boxplot(aes(fill=mois))+
   scale_x_discrete(limits=c("janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre",
                             "novembre","décembre"))+facet_wrap(~insee, nrow=2)
+
+ggplot(train)+aes(x=rrH20,y=rr1SOL0)+geom_point()+
+  labs(title = "rr1SOL0 en fonction de rrH20")+
+  theme(plot.title = element_text(hjust = 0.5))
+
 library(rAmCharts)
 amHist(x = train$rr1SOL0)
 
