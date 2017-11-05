@@ -5,16 +5,15 @@ Created on Fri Nov  3 19:08:52 2017
 @author: Guillaume
 """
 ### Imports de librairies
-#########################
+###############################################################################
 
-import numpy as np
 import os
 import pandas as pd
-from sklearn import ensemble, preprocessing, cross_validation
-from sklearn.metrics import mean_squared_error
+from sklearn import ensemble, preprocessing
+from sklearn.model_selection import GridSearchCV, KFold
 
 ### Définition locale de fonctions
-##################################
+###############################################################################
 
 def read_df(file):
     df = pd.read_csv(file, sep=";",decimal=",",encoding="utf-8")
@@ -29,14 +28,16 @@ def preprocess_df(df,var_dropped,drop_na=True):
         processed_df = processed_df.dropna()
     return processed_df
 
+# Corps principal du script
 ###############################################################################
-# Généralisation
 
 var_dropped_train = ['date','insee','Unnamed: 0','Unnamed: 0.1','flir1SOL0','flvis1SOL0','fllat1SOL0','flsen1SOL0','rr1SOL0']
 var_dropped_test = ['date','insee','Unnamed: 0','flir1SOL0','flvis1SOL0','fllat1SOL0','flsen1SOL0','rr1SOL0']
-
+dict_params = {"max_depth": [6,7,8,9,10],"learning_rate": [0.01,0.05,0.1]}
+params = {'n_estimators': 500, 'min_samples_split': 2, 'loss': 'ls', 'subsample': 0.5}
 files = os.listdir('data_agg_sep')
 villes = ['Toulouse','Bordeaux','Rennes','Lille','Nice','Strasbourg','Paris']
+
 for i in range(len(files)):
     file = 'data_agg_sep/'+files[i]
     file2 = 'test_sep/'+files[i]
@@ -47,62 +48,14 @@ for i in range(len(files)):
     
     X = processed_df.drop(['tH2_obs'], axis=1).values
     y = processed_df['tH2_obs'].values
-    X_train, X_test, y_train, y_test = cross_validation.train_test_split(X,y,test_size=0.33)
-    
-    params = {'n_estimators': 500, 'max_depth': 10, 'min_samples_split': 2,
-          'learning_rate': 0.01, 'loss': 'ls'}
-    clf = ensemble.GradientBoostingRegressor(**params)
-    
-    clf.fit(X_train, y_train)
-    mse = mean_squared_error(y_test, clf.predict(X_test))
-    prediction = clf.predict(processed_test)
+    clf = GridSearchCV(estimator=ensemble.GradientBoostingRegressor(**params), param_grid=dict_params, cv=KFold(n_splits=10),refit=True)
+    print('Cross validation ongoing... Trying to find the best model for '+villes[i]+'... Be patient !')
+    clf.fit(X, y)
+    print("Best estimator for "+villes[i]+" :\n {}".format(clf.best_estimator_))
+    print("Best score for "+villes[i]+" : %.4f" % clf.best_score_)
+    prediction = clf.best_estimator_.predict(processed_test)
     df = pd.DataFrame(prediction)
-    print("RMSE "+villes[i]+" : %.4f" % np.sqrt(mse))
     filename = 'Results/'+villes[i]+'_results.csv'
     df.to_csv(filename,sep=';',header=True,decimal='.',encoding='utf-8')
-    print("Le résultat pour {} a bien été sauvegardé".format(villes[i]))
-    
-
-#file = 'data_agg_sep/'+files[0]
-#train = read_df(file)
-#processed_df = preprocess_df(train,var_dropped_train,drop_na=True)
-#X = processed_df.drop(['tH2_obs'], axis=1).values
-#y = processed_df['tH2_obs'].values
-#X_train, X_test, y_train, y_test = cross_validation.train_test_split(X,y,test_size=0.33)
-#print(X_train)
-#np.sum(np.isnan(X_train))
-#file2 = 'test_sep/'+files[0]
-#test = pd.read_csv(file2, sep=";",decimal=".",encoding="utf-8")
-#processed_test = preprocess_df(test,var_dropped_test,drop_na=False)
-#print(processed_test)
-#np.sum(np.isnan(processed_test))
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    print("The results for {} have been saved successfully".format(villes[i]))
     
