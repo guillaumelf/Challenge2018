@@ -48,7 +48,7 @@ for i in range(len(files)):
     
     X = processed_df.drop(['tH2_obs'], axis=1).values
     y = processed_df['tH2_obs'].values
-    clf = GridSearchCV(estimator=ensemble.GradientBoostingRegressor(**params), param_grid=dict_params, cv=KFold(n_splits=10),refit=True)
+    clf = GridSearchCV(estimator=ensemble.GradientBoostingRegressor(**params), param_grid=dict_params, cv=KFold(n_splits=5),refit=True)
     print('Cross validation ongoing... Trying to find the best model for '+villes[i]+'... Be patient !')
     clf.fit(X, y)
     print("Best estimator for "+villes[i]+" :\n {}".format(clf.best_estimator_))
