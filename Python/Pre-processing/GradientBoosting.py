@@ -30,6 +30,28 @@ def preprocess_df(df,var_dropped,replacement,drop_na=True):
         processed_df = processed_df.dropna()
     return processed_df
 
+def tune_model(files,villes,train_drop,test_drop,replacement,regressor,params,dict_params,nb_cv_folds):
+    for i in range(len(files)):
+        file = 'data_agg_sep/'+files[i]
+        file2 = 'test_sep_NAfilled/'+files[i]
+        train = read_df(file)
+        test = pd.read_csv(file2, sep=";",decimal=",",encoding="iso-8859-1")
+        processed_df = preprocess_df(train,train_drop,replacement,drop_na=True)
+        processed_test = preprocess_df(test,test_drop,replacement,drop_na=False)
+        if __name__ == '__main__':
+            X = processed_df.drop(['tH2_obs'], axis=1).values
+            y = processed_df['tH2_obs'].values
+            clf = GridSearchCV(estimator=regressor(**params), param_grid=dict_params, cv=KFold(n_splits=nb_cv_folds),refit=True,n_jobs=-1)
+            print('Cross validation ongoing... Trying to find the best model for '+villes[i]+'... Be patient !')
+            clf.fit(X, y)
+            print("Best estimator for "+villes[i]+" :\n {}".format(clf.best_estimator_))
+            print("Best score for "+villes[i]+" : %.4f" % clf.best_score_)
+            prediction = clf.best_estimator_.predict(processed_test)
+            df = pd.DataFrame(prediction)
+            filename = 'Results/'+villes[i]+'_results.csv'
+            df.to_csv(filename,sep=';',header=True,decimal='.',encoding='utf-8')
+            print("The results for {} have been saved successfully".format(villes[i]))
+
 # Corps principal du script
 ###############################################################################
 
@@ -40,25 +62,5 @@ dict_params = {'n_estimators': [800,1000,1200,1400], "max_depth": [8,9,10], 'min
 params = {'loss': 'ls', 'subsample': 0.8, 'learning_rate': 0.05, 'max_features': 'sqrt'}
 files = os.listdir('data_agg_sep')
 villes = ['Toulouse','Bordeaux','Rennes','Lille','Nice','Strasbourg','Paris']
-
-for i in range(len(files)):
-    file = 'data_agg_sep/'+files[i]
-    file2 = 'test_sep_NAfilled/'+files[i]
-    train = read_df(file)
-    test = pd.read_csv(file2, sep=";",decimal=",",encoding="iso-8859-1")
-    processed_df = preprocess_df(train,var_dropped_train,dico_transfo,drop_na=True)
-    processed_test = preprocess_df(test,var_dropped_test,dico_transfo,drop_na=False)
-    if __name__ == '__main__':
-        X = processed_df.drop(['tH2_obs'], axis=1).values
-        y = processed_df['tH2_obs'].values
-        clf = GridSearchCV(estimator=ensemble.GradientBoostingRegressor(**params), param_grid=dict_params, cv=KFold(n_splits=5),refit=True,n_jobs=-1)
-        print('Cross validation ongoing... Trying to find the best model for '+villes[i]+'... Be patient !')
-        clf.fit(X, y)
-        print("Best estimator for "+villes[i]+" :\n {}".format(clf.best_estimator_))
-        print("Best score for "+villes[i]+" : %.4f" % clf.best_score_)
-        prediction = clf.best_estimator_.predict(processed_test)
-        df = pd.DataFrame(prediction)
-        filename = 'Results/'+villes[i]+'_results.csv'
-        df.to_csv(filename,sep=';',header=True,decimal='.',encoding='utf-8')
-        print("The results for {} have been saved successfully".format(villes[i]))
-    
+              
+tune_model(files,villes,var_dropped_train,var_dropped_test,dico_transfo,ensemble.GradientBoostingRegressor,params,dict_params,5)   
