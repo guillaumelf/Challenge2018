@@ -9,6 +9,7 @@ Created on Fri Nov  3 19:08:52 2017
 
 import os
 import pandas as pd
+import math
 from sklearn import ensemble
 from sklearn.model_selection import GridSearchCV, KFold
 
@@ -41,11 +42,11 @@ def tune_model(files,villes,train_drop,test_drop,replacement,regressor,params,di
         if __name__ == '__main__':
             X = processed_df.drop(['tH2_obs'], axis=1).values
             y = processed_df['tH2_obs'].values
-            clf = GridSearchCV(estimator=regressor(**params), param_grid=dict_params, cv=KFold(n_splits=nb_cv_folds),refit=True,n_jobs=-1)
+            clf = GridSearchCV(estimator=regressor(**params), param_grid=dict_params, cv=KFold(n_splits=nb_cv_folds),refit=True,n_jobs=-1,scoring='neg_mean_squared_error')
             print('Cross validation ongoing... Trying to find the best model for '+villes[i]+'... Be patient !')
             clf.fit(X, y)
             print("Best estimator for "+villes[i]+" :\n {}".format(clf.best_estimator_))
-            print("Best score for "+villes[i]+" : %.4f" % clf.best_score_)
+            print("Best score for "+villes[i]+" : %.4f" % math.sqrt(clf.best_score_))
             prediction = clf.best_estimator_.predict(processed_test)
             df = pd.DataFrame(prediction)
             filename = 'Results/'+villes[i]+'_results.csv'
@@ -58,7 +59,7 @@ def tune_model(files,villes,train_drop,test_drop,replacement,regressor,params,di
 var_dropped_train = ['date','insee','Unnamed: 0','Unnamed: 0.1','rr1SOL0']
 var_dropped_test = ['date','insee','Unnamed: 0','rr1SOL0']
 dico_transfo = {'janvier': 1,'février': 2,'mars': 3,'avril': 4,'mai': 5,'juin': 6,'juillet': 7,'août': 8,'septembre': 9,'octobre': 10,'novembre': 11,'décembre': 12}
-dict_params = {'n_estimators': [800,1000,1200,1400], "max_depth": [8,9,10], 'min_samples_split': [200,400,600]}
+dict_params = {'n_estimators': [1400,1600,1800,2000], "max_depth": [10,15,20,25], 'min_samples_split': [50,75,100]}
 params = {'loss': 'ls', 'subsample': 0.8, 'learning_rate': 0.05, 'max_features': 'sqrt'}
 files = os.listdir('data_agg_sep')
 villes = ['Toulouse','Bordeaux','Rennes','Lille','Nice','Strasbourg','Paris']
