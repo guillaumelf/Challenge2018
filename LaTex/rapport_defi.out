@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{Pr\351sentation du projet et probl\351matique}{}% 1
+\BOOKMARK [1][-]{section.2}{Remerciements}{}% 2
+\BOOKMARK [1][-]{section.3}{Les diff\351rentes \351tapes du projet}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Les diff\351rentes strat\351gies envisag\351es}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{La gestion et le remplacement des valeurs manquantes}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Le choix et l'application d'algorithmes d'apprentissage supervis\351}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Premiers algorithmes : la r\351gression lin\351aire et ses variantes}{subsection.3.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.3.2}{La for\352t al\351atoire}{subsection.3.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Gradient Boosting : l'algorithme XGBoost}{subsection.3.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.3.4}{Deep Learning : l'utilisation de r\351seaux de neurones}{subsection.3.3}% 10
+\BOOKMARK [1][-]{section.4}{Bilan}{}% 11

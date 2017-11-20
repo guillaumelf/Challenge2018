@@ -1,0 +1,115 @@
+\documentclass[14pt, openany]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage[french]{babel}
+\frenchbsetup{StandardLists=true}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{bbm}
+\usepackage{libertine}
+\usepackage{color}
+\usepackage{array,multirow,makecell}
+\usepackage{enumitem} %Pour modifier les puces
+\usepackage{caption}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\AddThinSpaceBeforeFootnotes
+\FrenchFootnotes
+
+%%%% debut macro %%%%
+\newenvironment{changemargin}[2]{\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{0pt}%
+\setlength{\rightmargin}{0pt}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{0pt plus 1pt}%
+\addtolength{\leftmargin}{#1}%
+\addtolength{\rightmargin}{#2}%
+}\item }{\end{list}}
+%%%% fin macro %%%%
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\includegraphics[scale=0.15]{Images/ur2.png}\\
+\bigskip
+\textsc{\Large PROJET DATA SCIENCE - MASTER 2 MAS PARCOURS SCIENCES DES DONNEES\\ 
+\bigskip
+Rapport de l'étude}\\
+\bigskip
+    \HRule \\[0.4cm]
+    { \huge \bfseries Prédictions des températures de 7 stations différentes à un horizon de 36 heures\\[0.4cm] }
+        \HRule \\[2cm]
+   \begin{figure}[h]
+    \begin{minipage}[c]{.46\linewidth}
+        \centering
+        \includegraphics[scale=0.3]{Images/defi.png}
+    \end{minipage}
+    \hfill%
+    \begin{minipage}[c]{.46\linewidth}
+        \centering
+        \includegraphics[scale=0.36]{Images/temp.jpg}
+    \end{minipage}
+	\end{figure}
+    \bigskip
+    \begin{minipage}{0.4\textwidth}
+      \begin{flushleft} \large
+      	\textsc{Benjamin ALLEAU}\\
+      	\textsc{Abdessamad AZNAGUE}\\
+        \textsc{Guillaume LE FLOCH}\\
+        \bigskip
+        Année 2017-2018\\
+      \end{flushleft}
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+      \begin{flushright} \large
+      	\emph{Organisateur :} \textsc{INSA de Toulouse}
+        \emph{Professeur encadrant :} \textsc{M. Romain TAVENARD (Université de Rennes 2)}\\
+      \end{flushright}
+    \end{minipage}
+
+    \vfill
+    
+    % Bottom of the page
+    {\large 05 Octobre 2017 —  08 Janvier 2018}
+
+\end{center}
+\end{titlepage}
+
+\renewcommand{\contentsname}{Plan}
+
+\tableofcontents
+\newpage
+
+\section{Présentation du projet et problématique}
+
+\section{Remerciements}
+
+\section{Les différentes étapes du projet}
+
+\subsection{Les différentes stratégies envisagées}
+
+\subsection{La gestion et le remplacement des valeurs manquantes}
+
+\subsection{Le choix et l'application d'algorithmes d'apprentissage supervisé}
+
+\subsubsection{Premiers algorithmes : la régression linéaire et ses variantes}
+
+\subsubsection{La forêt aléatoire}
+
+\subsubsection{Gradient Boosting : l'algorithme XGBoost}
+
+\subsubsection{Deep Learning : l'utilisation de réseaux de neurones}
+
+\section{Bilan}
+
+\end{document}
