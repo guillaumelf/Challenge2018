@@ -82,6 +82,7 @@ train <- data.table(read.csv("R/data_meteo/data_agregated.csv",
                              encoding = "UTF-8"))[,-1]
 train <- fac(train)
 sapply(train,class)
+sapply(train,sum_na)
 
 # On separe le train en 2 tables pour nos tests : une table avec les lignes completes et celles contenant toutes les
 # lignes avec des NAs
@@ -135,3 +136,17 @@ for (j in 1:ncol(original)){
 res <- rbind(res,res_temp)
 destination <- "Python/Pre-processing/NA_imputation_methods_results.csv"
 write.csv2(res,destination, sep = ";")
+
+#####################################################
+# Representation graphiques des variables atypiques #
+#####################################################
+
+# capeinsSOL0
+
+library(rAmCharts)
+amHist(x = train_comp$capeinsSOL0)
+amHist(x = train_comp$flir1SOL0)
+amHist(x = train_comp$fllat1SOL0)
+amHist(x = train_comp$flsen1SOL0)
+amHist(x = train_comp$flvis1SOL0)
+amHist(x = train_comp$hcoulimSOL0)

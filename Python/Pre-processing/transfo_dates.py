@@ -21,7 +21,7 @@ numdays = sum(days_list)
 date_list = [base + datetime.timedelta(days=x) for x in range(0, numdays)]
 date_clean = []
 for date in date_list :
-    date_clean.append(date.strftime("%d-%m-%Y"))
+    date_clean.append(date.strftime("%Y-%m-%d"))
 
 ### Creation des valeurs
 ########################

@@ -1,13 +1,16 @@
 \select@language {french}
 \contentsline {section}{\numberline {1}Pr\IeC {\'e}sentation du projet et probl\IeC {\'e}matique}{2}{section.1}
-\contentsline {section}{\numberline {2}Remerciements}{2}{section.2}
-\contentsline {section}{\numberline {3}Les diff\IeC {\'e}rentes \IeC {\'e}tapes du projet}{2}{section.3}
-\contentsline {subsection}{\numberline {3.1}Les diff\IeC {\'e}rentes strat\IeC {\'e}gies envisag\IeC {\'e}es}{2}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}La gestion et le remplacement des valeurs manquantes}{2}{subsection.3.2}
-\contentsline {subsection}{\numberline {3.3}Le choix et l'application d'algorithmes d'apprentissage supervis\IeC {\'e}}{2}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Premiers algorithmes : la r\IeC {\'e}gression lin\IeC {\'e}aire et ses variantes}{2}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}La for\IeC {\^e}t al\IeC {\'e}atoire}{2}{subsubsection.3.3.2}
-\contentsline {subsubsection}{\numberline {3.3.3}Gradient Boosting : l'algorithme XGBoost}{2}{subsubsection.3.3.3}
-\contentsline {subsubsection}{\numberline {3.3.4}Deep Learning : l'utilisation de r\IeC {\'e}seaux de neurones}{2}{subsubsection.3.3.4}
-\contentsline {section}{\numberline {4}Bilan}{2}{section.4}
-\contentsline {section}{\numberline {5}Bibliographie}{2}{section.5}
+\contentsline {paragraph}{}{2}{section*.3}
+\contentsline {section}{\numberline {2}Remerciements}{3}{section.2}
+\contentsline {paragraph}{}{3}{section*.4}
+\contentsline {section}{\numberline {3}Les diff\IeC {\'e}rentes \IeC {\'e}tapes du projet}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Diff\IeC {\'e}rentes strat\IeC {\'e}gies envisag\IeC {\'e}es}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Analyse des corr\IeC {\'e}lations entre variables et visualisation}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Gestion et remplacement des valeurs manquantes}{4}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Choix et application d'algorithmes d'apprentissage supervis\IeC {\'e}}{4}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Premiers algorithmes : la r\IeC {\'e}gression lin\IeC {\'e}aire et ses variantes}{4}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}For\IeC {\^e}t al\IeC {\'e}atoire : l'algorithme Random Forest}{4}{subsubsection.3.4.2}
+\contentsline {subsubsection}{\numberline {3.4.3}Gradient Boosting : l'algorithme XGBoost}{4}{subsubsection.3.4.3}
+\contentsline {subsubsection}{\numberline {3.4.4}Deep Learning : l'utilisation des r\IeC {\'e}seaux de neurones}{4}{subsubsection.3.4.4}
+\contentsline {section}{\numberline {4}Bilan}{4}{section.4}
+\contentsline {section}{\numberline {5}Bibliographie}{4}{section.5}
