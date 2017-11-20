@@ -63,17 +63,19 @@ Rapport de l'étude}\\
     \bigskip
     \begin{minipage}{0.4\textwidth}
       \begin{flushleft} \large
-      	\textsc{Benjamin ALLEAU}\\
-      	\textsc{Abdessamad AZNAGUE}\\
-        \textsc{Guillaume LE FLOCH}\\
-        \bigskip
-        Année 2017-2018\\
+      \emph{Team :} \textsc{Freak-unit}\\
+      \emph{Membres :}
+      \begin{itemize}
+      	\item \textsc{Benjamin ALLEAU}\\
+      	\item \textsc{Abdessamad AZNAGUE}\\
+        \item \textsc{Guillaume LE FLOCH}\\
+      \end{itemize}
       \end{flushleft}
     \end{minipage}
     \begin{minipage}{0.4\textwidth}
       \begin{flushright} \large
       	\emph{Organisateur :} \textsc{INSA de Toulouse}
-        \emph{Professeur encadrant :} \textsc{M. Romain TAVENARD (Université de Rennes 2)}\\
+        \emph{Encadrant :} \textsc{M. Romain TAVENARD}\\         
       \end{flushright}
     \end{minipage}
 
@@ -90,7 +92,7 @@ Rapport de l'étude}\\
 \tableofcontents
 \newpage
 
-\section{Présentation du projet et problématique}
+\section{Présentation du projet}
 \paragraph{}
 La compétition 2017-2018 est basée sur une stratégie d'adaptation statistique pour améliorer la prévision de températures à un horizon de 36 heures.
 
@@ -100,7 +102,7 @@ Un modèle statistique intégrant les prévisions du modèle déterministe peut 
 
 Le \og Défi Grosses Data \fg{} est donc un challenge mettant en confrontation une multitude de groupes d'étudiants provenant des \textbf{INSA} de Toulouse et Rennes, ainsi que des Universités de \textbf{Bordeaux}, \textbf{Rennes 1}, \textbf{Rennes 2}, \textbf{Paris Descartes}, \textbf{Paul Sabatier (Toulouse 3)} ou encore la \textbf{Toulouse School of Economics}. Ce rapport détaillera le travail fourni par l'équipe \textbf{Freak-unit}, une des 8 équipes représentant l'\textbf{Université de Rennes 2}.
 
-L'objectif de ce projet est simple : prédire au mieux les températures de 7 stations sur un horizon de 36 heures. Pour ce faire, 36 fichiers $train\_H.csv$, $H=1,..,n$, ont été mis à notre disposition. Ces fichiers contiennent les variables issues des modèles physiques décrits dans le préambule à un horizon de +H heures. Leur contenu est le suivant :
+L'objectif de ce projet est simple : prédire au mieux les températures de 7 stations sur un horizon de 36 heures. Pour ce faire, 36 fichiers $train\_H.csv$ $(H=1,..,36)$, ont été mis à notre disposition. Ces fichiers contiennent les variables issues des modèles physiques décrits dans le préambule à un horizon de +H heures. Leur contenu est le suivant :
 \begin{itemize}
 \item les lignes correspondent à chaque jour sur une période allant du $1^{er}$ janvier 2014 au 30 mai 2016.
 \item les colonnes contiennent 30 variables (température, nébulosité, vent, humidité ..)
@@ -156,10 +158,11 @@ $RMSE_{\hat{y}} = \sqrt{\frac{1}{n} \sum\limits_{i=1}^n (\hat{y_i}-y_{obs_i})^2}
 En d'autres termes, cette métrique permet de mesurer d'une certaine façon l'écart entre nos prédictions et la réalité. Il est à noter que le challenge fournit un score de $1.30755$ appelé \textbf{Baseline} qui correspond à un score de référence, associé à \og un modèle élémentaire de prévision sans effort particulier d'optimisation. C'est un objectif a minima à améliorer dans ce concours \fg{}. Le décor est planté, désormais il ne reste plus qu'à se lancer dans le challenge.
 \section{Remerciements}
 \paragraph{}
-Avant de détailler les différentes étapes de ce projet, les 3 membres de la \textbf{Freak-Unit} team souhaitent remercier tout particulièrement leur professeur encadrant, \textbf{M. Romain TAVENARD} pour son accompagnement tout au long du projet et pour l'aide apportée. Sa connaissance du \textit{Deep Learning} notamment, aura été un facteur déterminant dans la réussite de ce projet.
+Avant de détailler les différentes étapes de ce projet, les 3 membres de la \textbf{Freak-Unit} team souhaitent remercier tout particulièrement leur professeur encadrant, \textbf{M. Romain TAVENARD} pour son accompagnement tout au long du projet et pour l'aide apportée. Sa connaissance du \textit{Deep Learning} aura notamment été un facteur déterminant dans la réussite de ce projet.
 
 \section{Les différentes étapes du projet}
-
+\paragraph{}
+Venons-en maintenant aux différentes étapes qui ont composé ce projet. Dans le but d'obtenir le meilleur score possible, aucun détail ne doit être négligé. Il est donc primordial de définir une stratégie de travail afin d'automatiser les tâches, de bien étudier les variables à disposition et de tester la performance des algorithmes choisis en fonction de la stratégie adoptée.
 \subsection{Différentes stratégies envisagées}
 
 \subsection{Analyse des corrélations entre variables et visualisation}

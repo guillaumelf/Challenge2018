@@ -33,7 +33,7 @@ def preprocess_df(df,var_dropped,replacement_month,replacement_date,drop_na=True
         processed_df = processed_df.dropna()
     return processed_df
 
-def tune_model(files,villes,train_drop,test_drop,replacement_month,replacement_date,regressor,params,dict_params,nb_cv_folds):
+def tune_model(files,villes,train_drop,test_drop,replacement_month,replacement_date,regressor,params,dict_params,nb_cv_folds,output_file):
     for i in range(len(files)):
         file = 'data_agg_sep/'+files[i]
         file2 = 'test_sep_NAfilled/'+files[i]
@@ -49,11 +49,10 @@ def tune_model(files,villes,train_drop,test_drop,replacement_month,replacement_d
         print("Best estimator for "+villes[i]+" :\n {}".format(clf.best_estimator_))
         print("Best score for "+villes[i]+" : %.4f" % sqrt(abs(clf.best_score_)))
         prediction = clf.best_estimator_.predict(processed_test)
-        with open('Results/Best_tune.txt','a') as f:
-            f.write("Best estimator for "+villes[i]+" :\n {}\n".format(clf.best_estimator_))
-            f.write('################################\n')
-            f.write("Best score for "+villes[i]+" : {}\n".format(sqrt(abs(clf.best_score_))))
-            f.write('###########################################################################\n')
+        output_file.write("Best estimator for "+villes[i]+" :\n {}\n".format(clf.best_estimator_))
+        output_file.write('################################\n')
+        output_file.write("Best score for "+villes[i]+" : {}\n".format(sqrt(abs(clf.best_score_))))
+        output_file.write('###########################################################################\n')
         df = pd.DataFrame(prediction)
         filename = 'Results/'+villes[i]+'_results.csv'
         df.to_csv(filename,sep=';',header=True,decimal='.',encoding='utf-8')
@@ -61,18 +60,21 @@ def tune_model(files,villes,train_drop,test_drop,replacement_month,replacement_d
 
 # Corps principal du script
 ###############################################################################
-with open('Results/Best_tune.txt','w') as f:
-                f.write('Résultats du {}\n'.format(datetime.datetime.now()))
-                f.write('################################\n')
+f = open('Results/Best_tune.txt','w')
+f.write('Résultats du {}\n'.format(datetime.datetime.now()))
+f.write('################################\n')
 
 date_transfo = pd.read_csv('transfo_dates.csv', sep=";",decimal=".")
 dico_dates = {date_transfo.ix[i,1]: date_transfo.ix[i,0] for i in range(date_transfo.shape[0])}
-var_dropped_train = ['insee','Unnamed: 0','Unnamed: 0.1','rr1SOL0']
-var_dropped_test = ['insee','Unnamed: 0','rr1SOL0']
+var_dropped_train = ['insee','Unnamed: 0','Unnamed: 0.1','capeinsSOL0','rr1SOL0']
+var_dropped_test = ['insee','Unnamed: 0','capeinsSOL0','rr1SOL0']
 dico_transfo = {'janvier': 1,'février': 2,'mars': 3,'avril': 4,'mai': 5,'juin': 6,'juillet': 7,'août': 8,'septembre': 9,'octobre': 10,'novembre': 11,'décembre': 12}
-dict_params = {'n_estimators': [100,200,300]}
-params = {'loss': 'ls', 'subsample': 0.8, 'learning_rate': 0.1, 'max_features': 'sqrt', 'max_depth' : 5}
+dict_params = {'subsample': [0.8,0.9]}
+params = {'loss': 'ls', 'n_estimators': 1200, 'learning_rate': 0.05, 'max_features': 'sqrt', 'max_depth' : 8}
 files = os.listdir('data_agg_sep')
 villes = ['Toulouse','Bordeaux','Rennes','Lille','Nice','Strasbourg','Paris']
-              
-tune_model(files,villes,var_dropped_train,var_dropped_test,dico_transfo,dico_dates,ensemble.GradientBoostingRegressor,params,dict_params,5)   
+
+if __name__ == '__main__':              
+    tune_model(files,villes,var_dropped_train,var_dropped_test,dico_transfo,dico_dates,ensemble.GradientBoostingRegressor,params,dict_params,5,f)   
+
+f.close()
