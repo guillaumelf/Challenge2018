@@ -10,3 +10,4 @@
 \contentsline {subsubsection}{\numberline {3.3.3}Gradient Boosting : l'algorithme XGBoost}{2}{subsubsection.3.3.3}
 \contentsline {subsubsection}{\numberline {3.3.4}Deep Learning : l'utilisation de r\IeC {\'e}seaux de neurones}{2}{subsubsection.3.3.4}
 \contentsline {section}{\numberline {4}Bilan}{2}{section.4}
+\contentsline {section}{\numberline {5}Bibliographie}{2}{section.5}
