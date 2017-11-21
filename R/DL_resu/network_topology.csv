@@ -1,0 +1,4 @@
+;parameters;training samples;training time;training speed;test set error
+1;hidden=64 epochs=0.1 validation_frame=<environment>;19669;4.453;4417.022;1.489
+2;hidden=c(64, 64) epochs=0.1 validation_frame=<environment>;18087;9.810;1843.731;1.544
+3;hidden=c(64, 64, 64) epochs=0.1 validation_frame=<environment>;19600;13.833;1416.902;1.744
