@@ -116,7 +116,6 @@ ggplot(train)+aes(x=tH2,y=tH2_obs)+geom_point()+
   geom_smooth(method = lm,size=1.5)+labs(title = "tH2_obs en fonction de tH2")+
   theme(plot.title = element_text(hjust = 0.5))
 
-
 ggplot(train)+aes(x=tH2_YGrad,y=tH2_obs)+geom_point()+
   labs(title = "tH2_obs en fonction de tH2_YGrad")+
   theme(plot.title = element_text(hjust = 0.5))
@@ -137,6 +136,15 @@ ggplot(train)+aes(x=ddH10_rose4,y=tH2_obs)+geom_boxplot(aes(fill=ddH10_rose4))+f
 
 
 ggplot(train)+aes(x=ech,y=tH2_obs)+geom_boxplot(aes(fill=ech))
+
+#########################
+# focus sur capeinsSOL0 #
+#########################
+
+ggplot(train)+aes(x=capeinsSOL0,y=tH2_obs)+geom_point()+
+  geom_smooth(method = lm,size=1.5)+labs(title = "tH2_obs en fonction de capeinsSOL0")+
+  theme(plot.title = element_text(hjust = 0.5))
+cor(train$capeinsSOL0,train$tH2_obs)
 
 #######################
 # focus sur flir1SOL0 #

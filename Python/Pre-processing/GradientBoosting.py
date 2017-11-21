@@ -60,6 +60,7 @@ def tune_model(files,villes,train_drop,test_drop,replacement_month,replacement_d
 
 # Corps principal du script
 ###############################################################################
+
 f = open('Results/Best_tune.txt','w')
 f.write('Résultats du {}\n'.format(datetime.datetime.now()))
 f.write('################################\n')
@@ -69,8 +70,8 @@ dico_dates = {date_transfo.ix[i,1]: date_transfo.ix[i,0] for i in range(date_tra
 var_dropped_train = ['insee','Unnamed: 0','Unnamed: 0.1','capeinsSOL0','rr1SOL0']
 var_dropped_test = ['insee','Unnamed: 0','capeinsSOL0','rr1SOL0']
 dico_transfo = {'janvier': 1,'février': 2,'mars': 3,'avril': 4,'mai': 5,'juin': 6,'juillet': 7,'août': 8,'septembre': 9,'octobre': 10,'novembre': 11,'décembre': 12}
-dict_params = {'subsample': [0.8,0.9]}
-params = {'loss': 'ls', 'n_estimators': 1200, 'learning_rate': 0.05, 'max_features': 'sqrt', 'max_depth' : 8}
+dict_params = {'learning_rate': [0.05]}
+params = {'loss': 'ls', 'n_estimators': 1200, 'max_depth' : 8, 'subsample': 0.9}
 files = os.listdir('data_agg_sep')
 villes = ['Toulouse','Bordeaux','Rennes','Lille','Nice','Strasbourg','Paris']
 

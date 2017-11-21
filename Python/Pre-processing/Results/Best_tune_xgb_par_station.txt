@@ -1,0 +1,81 @@
+Résultats du 2017-11-21 08:40:51.348923
+################################
+Best estimator for Toulouse :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='ls', max_depth=8, max_features=None,
+             max_leaf_nodes=None, min_impurity_split=1e-07,
+             min_samples_leaf=1, min_samples_split=2,
+             min_weight_fraction_leaf=0.0, n_estimators=1200,
+             presort='auto', random_state=None, subsample=0.9, verbose=0,
+             warm_start=False)
+################################
+Best score for Toulouse : 1.035694691726552
+###########################################################################
+Best estimator for Bordeaux :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='ls', max_depth=8, max_features=None,
+             max_leaf_nodes=None, min_impurity_split=1e-07,
+             min_samples_leaf=1, min_samples_split=2,
+             min_weight_fraction_leaf=0.0, n_estimators=1200,
+             presort='auto', random_state=None, subsample=0.9, verbose=0,
+             warm_start=False)
+################################
+Best score for Bordeaux : 1.0286534671619856
+###########################################################################
+Best estimator for Rennes :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='ls', max_depth=8, max_features=None,
+             max_leaf_nodes=None, min_impurity_split=1e-07,
+             min_samples_leaf=1, min_samples_split=2,
+             min_weight_fraction_leaf=0.0, n_estimators=1200,
+             presort='auto', random_state=None, subsample=0.9, verbose=0,
+             warm_start=False)
+################################
+Best score for Rennes : 0.9899405476280684
+###########################################################################
+Best estimator for Lille :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='ls', max_depth=8, max_features=None,
+             max_leaf_nodes=None, min_impurity_split=1e-07,
+             min_samples_leaf=1, min_samples_split=2,
+             min_weight_fraction_leaf=0.0, n_estimators=1200,
+             presort='auto', random_state=None, subsample=0.9, verbose=0,
+             warm_start=False)
+################################
+Best score for Lille : 0.896936838308378
+###########################################################################
+Best estimator for Nice :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='ls', max_depth=8, max_features=None,
+             max_leaf_nodes=None, min_impurity_split=1e-07,
+             min_samples_leaf=1, min_samples_split=2,
+             min_weight_fraction_leaf=0.0, n_estimators=1200,
+             presort='auto', random_state=None, subsample=0.9, verbose=0,
+             warm_start=False)
+################################
+Best score for Nice : 0.9299593627889904
+###########################################################################
+Best estimator for Strasbourg :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='ls', max_depth=8, max_features=None,
+             max_leaf_nodes=None, min_impurity_split=1e-07,
+             min_samples_leaf=1, min_samples_split=2,
+             min_weight_fraction_leaf=0.0, n_estimators=1200,
+             presort='auto', random_state=None, subsample=0.9, verbose=0,
+             warm_start=False)
+################################
+Best score for Strasbourg : 1.1530335019448614
+###########################################################################
+Best estimator for Paris :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='ls', max_depth=8, max_features=None,
+             max_leaf_nodes=None, min_impurity_split=1e-07,
+             min_samples_leaf=1, min_samples_split=2,
+             min_weight_fraction_leaf=0.0, n_estimators=1200,
+             presort='auto', random_state=None, subsample=0.9, verbose=0,
+             warm_start=False)
+################################
+Best score for Paris : 0.8761544575467247
+###########################################################################
+
+Score RMSE sur le fichier test : 1.28939
