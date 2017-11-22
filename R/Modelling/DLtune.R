@@ -85,26 +85,25 @@ writecsv <- function(results, file) {
 
 ### PREMIERE ETUDE
 
-EPOCHS=100 
-
+EPOCHS=200
 args <- list(
-  list(hidden=c(256),            epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(512),            epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(1024),           epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(64,64),          epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(128,128),        epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(256,256),        epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(512,512),        epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(1024,1024),      epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(64,64,64),       epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(128,128,128),    epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(256,256,256),    epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(512,512,512),    epochs=EPOCHS,validation_frame=test_hex),
-  list(hidden=c(1024,1024,1024), epochs=EPOCHS,validation_frame=test_hex)
+  list(epochs=5*EPOCHS, hidden=c(512,512,512), 
+       activation="RectifierWithDropout", input_dropout_ratio=0.2, l1=1e-5,validation_frame = test_hex),
+  
+  list(epochs=5*EPOCHS, hidden=c(256,256,256,256), 
+       activation="RectifierWithDropout",validation_frame = test_hex),
+  
+  list(epochs=5*EPOCHS, hidden=c(256,256), 
+       activation="RectifierWithDropout", input_dropout_ratio=0.2, l1=1e-5,validation_frame = test_hex),
+  
+  list(epochs=5*EPOCHS, hidden=c(1024,1024,1024), 
+       activation="RectifierWithDropout", input_dropout_ratio=0.2, l1=1e-5,validation_frame = test_hex),
+  
+  list(epochs=5*EPOCHS, hidden=c(1024,512,1024,1024), 
+       activation="RectifierWithDropout", input_dropout_ratio=0.2, l1=1e-5,validation_frame = test_hex)
 )
 
-#t1=run(args[1])
-writecsv(lapply(args, run), "network_topology.csv")
+writecsv(lapply(args, run), "22_11.csv")
 
 
 
