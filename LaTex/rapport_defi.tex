@@ -158,26 +158,39 @@ $RMSE_{\hat{y}} = \sqrt{\frac{1}{n} \sum\limits_{i=1}^n (\hat{y_i}-y_{obs_i})^2}
 En d'autres termes, cette métrique permet de mesurer d'une certaine façon l'écart entre nos prédictions et la réalité. Il est à noter que le challenge fournit un score de $1.30755$ appelé \textbf{Baseline} qui correspond à un score de référence, associé à \og un modèle élémentaire de prévision sans effort particulier d'optimisation. C'est un objectif a minima à améliorer dans ce concours \fg{}. Le décor est planté, désormais il ne reste plus qu'à se lancer dans le challenge.
 \section{Remerciements}
 \paragraph{}
-Avant de détailler les différentes étapes de ce projet, les 3 membres de la \textbf{Freak-Unit} team souhaitent remercier tout particulièrement leur professeur encadrant, \textbf{M. Romain TAVENARD} pour son accompagnement tout au long du projet et pour l'aide apportée. Sa connaissance du \textit{Deep Learning} aura notamment été un facteur déterminant dans la réussite de ce projet.
+Avant de détailler les différentes étapes de ce projet, les 3 membres de la \textbf{Freak-unit} team souhaitent remercier tout particulièrement leur professeur encadrant, \textbf{M. Romain TAVENARD} pour son accompagnement tout au long du projet et pour l'aide apportée. Sa connaissance du \textit{Deep Learning} aura notamment été un facteur déterminant dans la réussite de ce projet.
 
-\section{Les différentes étapes du projet}
+\section{Différentes stratégies envisagées}
 \paragraph{}
-Venons-en maintenant aux différentes étapes qui ont composé ce projet. Dans le but d'obtenir le meilleur score possible, aucun détail ne doit être négligé. Il est donc primordial de définir une stratégie de travail afin d'automatiser les tâches, de bien étudier les variables à disposition et de tester la performance des algorithmes choisis en fonction de la stratégie adoptée.
-\subsection{Différentes stratégies envisagées}
+Afin d'effectuer l'analyse la plus fine et pertinente possible, il est primordial de bien définir la stratégie d'étude à adopter. Par \og stratégie \fg{}, nous parlons ici de la façon dont nous allons structurer les données, des techniques que nous allons employer pour optimiser la performance des algorithmes. Cela peut être vu comme un problème d'optimisation sous contrainte : notre objectif est de réaliser la meilleure performance sous des contraintes de temps et de matériel. Il faut donc réussir à combiner au mieux la théorie mathématique avec la réalisation informatique.
 
-\subsection{Analyse des corrélations entre variables et visualisation}
+\subsection{Structuration des données}
+\paragraph{}
+Un premier travail a consisté à agréger les données des 36 fichiers $train\_H.csv$ $(H=1,..,36)$ dans un seul jeu de données : cela aboutit à une matrice de $189 281$ lignes et $31$ colonnes. Dans un deuxième temps, nous avons divisé ce fichier en $7$ sous-fichiers : un fichier regroupant les prédictions aux 36 échéances de chaque station. Ce choix a été guidé par 3 éléments :
+\begin{itemize}
+\item L'intuition : sachant qu'il existe plusieurs types de climats (océaniques, continental, méditerranéen) et qu'on les retrouve à travers les stations présentes dans les données, il ne paraît pas anormal d'essayer de prédire chaque station indépendamment des autres. Ne perdons pas de vue que les chiffres sont là pour quantifier la réalité, l'objectif est donc de les utiliser pour représenter au mieux les phénomènes réels.
+\item Un indice lâché par les organisateurs du concours qui ont laissé entendre qu'il pouvait exister un biais lié à chaque station.
+\item L'analyse du comportement des indicateurs par station.
+\end{itemize}
+Dans la suite, nous verrons que le gros jeu de données ($189281$ lignes) ou les fichiers par stations seront utilisés en fonction de l'algorithme choisi. Une autre option aurait pu être de découper les données par station et par échéance. Cependant en procédant de la sorte, on se retrouverait avec 252 modèles à estimer, et l'on s'exposerait également au risque de sur-apprentissage (\textit{overfitting} en anglais). La dimension des données va également impacter le choix de la méthode d'estimation des paramètres et d'estimation de la performance de l'algorithme : la validation croisée. Nous allons donc effectuer quelques rappels sur ces différents concepts.
 
-\subsection{Gestion et remplacement des valeurs manquantes}
+\subsection{Notions d'overfitting/underfitting}
 
-\subsection{Choix et application d'algorithmes d'apprentissage supervisé}
+\subsection{Validation croisée}
 
-\subsubsection{Premiers algorithmes : la régression linéaire et ses variantes}
+\section{Analyse des corrélations entre variables et visualisation}
 
-\subsubsection{Forêt aléatoire : l'algorithme Random Forest}
+\section{Gestion et remplacement des valeurs manquantes}
 
-\subsubsection{Gradient Boosting : l'algorithme XGBoost}
+\section{Choix et application d'algorithmes d'apprentissage supervisé}
 
-\subsubsection{Deep Learning : l'utilisation des réseaux de neurones}
+\subsection{Premiers algorithmes : la régression linéaire et ses variantes}
+
+\subsection{Forêt aléatoire : l'algorithme Random Forest}
+
+\subsection{Gradient Boosting : l'algorithme XGBoost}
+
+\subsection{Deep Learning : l'utilisation des réseaux de neurones}
 
 \section{Bilan}
 

@@ -1,13 +1,15 @@
 \BOOKMARK [1][-]{section.1}{Pr\351sentation du projet}{}% 1
 \BOOKMARK [1][-]{section.2}{Remerciements}{}% 2
-\BOOKMARK [1][-]{section.3}{Les diff\351rentes \351tapes du projet}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Diff\351rentes strat\351gies envisag\351es}{section.3}% 4
-\BOOKMARK [2][-]{subsection.3.2}{Analyse des corr\351lations entre variables et visualisation}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{Gestion et remplacement des valeurs manquantes}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.4}{Choix et application d'algorithmes d'apprentissage supervis\351}{section.3}% 7
-\BOOKMARK [3][-]{subsubsection.3.4.1}{Premiers algorithmes : la r\351gression lin\351aire et ses variantes}{subsection.3.4}% 8
-\BOOKMARK [3][-]{subsubsection.3.4.2}{For\352t al\351atoire : l'algorithme Random Forest}{subsection.3.4}% 9
-\BOOKMARK [3][-]{subsubsection.3.4.3}{Gradient Boosting : l'algorithme XGBoost}{subsection.3.4}% 10
-\BOOKMARK [3][-]{subsubsection.3.4.4}{Deep Learning : l'utilisation des r\351seaux de neurones}{subsection.3.4}% 11
-\BOOKMARK [1][-]{section.4}{Bilan}{}% 12
-\BOOKMARK [1][-]{section.5}{Bibliographie}{}% 13
+\BOOKMARK [1][-]{section.3}{Diff\351rentes strat\351gies envisag\351es}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Structuration des donn\351es}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Notions d'overfitting/underfitting}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Validation crois\351e}{section.3}% 6
+\BOOKMARK [1][-]{section.4}{Analyse des corr\351lations entre variables et visualisation}{}% 7
+\BOOKMARK [1][-]{section.5}{Gestion et remplacement des valeurs manquantes}{}% 8
+\BOOKMARK [1][-]{section.6}{Choix et application d'algorithmes d'apprentissage supervis\351}{}% 9
+\BOOKMARK [2][-]{subsection.6.1}{Premiers algorithmes : la r\351gression lin\351aire et ses variantes}{section.6}% 10
+\BOOKMARK [2][-]{subsection.6.2}{For\352t al\351atoire : l'algorithme Random Forest}{section.6}% 11
+\BOOKMARK [2][-]{subsection.6.3}{Gradient Boosting : l'algorithme XGBoost}{section.6}% 12
+\BOOKMARK [2][-]{subsection.6.4}{Deep Learning : l'utilisation des r\351seaux de neurones}{section.6}% 13
+\BOOKMARK [1][-]{section.7}{Bilan}{}% 14
+\BOOKMARK [1][-]{section.8}{Bibliographie}{}% 15
