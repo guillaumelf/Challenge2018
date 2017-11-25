@@ -4,12 +4,15 @@
 \BOOKMARK [2][-]{subsection.3.1}{Structuration des donn\351es}{section.3}% 4
 \BOOKMARK [2][-]{subsection.3.2}{Notions d'overfitting/underfitting}{section.3}% 5
 \BOOKMARK [2][-]{subsection.3.3}{Validation crois\351e}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{Analyse des corr\351lations entre variables et visualisation}{}% 7
-\BOOKMARK [1][-]{section.5}{Gestion et remplacement des valeurs manquantes}{}% 8
-\BOOKMARK [1][-]{section.6}{Choix et application d'algorithmes d'apprentissage supervis\351}{}% 9
-\BOOKMARK [2][-]{subsection.6.1}{Premiers algorithmes : la r\351gression lin\351aire et ses variantes}{section.6}% 10
-\BOOKMARK [2][-]{subsection.6.2}{For\352t al\351atoire : l'algorithme Random Forest}{section.6}% 11
-\BOOKMARK [2][-]{subsection.6.3}{Gradient Boosting : l'algorithme XGBoost}{section.6}% 12
-\BOOKMARK [2][-]{subsection.6.4}{Deep Learning : l'utilisation des r\351seaux de neurones}{section.6}% 13
-\BOOKMARK [1][-]{section.7}{Bilan}{}% 14
-\BOOKMARK [1][-]{section.8}{Bibliographie}{}% 15
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Contexte th\351orique}{subsection.3.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.3.2}{La validation crois\351e Hold-Out}{subsection.3.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.3.3}{La validation crois\351e K-Fold}{subsection.3.3}% 9
+\BOOKMARK [1][-]{section.4}{Analyse des corr\351lations entre variables et visualisation}{}% 10
+\BOOKMARK [1][-]{section.5}{Gestion et remplacement des valeurs manquantes}{}% 11
+\BOOKMARK [1][-]{section.6}{Choix et application d'algorithmes d'apprentissage supervis\351}{}% 12
+\BOOKMARK [2][-]{subsection.6.1}{Premiers algorithmes : la r\351gression lin\351aire et ses variantes}{section.6}% 13
+\BOOKMARK [2][-]{subsection.6.2}{For\352t al\351atoire : l'algorithme Random Forest}{section.6}% 14
+\BOOKMARK [2][-]{subsection.6.3}{Gradient Boosting : l'algorithme XGBoost}{section.6}% 15
+\BOOKMARK [2][-]{subsection.6.4}{Deep Learning : l'utilisation des r\351seaux de neurones}{section.6}% 16
+\BOOKMARK [1][-]{section.7}{Bilan}{}% 17
+\BOOKMARK [1][-]{section.8}{Bibliographie}{}% 18

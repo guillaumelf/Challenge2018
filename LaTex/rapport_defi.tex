@@ -13,6 +13,7 @@
 \usepackage{array,multirow,makecell}
 \usepackage{enumitem} %Pour modifier les puces
 \usepackage{caption}
+\usepackage{dsfont}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
@@ -172,12 +173,94 @@ Un premier travail a consisté à agréger les données des 36 fichiers $train\_
 \item Un indice lâché par les organisateurs du concours qui ont laissé entendre qu'il pouvait exister un biais lié à chaque station.
 \item L'analyse du comportement des indicateurs par station.
 \end{itemize}
+\includegraphics[width=17cm]{Images/fllat.png}
+\begin{center}
+\captionof{figure}{Exemple du flux de chaleur latente dont le comportement diffère d'une station à une autre}
+\label{fig1}
+\end{center}
+\paragraph{}
 Dans la suite, nous verrons que le gros jeu de données ($189281$ lignes) ou les fichiers par stations seront utilisés en fonction de l'algorithme choisi. Une autre option aurait pu être de découper les données par station et par échéance. Cependant en procédant de la sorte, on se retrouverait avec 252 modèles à estimer, et l'on s'exposerait également au risque de sur-apprentissage (\textit{overfitting} en anglais). La dimension des données va également impacter le choix de la méthode d'estimation des paramètres et d'estimation de la performance de l'algorithme : la validation croisée. Nous allons donc effectuer quelques rappels sur ces différents concepts.
 
 \subsection{Notions d'overfitting/underfitting}
+\paragraph{}
+Comme introduit brièvement un peu plus haut dans ce rapport, l'un des enjeux de ce projet dans le but d'obtenir les meilleurs prédictions possibles, selon le critère du \textbf{RMSE}, sera d'éviter de se retrouver en situation sur-apprentissage ou de sous-apprentissage (respectivement \textit{overfitting} et \textit{underfitting}). En ce sens, on va chercher à construire un estimateur (une fonction) optimal, robuste qui conservera un pouvoir de prédiction de qualité sur un nouvel échantillon. Prenons le graphe suivant qui sera un peu plus parlant.
+\paragraph{}
+\includegraphics[width=17cm]{Images/overfitting.png}
+\begin{center}
+\captionof{figure}{Illustration de ces notions à partir d'un exemple simple dans $\mathbb{R}^2$}
+\label{fig1}
+\end{center}
+On s'aperçoit que sur le graphe de gauche, l'estimateur est trop rigide, il ne \og colle \fg{} pas assez aux données. Sur le graphe de droite c'est le contraire, l'estimateur est beaucoup trop sensible aux valeurs, et lorsque les données changeront, les prédictions ne seront donc plus aussi précises. Nous souhaitons donc trouver une fonction ayant une allure similaire à celle du graphe du milieu, qui sera donc plus \og robuste \fg{} que les deux autres.
 
+
+Nous verrons dans la suite que pour remédier au problème de l'overfitting, nous pouvons utiliser des formes de \textbf{régularisation}, encore appelées pénalités et qui se traduiront par des contraintes dans le problème d'optimisation d'une certaine \textbf{fonction de perte} que l'on va choisir.\\
+
+Une façon de vérifier que le modèle est robuste peut-être de procéder à de la \textbf{validation croisée}, c'est donc le prochain point que nous allons développer.
+ 
 \subsection{Validation croisée}
+\paragraph{}
+Comme énoncé précédemment, nous allons utiliser la méthode de la validation croisée à la fois pour contrôler la performance et la robustesse de l'algorithme mis en œuvre, mais également pour calibrer des hyper-paramètres dans le cas de modèles complexes. Nous allons donc dans la suite effectuer quelques rappels théoriques afin de bien comprendre pourquoi nous utilisons cette méthode ainsi qu'une présentation des deux types de validation croisée que nous avons choisi d'utiliser.
 
+\subsubsection{Contexte théorique}
+\paragraph{}
+Soit $d^{n}_{1}$ l'observation d'un n-échantillon $D^{n}_{1} =$\{$(X_1,Y_1),...,(X_n,Y_n)$\} d'une loi conjointe $P$ sur $\mathcal{X}$ x $\mathcal{Y}$ qui est inconnue. Le premier travail consiste à estimer cette loi $P$ à l'aide des données disponibles, à savoir $d^{n}_{1}$.
+\paragraph{}
+En théorie, il faudrait minimiser la quantité appelée \textbf{risque} (ou encore \textbf{erreur de généralisation}) d'une règle de prédiction que l'on va noter $f$. Ainsi de façon mathématique, on définit le \textbf{risque} de la manière suivante :
+\paragraph{}
+$\mathcal{R}_P(f) = \mathbb{E}_{(X,Y)}[l(Y,f(X))]$ avec $l$ que l'on appelle \textbf{fonction de perte} et qui a pour expression :
+\begin{itemize}
+\item $l(y,y') = |y-y'|^q$ en régression réelle (on prendra souvent la perte \textit{quadratique}, c'est-à-dire lorsque $q=2$)
+\item $l(y,y') = \mathds{1}_{y \neq y'} = \frac{|y-y'|}{2} = \frac{|y-y'|^2}{4}$ en discrimination binaire.
+\end{itemize}
+\paragraph{}
+Cependant en pratique, il nous est impossible de calculer le \textbf{risque}. Il faut donc l'estimer et chercher à minimiser cette quantité estimée par la suite. Une première approche naturelle serait d'utiliser le risque empirique, c'est-à-dire d'estimer l'espérance de la fonction de perte par la moyenne empirique de cette même fonction. Le \textbf{risque empirique} d'un algorithme de prédiction $f_{D^{n}_{1}}$ construit sur $D^{n}_{1}$ se note de la façon suivante :
+\begin{center}
+$\widehat{\mathcal{R}}_n(f_{D^{n}_{1}}) = \frac{1}{n} \sum\limits_{i=1}^n l(Y_i,f_{D^{n}_{1}}(X_i))$
+\end{center}
+
+\paragraph{}
+Le problème de cet estimateur est l'absence d'indépendance : en effet, pour effectuer nos prédictions on se sert des mêmes données qui ont servi à faire l'algorithme d'apprentissage. En ce sens, notre algorithme risque de trop \og coller \fg{} aux données d'apprentissage, puisqu'il aura acquis l'information à partir de ces données il sera capable de bien prédire la variable réponse, mais risque de ne pas être aussi performant à l'avenir sur un nouveau jeu de données. C'est ce qu'on nous avons défini comme étant l'\textit{overfitting}. C'est donc pour corriger ce problème que nous allons avoir recours à une autre méthode d'estimation du \textbf{risque}, qui est meilleure : la \textbf{validation croisée}.
+
+\subsubsection{La validation croisée Hold-Out}
+\paragraph{}
+Le concept de base pour la validation croisée \textbf{Hold-Out} consiste à séparer nos données $d^{n}_{1}$ en deux sous-échantillons :
+\begin{itemize}
+\item $\mathcal{A}$ : l'échantillon d'apprentissage
+\item $\mathcal{V}$ : l'échantillon de validation
+\end{itemize}
+\bigskip
+Cela implique d'avoir à la base un jeu de données suffisamment \og grand \fg{} pour pouvoir appliquer une telle méthode, ce qui n'est pas un problème dans notre cas. Comment séparer les données ? En pratique on va diviser notre échantillon en deux parties égales, si l'on dispose d'un échantillon de taille $n$, $\mathcal{A}$ et $\mathcal{V}$ seront donc de taille $\frac{n}{2}$. Si les données sont classées, on procèdera à un tirage aléatoire sans remise de $\frac{n}{2}$ éléments dans $\{1,...,n\}$.
+Ensuite on \og nourrit \fg{} notre algorithme à partir des données contenues dans $\mathcal{A}$ et on teste sa performance sur les données de $\mathcal{V}$ : ainsi le problème d'indépendance est réglé. Illustrons cette méthode avec un schéma.\\
+\includegraphics[width=16cm]{Images/hold_out.png}
+\begin{center}
+\captionof{figure}{Fonctionnement de la validation croisée Hold-Out}
+\label{fig1}
+\end{center}
+\paragraph{}
+De façon mathématique, cet estimateur du risque se définit de la façon suivante :
+\paragraph{}
+$\widehat{\mathcal{R}}(f_{D^{n}_{1}}) = \frac{1}{|\mathcal{V}|} \sum\limits_{i \in \mathcal{V}} l(y_i,f_{d_{\mathcal{A}}}(x_i))$ avec $|\mathcal{V}|$ le cardinal de $\mathcal{V}$ (autrement dit, le nombre de lignes de l'échantillon de validation).
+\paragraph{}
+Dans le cadre de nos travaux, l'utilisation de cette méthode va nous permettre de gagner du temps si l'on utilise la matrice de travail contenant toutes les stations. La méthode suivante que nous allons présenter prendra plus de temps mais peut apporter plus de stabilité dans les résultats.
+\newpage
+\subsubsection{La validation croisée K-Fold}
+\paragraph{}
+La validation croisée \textbf{K-Fold} est une variante de la méthode vu précédemment, qui on le rappelle était adaptée aux jeux de données de taille suffisamment grande. Cependant sur des jeux de données plus petits, comme c'est le cas de nos fichiers par station qui font environ $27000$ lignes chacun,ce type de validation croisée peut être utile et plus efficace. Le fonctionnement de cette méthode itérative est le suivant :
+\begin{itemize}
+\item On procède à une partition de notre échantillon en $K$ blocs équilibrés : $B_1,...,B_K$ auxquels sont associés des tailles $n_1,...,n_K$. (En pratique on prend $K=10$ quand la taille des données le permet)
+\item On note $d_{B_i}=\{(x_j,y_j), j \in B_i\}$ le $i^{eme}$ bloc  de l'échantillon $d^{n}_{1}$. Pour chaque itération $i = 1,...,K$ on laisse de côté les données de $B_i$ pour faire notre apprentissage sur les $K$-1 blocs restants.
+\item On teste la performance de notre règle de prédiction sur le bloc $B_i$ pour obtenir une estimation du risque à l'itération $i$ que l'on note : \\ $\widehat{\mathcal{R}}_i = \frac{1}{n_i} \sum\limits_{j \in B_i} l(y_j,f_{d^{n}_{1}} \backslash d_{B_i}(x_j))$
+\item Enfin, après avoir procédé à toutes les itérations, on calcule la véritable estimation du risque en faisant la moyenne des risques calculés à chaque itération :\\
+$\widehat{\mathcal{R}}(f_{D^{n}_{1}}) = \frac{1}{K} \sum\limits_{i=1}^K \widehat{\mathcal{R}}_i$
+\end{itemize}
+\paragraph{}
+\includegraphics[width=17cm]{Images/k_fold.jpg}
+\begin{center}
+\captionof{figure}{Exemple de fonctionnement pour K=4}
+\label{fig1}
+\end{center}
+\paragraph{}
+Il s'agit désormais d'utiliser la méthode de notre choix dans le but de trouver le meilleur compromis entre précision de l'algorithme et temps de calcul. Le domaine de la \textit{Data Science} fait interagir la théorie mathématique avec la réalisation informatique, il est donc important de prendre en compte ces deux aspects et d'optimiser leur utilisation conjointe au mieux.
 \section{Analyse des corrélations entre variables et visualisation}
 
 \section{Gestion et remplacement des valeurs manquantes}
