@@ -36,4 +36,4 @@
 \contentsline {subsection}{\numberline {6.3}Gradient Boosting : l'algorithme XGBoost}{8}{subsection.6.3}
 \contentsline {subsection}{\numberline {6.4}Deep Learning : l'utilisation des r\IeC {\'e}seaux de neurones}{8}{subsection.6.4}
 \contentsline {section}{\numberline {7}Bilan}{8}{section.7}
-\contentsline {section}{\numberline {8}Bibliographie}{8}{section.8}
+\contentsline {section}{\numberline {8}Bibliographie et sources}{8}{section.8}

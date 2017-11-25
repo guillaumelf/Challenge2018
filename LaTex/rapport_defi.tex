@@ -179,18 +179,18 @@ Un premier travail a consisté à agréger les données des 36 fichiers $train\_
 \label{fig1}
 \end{center}
 \paragraph{}
-Dans la suite, nous verrons que le gros jeu de données ($189281$ lignes) ou les fichiers par stations seront utilisés en fonction de l'algorithme choisi. Une autre option aurait pu être de découper les données par station et par échéance. Cependant en procédant de la sorte, on se retrouverait avec 252 modèles à estimer, et l'on s'exposerait également au risque de sur-apprentissage (\textit{overfitting} en anglais). La dimension des données va également impacter le choix de la méthode d'estimation des paramètres et d'estimation de la performance de l'algorithme : la validation croisée. Nous allons donc effectuer quelques rappels sur ces différents concepts.
+Dans la suite, nous verrons que le gros jeu de données ($189281$ lignes) ou les fichiers par stations seront utilisés en fonction de l'algorithme choisi. Une autre option aurait pu être de découper les données par station et par échéance. Cependant en procédant de la sorte, on se retrouverait avec 252 modèles à estimer, et l'on s'exposerait également au risque de sur-apprentissage (\textit{overfitting} en anglais). La dimension des données va également impacter le choix de la méthode d'estimation des paramètres et d'estimation de la performance de l'algorithme : la \textbf{validation croisée}. Nous allons donc effectuer quelques rappels sur ces différents concepts.
 
 \subsection{Notions d'overfitting/underfitting}
 \paragraph{}
-Comme introduit brièvement un peu plus haut dans ce rapport, l'un des enjeux de ce projet dans le but d'obtenir les meilleurs prédictions possibles, selon le critère du \textbf{RMSE}, sera d'éviter de se retrouver en situation sur-apprentissage ou de sous-apprentissage (respectivement \textit{overfitting} et \textit{underfitting}). En ce sens, on va chercher à construire un estimateur (une fonction) optimal, robuste qui conservera un pouvoir de prédiction de qualité sur un nouvel échantillon. Prenons le graphe suivant qui sera un peu plus parlant.
+Comme introduit brièvement un peu plus haut dans ce rapport, l'un des enjeux de ce projet dans le but d'obtenir les meilleurs prédictions possibles, selon le critère du \textbf{RMSE}, sera d'éviter de se retrouver en situation sur-apprentissage ou de sous-apprentissage (respectivement \textit{overfitting} et \textit{underfitting}). En ce sens, on va chercher à construire un estimateur (une fonction) optimal, robuste qui conservera un pouvoir de prédiction de qualité sur un nouvel échantillon. Prenons le dessin suivant qui sera un peu plus parlant.
 \paragraph{}
 \includegraphics[width=17cm]{Images/overfitting.png}
 \begin{center}
 \captionof{figure}{Illustration de ces notions à partir d'un exemple simple dans $\mathbb{R}^2$}
 \label{fig1}
 \end{center}
-On s'aperçoit que sur le graphe de gauche, l'estimateur est trop rigide, il ne \og colle \fg{} pas assez aux données. Sur le graphe de droite c'est le contraire, l'estimateur est beaucoup trop sensible aux valeurs, et lorsque les données changeront, les prédictions ne seront donc plus aussi précises. Nous souhaitons donc trouver une fonction ayant une allure similaire à celle du graphe du milieu, qui sera donc plus \og robuste \fg{} que les deux autres.
+On s'aperçoit que sur le graphe de gauche, l'estimateur est trop rigide, il ne \og colle \fg{} pas assez aux données. Sur le graphe de droite c'est le contraire, l'estimateur est beaucoup trop sensible aux valeurs, et lorsque les données changeront, les prédictions ne seront donc plus aussi précises. Nous souhaitons donc trouver une fonction ayant une allure similaire à celle du graphe du milieu, qui sera plus \og robuste \fg{} que les deux autres.
 
 
 Nous verrons dans la suite que pour remédier au problème de l'overfitting, nous pouvons utiliser des formes de \textbf{régularisation}, encore appelées pénalités et qui se traduiront par des contraintes dans le problème d'optimisation d'une certaine \textbf{fonction de perte} que l'on va choisir.\\
@@ -245,7 +245,7 @@ Dans le cadre de nos travaux, l'utilisation de cette méthode va nous permettre 
 \newpage
 \subsubsection{La validation croisée K-Fold}
 \paragraph{}
-La validation croisée \textbf{K-Fold} est une variante de la méthode vu précédemment, qui on le rappelle était adaptée aux jeux de données de taille suffisamment grande. Cependant sur des jeux de données plus petits, comme c'est le cas de nos fichiers par station qui font environ $27000$ lignes chacun,ce type de validation croisée peut être utile et plus efficace. Le fonctionnement de cette méthode itérative est le suivant :
+La validation croisée \textbf{K-Fold} est une variante de la méthode vue précédemment, qui on le rappelle était adaptée aux jeux de données de taille suffisamment grande. Cependant sur des jeux de données plus petits, comme c'est le cas de nos fichiers par station qui font environ $27000$ lignes chacun,ce type de validation croisée peut également s'avérer efficace. Le fonctionnement de cette méthode itérative est le suivant :
 \begin{itemize}
 \item On procède à une partition de notre échantillon en $K$ blocs équilibrés : $B_1,...,B_K$ auxquels sont associés des tailles $n_1,...,n_K$. (En pratique on prend $K=10$ quand la taille des données le permet)
 \item On note $d_{B_i}=\{(x_j,y_j), j \in B_i\}$ le $i^{eme}$ bloc  de l'échantillon $d^{n}_{1}$. Pour chaque itération $i = 1,...,K$ on laisse de côté les données de $B_i$ pour faire notre apprentissage sur les $K$-1 blocs restants.
@@ -277,6 +277,6 @@ Il s'agit désormais d'utiliser la méthode de notre choix dans le but de trouve
 
 \section{Bilan}
 
-\section{Bibliographie}
+\section{Bibliographie et sources}
 
 \end{document}
