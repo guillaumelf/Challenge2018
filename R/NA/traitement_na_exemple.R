@@ -28,7 +28,7 @@ hist(dat[,50])
 # initialisation du générateur
 set.seed(42)
 # Ratio de données manquantes
-test.ratio=0.1
+test.ratio=0.5
 # Indices de l’échantillon test
 IND=which(!is.na(dat),arr.ind=TRUE)
 ntest=ceiling(dim(dat)[1]*test.ratio)
@@ -144,7 +144,7 @@ err.amelia=matrix(NA,nrow=length(TEST.RATIO),
                   ncol=280)
 err.mf=matrix(NA,nrow=length(TEST.RATIO),
               ncol=280)
-err.svd=matrix(NA,nrow=length(TEST.RATIO),
+err.knn=matrix(NA,nrow=length(TEST.RATIO),
                ncol=280)
 tmp=1
 for (test.ratio in TEST.RATIO){
@@ -157,9 +157,8 @@ for (test.ratio in TEST.RATIO){
   dat.amelia=amelia(dat.train,m=1)$imputations$imp1
   err.amelia[tmp,1:length(ind.test[,2])]=abs(
     dat.test-dat.amelia[ind.test])
-  dat.SVD=impute.svd(dat.train,k=3,maxiter=1000)$x
-  err.svd[tmp,1:length(ind.test[,2])]=abs(dat.test
-                                          -dat.SVD[ind.test])
+  dat.kNN=kNN(dat.train, k=5, imp_var=FALSE)
+  err.knn[tmp,1:length(ind.test[,2])]=abs(dat.test-dat.kNN[ind.test])
   dat.mf<-missForest(dat.train, maxiter=10,
                      ntree = 200, variablewise = TRUE)$ximp
   err.mf[tmp,1:length(ind.test[,2])]=abs(

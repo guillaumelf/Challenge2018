@@ -231,7 +231,7 @@ Le concept de base pour la validation croisée \textbf{Hold-Out} consiste à sé
 \bigskip
 Cela implique d'avoir à la base un jeu de données suffisamment \og grand \fg{} pour pouvoir appliquer une telle méthode, ce qui n'est pas un problème dans notre cas. Comment séparer les données ? En pratique on va diviser notre échantillon en deux parties égales, si l'on dispose d'un échantillon de taille $n$, $\mathcal{A}$ et $\mathcal{V}$ seront donc de taille $\frac{n}{2}$. Si les données sont classées, on procèdera à un tirage aléatoire sans remise de $\frac{n}{2}$ éléments dans $\{1,...,n\}$.
 Ensuite on \og nourrit \fg{} notre algorithme à partir des données contenues dans $\mathcal{A}$ et on teste sa performance sur les données de $\mathcal{V}$ : ainsi le problème d'indépendance est réglé. Illustrons cette méthode avec un schéma.\\
-\includegraphics[width=16cm]{Images/hold_out.png}
+\includegraphics[width=18cm]{Images/hold_out.png}
 \begin{center}
 \captionof{figure}{Fonctionnement de la validation croisée Hold-Out}
 \label{fig1}
@@ -263,7 +263,15 @@ $\widehat{\mathcal{R}}(f_{D^{n}_{1}}) = \frac{1}{K} \sum\limits_{i=1}^K \widehat
 Il s'agit désormais d'utiliser la méthode de notre choix dans le but de trouver le meilleur compromis entre précision de l'algorithme et temps de calcul. Le domaine de la \textit{Data Science} fait interagir la théorie mathématique avec la réalisation informatique, il est donc important de prendre en compte ces deux aspects et d'optimiser leur utilisation conjointe au mieux.
 \section{Analyse des corrélations entre variables et visualisation}
 
+\newpage
 \section{Gestion et remplacement des valeurs manquantes}
+\paragraph{}
+Une partie clé de cette étude aura été la gestion des valeurs manquantes. En effet, tous les fichiers $train\_H.csv$ $(H=1,..,36)$, en contiennent, ce qui nous a donc amené à nous poser les questions suivantes : faut-il éliminer les lignes contenant des \textit{NA} ? Faut-il remplacer ces valeurs manquantes ? Si oui, pour quelles variables, de quelle façon et à quel coût ? Nous allons détailler l'analyse qui nous a permis de répondre à ces différentes interrogations et de prendre nos décisions.
+\includegraphics[width=17cm]{Images/err_imp.png}
+\begin{center}
+\captionof{figure}{Taux d'erreur des méthodes d'imputation testées}
+\label{fig1}
+\end{center}
 
 \section{Choix et application d'algorithmes d'apprentissage supervisé}
 
@@ -278,5 +286,10 @@ Il s'agit désormais d'utiliser la méthode de notre choix dans le but de trouve
 \section{Bilan}
 
 \section{Bibliographie et sources}
+
+\begin{flushleft}
+- \textbf{WikiStat}, \href{https://www.math.univ-toulouse.fr/~besse/Wikistat/pdf/st-scenar-app-idm.pdf}{\textit{\textcolor{blue}{Scénario: Imputation de données manquantes}}}\\
+\medskip
+\end{flushleft}
 
 \end{document}

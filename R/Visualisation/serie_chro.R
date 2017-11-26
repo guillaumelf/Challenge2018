@@ -63,7 +63,7 @@ plot.ts(test)
 adf.test(test, alternative="stationary", k=0)
 acf(test) # => p = 0
 pacf(test) 
-fit <- arima(test, c(0, 1, 1),seasonal = list(order = c(0, 1, 1), period = 2))
+fit <- arima(test, c(0, 1, 1),seasonal = list(order = c(0, 1, 1), period = 12))
 pred <- predict(fit, n.ahead = 37)
 par(mfrow = c(2,1))
 ts.plot(test,pred$pred, lty = c(1,3), col = c(1,3))

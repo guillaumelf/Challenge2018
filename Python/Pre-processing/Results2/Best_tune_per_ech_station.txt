@@ -1,0 +1,2780 @@
+Résultats du 2017-11-23 22:00:37.929208
+################################
+Best estimator for 31069001_ech1 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.731332663365375
+###########################################################################
+Best estimator for 31069001_ech10 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3280555349412715
+###########################################################################
+Best estimator for 31069001_ech11 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.402571561819571
+###########################################################################
+Best estimator for 31069001_ech12 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3665276831046576
+###########################################################################
+Best estimator for 31069001_ech13 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4878798404220521
+###########################################################################
+Best estimator for 31069001_ech14 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.438469917802371
+###########################################################################
+Best estimator for 31069001_ech15 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.461504445496226
+###########################################################################
+Best estimator for 31069001_ech16 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4939675679852784
+###########################################################################
+Best estimator for 31069001_ech17 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4369780374203476
+###########################################################################
+Best estimator for 31069001_ech18 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3857310373153318
+###########################################################################
+Best estimator for 31069001_ech19 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2846835943147492
+###########################################################################
+Best estimator for 31069001_ech2 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9142512905564136
+###########################################################################
+Best estimator for 31069001_ech20 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2544372067581162
+###########################################################################
+Best estimator for 31069001_ech21 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2798616939626584
+###########################################################################
+Best estimator for 31069001_ech22 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1444887944355715
+###########################################################################
+Best estimator for 31069001_ech23 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.235173446762434
+###########################################################################
+Best estimator for 31069001_ech24 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2399996733632221
+###########################################################################
+Best estimator for 31069001_ech25 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2741658849480382
+###########################################################################
+Best estimator for 31069001_ech26 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2513470972111598
+###########################################################################
+Best estimator for 31069001_ech27 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2665128321279195
+###########################################################################
+Best estimator for 31069001_ech28 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2813775101735936
+###########################################################################
+Best estimator for 31069001_ech29 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3067222426459904
+###########################################################################
+Best estimator for 31069001_ech3 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.987277565443804
+###########################################################################
+Best estimator for 31069001_ech30 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3093503297284146
+###########################################################################
+Best estimator for 31069001_ech31 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4798174170902194
+###########################################################################
+Best estimator for 31069001_ech32 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.5062112780200918
+###########################################################################
+Best estimator for 31069001_ech33 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.7299008606646233
+###########################################################################
+Best estimator for 31069001_ech34 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.6959595841737785
+###########################################################################
+Best estimator for 31069001_ech35 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.7268214792519176
+###########################################################################
+Best estimator for 31069001_ech36 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.8622498039617128
+###########################################################################
+Best estimator for 31069001_ech4 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0976960707769807
+###########################################################################
+Best estimator for 31069001_ech5 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1267754666773981
+###########################################################################
+Best estimator for 31069001_ech6 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0082387340342147
+###########################################################################
+Best estimator for 31069001_ech7 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0604212823009815
+###########################################################################
+Best estimator for 31069001_ech8 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0893126157906772
+###########################################################################
+Best estimator for 31069001_ech9 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2447443310214021
+###########################################################################
+Best estimator for 33281001_ech1 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.7478814070567331
+###########################################################################
+Best estimator for 33281001_ech10 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4482090186368994
+###########################################################################
+Best estimator for 33281001_ech11 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4259044997151904
+###########################################################################
+Best estimator for 33281001_ech12 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4720101521371924
+###########################################################################
+Best estimator for 33281001_ech13 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.5836696553894511
+###########################################################################
+Best estimator for 33281001_ech14 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.513789046266105
+###########################################################################
+Best estimator for 33281001_ech15 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3787691793445118
+###########################################################################
+Best estimator for 33281001_ech16 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3871356055976247
+###########################################################################
+Best estimator for 33281001_ech17 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3100191484269879
+###########################################################################
+Best estimator for 33281001_ech18 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1369528224010415
+###########################################################################
+Best estimator for 33281001_ech19 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1821814594664208
+###########################################################################
+Best estimator for 33281001_ech2 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.8372158980098093
+###########################################################################
+Best estimator for 33281001_ech20 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1046915439534026
+###########################################################################
+Best estimator for 33281001_ech21 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1412192132802434
+###########################################################################
+Best estimator for 33281001_ech22 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2214209439864399
+###########################################################################
+Best estimator for 33281001_ech23 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1818745486836228
+###########################################################################
+Best estimator for 33281001_ech24 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1757342585766377
+###########################################################################
+Best estimator for 33281001_ech25 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2120527953610984
+###########################################################################
+Best estimator for 33281001_ech26 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2332695302544856
+###########################################################################
+Best estimator for 33281001_ech27 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2202408303428154
+###########################################################################
+Best estimator for 33281001_ech28 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1973157318389778
+###########################################################################
+Best estimator for 33281001_ech29 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3343858599485177
+###########################################################################
+Best estimator for 33281001_ech3 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9798330921989364
+###########################################################################
+Best estimator for 33281001_ech30 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3625631153302291
+###########################################################################
+Best estimator for 33281001_ech31 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.590324937440036
+###########################################################################
+Best estimator for 33281001_ech32 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.5277629508016195
+###########################################################################
+Best estimator for 33281001_ech33 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.595799529193461
+###########################################################################
+Best estimator for 33281001_ech34 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.6927166876259656
+###########################################################################
+Best estimator for 33281001_ech35 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.8291260051819658
+###########################################################################
+Best estimator for 33281001_ech36 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.5713431867282102
+###########################################################################
+Best estimator for 33281001_ech4 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0346386258558398
+###########################################################################
+Best estimator for 33281001_ech5 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9652551085850357
+###########################################################################
+Best estimator for 33281001_ech6 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9594593094407247
+###########################################################################
+Best estimator for 33281001_ech7 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9548944434947537
+###########################################################################
+Best estimator for 33281001_ech8 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0178371405881994
+###########################################################################
+Best estimator for 33281001_ech9 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1692740251201557
+###########################################################################
+Best estimator for 35281001_ech1 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.716545276974347
+###########################################################################
+Best estimator for 35281001_ech10 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2518452209986835
+###########################################################################
+Best estimator for 35281001_ech11 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2639057615904017
+###########################################################################
+Best estimator for 35281001_ech12 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2298084100882813
+###########################################################################
+Best estimator for 35281001_ech13 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.161967517763655
+###########################################################################
+Best estimator for 35281001_ech14 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4687031167862066
+###########################################################################
+Best estimator for 35281001_ech15 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4136456703982798
+###########################################################################
+Best estimator for 35281001_ech16 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3426421989764705
+###########################################################################
+Best estimator for 35281001_ech17 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1357009896514427
+###########################################################################
+Best estimator for 35281001_ech18 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1185108563080532
+###########################################################################
+Best estimator for 35281001_ech19 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0754068086396709
+###########################################################################
+Best estimator for 35281001_ech2 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.8793567627085717
+###########################################################################
+Best estimator for 35281001_ech20 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0482007547867906
+###########################################################################
+Best estimator for 35281001_ech21 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1066486297680256
+###########################################################################
+Best estimator for 35281001_ech22 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3257981590092554
+###########################################################################
+Best estimator for 35281001_ech23 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4776648102939804
+###########################################################################
+Best estimator for 35281001_ech24 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4559826914323866
+###########################################################################
+Best estimator for 35281001_ech25 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4885154888737233
+###########################################################################
+Best estimator for 35281001_ech26 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.421036452108372
+###########################################################################
+Best estimator for 35281001_ech27 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4063583439419969
+###########################################################################
+Best estimator for 35281001_ech28 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4712876864755415
+###########################################################################
+Best estimator for 35281001_ech29 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.5135485113512561
+###########################################################################
+Best estimator for 35281001_ech3 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9726616008522398
+###########################################################################
+Best estimator for 35281001_ech30 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2846494076134787
+###########################################################################
+Best estimator for 35281001_ech31 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3809813249773988
+###########################################################################
+Best estimator for 35281001_ech32 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.378870527254552
+###########################################################################
+Best estimator for 35281001_ech33 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2397822930866258
+###########################################################################
+Best estimator for 35281001_ech34 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3049200481825005
+###########################################################################
+Best estimator for 35281001_ech35 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3924903148012129
+###########################################################################
+Best estimator for 35281001_ech36 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4850398855858484
+###########################################################################
+Best estimator for 35281001_ech4 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.066405793130395
+###########################################################################
+Best estimator for 35281001_ech5 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0488136043140501
+###########################################################################
+Best estimator for 35281001_ech6 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0322269272296363
+###########################################################################
+Best estimator for 35281001_ech7 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0784933685449478
+###########################################################################
+Best estimator for 35281001_ech8 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1758320599012704
+###########################################################################
+Best estimator for 35281001_ech9 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1654550689497019
+###########################################################################
+Best estimator for 59343001_ech1 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.6704595005953071
+###########################################################################
+Best estimator for 59343001_ech10 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.110815527295992
+###########################################################################
+Best estimator for 59343001_ech11 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1648591106869082
+###########################################################################
+Best estimator for 59343001_ech12 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1644763055434446
+###########################################################################
+Best estimator for 59343001_ech13 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2359074114961455
+###########################################################################
+Best estimator for 59343001_ech14 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.38059118789155
+###########################################################################
+Best estimator for 59343001_ech15 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.31608386521114
+###########################################################################
+Best estimator for 59343001_ech16 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.261782318839866
+###########################################################################
+Best estimator for 59343001_ech17 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2045506216433806
+###########################################################################
+Best estimator for 59343001_ech18 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1814638484723707
+###########################################################################
+Best estimator for 59343001_ech19 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0955108373456302
+###########################################################################
+Best estimator for 59343001_ech2 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.7841250523976508
+###########################################################################
+Best estimator for 59343001_ech20 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1057894949113078
+###########################################################################
+Best estimator for 59343001_ech21 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1326506098170777
+###########################################################################
+Best estimator for 59343001_ech22 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0379048920607759
+###########################################################################
+Best estimator for 59343001_ech23 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0923782149979708
+###########################################################################
+Best estimator for 59343001_ech24 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1593365001161091
+###########################################################################
+Best estimator for 59343001_ech25 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1943671165588112
+###########################################################################
+Best estimator for 59343001_ech26 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2466909005775915
+###########################################################################
+Best estimator for 59343001_ech27 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2537346809644374
+###########################################################################
+Best estimator for 59343001_ech28 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2090900239826579
+###########################################################################
+Best estimator for 59343001_ech29 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1774762287506204
+###########################################################################
+Best estimator for 59343001_ech3 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.8746885042198773
+###########################################################################
+Best estimator for 59343001_ech30 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1140281844584008
+###########################################################################
+Best estimator for 59343001_ech31 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3950105809963458
+###########################################################################
+Best estimator for 59343001_ech32 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4684659716375665
+###########################################################################
+Best estimator for 59343001_ech33 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2435546218848104
+###########################################################################
+Best estimator for 59343001_ech34 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.269068726504457
+###########################################################################
+Best estimator for 59343001_ech35 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3594197492931959
+###########################################################################
+Best estimator for 59343001_ech36 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4240912293577093
+###########################################################################
+Best estimator for 59343001_ech4 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9257990255718002
+###########################################################################
+Best estimator for 59343001_ech5 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.8631784179951337
+###########################################################################
+Best estimator for 59343001_ech6 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.8733876113386908
+###########################################################################
+Best estimator for 59343001_ech7 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9176981968044546
+###########################################################################
+Best estimator for 59343001_ech8 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9312701350160794
+###########################################################################
+Best estimator for 59343001_ech9 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0357870388540984
+###########################################################################
+Best estimator for 6088001_ech1 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9653096626836223
+###########################################################################
+Best estimator for 6088001_ech10 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1287445802047256
+###########################################################################
+Best estimator for 6088001_ech11 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.094233087914595
+###########################################################################
+Best estimator for 6088001_ech12 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.173299021804931
+###########################################################################
+Best estimator for 6088001_ech13 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.127519275469364
+###########################################################################
+Best estimator for 6088001_ech14 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.123397814398688
+###########################################################################
+Best estimator for 6088001_ech15 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9182601472102073
+###########################################################################
+Best estimator for 6088001_ech16 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9866812526537433
+###########################################################################
+Best estimator for 6088001_ech17 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.021081933929999
+###########################################################################
+Best estimator for 6088001_ech18 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1214624297228293
+###########################################################################
+Best estimator for 6088001_ech19 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1684116651870695
+###########################################################################
+Best estimator for 6088001_ech2 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9674290271318208
+###########################################################################
+Best estimator for 6088001_ech20 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.180646569904999
+###########################################################################
+Best estimator for 6088001_ech21 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2592155977611104
+###########################################################################
+Best estimator for 6088001_ech22 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.138474435337469
+###########################################################################
+Best estimator for 6088001_ech23 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1473529549486976
+###########################################################################
+Best estimator for 6088001_ech24 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1871385861597092
+###########################################################################
+Best estimator for 6088001_ech25 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2074943317945277
+###########################################################################
+Best estimator for 6088001_ech26 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2166788808468854
+###########################################################################
+Best estimator for 6088001_ech27 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2030848975751147
+###########################################################################
+Best estimator for 6088001_ech28 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1211140351643105
+###########################################################################
+Best estimator for 6088001_ech29 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1183812417449883
+###########################################################################
+Best estimator for 6088001_ech3 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9060234118396508
+###########################################################################
+Best estimator for 6088001_ech30 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2074558470358163
+###########################################################################
+Best estimator for 6088001_ech31 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3995597101614443
+###########################################################################
+Best estimator for 6088001_ech32 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4369548466713813
+###########################################################################
+Best estimator for 6088001_ech33 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.5375415307488536
+###########################################################################
+Best estimator for 6088001_ech34 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.339406773612354
+###########################################################################
+Best estimator for 6088001_ech35 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.468093540422655
+###########################################################################
+Best estimator for 6088001_ech36 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4752344375583997
+###########################################################################
+Best estimator for 6088001_ech4 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9670175579985496
+###########################################################################
+Best estimator for 6088001_ech5 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9271353347361175
+###########################################################################
+Best estimator for 6088001_ech6 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.112789515747956
+###########################################################################
+Best estimator for 6088001_ech7 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0261587857111638
+###########################################################################
+Best estimator for 6088001_ech8 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1256234553732452
+###########################################################################
+Best estimator for 6088001_ech9 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1310221107137235
+###########################################################################
+Best estimator for 67124001_ech1 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1002862354536909
+###########################################################################
+Best estimator for 67124001_ech10 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1531591021692644
+###########################################################################
+Best estimator for 67124001_ech11 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.369553236031301
+###########################################################################
+Best estimator for 67124001_ech12 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3547766812884237
+###########################################################################
+Best estimator for 67124001_ech13 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.542033892736549
+###########################################################################
+Best estimator for 67124001_ech14 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.5715811436373452
+###########################################################################
+Best estimator for 67124001_ech15 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.5717183385363136
+###########################################################################
+Best estimator for 67124001_ech16 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4944826588573612
+###########################################################################
+Best estimator for 67124001_ech17 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.437324052648816
+###########################################################################
+Best estimator for 67124001_ech18 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3342766417683796
+###########################################################################
+Best estimator for 67124001_ech19 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3778902084652285
+###########################################################################
+Best estimator for 67124001_ech2 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1560172728982774
+###########################################################################
+Best estimator for 67124001_ech20 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.292839193710402
+###########################################################################
+Best estimator for 67124001_ech21 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4762441847419607
+###########################################################################
+Best estimator for 67124001_ech22 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.642890167329726
+###########################################################################
+Best estimator for 67124001_ech23 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.6405832420577027
+###########################################################################
+Best estimator for 67124001_ech24 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.5754784267381248
+###########################################################################
+Best estimator for 67124001_ech25 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.6432483014208252
+###########################################################################
+Best estimator for 67124001_ech26 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.6532508574939506
+###########################################################################
+Best estimator for 67124001_ech27 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.7352905607599107
+###########################################################################
+Best estimator for 67124001_ech28 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.6568734421834632
+###########################################################################
+Best estimator for 67124001_ech29 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.6278759392823725
+###########################################################################
+Best estimator for 67124001_ech3 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1475836627847982
+###########################################################################
+Best estimator for 67124001_ech30 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.5302692101101383
+###########################################################################
+Best estimator for 67124001_ech31 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.707892751715739
+###########################################################################
+Best estimator for 67124001_ech32 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.8268359834539774
+###########################################################################
+Best estimator for 67124001_ech33 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.6890396080775014
+###########################################################################
+Best estimator for 67124001_ech34 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.7132772757856565
+###########################################################################
+Best estimator for 67124001_ech35 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.811724673587811
+###########################################################################
+Best estimator for 67124001_ech36 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.8201742361230142
+###########################################################################
+Best estimator for 67124001_ech4 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1423951240846095
+###########################################################################
+Best estimator for 67124001_ech5 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1584453265614654
+###########################################################################
+Best estimator for 67124001_ech6 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1611693744351381
+###########################################################################
+Best estimator for 67124001_ech7 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1122206646737958
+###########################################################################
+Best estimator for 67124001_ech8 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1475025186113295
+###########################################################################
+Best estimator for 67124001_ech9 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1267978781085959
+###########################################################################
+Best estimator for 75114001_ech1 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.6006686241724367
+###########################################################################
+Best estimator for 75114001_ech10 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1293988804648607
+###########################################################################
+Best estimator for 75114001_ech11 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2417501219195624
+###########################################################################
+Best estimator for 75114001_ech12 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3181626667714297
+###########################################################################
+Best estimator for 75114001_ech13 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.4374264818513771
+###########################################################################
+Best estimator for 75114001_ech14 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3607577986492654
+###########################################################################
+Best estimator for 75114001_ech15 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3419163075990777
+###########################################################################
+Best estimator for 75114001_ech16 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.3436653474320082
+###########################################################################
+Best estimator for 75114001_ech17 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.166834580492516
+###########################################################################
+Best estimator for 75114001_ech18 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.145582865149032
+###########################################################################
+Best estimator for 75114001_ech19 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.07241542293283
+###########################################################################
+Best estimator for 75114001_ech2 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.6538915068660015
+###########################################################################
+Best estimator for 75114001_ech20 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0504522221273518
+###########################################################################
+Best estimator for 75114001_ech21 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9688984754814445
+###########################################################################
+Best estimator for 75114001_ech22 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0755610255543253
+###########################################################################
+Best estimator for 75114001_ech23 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.02336993990459
+###########################################################################
+Best estimator for 75114001_ech24 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0162361585615012
+###########################################################################
+Best estimator for 75114001_ech25 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0511468729356817
+###########################################################################
+Best estimator for 75114001_ech26 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.030719019333887
+###########################################################################
+Best estimator for 75114001_ech27 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0666083942386435
+###########################################################################
+Best estimator for 75114001_ech28 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0611898151556847
+###########################################################################
+Best estimator for 75114001_ech29 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0340766716032146
+###########################################################################
+Best estimator for 75114001_ech3 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.6884913708867001
+###########################################################################
+Best estimator for 75114001_ech30 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.0897257275237713
+###########################################################################
+Best estimator for 75114001_ech31 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1615631464838574
+###########################################################################
+Best estimator for 75114001_ech32 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.1029849920702115
+###########################################################################
+Best estimator for 75114001_ech33 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.2643622343691332
+###########################################################################
+Best estimator for 75114001_ech34 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.5201206987392455
+###########################################################################
+Best estimator for 75114001_ech35 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.6627807124775318
+###########################################################################
+Best estimator for 75114001_ech36 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.7984671776929126
+###########################################################################
+Best estimator for 75114001_ech4 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.7891519207370002
+###########################################################################
+Best estimator for 75114001_ech5 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.8098121442326822
+###########################################################################
+Best estimator for 75114001_ech6 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.8990717159503798
+###########################################################################
+Best estimator for 75114001_ech7 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 0.9812907088169263
+###########################################################################
+Best estimator for 75114001_ech8 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.008395623618814
+###########################################################################
+Best estimator for 75114001_ech9 :
+ GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='huber', max_depth=3,
+             max_features=None, max_leaf_nodes=None,
+             min_impurity_split=1e-07, min_samples_leaf=1,
+             min_samples_split=2, min_weight_fraction_leaf=0.0,
+             n_estimators=500, presort='auto', random_state=None,
+             subsample=0.8, verbose=0, warm_start=False)
+################################
+Best score : 1.140757779256858
+###########################################################################
+Nombre de modèles : 252
+Pire score : 1.8622498039617128
+Meilleur score : 0.6006686241724367
+Score moyen : 1.24122586419771
+Ecart type : 0.24406910211105903
+################################

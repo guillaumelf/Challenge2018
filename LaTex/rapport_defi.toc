@@ -28,8 +28,9 @@
 \contentsline {paragraph}{}{7}{section*.20}
 \contentsline {paragraph}{}{7}{section*.21}
 \contentsline {paragraph}{}{7}{section*.22}
-\contentsline {section}{\numberline {4}Analyse des corr\IeC {\'e}lations entre variables et visualisation}{8}{section.4}
+\contentsline {section}{\numberline {4}Analyse des corr\IeC {\'e}lations entre variables et visualisation}{7}{section.4}
 \contentsline {section}{\numberline {5}Gestion et remplacement des valeurs manquantes}{8}{section.5}
+\contentsline {paragraph}{}{8}{section*.23}
 \contentsline {section}{\numberline {6}Choix et application d'algorithmes d'apprentissage supervis\IeC {\'e}}{8}{section.6}
 \contentsline {subsection}{\numberline {6.1}Premiers algorithmes : la r\IeC {\'e}gression lin\IeC {\'e}aire et ses variantes}{8}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}For\IeC {\^e}t al\IeC {\'e}atoire : l'algorithme Random Forest}{8}{subsection.6.2}

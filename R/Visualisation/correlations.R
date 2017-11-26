@@ -130,7 +130,7 @@ ggplot(train)+aes(x=capeinsSOL0,y=tH2_obs)+geom_point()+
 
 ggplot(train)+aes(x=mois,y=tH2_obs)+geom_boxplot(aes(fill=mois))+
   scale_x_discrete(limits=c("janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre",
-                            "novembre","décembre"))
+                            "novembre","décembre"))+facet_wrap(~insee, nrow=2)
 
 ggplot(train)+aes(x=ddH10_rose4,y=tH2_obs)+geom_boxplot(aes(fill=ddH10_rose4))+facet_wrap(~insee, nrow=2)
 
@@ -159,10 +159,15 @@ ggplot(train)+aes(x=mois,y=flir1SOL0)+geom_boxplot(aes(fill=mois))+
 # focus sur fllat1SOL0 #
 ########################
 
+train$mois <- factor(train$mois, levels = c("janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre",
+                                            "novembre","décembre"))
 ggplot(train)+aes(x=ech,y=fllat1SOL0)+geom_boxplot(aes(fill=ech))+facet_wrap(~insee, nrow=2)
 ggplot(train)+aes(x=mois,y=fllat1SOL0)+geom_boxplot(aes(fill=mois))+
   scale_x_discrete(limits=c("janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre",
-                            "novembre","décembre"))+facet_wrap(~insee, nrow=2)
+                            "novembre","décembre"))+facet_wrap(~insee, nrow=2)+
+  ggtitle("Evolution de la variable fllat1SOL0 au cours du temps")+
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.text.x = element_blank())
 
 ########################
 # focus sur flsen1SOL0 #
