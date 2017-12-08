@@ -264,14 +264,31 @@ Il s'agit désormais d'utiliser la méthode de notre choix dans le but de trouve
 \section{Analyse des corrélations entre variables et visualisation}
 
 \newpage
-\section{Gestion et remplacement des valeurs manquantes}
+\section{Travail des données}
+\paragraph{}
+Avant de lancer différents algorithmes sur nos données, il est important de travailler sur des données \og propres \fg{}. Nous allons donc dans la suite détailler les différentes étapes de nettoyage et de tranformation de certaines données.
+\subsection{Gestion et remplacement des valeurs manquantes}
 \paragraph{}
 Une partie clé de cette étude aura été la gestion des valeurs manquantes. En effet, tous les fichiers $train\_H.csv$ $(H=1,..,36)$, en contiennent, ce qui nous a donc amené à nous poser les questions suivantes : faut-il éliminer les lignes contenant des \textit{NA} ? Faut-il remplacer ces valeurs manquantes ? Si oui, pour quelles variables, de quelle façon et à quel coût ? Nous allons détailler l'analyse qui nous a permis de répondre à ces différentes interrogations et de prendre nos décisions.
+\paragraph{}
+Premièrement nous avons regardé s'il était possible de remplacer les valeurs sur toutes les variables qui en contiennent dans nos données. Toutes les variables numériques (i.e qui ne sont pas des facteurs) en contiennent. Le graphe suivant nous montre l'erreur moyenne pour chaque variable après des tentatives d'imputation par \textbf{moyenne}, \textbf{médiane}, \textbf{10-NN}, \textbf{Random Forest} et \textbf{décalage temporel} (par exemple s'il manque une valeur pour la variable \textit{ux1H10} à Bordeaux le 20/06/2015 à l'échéance 1, on va remplacer cette valeur par celle de la même date et de la même station à l'échéance 2).
+
+\includegraphics[width=17cm]{Images/na_error.png}
+\begin{center}
+\captionof{figure}{L'imputation de certaines variables semble problématique}
+\label{fig1}
+\end{center}
+\paragraph{}
+Clairement, ce graphique fait ressortir un problème pour les variables \textbf{flir1SOL0}, \textbf{fllat1SOL0}, \textbf{flsen1SOL0}, \textbf{flvis1SOL0} et dans une moindre mesure pour les variables \textbf{hcoulimSOL0} et \textbf{capeinsSOL0}. Nous avons donc décider de ne pas remplacer les valeurs manquantes pour ces variables, puisque les remplacer pourrait potentiellement être pire pour la qualité de notre analyse.
+
+
 \includegraphics[width=17cm]{Images/err_imp.png}
 \begin{center}
 \captionof{figure}{Taux d'erreur des méthodes d'imputation testées}
 \label{fig1}
 \end{center}
+
+\subsection{Transformation de la date}
 
 \section{Choix et application d'algorithmes d'apprentissage supervisé}
 
@@ -285,10 +302,13 @@ Une partie clé de cette étude aura été la gestion des valeurs manquantes. En
 \paragraph{}
 Le Deep Learning permet de résoudre différents problèmes que nous pouvons rencontrer avec les réseaux de neurones comme la stabilité. Aujourd'hui il est souvent utilisé pour des problèmes divers avec des résultats parfois remarquable comme nous pouvons le voir avec le site de traduction DeepL, le plus abouti aujourd'hui pour le grand public ou encore pour des outils d'analyse des émotions par un visage photographié ou filmé.
 
-Le principe de base du modèle (montré dans l'image ci-dessous) est le neurone, un modèle d'inspiration biologique du neurone humain. Chez l'homme, les différents niveaux de puissance des signaux de sortie des neurones circulent le long des jonctions synaptiques et sont ensuite agrégés en entrée pour l'activation d'un neurone connecté. On appelle ce modèle le modèle \textbf{percptron}.
+Le principe de base du modèle (montré dans l'image ci-dessous) est le neurone, un modèle d'inspiration biologique du neurone humain. Chez l'homme, les différents niveaux de puissance des signaux de sortie des neurones circulent le long des jonctions synaptiques et sont ensuite agrégés en entrée pour l'activation d'un neurone connecté. On appelle ce modèle le modèle \textbf{perceptron}.
 
 Dans le modèle la combinaison pondérée, La fonction f représente la fonction d'activation non linéaire utilisée dans tout le réseau et le biais $\beta_{0} $ représente le seuil d'activation du neurone. :
+\begin{center}
 $y_{i}=f(\beta_{0} + \sum\limits_{j} \beta_{j}x_{i,j}) + \varepsilon_{i}$
+\end{center}
+
 
 \section{Bilan}
 

@@ -29,12 +29,18 @@
 \contentsline {paragraph}{}{7}{section*.21}
 \contentsline {paragraph}{}{7}{section*.22}
 \contentsline {section}{\numberline {4}Analyse des corr\IeC {\'e}lations entre variables et visualisation}{7}{section.4}
-\contentsline {section}{\numberline {5}Gestion et remplacement des valeurs manquantes}{8}{section.5}
+\contentsline {section}{\numberline {5}Travail des donn\IeC {\'e}es}{8}{section.5}
 \contentsline {paragraph}{}{8}{section*.23}
-\contentsline {section}{\numberline {6}Choix et application d'algorithmes d'apprentissage supervis\IeC {\'e}}{8}{section.6}
-\contentsline {subsection}{\numberline {6.1}Premiers algorithmes : la r\IeC {\'e}gression lin\IeC {\'e}aire et ses variantes}{8}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}For\IeC {\^e}t al\IeC {\'e}atoire : l'algorithme Random Forest}{8}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Gradient Boosting : l'algorithme XGBoost}{8}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Deep Learning : l'utilisation des r\IeC {\'e}seaux de neurones}{8}{subsection.6.4}
-\contentsline {section}{\numberline {7}Bilan}{8}{section.7}
-\contentsline {section}{\numberline {8}Bibliographie et sources}{8}{section.8}
+\contentsline {subsection}{\numberline {5.1}Gestion et remplacement des valeurs manquantes}{8}{subsection.5.1}
+\contentsline {paragraph}{}{8}{section*.24}
+\contentsline {paragraph}{}{8}{section*.25}
+\contentsline {paragraph}{}{8}{section*.26}
+\contentsline {subsection}{\numberline {5.2}Transformation de la date}{9}{subsection.5.2}
+\contentsline {section}{\numberline {6}Choix et application d'algorithmes d'apprentissage supervis\IeC {\'e}}{9}{section.6}
+\contentsline {subsection}{\numberline {6.1}Premiers algorithmes : la r\IeC {\'e}gression lin\IeC {\'e}aire et ses variantes}{9}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}For\IeC {\^e}t al\IeC {\'e}atoire : l'algorithme Random Forest}{9}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Gradient Boosting : l'algorithme XGBoost}{9}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Deep Learning : l'utilisation des r\IeC {\'e}seaux de neurones}{9}{subsection.6.4}
+\contentsline {paragraph}{}{9}{section*.27}
+\contentsline {section}{\numberline {7}Bilan}{9}{section.7}
+\contentsline {section}{\numberline {8}Bibliographie et sources}{9}{section.8}
