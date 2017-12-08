@@ -2,6 +2,18 @@
 ##### Imputation des NA dans les fichiers train par station #####
 #################################################################
 
+####################
+### 0. Préambule ###
+####################
+
+res_na <- read.csv("Python/Pre-processing/NA_imputation_methods_results.csv",header=TRUE,sep=";",row.names="X")[,-1]
+resume <- apply(res_na,MARGIN = 2,mean)
+df <- data.frame(variable = names(res_na),error = resume)
+library(ggplot2)
+ggplot(df)+aes(x=variable,y=error)+geom_bar(stat="identity",fill="blue")+
+  labs(title = "Erreur moyenne pour chaque variable")+
+  theme(plot.title = element_text(hjust = 0.5))
+
 ############################
 ### 1. Fonctions locales ###
 ############################
