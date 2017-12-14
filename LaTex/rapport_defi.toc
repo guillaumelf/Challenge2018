@@ -23,24 +23,28 @@
 \contentsline {paragraph}{}{6}{section*.16}
 \contentsline {paragraph}{}{6}{section*.17}
 \contentsline {paragraph}{}{6}{section*.18}
-\contentsline {paragraph}{}{6}{section*.19}
 \contentsline {subsubsection}{\numberline {3.3.3}La validation crois\IeC {\'e}e K-Fold}{7}{subsubsection.3.3.3}
+\contentsline {paragraph}{}{7}{section*.19}
 \contentsline {paragraph}{}{7}{section*.20}
 \contentsline {paragraph}{}{7}{section*.21}
-\contentsline {paragraph}{}{7}{section*.22}
 \contentsline {section}{\numberline {4}Analyse des corr\IeC {\'e}lations entre variables et visualisation}{7}{section.4}
 \contentsline {section}{\numberline {5}Travail des donn\IeC {\'e}es}{8}{section.5}
-\contentsline {paragraph}{}{8}{section*.23}
+\contentsline {paragraph}{}{8}{section*.22}
 \contentsline {subsection}{\numberline {5.1}Gestion et remplacement des valeurs manquantes}{8}{subsection.5.1}
+\contentsline {paragraph}{}{8}{section*.23}
 \contentsline {paragraph}{}{8}{section*.24}
 \contentsline {paragraph}{}{8}{section*.25}
 \contentsline {paragraph}{}{8}{section*.26}
-\contentsline {subsection}{\numberline {5.2}Transformation de la date}{9}{subsection.5.2}
-\contentsline {section}{\numberline {6}Choix et application d'algorithmes d'apprentissage supervis\IeC {\'e}}{9}{section.6}
-\contentsline {subsection}{\numberline {6.1}Premiers algorithmes : la r\IeC {\'e}gression lin\IeC {\'e}aire et ses variantes}{9}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}For\IeC {\^e}t al\IeC {\'e}atoire : l'algorithme Random Forest}{9}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Gradient Boosting : l'algorithme XGBoost}{9}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Deep Learning : l'utilisation des r\IeC {\'e}seaux de neurones}{9}{subsection.6.4}
 \contentsline {paragraph}{}{9}{section*.27}
-\contentsline {section}{\numberline {7}Bilan}{9}{section.7}
-\contentsline {section}{\numberline {8}Bibliographie et sources}{9}{section.8}
+\contentsline {subsection}{\numberline {5.2}Transformation de la date}{10}{subsection.5.2}
+\contentsline {paragraph}{}{10}{section*.28}
+\contentsline {paragraph}{}{10}{section*.29}
+\contentsline {paragraph}{}{10}{section*.30}
+\contentsline {section}{\numberline {6}Choix et application d'algorithmes d'apprentissage supervis\IeC {\'e}}{11}{section.6}
+\contentsline {subsection}{\numberline {6.1}Premiers algorithmes : la r\IeC {\'e}gression lin\IeC {\'e}aire et ses variantes}{11}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}For\IeC {\^e}t al\IeC {\'e}atoire : l'algorithme Random Forest}{11}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Boosting : l'algorithme XGBoost}{11}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Deep Learning : l'utilisation des r\IeC {\'e}seaux de neurones}{11}{subsection.6.4}
+\contentsline {paragraph}{}{11}{section*.31}
+\contentsline {section}{\numberline {7}Bilan}{11}{section.7}
+\contentsline {section}{\numberline {8}Bibliographie et sources}{11}{section.8}

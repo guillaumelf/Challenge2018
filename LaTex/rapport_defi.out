@@ -14,7 +14,7 @@
 \BOOKMARK [1][-]{section.6}{Choix et application d'algorithmes d'apprentissage supervis\351}{}% 14
 \BOOKMARK [2][-]{subsection.6.1}{Premiers algorithmes : la r\351gression lin\351aire et ses variantes}{section.6}% 15
 \BOOKMARK [2][-]{subsection.6.2}{For\352t al\351atoire : l'algorithme Random Forest}{section.6}% 16
-\BOOKMARK [2][-]{subsection.6.3}{Gradient Boosting : l'algorithme XGBoost}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.3}{Boosting : l'algorithme XGBoost}{section.6}% 17
 \BOOKMARK [2][-]{subsection.6.4}{Deep Learning : l'utilisation des r\351seaux de neurones}{section.6}% 18
 \BOOKMARK [1][-]{section.7}{Bilan}{}% 19
 \BOOKMARK [1][-]{section.8}{Bibliographie et sources}{}% 20

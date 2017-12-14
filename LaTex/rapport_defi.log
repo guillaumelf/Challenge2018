@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  8 DEC 2017 10:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  14 DEC 2017 12:03
 entering extended mode
 **./rapport_defi.tex
 (rapport_defi.tex
@@ -892,6 +892,9 @@ LaTeX Warning: Label `fig1' multiply defined.
 
 LaTeX Warning: Label `fig1' multiply defined.
 
+
+LaTeX Warning: Label `fig1' multiply defined.
+
 )
 \openout1 = `rapport_defi.aux'.
 
@@ -1144,7 +1147,7 @@ LaTeX Font Info:    Try loading font information for U+dsrom on input line 213.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\doublestroke\udsrom.fd"
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [5 <./Images/overfitting.png>] <Images/hold_out.png, id=168, 806.26219pt x 21
+) [5 <./Images/overfitting.png>] <Images/hold_out.png, id=167, 806.26219pt x 21
 9.82124pt>
 File: Images/hold_out.png Graphic file (type png)
 
@@ -1162,36 +1165,36 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [6 <./Images/hold_out.png>]
-<Images/k_fold.jpg, id=182, 527.9725pt x 262.9825pt>
+<Images/k_fold.jpg, id=181, 527.9725pt x 262.9825pt>
 File: Images/k_fold.jpg Graphic file (type jpg)
  <use Images/k_fold.jpg>
-Package pdftex.def Info: Images/k_fold.jpg used on input line 257.
+Package pdftex.def Info: Images/k_fold.jpg used on input line 265.
 (pdftex.def)             Requested size: 483.69684pt x 240.92757pt.
 
-Overfull \hbox (9.99997pt too wide) in paragraph at lines 257--258
+Overfull \hbox (9.99997pt too wide) in paragraph at lines 265--266
  [][] [] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 259.
+(caption)                particular \caption on input line 267.
 See the caption package documentation for explanation.
 
 [7 <./Images/k_fold.jpg>]
-<Images/na_error.png, id=191, 1370.11874pt x 501.37312pt>
+<Images/na_error.png, id=190, 1370.11874pt x 501.37312pt>
 File: Images/na_error.png Graphic file (type png)
 
 <use Images/na_error.png>
-Package pdftex.def Info: Images/na_error.png used on input line 276.
+Package pdftex.def Info: Images/na_error.png used on input line 284.
 (pdftex.def)             Requested size: 483.69684pt x 176.99797pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 278.
+(caption)                particular \caption on input line 286.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (4.22676pt too wide) in paragraph at lines 282--283
+Overfull \hbox (4.22676pt too wide) in paragraph at lines 290--291
  [][] \T1/LinuxLibertineT-TLF/m/n/10 Clai-re-ment, ce gra-phique fait res-sor-t
 ir un pro-blème pour les va-riables \T1/LinuxLibertineT-TLF/b/n/10 flir1SOL0\T1
 /LinuxLibertineT-TLF/m/n/10 , \T1/LinuxLibertineT-TLF/b/n/10 fl-lat1SOL0\T1/Lin
@@ -1199,40 +1202,54 @@ uxLibertineT-TLF/m/n/10 , \T1/LinuxLibertineT-TLF/b/n/10 fl-sen1SOL0\T1/LinuxLi
 bertineT-TLF/m/n/10 , \T1/LinuxLibertineT-TLF/b/n/10 fl-vis1SOL0
  []
 
-<Images/err_imp.png, id=192, 756.57657pt x 432.86719pt>
+[8 <./Images/na_error.png>]
+<Images/err_imp.png, id=202, 756.57657pt x 432.86719pt>
 File: Images/err_imp.png Graphic file (type png)
 
 <use Images/err_imp.png>
-Package pdftex.def Info: Images/err_imp.png used on input line 285.
+Package pdftex.def Info: Images/err_imp.png used on input line 306.
 (pdftex.def)             Requested size: 483.69684pt x 276.74342pt.
- [8 <./Images/na_error.png>]
+
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 287.
+(caption)                particular \caption on input line 308.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 322.
 [9 <./Images/err_imp.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 322.
+<Images/date.png, id=210, 875.52094pt x 405.76593pt>
+File: Images/date.png Graphic file (type png)
+ <use Images/date.png>
+Package pdftex.def Info: Images/date.png used on input line 333.
+(pdftex.def)             Requested size: 483.69684pt x 224.17497pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 335.
+See the caption package documentation for explanation.
+
+[10 <./Images/date.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 369.
+ [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 369.
  (rapport_defi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 322.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 322.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 369.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 369.
 Package rerunfilecheck Info: File `rapport_defi.out' has not changed.
-(rerunfilecheck)             Checksum: D3D3530982440BDC69512BD375226584;1636.
+(rerunfilecheck)             Checksum: DDC97739912EBBBC81E12E70172B6848;1627.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 322.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 369.
  ) 
 Here is how much of TeX's memory you used:
- 11394 strings out of 493323
- 172964 string characters out of 3139054
- 265689 words of memory out of 3000000
- 14677 multiletter control sequences out of 15000+200000
+ 11406 strings out of 493323
+ 173128 string characters out of 3139054
+ 265718 words of memory out of 3000000
+ 14682 multiletter control sequences out of 15000+200000
  82264 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,9n,92p,784b,507s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 53i,9n,92p,852b,507s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{C:/Pr
 ogram Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{C:/Program Fi
 les/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{C:/Program Files/MiKT
@@ -1252,9 +1269,9 @@ pe1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/doubles
 troke/dsrom10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symb
 ols/msbm10.pfb>
-Output written on rapport_defi.pdf (10 pages, 888954 bytes).
+Output written on rapport_defi.pdf (12 pages, 907858 bytes).
 PDF statistics:
- 281 PDF objects out of 1000 (max. 8388607)
- 63 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 297 PDF objects out of 1000 (max. 8388607)
+ 70 named destinations out of 1000 (max. 500000)
+ 211 words of extra memory for PDF output out of 10000 (max. 10000000)
 

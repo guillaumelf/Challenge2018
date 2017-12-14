@@ -210,16 +210,16 @@ En théorie, il faudrait minimiser la quantité appelée \textbf{risque} (ou enc
 $\mathcal{R}_P(f) = \mathbb{E}_{(X,Y)}[l(Y,f(X))]$ avec $l$ que l'on appelle \textbf{fonction de perte} et qui a pour expression :
 \begin{itemize}
 \item $l(y,y') = |y-y'|^q$ en régression réelle (on prendra souvent la perte \textit{quadratique}, c'est-à-dire lorsque $q=2$)
-\item $l(y,y') = \mathds{1}_{y \neq y'} = \frac{|y-y'|}{2} = \frac{|y-y'|^2}{4}$ en discrimination binaire.
+\item $l(y,y') = \mathds{1}_{y \neq y'}$ en discrimination binaire.
 \end{itemize}
 \paragraph{}
-Cependant en pratique, il nous est impossible de calculer le \textbf{risque}. Il faut donc l'estimer et chercher à minimiser cette quantité estimée par la suite. Une première approche naturelle serait d'utiliser le risque empirique, c'est-à-dire d'estimer l'espérance de la fonction de perte par la moyenne empirique de cette même fonction. Le \textbf{risque empirique} d'un algorithme de prédiction $f_{D^{n}_{1}}$ construit sur $D^{n}_{1}$ se note de la façon suivante :
+Cependant en pratique, il nous est impossible de calculer le \textbf{risque}, $P$ étant inconnue. Il faut donc l'estimer et chercher à minimiser cette quantité estimée par la suite. Une première approche naturelle serait d'utiliser le risque empirique, c'est-à-dire d'estimer l'espérance de la fonction de perte par la moyenne empirique de cette même fonction. Le \textbf{risque empirique} d'un algorithme de prédiction $f_{D^{n}_{1}}$ construit sur $D^{n}_{1}$ se note de la façon suivante :
 \begin{center}
 $\widehat{\mathcal{R}}_n(f_{D^{n}_{1}}) = \frac{1}{n} \sum\limits_{i=1}^n l(Y_i,f_{D^{n}_{1}}(X_i))$
 \end{center}
 
 \paragraph{}
-Le problème de cet estimateur est l'absence d'indépendance : en effet, pour effectuer nos prédictions on se sert des mêmes données qui ont servi à faire l'algorithme d'apprentissage. En ce sens, notre algorithme risque de trop \og coller \fg{} aux données d'apprentissage, puisqu'il aura acquis l'information à partir de ces données il sera capable de bien prédire la variable réponse, mais risque de ne pas être aussi performant à l'avenir sur un nouveau jeu de données. C'est ce qu'on nous avons défini comme étant l'\textit{overfitting}. C'est donc pour corriger ce problème que nous allons avoir recours à une autre méthode d'estimation du \textbf{risque}, qui est meilleure : la \textbf{validation croisée}.
+Le problème de cet estimateur est l'absence d'indépendance : en effet, pour effectuer ses prédictions il se sert des mêmes données qui ont servi à faire l'algorithme d'apprentissage. En ce sens, notre algorithme risque de trop \og coller \fg{} aux données d'apprentissage, puisqu'il aura acquis l'information à partir de ces données il sera capable de bien prédire la variable réponse, mais risque de ne pas être aussi performant à l'avenir sur un nouveau jeu de données. C'est ce qu'on nous avons défini comme étant l'\textit{overfitting}. C'est donc pour corriger ce problème que nous allons avoir recours à d'autres méthodes d'estimation du \textbf{risque}, qui sont meilleures : les méthodes de \textbf{validation croisée}.
 
 \subsubsection{La validation croisée Hold-Out}
 \paragraph{}
@@ -238,8 +238,10 @@ Ensuite on \og nourrit \fg{} notre algorithme à partir des données contenues d
 \end{center}
 \paragraph{}
 De façon mathématique, cet estimateur du risque se définit de la façon suivante :
-\paragraph{}
-$\widehat{\mathcal{R}}(f_{D^{n}_{1}}) = \frac{1}{|\mathcal{V}|} \sum\limits_{i \in \mathcal{V}} l(y_i,f_{d_{\mathcal{A}}}(x_i))$ avec $|\mathcal{V}|$ le cardinal de $\mathcal{V}$ (autrement dit, le nombre de lignes de l'échantillon de validation).
+\begin{center}
+$\widehat{\mathcal{R}}(f_{D^{n}_{1}}) = \frac{1}{|\mathcal{V}|} \sum\limits_{(x_i,y_i) \in \mathcal{V}} l(y_i,f_{\mathcal{A}}(x_i))$
+\end{center}
+ avec $|\mathcal{V}|$ le cardinal de $\mathcal{V}$ (autrement dit, le nombre de lignes de l'échantillon de validation) et $f_{\mathcal{A}}(x_i)$ les prédictions de l'algorithme $f$ sur les observations $x_i \in \mathcal{A}$, l'échantillon d'apprentissage.
 \paragraph{}
 Dans le cadre de nos travaux, l'utilisation de cette méthode va nous permettre de gagner du temps si l'on utilise la matrice de travail contenant toutes les stations. La méthode suivante que nous allons présenter prendra plus de temps mais peut apporter plus de stabilité dans les résultats.
 \newpage
@@ -247,11 +249,17 @@ Dans le cadre de nos travaux, l'utilisation de cette méthode va nous permettre 
 \paragraph{}
 La validation croisée \textbf{K-Fold} est une variante de la méthode vue précédemment, qui on le rappelle était adaptée aux jeux de données de taille suffisamment grande. Cependant sur des jeux de données plus petits, comme c'est le cas de nos fichiers par station qui font environ $27000$ lignes chacun,ce type de validation croisée peut également s'avérer efficace. Le fonctionnement de cette méthode itérative est le suivant :
 \begin{itemize}
-\item On procède à une partition de notre échantillon en $K$ blocs équilibrés : $B_1,...,B_K$ auxquels sont associés des tailles $n_1,...,n_K$. (En pratique on prend $K=10$ quand la taille des données le permet)
-\item On note $d_{B_i}=\{(x_j,y_j), j \in B_i\}$ le $i^{eme}$ bloc  de l'échantillon $d^{n}_{1}$. Pour chaque itération $i = 1,...,K$ on laisse de côté les données de $B_i$ pour faire notre apprentissage sur les $K$-1 blocs restants.
-\item On teste la performance de notre règle de prédiction sur le bloc $B_i$ pour obtenir une estimation du risque à l'itération $i$ que l'on note : \\ $\widehat{\mathcal{R}}_i = \frac{1}{n_i} \sum\limits_{j \in B_i} l(y_j,f_{d^{n}_{1}} \backslash d_{B_i}(x_j))$
-\item Enfin, après avoir procédé à toutes les itérations, on calcule la véritable estimation du risque en faisant la moyenne des risques calculés à chaque itération :\\
+\item On procède à une partition de notre échantillon en $K$ blocs équilibrés : $B_1,...,B_K$ auxquels sont associés des tailles $n_1,...,n_K$. (En pratique on prend $K=10$ quand la taille des données le permet, sinon on se contente de 5 blocs)
+\item On note $d_{B_i}=\{(x_j,y_j), j \in B_i\}$ le $i^{eme}$ bloc  de l'échantillon $d^{n}_{1}$. Pour chaque itération $i = 1,...,K$ on laisse de côté les données de $B_i$ pour faire notre apprentissage sur les $K$-1 blocs restants
+\item On teste la performance de notre règle de prédiction sur le bloc $B_i$ pour obtenir une estimation du risque à l'itération $i$ que l'on note :
+\begin{center}
+$\widehat{\mathcal{R}}_i = \frac{1}{n_i} \sum\limits_{j \in B_i} l(y_j,f_{d^{n}_{1}\backslash d_{B_i}}(x_j))$
+\end{center}
+avec $f_{d^{n}_{1}\backslash d_{B_i}}(x_j)$ l'algorithme de prédiction $f$ appliqué aux observations $x_j$ telles que $x_j$ n'appartiennent pas à $d_{B_i}$
+\item Enfin, après avoir procédé à toutes les itérations, on calcule la véritable estimation du risque en faisant la moyenne des estimations du risque calculées à chaque itération :
+\begin{center}
 $\widehat{\mathcal{R}}(f_{D^{n}_{1}}) = \frac{1}{K} \sum\limits_{i=1}^K \widehat{\mathcal{R}}_i$
+\end{center}
 \end{itemize}
 \paragraph{}
 \includegraphics[width=17cm]{Images/k_fold.jpg}
@@ -271,7 +279,7 @@ Avant de lancer différents algorithmes sur nos données, il est important de tr
 \paragraph{}
 Une partie clé de cette étude aura été la gestion des valeurs manquantes. En effet, tous les fichiers $train\_H.csv$ $(H=1,..,36)$, en contiennent, ce qui nous a donc amené à nous poser les questions suivantes : faut-il éliminer les lignes contenant des \textit{NA} ? Faut-il remplacer ces valeurs manquantes ? Si oui, pour quelles variables, de quelle façon et à quel coût ? Nous allons détailler l'analyse qui nous a permis de répondre à ces différentes interrogations et de prendre nos décisions.
 \paragraph{}
-Premièrement nous avons regardé s'il était possible de remplacer les valeurs sur toutes les variables qui en contiennent dans nos données. Toutes les variables numériques (i.e qui ne sont pas des facteurs) en contiennent. Le graphe suivant nous montre l'erreur moyenne pour chaque variable après des tentatives d'imputation par \textbf{moyenne}, \textbf{médiane}, \textbf{10-NN}, \textbf{Random Forest} et \textbf{décalage temporel} (par exemple s'il manque une valeur pour la variable \textit{ux1H10} à Bordeaux le 20/06/2015 à l'échéance 1, on va remplacer cette valeur par celle de la même date et de la même station à l'échéance 2).
+Premièrement nous avons regardé s'il était possible de remplacer les valeurs sur toutes les variables qui en contiennent dans nos données. Toutes les variables numériques (i.e qui ne sont pas des facteurs) présentent des valeurs manquantes. Le graphe suivant nous montre l'erreur moyenne pour chaque variable après des tentatives d'imputation par \textbf{moyenne}, \textbf{médiane}, \textbf{10-NN}, \textbf{Random Forest} et \textbf{décalage temporel} (par exemple s'il manque une valeur pour la variable \textit{ux1H10} à Bordeaux le 20/06/2015 à l'échéance 1, on va remplacer cette valeur par celle de la même date et de la même station à l'échéance 2).
 
 \includegraphics[width=17cm]{Images/na_error.png}
 \begin{center}
@@ -279,24 +287,63 @@ Premièrement nous avons regardé s'il était possible de remplacer les valeurs 
 \label{fig1}
 \end{center}
 \paragraph{}
-Clairement, ce graphique fait ressortir un problème pour les variables \textbf{flir1SOL0}, \textbf{fllat1SOL0}, \textbf{flsen1SOL0}, \textbf{flvis1SOL0} et dans une moindre mesure pour les variables \textbf{hcoulimSOL0} et \textbf{capeinsSOL0}. Nous avons donc décider de ne pas remplacer les valeurs manquantes pour ces variables, puisque les remplacer pourrait potentiellement être pire pour la qualité de notre analyse.
-
+Clairement, ce graphique fait ressortir un problème pour les variables \textbf{flir1SOL0}, \textbf{fllat1SOL0}, \textbf{flsen1SOL0}, \textbf{flvis1SOL0} et dans une moindre mesure pour les variables \textbf{hcoulimSOL0} et \textbf{capeinsSOL0}. Nous avons donc décider de ne pas remplacer les valeurs manquantes pour ces variables, puisque les remplacer pourrait potentiellement fausser la qualité de notre analyse.
+\paragraph{}
+Suite à ce constat, nous allons donc nous pencher plus en détail sur les variables restantes en testant plusieurs méthodes d'imputation de valeurs. Pour réaliser nos tests, nous avons sélectionné les lignes complètes du fichier regroupant les observations pour la station de Toulouse, puis nous avons tiré 2000 lignes de façon aléatoire et sans remise pour former notre échantillon de test. Ensuite, nous avons créé une copie de ce sous-échantillon dans lequel nous avons remplacé 50\% des valeurs par des valeurs manquantes, encore une fois de façon aléatoire. Il ne reste plus qu'à tester différentes méthodes et les comparer.
+\newpage
+Parmi les méthodes d'imputation essayées, nous retrouvons :
+\begin{itemize}
+\item L'imputation \textbf{LOCF} (Last Observation Carry Forward) qui est similaire à notre décalage temporel sauf que l'on considère la dernière observation pour effectuer le remplacement
+\item L'imputation par la \textbf{moyenne}
+\item L'imputation par la \textbf{médiane}
+\item L'imputation par les \textbf{k-plus-proches-voisins} ($k=5$ ici)
+\item L'imputation \textbf{LOESS} (\textbf{LO}cal regr\textbf{ESS}ion) dont le principe se base sur l'ajustement d'un polynôme de degré faible autour de la donnée manquante par moindres carrés pondérés, en donnant plus de poids aux valeurs proches de la donnée manquante
+\item L'imputation par l'algorithme \textbf{SVD} (décomposition en valeurs singulières)
+\item L'imputation \textbf{missForest} basée sur les forêts aléatoires, dont le fonctionnement sera détaillé plus loin dans ce rapport
+\item L'imputation par l'algorithme \textbf{AMELIA II} : Pour chaque tirage, les données sont estimées par bootstrap pour simuler l'incertitude puis l'algorithme EM est exécuté pour trouver l'estimateur a posteriori $\Theta_{MAP}$ pour les données bootstrap.
+\end{itemize}
 
 \includegraphics[width=17cm]{Images/err_imp.png}
 \begin{center}
 \captionof{figure}{Taux d'erreur des méthodes d'imputation testées}
 \label{fig1}
 \end{center}
-
+\paragraph{}
+Le graphe précédent nous permet d'observer que c'est la méthode \textbf{missForest} qui nous procure le moins d'erreur, c'est donc celle-là que nous avons choisi. L'imputation s'est faite par station, pour les raisons exposées dans la partie \og \textbf{Structuration des données} \fg{}.
+\newpage 
 \subsection{Transformation de la date}
-
+\paragraph{}
+Si l'on demandait à une personne de prédire la température, intuitivement la date va forcément faire partie des variables déterminantes dans sa décision. Il paraît évident que l'on ne va pas prédire la même température pour un 15 janvier que pour un 15 juillet. En revanche, on pourrait être tenté de prédire environ la même température pour un 15 avril et pour un 15 octobre, le printemps et l'automne étant assez similaires selon ce critère de température. En revanche, l'été et l'hiver s'opposent. On saisit donc que la variable date va avoir son importance dans l'explication de la température, seulement cette information n'est pas exploitable de façon brute : il va falloir la transformer. Comment choisir cette transformation ? Les critères suivants peuvent nous aider :
+\begin{itemize}
+\item La transformation doit être capable de représenter l'opposition entre l'hiver et l'été, tout en tenant compte du caractère similaire de l'automne et du printemps
+\item Elle doit également prendre en compte le fait que le $31$ décembre d'une année et le $1^{er}$ janvier de l'année suivante sont 2 jours similaires
+\item La saisonnalité est un phénomène périodique, il faut donc représenter cet aspect dans la transformation
+\end{itemize}
+\paragraph{}
+Après avoir énuméré ces différents critères, on peut avoir l'intuition que cette transformation à une forme sinusoïdale, plus particulièrement on peut choisir le \textbf{cosinus}. En effet, avec une telle représentation on pourrait respecter tous les critères énoncés précédemment. L'objectif va être d'associer à chaque date une coordonnée qui représente au mieux sa position dans l'année, par exemple quand on se situe au cœur de l'été on aura une coordonnée proche de 1, et inversement au cœur de l'hiver avec -1. Pour effectuer un tel codage, on procède de la façon suivante :
+\begin{itemize}
+\item on fixe le point de départ au 07/08/2013 : point central de l'été 2013. On attribue 0 comme coordonnée à ce point puisque $cos(0)=1$
+\item la coordonnée de la date suivante est incrémentée d'un pas régulier tel que :
+\begin{center}
+$t_{i+1}=t_{i}+ \frac{2\pi}{N}$
+\end{center}
+où $N$ correspond au nombre de jours que contient chaque année (cette étude contient une année bissextile dont il a fallu prendre compte)
+\item enfin, il ne reste plus qu'à prendre le cosinus de chaque coordonnée et l'on obtient la représentation qui suit :
+\end{itemize}
+\includegraphics[width=17cm]{Images/date.png}
+\begin{center}
+\captionof{figure}{A chaque date correspond une coordonnée indiquant sa position dans la saison}
+\label{fig1}
+\end{center}
+\paragraph{}
+Les transformations et ajustements étant faits, nous pouvons à présent démarrer la partie de modélisation dans le but de prédire les températures.
 \section{Choix et application d'algorithmes d'apprentissage supervisé}
 
 \subsection{Premiers algorithmes : la régression linéaire et ses variantes}
 
 \subsection{Forêt aléatoire : l'algorithme Random Forest}
 
-\subsection{Gradient Boosting : l'algorithme XGBoost}
+\subsection{Boosting : l'algorithme XGBoost}
 
 \subsection{Deep Learning : l'utilisation des réseaux de neurones}
 \paragraph{}
