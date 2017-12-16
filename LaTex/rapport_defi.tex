@@ -14,6 +14,18 @@
 \usepackage{enumitem} %Pour modifier les puces
 \usepackage{caption}
 \usepackage{dsfont}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+%%% francisation des algorithmes :
+\renewcommand{\algorithmicrequire}{\textbf{Entrées : }}
+\renewcommand{\algorithmicensure}{\textbf{Sortie : }}
+\renewcommand{\algorithmicreturn}{\textbf{Retourner}}
+\renewcommand{\algorithmicwhile}{\textbf{tant que}}
+\renewcommand{\algorithmicdo}{\textbf{}}
+\renewcommand{\algorithmicfor}{\textbf{Pour}}
+\renewcommand{\algorithmicendfor}{\textbf{Fin pour}}
+\renewcommand{\algorithmicendwhile}{\textbf{Fin du \og Tant que\fg }}
+
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash }b{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash }b{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash }b{#1}}
@@ -338,11 +350,77 @@ où $N$ correspond au nombre de jours que contient chaque année (cette étude c
 \paragraph{}
 Les transformations et ajustements étant faits, nous pouvons à présent démarrer la partie de modélisation dans le but de prédire les températures.
 \section{Choix et application d'algorithmes d'apprentissage supervisé}
-
+\paragraph{}
+Dans cette section, nous allons détailler les différents algorithmes que nous avons utilisé pour modéliser les données et effectuer nos prédictions. Le schéma sera le suivant pour chaque algorithme :
+\begin{itemize}
+\item Présentation du fonctionnement de l'algorithme et de ses propriétés théoriques
+\item Présentation des meilleurs résultats obtenus avec l'algorithme et des hyper-paramètres correspondants
+\end{itemize}
+\paragraph{}
+Nous rappelons également au passage que pour optimiser la performance, le critère à minimiser sera l'erreur quadratique moyenne de notre estimateur que l'on peut exprimer de la façon suivante, si l'on note $\hat{\Theta}$ notre estimateur du paramètre $\Theta$ (la température \textbf{tH2\_obs}) :
+\begin{center}
+$MSE(\hat{\Theta})=\mathbb{E}[(\hat{\Theta}-\Theta)^2]$
+\end{center}
+Que l'on peut encore décomposer comme étant :
+\begin{center}
+$MSE(\hat{\Theta})=Biais(\hat{\Theta})^2+Var(\hat{\Theta})$
+\end{center}
+C'est donc sur ces deux aspects que nous allons tenter de jouer par la suite. Afin d'obtenir la \og meilleure \fg{} performance possible, il faudra trouver le \og meilleur \fg{} compromis biais/variance.
 \subsection{Premiers algorithmes : la régression linéaire et ses variantes}
 
 \subsection{Forêt aléatoire : l'algorithme Random Forest}
+\subsubsection{Rappels sur le fonctionnement de la méthode CART}
+\paragraph{}
+Une façon simple de modéliser des données peut être d'utiliser un arbre de décision \textbf{CART} (\textbf{C}lassification \textbf{A}nd \textbf{R}egression \textbf{T}ree). C'est un algorithme de prédiction par moyenne locale, par partition, dont la partition est construite par divisions successives au moyen d'hyperplans orthogonaux aux axes du nœud racine $\mathfrak{X}=\mathbb{R}^{p}$, dépendant des $(X_i,Y_i)$. Chaque division est effectuée à partir du choix conjoint d'une variable explicative et d'une valeur seuil pour cette variable, de sorte que la découpe effectuée minimise la variance en régression ou l'impureté dans le nœud en discrimination.
 
+\includegraphics[width=17cm]{Images/cart.png}
+\begin{center}
+\captionof{figure}{Illustration de l'algorithme CART pour un problème de discrimination binaire dans $\mathbb{R}^2$}
+\label{fig1}
+\end{center}
+\paragraph{}
+\paragraph{}
+Néanmoins cet algorithme pose le problème majeur d'être très instable (fléau de la dimension et sensibilité à l'échantillon). C'est donc pour palier à ce problème que nous allons utiliser l'algorithme de forêt aléatoire \textbf{Random Input}. Comme son nom l'indique, cette méthode consiste en une agrégation d'arbres : c'est un algorithme de \textbf{Bagging} (\textbf{B}ootsrap \textbf{agg}regat\textbf{ing}). 
+\subsubsection{Le bagging}
+Le \textbf{bagging} s'applique à des algorithmes instables, de variance forte, ce qui est le cas des arbres \textbf{CART}. En utilisant un algorithme de \textbf{bagging}, le but va justement être de réduire la variance (quitte à introduire un petit peu plus de biais).
+En régression, on va agréger \textbf{B} algorithmes $\hat{\eta_1},...,\hat{\eta_B}$ sous la forme :
+\begin{center}
+$\hat{\eta}(x)=\frac{1}{B}\sum\limits_{b=1}^B \hat{\eta_b}(x)$
+\end{center}
+Cependant en pratique ces algorithmes ne peuvent pas être i.i.d puisqu'ils sont construits sur le même échantillon $D^{n}_{1}$, et si l'on note $\rho(x)$ le coefficient de corrélation entre $\hat{\eta_b}$ et $\hat{\eta_{b'}}$ on a la relation suivante :
+\begin{center}
+$Var(\hat{\eta}(x))=\rho(x)Var(\hat{\eta_b}(x))+\frac{1-\rho(x)}{B}Var(\hat{\eta_b}(x))$\\
+\medskip
+d'où il vient : $\lim_{B \to \infty} Var(\hat{\eta}(x)) = \rho(x)Var(\hat{\eta_b}(x))$
+\end{center}
+Cela illustre donc le fait que le bagging va réduire la variance de l'estimateur. En revanche, on introduit un terme de corrélation : la solution de \textbf{Breiman} pour construire des algorithmes peut corrélés entre eux consiste à utiliser non pas l'échantillon $D^{n}_{1}$ mais plutôt des échantillons \textbf{bootstrap} de $D^{n}_{1}$, c'est-à-dire que l'on va tirer de façon aléatoire et avec remise des lignes parmi l'échantillon $D^{n}_{1}$.
+\subsubsection{L'algorithme Random Forest RI}
+L'algorithme de de forêt aléatoire Random Input est donc une variante de la méthode CART qui s'appuie sur les techniques de bagging. Son fonctionnement est le suivant :\\
+\begin{algorithm}
+\caption{Random Forest RI}
+\begin{algorithmic}
+\REQUIRE 
+\STATE $x$ : l'entrée dont on veut prédire la sortie
+\STATE $d^{n}_{1}$ : l'échantillon observé
+\STATE $m$ : le nombre de variables explicatives sélectionnées à chaque nœud
+\STATE $B$ : le nombre d'itérations
+\FOR {b variant de 1 à B}
+\STATE Tirer un échantillon bootstrap $d^{*b}$ de $d^{n}_{1}$
+\STATE Construire un arbre maximal $\hat{\eta_b}$ sur l'échantillon bootstrap $d^{*b}$ par la variante de CART
+\FOR {chaque nœud variant de 1 à $N_b$}
+\STATE Tirer un sous-échantillon de $m$ variables explicatives
+\STATE Partitionner le nœud à partir de la \og meilleure \fg{} de ces $m$ variables
+\ENDFOR
+\ENDFOR
+\RETURN $\frac{1}{B}\sum\limits_{b=1}^B \hat{\eta_b}(x)$ .
+\end{algorithmic}
+\end{algorithm}
+\paragraph{}
+Il faudra donc calibrer plusieurs hyper-paramètres pour cette méthode : le nombre d'itérations \textbf{B} qui comme on l'a vu précédemment permet de réduire la variance lorsqu'il est grand, et le nombre $m$ de variables explicatives sélectionnées à chaque nœud. Pour cela, nous pouvons utiliser plusieurs méthodes de validation croisée présentées auparavant ou bien encore la méthode \textbf{Out Of Bag} qui consiste à tester l'algorithme sur les observations n'appartenant pas à l'échantillon bootstrap $d^{*b}$ ayant servi à construire l'algorithme de prédiction. En régression, l'erreur Out Of Bag d'une forêt aléatoire RI est définie par :
+\begin{center}
+$\frac{1}{n}\sum\limits_{i=1}^n (\frac{y_i-\sum\limits_{b=1}^B I_{i}^{b}\hat{\eta_b}(x)}{\sum\limits_{b=1}^B I_{i}^{b}})^2$ où $I_{i}^{b}=1$ si l'observation $i \notin d^{*b}$, 0 sinon
+\end{center}
+\subsubsection{Les résultats obtenus}
 \subsection{Boosting : l'algorithme XGBoost}
 
 \subsection{Deep Learning : l'utilisation des réseaux de neurones}

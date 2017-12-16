@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  14 DEC 2017 12:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  16 DEC 2017 12:38
 entering extended mode
 **./rapport_defi.tex
 (rapport_defi.tex
@@ -872,6 +872,33 @@ Package caption Info: hyperref package is loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\doublestroke\dsfont.sty"
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty"
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count126
+\float@exts=\toks32
+\float@box=\box29
+\@float@everytoks=\toks33
+\@floatcapt=\box30
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks34
+\c@algorithm=\count127
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\algorithms\algorithmic.sty"
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count128
+\c@ALC@line=\count129
+\c@ALC@rem=\count130
+\c@ALC@depth=\count131
+\ALC@tlm=\skip57
+\algorithmicindent=\skip58
+)
 
 LaTeX Warning: Unused global option(s):
     [14pt,openany].
@@ -895,40 +922,43 @@ LaTeX Warning: Label `fig1' multiply defined.
 
 LaTeX Warning: Label `fig1' multiply defined.
 
+
+LaTeX Warning: Label `fig1' multiply defined.
+
 )
 \openout1 = `rapport_defi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 52.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    ... okay on input line 52.
 LaTeX Font Info:    Try loading font information for T1+LinuxLibertineT-TLF on 
-input line 40.
+input line 52.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\libertine\t1linuxlibertinet-tlf.fd"
 File: T1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for T1/Li
 nuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 40.
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 40.
+(Font)              scaled to size 10.0pt on input line 52.
+\AtBeginShipoutBox=\box31
+Package hyperref Info: Link coloring OFF on input line 52.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -936,33 +966,33 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count126
+\c@section@level=\count132
 )
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
-LaTeX Info: Redefining \nameref on input line 40.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
 
 (rapport_defi.out) (rapport_defi.out)
 \@outlinefile=\write3
 \openout3 = `rapport_defi.out'.
 
-LaTeX Info: Redefining \degres on input line 40.
-LaTeX Info: Redefining \dots on input line 40.
-LaTeX Info: Redefining \up on input line 40.
+LaTeX Info: Redefining \degres on input line 52.
+LaTeX Info: Redefining \dots on input line 52.
+LaTeX Info: Redefining \up on input line 52.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count127
+\scratchcounter=\count133
 \scratchdimen=\dimen141
-\scratchbox=\box30
-\nofMPsegments=\count128
-\nofMParguments=\count129
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count130
+\scratchbox=\box32
+\nofMPsegments=\count134
+\nofMParguments=\count135
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count136
 \MPscratchDim=\dimen142
-\MPnumerator=\count131
-\makeMPintoPDFobject=\count132
-\everyMPtoPDFconversion=\toks33
+\MPnumerator=\count137
+\makeMPintoPDFobject=\count138
+\everyMPtoPDFconversion=\toks36
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1010,76 +1040,77 @@ G,.JBIG2,.JB2,.eps]
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@mv@tabular=\count133
-\c@mv@boldtabular=\count134
+\c@mv@tabular=\count139
+\c@mv@boldtabular=\count140
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<Images/ur2.png, id=83, 1204.5pt x 1224.575pt>
+<Images/ur2.png, id=99, 1204.5pt x 1224.575pt>
 File: Images/ur2.png Graphic file (type png)
  <use Images/ur2.png>
-Package pdftex.def Info: Images/ur2.png used on input line 44.
+Package pdftex.def Info: Images/ur2.png used on input line 56.
 (pdftex.def)             Requested size: 180.6672pt x 183.67831pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 10.0pt on input line 48.
+(Font)              scaled to size 10.0pt on input line 60.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 14.4pt on input line 48.
+(Font)              scaled to size 14.4pt on input line 60.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 20.74pt on input line 51.
+(Font)              scaled to size 20.74pt on input line 63.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 20.74pt on input line 51.
+(Font)              scaled to size 20.74pt on input line 63.
 
-<Images/defi.png, id=85, 794.2172pt x 496.85625pt>
+<Images/defi.png, id=101, 794.2172pt x 496.85625pt>
 File: Images/defi.png Graphic file (type png)
  <use Images/defi.png>
-Package pdftex.def Info: Images/defi.png used on input line 56.
+Package pdftex.def Info: Images/defi.png used on input line 68.
 (pdftex.def)             Requested size: 238.267pt x 149.05801pt.
 
-Overfull \hbox (15.7632pt too wide) in paragraph at lines 56--57
+Overfull \hbox (15.7632pt too wide) in paragraph at lines 68--69
  [][] 
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 57.
+LaTeX Font Info:    Try loading font information for U+msa on input line 69.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 57.
+LaTeX Font Info:    Try loading font information for U+msb on input line 69.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Images/temp.jpg, id=86, 622.325pt x 361.35pt>
+<Images/temp.jpg, id=102, 622.325pt x 361.35pt>
 File: Images/temp.jpg Graphic file (type jpg)
  <use Images/temp.jpg>
-Package pdftex.def Info: Images/temp.jpg used on input line 61.
+Package pdftex.def Info: Images/temp.jpg used on input line 73.
 (pdftex.def)             Requested size: 224.03682pt x 130.08589pt.
 
-Overfull \hbox (1.53302pt too wide) in paragraph at lines 61--62
+Overfull \hbox (1.53302pt too wide) in paragraph at lines 73--74
  [][] 
  []
 
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 66.
+(Font)              scaled to size 12.0pt on input line 78.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 12.0pt on input line 67.
+(Font)              scaled to size 12.0pt on input line 79.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 12.0pt on input line 67.
+(Font)              scaled to size 12.0pt on input line 79.
 LaTeX Font Info:    Try loading font information for TS1+LinuxLibertineT-TLF on
- input line 70.
+ input line 82.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\libertine\ts1linuxlibertinet-tlf.fd"
 File: TS1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for TS1/
 LinuxLibertineT-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 70.
+(Font)              scaled to size 12.0pt on input line 82.
 
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./Images/ur2.png> <./Imag
 es/defi.png> <./Images/temp.jpg>]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 93.
+(Font)              scaled to size 14.4pt on input line 105.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 93.
+(Font)              scaled to size 14.4pt on input line 105.
  (rapport_defi.toc
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 10.0pt on input line 2.
@@ -1091,110 +1122,110 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.94 \newpage
-              [1]
+l.106 \newpage
+               [1]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.0pt on input line 106.
+(Font)              scaled to size 7.0pt on input line 118.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.0pt on input line 106.
+(Font)              scaled to size 5.0pt on input line 118.
 LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 108.
+(Font)              scaled to size 10.0pt on input line 120.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 114.
+(Font)              scaled to size 10.0pt on input line 126.
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
  []
 
 [3]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 168.
- <Images/fllat.png, id=140, 678.28406pt x 432.86719pt>
+(Font)              scaled to size 12.0pt on input line 180.
+ <Images/fllat.png, id=160, 678.28406pt x 432.86719pt>
 File: Images/fllat.png Graphic file (type png)
 
 <use Images/fllat.png>
-Package pdftex.def Info: Images/fllat.png used on input line 176.
+Package pdftex.def Info: Images/fllat.png used on input line 188.
 (pdftex.def)             Requested size: 483.69684pt x 308.68527pt.
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 178.
-See the caption package documentation for explanation.
-
-[4 <./Images/fllat.png>]
-<Images/overfitting.png, id=150, 949.5475pt x 282.05376pt>
-File: Images/overfitting.png Graphic file (type png)
-
-<use Images/overfitting.png>
-Package pdftex.def Info: Images/overfitting.png used on input line 188.
-(pdftex.def)             Requested size: 483.69684pt x 143.67766pt.
-
-Overfull \hbox (9.99997pt too wide) in paragraph at lines 188--189
- [][] [] 
- []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 190.
 See the caption package documentation for explanation.
 
+[4 <./Images/fllat.png>]
+<Images/overfitting.png, id=170, 949.5475pt x 282.05376pt>
+File: Images/overfitting.png Graphic file (type png)
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
+<use Images/overfitting.png>
+Package pdftex.def Info: Images/overfitting.png used on input line 200.
+(pdftex.def)             Requested size: 483.69684pt x 143.67766pt.
 
- []
-
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 213.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\doublestroke\udsrom.fd"
-File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [5 <./Images/overfitting.png>] <Images/hold_out.png, id=167, 806.26219pt x 21
-9.82124pt>
-File: Images/hold_out.png Graphic file (type png)
-
-<use Images/hold_out.png>
-Package pdftex.def Info: Images/hold_out.png used on input line 234.
-(pdftex.def)             Requested size: 512.1496pt x 139.63524pt.
-
-Overfull \hbox (28.45273pt too wide) in paragraph at lines 232--235
-[] 
- []
-
-
-Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 236.
-See the caption package documentation for explanation.
-
-[6 <./Images/hold_out.png>]
-<Images/k_fold.jpg, id=181, 527.9725pt x 262.9825pt>
-File: Images/k_fold.jpg Graphic file (type jpg)
- <use Images/k_fold.jpg>
-Package pdftex.def Info: Images/k_fold.jpg used on input line 265.
-(pdftex.def)             Requested size: 483.69684pt x 240.92757pt.
-
-Overfull \hbox (9.99997pt too wide) in paragraph at lines 265--266
+Overfull \hbox (9.99997pt too wide) in paragraph at lines 200--201
  [][] [] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 267.
+(caption)                particular \caption on input line 202.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
+
+ []
+
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 225.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\doublestroke\udsrom.fd"
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+) [5 <./Images/overfitting.png>] <Images/hold_out.png, id=187, 806.26219pt x 21
+9.82124pt>
+File: Images/hold_out.png Graphic file (type png)
+
+<use Images/hold_out.png>
+Package pdftex.def Info: Images/hold_out.png used on input line 246.
+(pdftex.def)             Requested size: 512.1496pt x 139.63524pt.
+
+Overfull \hbox (28.45273pt too wide) in paragraph at lines 244--247
+[] 
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 248.
+See the caption package documentation for explanation.
+
+[6 <./Images/hold_out.png>]
+<Images/k_fold.jpg, id=201, 527.9725pt x 262.9825pt>
+File: Images/k_fold.jpg Graphic file (type jpg)
+ <use Images/k_fold.jpg>
+Package pdftex.def Info: Images/k_fold.jpg used on input line 277.
+(pdftex.def)             Requested size: 483.69684pt x 240.92757pt.
+
+Overfull \hbox (9.99997pt too wide) in paragraph at lines 277--278
+ [][] [] 
+ []
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 279.
 See the caption package documentation for explanation.
 
 [7 <./Images/k_fold.jpg>]
-<Images/na_error.png, id=190, 1370.11874pt x 501.37312pt>
+<Images/na_error.png, id=210, 1370.11874pt x 501.37312pt>
 File: Images/na_error.png Graphic file (type png)
 
 <use Images/na_error.png>
-Package pdftex.def Info: Images/na_error.png used on input line 284.
+Package pdftex.def Info: Images/na_error.png used on input line 296.
 (pdftex.def)             Requested size: 483.69684pt x 176.99797pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 286.
+(caption)                particular \caption on input line 298.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (4.22676pt too wide) in paragraph at lines 290--291
+Overfull \hbox (4.22676pt too wide) in paragraph at lines 302--303
  [][] \T1/LinuxLibertineT-TLF/m/n/10 Clai-re-ment, ce gra-phique fait res-sor-t
 ir un pro-blème pour les va-riables \T1/LinuxLibertineT-TLF/b/n/10 flir1SOL0\T1
 /LinuxLibertineT-TLF/m/n/10 , \T1/LinuxLibertineT-TLF/b/n/10 fl-lat1SOL0\T1/Lin
@@ -1203,53 +1234,73 @@ bertineT-TLF/m/n/10 , \T1/LinuxLibertineT-TLF/b/n/10 fl-vis1SOL0
  []
 
 [8 <./Images/na_error.png>]
-<Images/err_imp.png, id=202, 756.57657pt x 432.86719pt>
+<Images/err_imp.png, id=222, 756.57657pt x 432.86719pt>
 File: Images/err_imp.png Graphic file (type png)
 
 <use Images/err_imp.png>
-Package pdftex.def Info: Images/err_imp.png used on input line 306.
+Package pdftex.def Info: Images/err_imp.png used on input line 318.
 (pdftex.def)             Requested size: 483.69684pt x 276.74342pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 308.
+(caption)                particular \caption on input line 320.
 See the caption package documentation for explanation.
 
 [9 <./Images/err_imp.png>]
-<Images/date.png, id=210, 875.52094pt x 405.76593pt>
+<Images/date.png, id=230, 875.52094pt x 405.76593pt>
 File: Images/date.png Graphic file (type png)
  <use Images/date.png>
-Package pdftex.def Info: Images/date.png used on input line 333.
+Package pdftex.def Info: Images/date.png used on input line 345.
 (pdftex.def)             Requested size: 483.69684pt x 224.17497pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 335.
+(caption)                particular \caption on input line 347.
 See the caption package documentation for explanation.
 
 [10 <./Images/date.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 369.
- [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 369.
+LaTeX Font Info:    Try loading font information for U+euf on input line 374.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\ueuf.fd"
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+<Images/cart.png, id=240, 604.2575pt x 305.14pt>
+File: Images/cart.png Graphic file (type png)
+ <use Images/cart.png>
+Package pdftex.def Info: Images/cart.png used on input line 376.
+(pdftex.def)             Requested size: 483.69684pt x 244.25665pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 378.
+See the caption package documentation for explanation.
+
+[11 <./Images/cart.png (PNG copy)>]
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 400.
+ [12]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 447.
+ [13]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 447.
  (rapport_defi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 369.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 369.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 447.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 447.
 Package rerunfilecheck Info: File `rapport_defi.out' has not changed.
-(rerunfilecheck)             Checksum: DDC97739912EBBBC81E12E70172B6848;1627.
+(rerunfilecheck)             Checksum: CDDA784FA73200B01862D5EC1FBB4102;1985.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 369.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 447.
  ) 
 Here is how much of TeX's memory you used:
- 11406 strings out of 493323
- 173128 string characters out of 3139054
- 265718 words of memory out of 3000000
- 14682 multiletter control sequences out of 15000+200000
- 82264 words of font info for 56 fonts, out of 3000000 for 9000
+ 11731 strings out of 493323
+ 177293 string characters out of 3139054
+ 272342 words of memory out of 3000000
+ 14959 multiletter control sequences out of 15000+200000
+ 82972 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,9n,92p,852b,507s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 53i,9n,92p,852b,738s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{C:/Pr
 ogram Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{C:/Program Fi
 les/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{C:/Program Files/MiKT
@@ -1259,19 +1310,21 @@ e1/public/libertine/LinLibertineT.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 public/libertine/LinLibertineTB.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
 blic/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/doubles
-troke/dsrom10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symb
-ols/msbm10.pfb>
-Output written on rapport_defi.pdf (12 pages, 907858 bytes).
+nts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/doublestrok
+e/dsrom10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eu
+fm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm1
+0.pfb>
+Output written on rapport_defi.pdf (14 pages, 973879 bytes).
 PDF statistics:
- 297 PDF objects out of 1000 (max. 8388607)
- 70 named destinations out of 1000 (max. 500000)
- 211 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 362 PDF objects out of 1000 (max. 8388607)
+ 97 named destinations out of 1000 (max. 500000)
+ 248 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -41,10 +41,20 @@
 \contentsline {paragraph}{}{10}{section*.29}
 \contentsline {paragraph}{}{10}{section*.30}
 \contentsline {section}{\numberline {6}Choix et application d'algorithmes d'apprentissage supervis\IeC {\'e}}{11}{section.6}
+\contentsline {paragraph}{}{11}{section*.31}
+\contentsline {paragraph}{}{11}{section*.32}
 \contentsline {subsection}{\numberline {6.1}Premiers algorithmes : la r\IeC {\'e}gression lin\IeC {\'e}aire et ses variantes}{11}{subsection.6.1}
 \contentsline {subsection}{\numberline {6.2}For\IeC {\^e}t al\IeC {\'e}atoire : l'algorithme Random Forest}{11}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Boosting : l'algorithme XGBoost}{11}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Deep Learning : l'utilisation des r\IeC {\'e}seaux de neurones}{11}{subsection.6.4}
-\contentsline {paragraph}{}{11}{section*.31}
-\contentsline {section}{\numberline {7}Bilan}{11}{section.7}
-\contentsline {section}{\numberline {8}Bibliographie et sources}{11}{section.8}
+\contentsline {subsubsection}{\numberline {6.2.1}Rappels sur le fonctionnement de la m\IeC {\'e}thode CART}{11}{subsubsection.6.2.1}
+\contentsline {paragraph}{}{11}{section*.33}
+\contentsline {paragraph}{}{11}{section*.34}
+\contentsline {paragraph}{}{12}{section*.35}
+\contentsline {subsubsection}{\numberline {6.2.2}Le bagging}{12}{subsubsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.3}L'algorithme Random Forest RI}{12}{subsubsection.6.2.3}
+\contentsline {paragraph}{}{12}{section*.36}
+\contentsline {subsubsection}{\numberline {6.2.4}Les r\IeC {\'e}sultats obtenus}{13}{subsubsection.6.2.4}
+\contentsline {subsection}{\numberline {6.3}Boosting : l'algorithme XGBoost}{13}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Deep Learning : l'utilisation des r\IeC {\'e}seaux de neurones}{13}{subsection.6.4}
+\contentsline {paragraph}{}{13}{section*.37}
+\contentsline {section}{\numberline {7}Bilan}{13}{section.7}
+\contentsline {section}{\numberline {8}Bibliographie et sources}{13}{section.8}
