@@ -351,7 +351,11 @@ où $N$ correspond au nombre de jours que contient chaque année (cette étude c
 Les transformations et ajustements étant faits, nous pouvons à présent démarrer la partie de modélisation dans le but de prédire les températures.
 \section{Choix et application d'algorithmes d'apprentissage supervisé}
 \paragraph{}
-Dans cette section, nous allons détailler les différents algorithmes que nous avons utilisé pour modéliser les données et effectuer nos prédictions. Le schéma sera le suivant pour chaque algorithme :
+Dans cette section, nous allons détailler les différents algorithmes que nous avons utilisé pour modéliser les données et effectuer nos prédictions. Etant donné qu'il n'existe pas une méthode universelle assurant qu'un algorithme est meilleur que les autres pour un type de problème donné, il faut en tester plusieurs (\og No free lunch theorems \fg{}). Toutefois, nous pouvons d'ores et déjà enlever les \textbf{SVM} de la liste des algorithmes qui seront testés. Nous avons fait ce choix pour des raisons techniques : l'algorithme utilise la matrice de Gram définie de la façon suivante :
+\begin{center}
+$G = \begin{pmatrix} <x_1,x_1> & \cdots & <x_1,x_n> \\ \vdots & \ddots & \vdots \\ <x_n,x_1> & \cdots & <x_n,x_n> \end{pmatrix}$
+\end{center}
+Cette matrice est de taille $n$ x $n$, ce qui dans le cas de nos données peut poser problème en temps de calcul. Sachant que d'autres méthodes fonctionnant en général très bien et de façon plus rapide sont à notre disposition, nous avons donc décidé de ne pas utiliser l'algorithme \textbf{SVM}. Pour les méthodes testées, le schéma sera le suivant :
 \begin{itemize}
 \item Présentation du fonctionnement de l'algorithme et de ses propriétés théoriques
 \item Présentation des meilleurs résultats obtenus avec l'algorithme et des hyper-paramètres correspondants
@@ -420,9 +424,36 @@ Il faudra donc calibrer plusieurs hyper-paramètres pour cette méthode : le nom
 \begin{center}
 $\frac{1}{n}\sum\limits_{i=1}^n (\frac{y_i-\sum\limits_{b=1}^B I_{i}^{b}\hat{\eta_b}(x)}{\sum\limits_{b=1}^B I_{i}^{b}})^2$ où $I_{i}^{b}=1$ si l'observation $i \notin d^{*b}$, 0 sinon
 \end{center}
-\subsubsection{Les résultats obtenus}
+\subsubsection{Résultats obtenus}
+\paragraph{}
+Les meilleurs résultats pour cette étude ont été obtenus par validation croisée 5-blocs. Le meilleur estimateur pour Toulouse, Nice, Strasbourg et Paris est le suivant :
+\begin{verbatim}
+RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
+           max_features=11, max_leaf_nodes=None, min_impurity_split=1e-07,
+           min\_samples_leaf=1, min\_samples_split=2,
+           min_weight_fraction_leaf=0.0, n_estimators=800, n_jobs=1,
+           oob_score=False, random_state=None, verbose=0, warm_start=False)
+\end{verbatim}
+Pour les autres stations (Bordeaux, Rennes et Lille) le seul hyper-paramètre qui change est le nombre de variables explicatives sélectionnées à chaque nœud que l'on a appelé $m$ (\textit{max\_features} dans la fonction \textbf{RandomForestRegressor} de la librairie \textit{scikit-learn} en Python) qui vaut 13. Le nombre d'itérations optimal $B$ (ou \textit{n\_estimators} ici) est de 800. Les résultats procurés par cet estimateur sont les suivants :
+\newpage
 \subsection{Boosting : l'algorithme XGBoost}
+\subsubsection{Rappels sur le fonctionnement du boosting}
+\paragraph{}
+Le \textbf{boosting}, par opposition au bagging, s'applique à des algorithmes fortements biaisés, mais de faible variance. Le principe est donc bien différent de celui d'une forêt aléatoire où l'on va agréger les prédictions de plusieurs arbres pour en faire la moyenne.
+\paragraph{}
+Ici on va combiner dans un algorithme itératif les prédictions de \textit{weak learners}, c'est-à-dire des classifieurs ou des régresseurs faibles, selon la nature du problème. Ces prédicteurs faibles sont encore une fois des arbres avec peu de nœuds (pour rester faibles et éviter le sur-apprentissage). 
+\paragraph{}
+Si l'on se place dans un problème de discrimination, à chaque itérations on va attribuer un poids au classifieur en fonction de sa qualité d'estimation (selon le critère du taux de bon classement par exemple). Les observations qui ont été mal classées se verront attribuer un poids plus fort afin d'être mieux prédites lors de la prochaine itération. La figure suivante résume le fonctionnement de ce type d'algorithmes : chaque \textit{Box} correspond à une itération, et les prédicteurs utilisés sont des arbres à 2 nœuds (encore appelés \textit{stumps})
 
+\includegraphics[width=19cm]{Images/boosting.png}
+\begin{center}
+\captionof{figure}{Illustration du boosting pour un problème de discrimination binaire dans $\mathbb{R}^2$}
+\end{center}
+\paragraph{}
+Il existe énormément de déclinaisons du boosting, dans cet étude nous allons nous focaliser sur un algorithme d'\textbf{eXtreme Gradient Boosting} (XGBoost) régularisé qui s'appuie sur un algorithme de minimisation du risque empirique (fonction de perte \textit{l}) par descente de gradient.
+\subsubsection{Fonctionnement du Gradient Boosting régularisé}
+\subsubsection{Descente de gradient stochastique}
+\subsubsection{Résultats obtenus}
 \subsection{Deep Learning : l'utilisation des réseaux de neurones}
 \paragraph{}
 Le Deep Learning permet de résoudre différents problèmes que nous pouvons rencontrer avec les réseaux de neurones comme la stabilité. Aujourd'hui il est souvent utilisé pour des problèmes divers avec des résultats parfois remarquable comme nous pouvons le voir avec le site de traduction DeepL, le plus abouti aujourd'hui pour le grand public ou encore pour des outils d'analyse des émotions par un visage photographié ou filmé.

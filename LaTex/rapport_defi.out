@@ -17,8 +17,12 @@
 \BOOKMARK [3][-]{subsubsection.6.2.1}{Rappels sur le fonctionnement de la m\351thode CART}{subsection.6.2}% 17
 \BOOKMARK [3][-]{subsubsection.6.2.2}{Le bagging}{subsection.6.2}% 18
 \BOOKMARK [3][-]{subsubsection.6.2.3}{L'algorithme Random Forest RI}{subsection.6.2}% 19
-\BOOKMARK [3][-]{subsubsection.6.2.4}{Les r\351sultats obtenus}{subsection.6.2}% 20
+\BOOKMARK [3][-]{subsubsection.6.2.4}{R\351sultats obtenus}{subsection.6.2}% 20
 \BOOKMARK [2][-]{subsection.6.3}{Boosting : l'algorithme XGBoost}{section.6}% 21
-\BOOKMARK [2][-]{subsection.6.4}{Deep Learning : l'utilisation des r\351seaux de neurones}{section.6}% 22
-\BOOKMARK [1][-]{section.7}{Bilan}{}% 23
-\BOOKMARK [1][-]{section.8}{Bibliographie et sources}{}% 24
+\BOOKMARK [3][-]{subsubsection.6.3.1}{Rappels sur le fonctionnement du boosting}{subsection.6.3}% 22
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Fonctionnement du Gradient Boosting r\351gularis\351}{subsection.6.3}% 23
+\BOOKMARK [3][-]{subsubsection.6.3.3}{Descente de gradient stochastique}{subsection.6.3}% 24
+\BOOKMARK [3][-]{subsubsection.6.3.4}{R\351sultats obtenus}{subsection.6.3}% 25
+\BOOKMARK [2][-]{subsection.6.4}{Deep Learning : l'utilisation des r\351seaux de neurones}{section.6}% 26
+\BOOKMARK [1][-]{section.7}{Bilan}{}% 27
+\BOOKMARK [1][-]{section.8}{Bibliographie et sources}{}% 28

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  16 DEC 2017 12:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  16 DEC 2017 18:42
 entering extended mode
 **./rapport_defi.tex
 (rapport_defi.tex
@@ -1045,7 +1045,7 @@ G,.JBIG2,.JB2,.eps]
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<Images/ur2.png, id=99, 1204.5pt x 1224.575pt>
+<Images/ur2.png, id=115, 1204.5pt x 1224.575pt>
 File: Images/ur2.png Graphic file (type png)
  <use Images/ur2.png>
 Package pdftex.def Info: Images/ur2.png used on input line 56.
@@ -1059,7 +1059,7 @@ LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 20.74pt on input line 63.
 
-<Images/defi.png, id=101, 794.2172pt x 496.85625pt>
+<Images/defi.png, id=117, 794.2172pt x 496.85625pt>
 File: Images/defi.png Graphic file (type png)
  <use Images/defi.png>
 Package pdftex.def Info: Images/defi.png used on input line 68.
@@ -1078,7 +1078,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 69.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<Images/temp.jpg, id=102, 622.325pt x 361.35pt>
+<Images/temp.jpg, id=118, 622.325pt x 361.35pt>
 File: Images/temp.jpg Graphic file (type jpg)
  <use Images/temp.jpg>
 Package pdftex.def Info: Images/temp.jpg used on input line 73.
@@ -1140,7 +1140,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 167--168
 [3]
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 12.0pt on input line 180.
- <Images/fllat.png, id=160, 678.28406pt x 432.86719pt>
+ <Images/fllat.png, id=180, 678.28406pt x 432.86719pt>
 File: Images/fllat.png Graphic file (type png)
 
 <use Images/fllat.png>
@@ -1153,7 +1153,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [4 <./Images/fllat.png>]
-<Images/overfitting.png, id=170, 949.5475pt x 282.05376pt>
+<Images/overfitting.png, id=190, 949.5475pt x 282.05376pt>
 File: Images/overfitting.png Graphic file (type png)
 
 <use Images/overfitting.png>
@@ -1178,7 +1178,7 @@ LaTeX Font Info:    Try loading font information for U+dsrom on input line 225.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\doublestroke\udsrom.fd"
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [5 <./Images/overfitting.png>] <Images/hold_out.png, id=187, 806.26219pt x 21
+) [5 <./Images/overfitting.png>] <Images/hold_out.png, id=207, 806.26219pt x 21
 9.82124pt>
 File: Images/hold_out.png Graphic file (type png)
 
@@ -1196,7 +1196,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [6 <./Images/hold_out.png>]
-<Images/k_fold.jpg, id=201, 527.9725pt x 262.9825pt>
+<Images/k_fold.jpg, id=221, 527.9725pt x 262.9825pt>
 File: Images/k_fold.jpg Graphic file (type jpg)
  <use Images/k_fold.jpg>
 Package pdftex.def Info: Images/k_fold.jpg used on input line 277.
@@ -1212,7 +1212,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [7 <./Images/k_fold.jpg>]
-<Images/na_error.png, id=210, 1370.11874pt x 501.37312pt>
+<Images/na_error.png, id=230, 1370.11874pt x 501.37312pt>
 File: Images/na_error.png Graphic file (type png)
 
 <use Images/na_error.png>
@@ -1234,7 +1234,7 @@ bertineT-TLF/m/n/10 , \T1/LinuxLibertineT-TLF/b/n/10 fl-vis1SOL0
  []
 
 [8 <./Images/na_error.png>]
-<Images/err_imp.png, id=222, 756.57657pt x 432.86719pt>
+<Images/err_imp.png, id=242, 756.57657pt x 432.86719pt>
 File: Images/err_imp.png Graphic file (type png)
 
 <use Images/err_imp.png>
@@ -1247,7 +1247,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [9 <./Images/err_imp.png>]
-<Images/date.png, id=230, 875.52094pt x 405.76593pt>
+<Images/date.png, id=250, 875.52094pt x 405.76593pt>
 File: Images/date.png Graphic file (type png)
  <use Images/date.png>
 Package pdftex.def Info: Images/date.png used on input line 345.
@@ -1259,72 +1259,105 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [10 <./Images/date.png>]
-LaTeX Font Info:    Try loading font information for U+euf on input line 374.
+LaTeX Font Info:    Try loading font information for U+euf on input line 378.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\ueuf.fd"
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-<Images/cart.png, id=240, 604.2575pt x 305.14pt>
+<Images/cart.png, id=260, 604.2575pt x 305.14pt>
 File: Images/cart.png Graphic file (type png)
  <use Images/cart.png>
-Package pdftex.def Info: Images/cart.png used on input line 376.
+Package pdftex.def Info: Images/cart.png used on input line 380.
 (pdftex.def)             Requested size: 483.69684pt x 244.25665pt.
+ [11]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 382.
+See the caption package documentation for explanation.
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 404.
+[12 <./Images/cart.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for T1+LinuxLibertineMonoT-TLF
+ on input line 430.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\libertine\t1linuxlibertinemonot-tlf.fd"
+File: T1LinuxLibertineMonoT-TLF.fd 2017/03/20 (autoinst) Font definitions for T
+1/LinuxLibertineMonoT-TLF.
+)
+LaTeX Font Info:    Font shape `T1/LinuxLibertineMonoT-TLF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 430.
+ [13] <Images/boosting.png, id=299, 554.07pt x 408.52625pt>
+File: Images/boosting.png Graphic file (type png)
+
+<use Images/boosting.png>
+Package pdftex.def Info: Images/boosting.png used on input line 448.
+(pdftex.def)             Requested size: 540.60236pt x 398.59512pt.
+
+Overfull \hbox (56.90549pt too wide) in paragraph at lines 448--449
+[][] 
+ []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 378.
+(caption)                particular \caption on input line 450.
 See the caption package documentation for explanation.
 
-[11 <./Images/cart.png (PNG copy)>]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 400.
- [12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 447.
- [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 447.
+
+Overfull \hbox (9.47227pt too wide) in paragraph at lines 453--454
+ [][] \T1/LinuxLibertineT-TLF/m/n/10 Il existe énor-mé-ment de dé-cli-nai-sons 
+du boos-ting, dans cet étude nous al-lons nous fo-ca-li-ser sur un al-go-rithme
+ d'\T1/LinuxLibertineT-TLF/b/n/10 eXtreme
+ []
+
+[14 <./Images/boosting.png (PNG copy)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 478.
+ [15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 478.
  (rapport_defi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 447.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 447.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 478.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 478.
 Package rerunfilecheck Info: File `rapport_defi.out' has not changed.
-(rerunfilecheck)             Checksum: CDDA784FA73200B01862D5EC1FBB4102;1985.
+(rerunfilecheck)             Checksum: 1402AFC0BEBB389F0CA77D367C4857B2;2371.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 447.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 478.
  ) 
 Here is how much of TeX's memory you used:
- 11731 strings out of 493323
- 177293 string characters out of 3139054
- 272342 words of memory out of 3000000
- 14959 multiletter control sequences out of 15000+200000
- 82972 words of font info for 59 fonts, out of 3000000 for 9000
+ 11778 strings out of 493323
+ 178521 string characters out of 3139054
+ 271345 words of memory out of 3000000
+ 14988 multiletter control sequences out of 15000+200000
+ 83592 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,9n,92p,852b,738s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{C:/Pr
-ogram Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{C:/Program Fi
-les/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{C:/Program Files/MiKT
-eX 2.9/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{C:/Program Files/MiKTeX 2.9/f
-onts/enc/dvips/libertine/lbtn_ncsllp.enc}<C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/libertine/LinLibertineT.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/libertine/LinLibertineTB.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/libertine/LinLibertineTI.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
-nts/cmextra/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/doublestrok
-e/dsrom10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eu
-fm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm1
-0.pfb>
-Output written on rapport_defi.pdf (14 pages, 973879 bytes).
+ 53i,10n,92p,852b,738s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_d6jdyt.enc}{C:/Pr
+ogram Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{C:/Program Fi
+les/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{C:/Program Files/MiKT
+eX 2.9/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{C:/Program Files/MiKTeX 2.9/f
+onts/enc/dvips/libertine/lbtn_nh77jq.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc
+/dvips/libertine/lbtn_ncsllp.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/libertine/LinLibertineMT.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
+libertine/LinLibertineT.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lib
+ertine/LinLibertineTB.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/liber
+tine/LinLibertineTI.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextr
+a/cmex7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/doublestroke/dsrom10.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eufm10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on rapport_defi.pdf (16 pages, 1089408 bytes).
 PDF statistics:
- 362 PDF objects out of 1000 (max. 8388607)
- 97 named destinations out of 1000 (max. 500000)
- 248 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 405 PDF objects out of 1000 (max. 8388607)
+ 109 named destinations out of 1000 (max. 500000)
+ 285 words of extra memory for PDF output out of 10000 (max. 10000000)
 
