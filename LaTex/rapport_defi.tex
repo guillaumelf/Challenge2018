@@ -172,11 +172,11 @@ $RMSE_{\hat{y}} = \sqrt{\frac{1}{n} \sum\limits_{i=1}^n (\hat{y_i}-y_{obs_i})^2}
 En d'autres termes, cette métrique permet de mesurer d'une certaine façon l'écart entre nos prédictions et la réalité. Il est à noter que le challenge fournit un score de $1.30755$ appelé \textbf{Baseline} qui correspond à un score de référence, associé à \og un modèle élémentaire de prévision sans effort particulier d'optimisation. C'est un objectif a minima à améliorer dans ce concours \fg{}. Le décor est planté, désormais il ne reste plus qu'à se lancer dans le challenge.
 \section{Remerciements}
 \paragraph{}
-Avant de détailler les différentes étapes de ce projet, les 3 membres de la \textbf{Freak-unit} team souhaitent remercier tout particulièrement leur professeur encadrant, \textbf{M. Romain TAVENARD} pour son accompagnement tout au long du projet et pour l'aide apportée. Sa connaissance du \textit{Deep Learning} aura notamment été un facteur déterminant dans la réussite de ce projet.
+Avant de détailler les différentes étapes de ce projet, les 3 membres de la \textbf{Freak-unit} team souhaitent remercier tout particulièrement leur professeur encadrant, \textbf{M. Romain TAVENARD} pour son accompagnement tout au long du projet et pour l'aide apportée. Sa connaissance du \textit{Deep Learning} aura notamment été un facteur déterminant dans la réalisation de ce projet.
 
 \section{Différentes stratégies envisagées}
 \paragraph{}
-Afin d'effectuer l'analyse la plus fine et pertinente possible, il est primordial de bien définir la stratégie d'étude à adopter. Par \og stratégie \fg{}, nous parlons ici de la façon dont nous allons structurer les données, des techniques que nous allons employer pour optimiser la performance des algorithmes. Cela peut être vu comme un problème d'optimisation sous contrainte : notre objectif est de réaliser la meilleure performance sous des contraintes de temps et de matériel. Il faut donc réussir à combiner au mieux la théorie mathématique avec la réalisation informatique.
+Afin d'effectuer l'analyse la plus fine et pertinente possible, il est primordial de bien définir la stratégie d'étude à adopter. Par \og stratégie \fg{}, nous parlons ici de la façon dont nous allons structurer les données et des techniques que nous allons employer pour optimiser la performance des algorithmes. Cela peut être vu comme un problème d'optimisation sous contrainte : notre objectif est de réaliser la meilleure performance sous des contraintes de temps et de matériel. Il faut donc réussir à combiner au mieux la théorie mathématique avec la réalisation informatique.
 
 \subsection{Structuration des données}
 \paragraph{}
@@ -196,7 +196,7 @@ Dans la suite, nous verrons que le gros jeu de données ($189281$ lignes) ou les
 
 \subsection{Notions d'overfitting/underfitting}
 \paragraph{}
-Comme introduit brièvement un peu plus haut dans ce rapport, l'un des enjeux de ce projet dans le but d'obtenir les meilleurs prédictions possibles, selon le critère du \textbf{RMSE}, sera d'éviter de se retrouver en situation sur-apprentissage ou de sous-apprentissage (respectivement \textit{overfitting} et \textit{underfitting}). En ce sens, on va chercher à construire un estimateur (une fonction) optimal, robuste qui conservera un pouvoir de prédiction de qualité sur un nouvel échantillon. Prenons le dessin suivant qui sera un peu plus parlant.
+Comme introduit brièvement un peu plus haut dans ce rapport, l'un des enjeux de ce projet dans le but d'obtenir les meilleures prédictions possibles, selon le critère du \textbf{RMSE}, et donc d'éviter de se retrouver en situation sur-apprentissage ou de sous-apprentissage (respectivement \textit{overfitting} et \textit{underfitting}). En ce sens, on va chercher à construire un estimateur (une fonction) optimal, robuste qui conservera un pouvoir de prédiction de qualité sur un nouvel échantillon. Prenons le dessin suivant qui sera un peu plus parlant.
 \paragraph{}
 \includegraphics[width=17cm]{Images/overfitting.png}
 \begin{center}
@@ -212,13 +212,11 @@ Une façon de vérifier que le modèle est robuste peut-être de procéder à de
  
 \subsection{Validation croisée}
 \paragraph{}
-Comme énoncé précédemment, nous allons utiliser la méthode de la validation croisée à la fois pour contrôler la performance et la robustesse de l'algorithme mis en œuvre, mais également pour calibrer des hyper-paramètres dans le cas de modèles complexes. Nous allons donc dans la suite effectuer quelques rappels théoriques afin de bien comprendre pourquoi nous utilisons cette méthode ainsi qu'une présentation des deux types de validation croisée que nous avons choisi d'utiliser.
+Comme énoncé précédemment, nous allons utiliser des méthodes de validation croisée à la fois pour contrôler la performance et la robustesse de l'algorithme mis en œuvre, mais également pour calibrer des hyper-paramètres dans le cas de modèles complexes. Nous allons donc dans la suite effectuer quelques rappels théoriques afin de bien comprendre pourquoi nous utilisons ces méthodes ainsi qu'une présentation des deux types de validation croisée que nous avons choisi d'employer.
 
 \subsubsection{Contexte théorique}
 \paragraph{}
-Soit $d^{n}_{1}$ l'observation d'un n-échantillon $D^{n}_{1} =$\{$(X_1,Y_1),...,(X_n,Y_n)$\} d'une loi conjointe $P$ sur $\mathcal{X}$ x $\mathcal{Y}$ qui est inconnue. Le premier travail consiste à estimer cette loi $P$ à l'aide des données disponibles, à savoir $d^{n}_{1}$.
-\paragraph{}
-En théorie, il faudrait minimiser la quantité appelée \textbf{risque} (ou encore \textbf{erreur de généralisation}) d'une règle de prédiction que l'on va noter $f$. Ainsi de façon mathématique, on définit le \textbf{risque} de la manière suivante :
+Soit $d^{n}_{1}$ l'observation d'un n-échantillon $D^{n}_{1} =$\{$(X_1,Y_1),...,(X_n,Y_n)$\} d'une loi conjointe $P$ sur $\mathcal{X}$ x $\mathcal{Y}$ qui est inconnue. On cherche à estimer cette loi $P$ à l'aide des données disponibles, à savoir $d^{n}_{1}$. En théorie, il faudrait minimiser la quantité appelée \textbf{risque} (ou encore \textbf{erreur de généralisation}) d'une règle de prédiction que l'on va noter $f$. Ainsi de façon mathématique, on définit le \textbf{risque} de la manière suivante :
 \paragraph{}
 $\mathcal{R}_P(f) = \mathbb{E}_{(X,Y)}[l(Y,f(X))]$ avec $l$ que l'on appelle \textbf{fonction de perte} et qui a pour expression :
 \begin{itemize}
@@ -263,7 +261,7 @@ Dans le cadre de nos travaux, l'utilisation de cette méthode va nous permettre 
 La validation croisée \textbf{K-Fold} est une variante de la méthode vue précédemment, qui on le rappelle était adaptée aux jeux de données de taille suffisamment grande. Cependant sur des jeux de données plus petits, comme c'est le cas de nos fichiers par station qui font environ $27000$ lignes chacun,ce type de validation croisée peut également s'avérer efficace. Le fonctionnement de cette méthode itérative est le suivant :
 \begin{itemize}
 \item On procède à une partition de notre échantillon en $K$ blocs équilibrés : $B_1,...,B_K$ auxquels sont associés des tailles $n_1,...,n_K$. (En pratique on prend $K=10$ quand la taille des données le permet, sinon on se contente de 5 blocs)
-\item On note $d_{B_i}=\{(x_j,y_j), j \in B_i\}$ le $i^{eme}$ bloc  de l'échantillon $d^{n}_{1}$. Pour chaque itération $i = 1,...,K$ on laisse de côté les données de $B_i$ pour faire notre apprentissage sur les $K$-1 blocs restants
+\item On note $d_{B_i}=\{(x_j,y_j), j \in B_i\}$ le $i^{eme}$ bloc  de l'échantillon $d^{n}_{1}$. Pour chaque itération $i = 1,...,K$ on laisse de côté les données de $d_{B_i}$ pour faire notre apprentissage sur les $K$-1 blocs restants
 \item On teste la performance de notre règle de prédiction sur le bloc $B_i$ pour obtenir une estimation du risque à l'itération $i$ que l'on note :
 \begin{center}
 $\widehat{\mathcal{R}}_i = \frac{1}{n_i} \sum\limits_{j \in B_i} l(y_j,f_{d^{n}_{1}\backslash d_{B_i}}(x_j))$
@@ -292,7 +290,7 @@ Avant de lancer différents algorithmes sur nos données, il est important de tr
 \paragraph{}
 Une partie clé de cette étude aura été la gestion des valeurs manquantes. En effet, tous les fichiers $train\_H.csv$ $(H=1,..,36)$, en contiennent, ce qui nous a donc amené à nous poser les questions suivantes : faut-il éliminer les lignes contenant des \textit{NA} ? Faut-il remplacer ces valeurs manquantes ? Si oui, pour quelles variables, de quelle façon et à quel coût ? Nous allons détailler l'analyse qui nous a permis de répondre à ces différentes interrogations et de prendre nos décisions.
 \paragraph{}
-Premièrement nous avons regardé s'il était possible de remplacer les valeurs sur toutes les variables qui en contiennent dans nos données. Toutes les variables numériques (i.e qui ne sont pas des facteurs) présentent des valeurs manquantes. Le graphe suivant nous montre l'erreur moyenne pour chaque variable après des tentatives d'imputation par \textbf{moyenne}, \textbf{médiane}, \textbf{10-NN}, \textbf{Random Forest} et \textbf{décalage temporel} (par exemple s'il manque une valeur pour la variable \textit{ux1H10} à Bordeaux le 20/06/2015 à l'échéance 1, on va remplacer cette valeur par celle de la même date et de la même station à l'échéance 2).
+Premièrement nous avons regardé s'il était possible de remplacer les valeurs sur toutes les variables qui en contiennent dans nos données. Toutes les variables numériques (\textit{i.e} qui ne sont pas des facteurs) présentent des valeurs manquantes. Le graphe suivant nous montre l'erreur moyenne pour chaque variable après des tentatives d'imputation par \textbf{moyenne}, \textbf{médiane}, \textbf{10-NN}, \textbf{Random Forest} et \textbf{décalage temporel} (par exemple s'il manque une valeur pour la variable \textit{ux1H10} à Bordeaux le 20/06/2015 à l'échéance 1, on va remplacer cette valeur par celle de la même date et de la même station à l'échéance 2).
 
 \includegraphics[width=17cm]{Images/na_error.png}
 \begin{center}
@@ -377,13 +375,13 @@ C'est donc sur ces deux aspects que nous allons tenter de jouer par la suite. Af
 \subsubsection{Rappels sur le fonctionnement de la méthode CART}
 \paragraph{}
 Une façon simple de modéliser des données peut être d'utiliser un arbre de décision \textbf{CART} (\textbf{C}lassification \textbf{A}nd \textbf{R}egression \textbf{T}ree). C'est un algorithme de prédiction par moyenne locale, par partition, dont la partition est construite par divisions successives au moyen d'hyperplans orthogonaux aux axes du nœud racine $\mathfrak{X}=\mathbb{R}^{p}$, dépendant des $(X_i,Y_i)$. Chaque division est effectuée à partir du choix conjoint d'une variable explicative et d'une valeur seuil pour cette variable, de sorte que la découpe effectuée minimise la variance en régression ou l'impureté dans le nœud en discrimination.
-
-\includegraphics[width=17cm]{Images/cart.png}
+\begin{center}
+\includegraphics[scale=0.55]{Images/cart.png}
+\end{center}
 \begin{center}
 \captionof{figure}{Illustration de l'algorithme CART pour un problème de discrimination binaire dans $\mathbb{R}^2$}
 \label{fig1}
 \end{center}
-\paragraph{}
 \paragraph{}
 Néanmoins cet algorithme pose le problème majeur d'être très instable (fléau de la dimension et sensibilité à l'échantillon). C'est donc pour palier à ce problème que nous allons utiliser l'algorithme de forêt aléatoire \textbf{Random Input}. Comme son nom l'indique, cette méthode consiste en une agrégation d'arbres : c'est un algorithme de \textbf{Bagging} (\textbf{B}ootstrap \textbf{agg}regat\textbf{ing}). 
 \subsubsection{Le bagging}
@@ -399,9 +397,9 @@ $Var(\hat{\eta}(x))=\rho(x)Var(\hat{\eta_b}(x))+\frac{1-\rho(x)}{B}Var(\hat{\eta
 \medskip
 d'où il vient : $\lim_{B \to \infty} Var(\hat{\eta}(x)) = \rho(x)Var(\hat{\eta_b}(x))$
 \end{center}
-Cela illustre donc le fait que le bagging va réduire la variance de l'estimateur. En revanche, on introduit un terme de corrélation : la solution de \textbf{Breiman} pour construire des algorithmes peut corrélés entre eux consiste à utiliser non pas l'échantillon $D^{n}_{1}$ mais plutôt des échantillons \textbf{bootstrap} de $D^{n}_{1}$, c'est-à-dire que l'on va tirer de façon aléatoire et avec remise des lignes parmi l'échantillon $D^{n}_{1}$.
+Cela illustre donc le fait que le bagging va réduire la variance de l'estimateur. En revanche, on introduit un terme de corrélation : la solution de \textbf{Breiman} pour construire des algorithmes peu corrélés entre eux consiste à utiliser non pas l'échantillon $D^{n}_{1}$ mais plutôt des échantillons \textbf{bootstrap} de $D^{n}_{1}$, c'est-à-dire que l'on va tirer de façon aléatoire et avec remise des lignes parmi l'échantillon $D^{n}_{1}$.
 \subsubsection{L'algorithme Random Forest RI}
-L'algorithme de de forêt aléatoire Random Input est donc une variante de la méthode CART qui s'appuie sur les techniques de bagging. Son fonctionnement est le suivant :\\
+L'algorithme de forêt aléatoire Random Input est donc une variante de la méthode CART qui s'appuie sur les techniques de bagging. Son fonctionnement est le suivant :\\
 \begin{algorithm}
 \caption{Random Forest RI}
 \begin{algorithmic}
@@ -426,7 +424,7 @@ L'algorithme de de forêt aléatoire Random Input est donc une variante de la m�
 \paragraph{}
 Il faudra donc calibrer plusieurs hyper-paramètres pour cette méthode : le nombre d'itérations \textbf{B} qui comme on l'a vu précédemment permet de réduire la variance lorsqu'il est grand, et le nombre $m$ de variables explicatives sélectionnées à chaque nœud. Pour cela, nous pouvons utiliser plusieurs méthodes de validation croisée présentées auparavant ou bien encore la méthode \textbf{Out Of Bag} qui consiste à tester l'algorithme sur les observations n'appartenant pas à l'échantillon bootstrap $d^{*b}$ ayant servi à construire l'algorithme de prédiction. En régression, l'erreur Out Of Bag d'une forêt aléatoire RI est définie par :
 \begin{center}
-$\frac{1}{n}\sum\limits_{i=1}^n (\frac{y_i-\sum\limits_{b=1}^B I_{i}^{b}\hat{\eta_b}(x)}{\sum\limits_{b=1}^B I_{i}^{b}})^2$ où $I_{i}^{b}=1$ si l'observation $i \notin d^{*b}$, 0 sinon
+$Error_{OOB}=\frac{1}{n}\sum\limits_{i=1}^n (\frac{y_i-\sum\limits_{b=1}^B I_{i}^{b}\hat{\eta_b}(x)}{\sum\limits_{b=1}^B I_{i}^{b}})^2$ où $I_{i}^{b}=1$ si l'observation $i \notin d^{*b}$, 0 sinon
 \end{center}
 \subsubsection{Résultats obtenus}
 \paragraph{}
@@ -439,7 +437,9 @@ RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
            oob_score=False, random_state=None, verbose=0, warm_start=False)
 \end{verbatim}
 Pour les autres stations (Bordeaux, Rennes et Lille) le seul hyper-paramètre qui change est le nombre de variables explicatives sélectionnées à chaque nœud que l'on a appelé $m$ (\textit{max\_features} dans la fonction \textbf{RandomForestRegressor} de la librairie \textit{scikit-learn} en Python) qui vaut 13. Le nombre d'itérations optimal $B$ (ou \textit{n\_estimators} ici) est de 800. Les résultats procurés par cet estimateur sont les suivants :\\
-\includegraphics[scale=0.8]{Images/score_rf.png}
+\begin{center}
+\includegraphics[width=18cm]{Images/score_rf.png}
+\end{center}
 \begin{center}
 \captionof{figure}{Le score de cet algorithme est légèrement meilleur que la baseline}
 \label{fig1}
@@ -459,26 +459,39 @@ Si l'on se place dans un problème de discrimination, à chaque itérations on v
 \captionof{figure}{Illustration du boosting pour un problème de discrimination binaire dans $\mathbb{R}^2$}
 \end{center}
 \paragraph{}
-Il existe énormément de déclinaisons du boosting, dans cet étude nous allons nous focaliser sur un algorithme d'\textbf{eXtreme Gradient Boosting} (XGBoost) régularisé qui s'appuie sur un algorithme de minimisation du risque empirique (fonction de perte \textit{l}) par descente de gradient. Nous avons choisi cet algorithme par rapport à sa popularité que ce soit au niveau de compétition de type \textit{Kaggle} ou en entreprise (plusieurs soutenances de stage d'élèves de Master 2 parlaient de cette méthode en 2016), mais également pour sa rapidité à être implémenté et tourner. La version régularisée doit nous permettre d'éviter ou en tout cas de limite le sur-apprentissage.
+Il existe énormément de déclinaisons du boosting, dans cet étude nous allons nous focaliser sur un algorithme d'\textbf{eXtreme Gradient Boosting} (XGBoost) régularisé qui s'appuie sur un algorithme de minimisation du risque empirique (fonction de perte \textit{l}) par descente de gradient. Nous avons choisi cet algorithme par rapport à sa popularité que ce soit au niveau des compétitions de type \textit{Kaggle} ou en entreprise (plusieurs soutenances de stage d'élèves de Master 2 parlaient de cette méthode en 2016), mais également pour sa rapidité à être implémenté. La version régularisée doit nous permettre d'éviter, ou en tout cas de limiter le sur-apprentissage.
 \newpage
-\subsubsection{Descente de gradient stochastique : rappels}
+\subsubsection{Descente de gradient stochastique}
+\paragraph{}
+Avant d'expliquer le fonctionnement de l'algorithme \textbf{XGBoost} il est primordial d'effectuer un rappel sur l'algorithme d'optimisation qui en est la base : la descente de gradient. Nous avons même fait le choix d'utiliser une descente de gradient stochastique (on ne regarde qu'une partie des observations pour effectuer la mise à jour du gradient). Cela a pour propriété de réduire la variance au prix de rajouter du biais, mais les éléments de littérature laissent à penser que la réduction de variance est plus importante que l'introduction de biais, et que cela permet donc d'améliorer la performance de l'algorithme de prédiction. Dans le cas simple où l'on cherche à minimiser une fonction convexe, on se fixe un point de départ et on \og descend \fg{} le long de cette fonction en la différenciant jusqu'à atteindre le minimum global.
 \begin{center}
 \includegraphics[scale=0.7]{Images/descente.png}
 \end{center}
-
 \begin{center}
-\captionof{figure}{Descente de gradient sur une fonction convexe simple}
+\captionof{figure}{Descente de gradient sur une fonction convexe simple dans le plan}
 \end{center}
-
+\paragraph{}
+Cependant, un paramètre essentiel à choisir dans cette méthode va être le \textbf{pas de descente}. Un pas trop grand va mener à une irrégularité et à des résultats très mauvais car le minimum ne sera jamais atteint.\\
+Au contraire, un pas trop petit va premièrement avoir pour effet de ralentir le temps de calcul de l'algorithme, et deuxièmement nous exposer au risque de ne jamais atteindre le minimum si l'on s'arrête trop tôt au niveau du nombre d'itérations de l'algorithme.
 \begin{center}
 \includegraphics[scale=0.5]{Images/lr.jpg}
 \end{center}
 \begin{center}
 \captionof{figure}{Problème : le choix du pas est crucial}
 \end{center}
+\paragraph{}
+Cela nous permet déjà de nous rendre compte que le nombre d'itérations de l'algorithme et le pas (learning rate) sont deux paramètres qui vont être liés et qui seront cruciaux dans la quête du minimum global de la fonction de perte qu'on cherche à atteindre, et donc pour la qualité d'estimation. En revanche, les cas présentés ci-dessus sont des cas simples, où la fonction est convexe. Une difficulté supplémentaire en pratique va souvent être que la fonction de perte que l'on cherche à minimiser ne sera pas convexe.
+\begin{center}
+\includegraphics[scale=0.7]{Images/nonconvex-cost.png}
+\end{center}
+\begin{center}
+\captionof{figure}{Dans la pratique on se retrouve plus souvent confronté à ce type de fonctions}
+\end{center}
+\paragraph{}
+L'enjeu va donc être de choisir un nombre d'itérations et un pas optimal afin de ne pas se retrouver \og coincé \fg{} dans un minimum local et de pouvoir atteindre le minimum global de la fonction de perte qu'on souhaite minimiser. Une autre solution plus complexe pourrait être de chercher un majorant convexe de la fonction de perte et de chercher à le minimiser. Ce principe est par exemple utilisé dans le cadre d'une SVM où l'on procède à une minimisation du risque empirique convexifié régularisé. 
 \subsubsection{Fonctionnement du Gradient Boosting régularisé}
 \paragraph{}
-Dans cette partie, nous allons détailler le fonctionnement de cette méthode de façon algorithmique puis en détaillant les étapes afin de bien comprendre le traitement effectué par cette opération. L'algorithme de gradient boosting régularisé en régression peut s'écrire de la façon suivante :
+Dans cette partie, nous allons exprimer le fonctionnement de cette méthode de façon algorithmique puis en détailler les étapes afin de bien comprendre le traitement effectué par cette opération. L'algorithme de gradient boosting régularisé en régression peut s'écrire de la façon suivante :
 \begin{algorithm}
 \caption{Gradient Boosting régularisé}
 \begin{algorithmic}
@@ -486,7 +499,7 @@ Dans cette partie, nous allons détailler le fonctionnement de cette méthode de
 \STATE $\phi_{\gamma}$ : algorithme faible de paramètre $\gamma$ à ajuster
 \STATE $\lambda \in $ $]0,1]$ : paramètre de régularisation\\
 \ENSURE
-\STATE Initialiser $\hat{\eta^0}(x)=\underset{c}{argmin}\sum\limits_{i=1}^n l(y_i,c)$
+\STATE Initialiser $\hat{\eta}^0(x)=\underset{c}{argmin}\sum\limits_{i=1}^n l(y_i,c)$
 \FOR {b variant de 1 à B}
 \STATE Calculer $z_{i}^b=-\frac{\partial}{\partial_{\eta(x_i)}}l(y_i,\eta(x_i))\vert_{\eta(x_i)=\hat{\eta}^{b-1}(x_i)}$
 \STATE Ajuster $\hat{\gamma}^b=\underset{\gamma}{argmin}\sum\limits_{i=1}^n(z_{i}^b-\phi_{\gamma}(x_i))^2$
@@ -500,20 +513,44 @@ Dans cette partie, nous allons détailler le fonctionnement de cette méthode de
 \paragraph{}
 Nous allons à présent reprendre ces écritures afin de mieux comprendre les tâches effectuées par l'algorithme. Premièrement décrivons les entrées de cet algorithme :
 \begin{itemize}
-\item $\phi_{\gamma}$ va correspondre dans notre étude à un arbre. $\gamma$ sera le nombre de nœuds de cet arbre que l'on ajustera par validation croisée 5-blocs encore une fois
-\item $\lambda$ est l'hyper-paramètre qui va nous permettre d'effectuer de la régularisation. On l'appelle également le \textit{learning rate}, il peut être vu comme le taux d'apprentissage de l'algorithme à chaque itération. Puisque $\lambda \in$ $]0,1]$ on voit donc qu'il réduit/limite l'apprentissage de chaque itération, ce qui doit nous aider à nous prémunir du risque de sur-apprentissage
+\item $\phi_{\gamma}$ va correspondre dans notre étude à un arbre. $\gamma$ sera par exemple le nombre de nœuds de cet arbre que l'on ajustera par validation croisée 5-blocs encore une fois
+\item $\lambda$ est l'hyper-paramètre qui va nous permettre d'effectuer de la régularisation. On l'appelle également le \textit{learning rate}, c'est ce que nous avons décrit précédemment comme étant le pas de descente de gradient. Puisque $\lambda \in$ $]0,1]$ on voit donc qu'il réduit/limite l'apprentissage de chaque itération, ce qui doit nous aider à nous prémunir du risque de sur-apprentissage
 \end{itemize}
-On entre ensuite au cœur du problème d'optimisation, qui dans le cas de la méthode \textbf{XGBoost} s'appuie sur une minimisation du risque empirique par descente de gradient. Dans notre cas ce sera même une descente de gradient stochastique, dans le but de réduire la variance mais au prix d'une augmentation du biais. Cela implique également le choix d'une fonction de perte $l$. Comme expliqué précédemment :
+On entre ensuite au cœur du problème d'optimisation, qui dans le cas de la méthode \textbf{XGBoost} s'appuie sur une minimisation du risque empirique par descente de gradient. Cela implique également le choix d'une fonction de perte $l$. Comme expliqué précédemment :
 \begin{itemize}
 \item on choisit un point de départ lors de l'initialisation, puis on procède à la descente de gradient (dans la direction de plus forte descente correspondant à $z_{i}^b$) dans le but de minimiser $l$
 \item on met à jour les poids en fonction de la qualité de prédiction du \og prédicteur faible \fg{}
 \item on actualise la prédiction $\hat{\eta}^b(x)$ de l'itération en fonction de la prédiction de l'itération précédente et de l'apprentissage effectué au cours de l'itération actuelle
 \item A la fin des \textbf{B} itérations que l'on s'est fixé, on renvoie la dernière prédiction.
 \end{itemize}
-On remarque également de par la configuration de la méthode de descente de gradient que le nombre d'itérations \textbf{B} et le learning rate $\lambda$ sont deux hyper-paramètres qui interagissent et qu'il va donc falloir calibrer de façon adéquate et simultanée. Cet ajustement va se faire par validation croisée et on va fixer l'un des paramètres en faisant varier l'autre. En ce qui nous concerne, le nombre d'itérations sera fixé et c'est le learning rate qui va varier.
+Comme introduit précédemment, le nombre d'itérations \textbf{B} et le learning rate $\lambda$ sont deux hyper-paramètres qui interagissent et qu'il va donc falloir calibrer de façon simultanée. Cet ajustement va se faire par validation croisée 5-blocs et on va fixer l'un des paramètres en faisant varier l'autre. En ce qui nous concerne, le nombre d'itérations sera fixé et c'est le learning rate qui va varier.
 
 \subsubsection{Résultats obtenus}
-\newpage
+\paragraph{}
+La sortie en Python correspondant au meilleur estimateur, que nous allons détailler, est la suivante :
+\begin{verbatim}
+GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
+             learning_rate=0.05, loss='ls', max_depth=8, max_features=None,
+             max_leaf_nodes=None, min_impurity_split=1e-07,
+             min_samples_leaf=1, min_samples_split=2,
+             min_weight_fraction_leaf=0.0, n_estimators=1200,
+             presort='auto', random_state=None, subsample=0.9, verbose=0,
+             warm_start=False)
+\end{verbatim}
+\paragraph{}
+Les hyper-paramètres optimaux sont les mêmes pour toutes les stations, parmi ceux qui ont été choisis et ajustés (\textit{i.e} pas laissés par défaut), on retrouve :
+\begin{itemize}
+\item un nombre d'itérations (\textit{n\_estimators}) de $1200$ associé à un pas de descente (\textit{learning\_rate}) de $0.05$
+\item la fonction de perte (\textit{loss}) classique, à savoir \og ls \fg{} pour \textit{least squares regression}. La fonction \textbf{Huber} réputée plus robuste dans certains articles n'apportait pas plus de performance
+\item une profondeur d'arbre (\textit{max\_depth}) de 8. On souhaite garder un arbre peu profond afin qu'il reste faible et qu'on évite le sur-apprentissage, cependant les \textit{stumps} (arbres à 2 nœuds) procuraient de moins bons résultats finaux.
+\item une proportion d'observations (\textit{subsample}) utilisées pour effectuer les mises à jour de gradient de $0.9$ : c'est ce paramètre qui permet d'effectuer une descente de gradient stochastique
+\end{itemize}
+Les résultats obtenus grâce à cet estimateur sont les suivants :\\
+\includegraphics[scale=0.8]{Images/score_boosting.png}
+\begin{center}
+\captionof{figure}{La performance est meilleure par rapport aux algorithmes précédents}
+\label{fig1}
+\end{center}
 \subsection{Deep Learning : l'utilisation des réseaux de neurones}
 \paragraph{}
 Le Deep Learning permet de résoudre différents problèmes que nous pouvons rencontrer avec les réseaux de neurones comme la stabilité. Aujourd'hui il est souvent utilisé pour des problèmes divers avec des résultats parfois remarquable comme nous pouvons le voir avec le site de traduction DeepL, le plus abouti aujourd'hui pour le grand public ou encore pour des outils d'analyse des émotions par un visage photographié ou filmé.
@@ -533,6 +570,9 @@ $y_{i}=f(\beta_{0} + \sum\limits_{j} \beta_{j}x_{i,j}) + \varepsilon_{i}$
 \begin{flushleft}
 - \textbf{WikiStat}, \href{https://www.math.univ-toulouse.fr/~besse/Wikistat/pdf/st-scenar-app-idm.pdf}{\textit{\textcolor{blue}{Scénario: Imputation de données manquantes}}}\\
 \medskip
+- \textbf{Documentation de scikit-learn}, \href{http://scikit-learn.org/stable/supervised_learning.html#supervised-learning}{\textit{\textcolor{blue}{Librairies pour faire de l'apprentissage supervisé en Python}}}\\
+\medskip
+- \textbf{Jason Brownlee}, \href{https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/}{\textit{\textcolor{blue}{A Gentle Introduction to the Gradient Boosting Algorithm for Machine Learning}}}\\
 \end{flushleft}
 
 \end{document}

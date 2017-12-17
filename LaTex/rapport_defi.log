@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  17 DEC 2017 10:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  17 DEC 2017 14:52
 entering extended mode
 **./rapport_defi.tex
 (rapport_defi.tex
@@ -928,6 +928,9 @@ LaTeX Warning: Label `fig1' multiply defined.
 
 LaTeX Warning: Label `fig1' multiply defined.
 
+
+LaTeX Warning: Label `fig1' multiply defined.
+
 )
 \openout1 = `rapport_defi.aux'.
 
@@ -1177,58 +1180,58 @@ Underfull \hbox (badness 10000) in paragraph at lines 209--210
 
  []
 
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 226.
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 224.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\doublestroke\udsrom.fd"
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [5 <./Images/overfitting.png>] <Images/hold_out.png, id=207, 806.26219pt x 21
+) [5 <./Images/overfitting.png>] <Images/hold_out.png, id=206, 806.26219pt x 21
 9.82124pt>
 File: Images/hold_out.png Graphic file (type png)
 
 <use Images/hold_out.png>
-Package pdftex.def Info: Images/hold_out.png used on input line 247.
+Package pdftex.def Info: Images/hold_out.png used on input line 245.
 (pdftex.def)             Requested size: 512.1496pt x 139.63524pt.
 
-Overfull \hbox (28.45273pt too wide) in paragraph at lines 245--248
+Overfull \hbox (28.45273pt too wide) in paragraph at lines 243--246
 [] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 249.
+(caption)                particular \caption on input line 247.
 See the caption package documentation for explanation.
 
 [6 <./Images/hold_out.png>]
-<Images/k_fold.jpg, id=221, 527.9725pt x 262.9825pt>
+<Images/k_fold.jpg, id=220, 527.9725pt x 262.9825pt>
 File: Images/k_fold.jpg Graphic file (type jpg)
  <use Images/k_fold.jpg>
-Package pdftex.def Info: Images/k_fold.jpg used on input line 278.
+Package pdftex.def Info: Images/k_fold.jpg used on input line 276.
 (pdftex.def)             Requested size: 483.69684pt x 240.92757pt.
 
-Overfull \hbox (9.99997pt too wide) in paragraph at lines 278--279
+Overfull \hbox (9.99997pt too wide) in paragraph at lines 276--277
  [][] [] 
  []
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 280.
+(caption)                particular \caption on input line 278.
 See the caption package documentation for explanation.
 
 [7 <./Images/k_fold.jpg>]
-<Images/na_error.png, id=230, 1370.11874pt x 501.37312pt>
+<Images/na_error.png, id=229, 1370.11874pt x 501.37312pt>
 File: Images/na_error.png Graphic file (type png)
 
 <use Images/na_error.png>
-Package pdftex.def Info: Images/na_error.png used on input line 297.
+Package pdftex.def Info: Images/na_error.png used on input line 295.
 (pdftex.def)             Requested size: 483.69684pt x 176.99797pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 299.
+(caption)                particular \caption on input line 297.
 See the caption package documentation for explanation.
 
 
-Overfull \hbox (4.22676pt too wide) in paragraph at lines 303--304
+Overfull \hbox (4.22676pt too wide) in paragraph at lines 301--302
  [][] \T1/LinuxLibertineT-TLF/m/n/10 Clai-re-ment, ce gra-phique fait res-sor-t
 ir un pro-blème pour les va-riables \T1/LinuxLibertineT-TLF/b/n/10 flir1SOL0\T1
 /LinuxLibertineT-TLF/m/n/10 , \T1/LinuxLibertineT-TLF/b/n/10 fl-lat1SOL0\T1/Lin
@@ -1237,77 +1240,82 @@ bertineT-TLF/m/n/10 , \T1/LinuxLibertineT-TLF/b/n/10 fl-vis1SOL0
  []
 
 [8 <./Images/na_error.png>]
-<Images/err_imp.png, id=242, 756.57657pt x 432.86719pt>
+<Images/err_imp.png, id=241, 756.57657pt x 432.86719pt>
 File: Images/err_imp.png Graphic file (type png)
 
 <use Images/err_imp.png>
-Package pdftex.def Info: Images/err_imp.png used on input line 319.
+Package pdftex.def Info: Images/err_imp.png used on input line 317.
 (pdftex.def)             Requested size: 483.69684pt x 276.74342pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 321.
+(caption)                particular \caption on input line 319.
 See the caption package documentation for explanation.
 
 [9 <./Images/err_imp.png>]
-<Images/date.png, id=250, 875.52094pt x 405.76593pt>
+<Images/date.png, id=249, 875.52094pt x 405.76593pt>
 File: Images/date.png Graphic file (type png)
  <use Images/date.png>
-Package pdftex.def Info: Images/date.png used on input line 346.
+Package pdftex.def Info: Images/date.png used on input line 344.
 (pdftex.def)             Requested size: 483.69684pt x 224.17497pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 348.
+(caption)                particular \caption on input line 346.
 See the caption package documentation for explanation.
 
 [10 <./Images/date.png>]
-LaTeX Font Info:    Try loading font information for U+euf on input line 379.
+LaTeX Font Info:    Try loading font information for U+euf on input line 377.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\ueuf.fd"
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-<Images/cart.png, id=260, 604.2575pt x 305.14pt>
+<Images/cart.png, id=259, 604.2575pt x 305.14pt>
 File: Images/cart.png Graphic file (type png)
  <use Images/cart.png>
-Package pdftex.def Info: Images/cart.png used on input line 381.
-(pdftex.def)             Requested size: 483.69684pt x 244.25665pt.
- [11]
+Package pdftex.def Info: Images/cart.png used on input line 379.
+(pdftex.def)             Requested size: 332.34265pt x 167.8275pt.
+
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 383.
+(caption)                particular \caption on input line 382.
 See the caption package documentation for explanation.
 
+[11 <./Images/cart.png (PNG copy)>]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 406.
-[12 <./Images/cart.png (PNG copy)>]
+put line 404.
+ [12]
 LaTeX Font Info:    Try loading font information for T1+LinuxLibertineMonoT-TLF
- on input line 434.
+ on input line 432.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\libertine\t1linuxlibertinemonot-tlf.fd"
 File: T1LinuxLibertineMonoT-TLF.fd 2017/03/20 (autoinst) Font definitions for T
 1/LinuxLibertineMonoT-TLF.
 )
 LaTeX Font Info:    Font shape `T1/LinuxLibertineMonoT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 434.
- <Images/score_rf.png, id=278, 659.46375pt x 263.48438pt>
+(Font)              scaled to size 10.0pt on input line 432.
+
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
+
+ []
+
+<Images/score_rf.png, id=293, 659.46375pt x 263.48438pt>
 File: Images/score_rf.png Graphic file (type png)
 
 <use Images/score_rf.png>
-Package pdftex.def Info: Images/score_rf.png used on input line 442.
-(pdftex.def)             Requested size: 527.5717pt x 210.78777pt.
+Package pdftex.def Info: Images/score_rf.png used on input line 441.
+(pdftex.def)             Requested size: 512.1496pt x 204.63248pt.
 
-Overfull \hbox (43.87483pt too wide) in paragraph at lines 441--443
-[] 
+Overfull \hbox (28.45273pt too wide) in paragraph at lines 441--442
+ [] 
  []
 
-[13]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 444.
 See the caption package documentation for explanation.
 
-<Images/boosting.png, id=302, 554.07pt x 408.52625pt>
+<Images/boosting.png, id=294, 554.07pt x 408.52625pt>
 File: Images/boosting.png Graphic file (type png)
 
 <use Images/boosting.png>
@@ -1318,7 +1326,7 @@ Overfull \hbox (56.90549pt too wide) in paragraph at lines 457--458
 [][] 
  []
 
-[14 <./Images/score_rf.png>]
+[13 <./Images/score_rf.png>]
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 459.
@@ -1331,54 +1339,83 @@ du boos-ting, dans cet étude nous al-lons nous fo-ca-li-ser sur un al-go-rithme
  d'\T1/LinuxLibertineT-TLF/b/n/10 eXtreme
  []
 
-[15 <./Images/boosting.png (PNG copy)>]
-<Images/descente.png, id=318, 366.77025pt x 306.24413pt>
+[14 <./Images/boosting.png (PNG copy)>]
+<Images/descente.png, id=312, 366.77025pt x 306.24413pt>
 File: Images/descente.png Graphic file (type png)
 
 <use Images/descente.png>
-Package pdftex.def Info: Images/descente.png used on input line 466.
+Package pdftex.def Info: Images/descente.png used on input line 468.
 (pdftex.def)             Requested size: 256.73741pt x 214.36942pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 470.
+(caption)                particular \caption on input line 471.
 See the caption package documentation for explanation.
 
-<Images/lr.jpg, id=319, 640.3925pt x 480.79625pt>
+<Images/lr.jpg, id=313, 640.3925pt x 480.79625pt>
 File: Images/lr.jpg Graphic file (type jpg)
  <use Images/lr.jpg>
-Package pdftex.def Info: Images/lr.jpg used on input line 474.
+Package pdftex.def Info: Images/lr.jpg used on input line 477.
 (pdftex.def)             Requested size: 320.19547pt x 240.39752pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 477.
+(caption)                particular \caption on input line 480.
 See the caption package documentation for explanation.
 
-[16 <./Images/descente.png (PNG copy)> <./Images/lr.jpg>] [17]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 538.
- [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 538.
+[15 <./Images/descente.png (PNG copy)> <./Images/lr.jpg>]
+<Images/nonconvex-cost.png, id=322, 486.81876pt x 286.06876pt>
+File: Images/nonconvex-cost.png Graphic file (type png)
 
-(rapport_defi.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 538.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 538.
+<use Images/nonconvex-cost.png>
+Package pdftex.def Info: Images/nonconvex-cost.png used on input line 485.
+(pdftex.def)             Requested size: 340.7708pt x 200.24675pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 488.
+See the caption package documentation for explanation.
+
+[16 <./Images/nonconvex-cost.png>]
+<Images/score_boosting.png, id=344, 659.46375pt x 263.48438pt>
+File: Images/score_boosting.png Graphic file (type png)
+
+<use Images/score_boosting.png>
+Package pdftex.def Info: Images/score_boosting.png used on input line 549.
+(pdftex.def)             Requested size: 527.5717pt x 210.78777pt.
+
+Overfull \hbox (43.87483pt too wide) in paragraph at lines 548--550
+[] 
+ []
+
+[17]
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 551.
+See the caption package documentation for explanation.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 578.
+[18 <./Images/score_boosting.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 578.
+ (rapport_defi.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 578.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 578.
 Package rerunfilecheck Info: File `rapport_defi.out' has not changed.
-(rerunfilecheck)             Checksum: FCA69B4A5C11331FFD18FA3759AABB69;2381.
+(rerunfilecheck)             Checksum: 1DCABA956A40183C203A6DD1B01C2CBF;2371.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 538.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 578.
  ) 
 Here is how much of TeX's memory you used:
- 11815 strings out of 493323
- 179060 string characters out of 3139054
- 272317 words of memory out of 3000000
- 15000 multiletter control sequences out of 15000+200000
+ 11831 strings out of 493323
+ 179396 string characters out of 3139054
+ 272320 words of memory out of 3000000
+ 15008 multiletter control sequences out of 15000+200000
  83592 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,10n,92p,852b,738s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 53i,10n,92p,915b,738s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_d6jdyt.enc}{C:/Pr
 ogram Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{C:/Program Fi
 les/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{C:/Program Files/MiKT
@@ -1401,9 +1438,9 @@ fonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/doublestroke/dsrom10.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eufm10.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on rapport_defi.pdf (19 pages, 1147084 bytes).
+Output written on rapport_defi.pdf (19 pages, 1197280 bytes).
 PDF statistics:
- 444 PDF objects out of 1000 (max. 8388607)
- 131 named destinations out of 1000 (max. 500000)
- 300 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 457 PDF objects out of 1000 (max. 8388607)
+ 137 named destinations out of 1000 (max. 500000)
+ 310 words of extra memory for PDF output out of 10000 (max. 10000000)
 
