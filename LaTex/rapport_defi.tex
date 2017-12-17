@@ -18,10 +18,11 @@
 \usepackage{algorithmic}
 %%% francisation des algorithmes :
 \renewcommand{\algorithmicrequire}{\textbf{Entrées : }}
-\renewcommand{\algorithmicensure}{\textbf{Sortie : }}
+\renewcommand{\algorithmicensure}{\textbf{Début}}
 \renewcommand{\algorithmicreturn}{\textbf{Retourner}}
 \renewcommand{\algorithmicwhile}{\textbf{tant que}}
 \renewcommand{\algorithmicdo}{\textbf{}}
+\renewcommand{\algorithmicprint}{\textbf{Fin}}
 \renewcommand{\algorithmicfor}{\textbf{Pour}}
 \renewcommand{\algorithmicendfor}{\textbf{Fin pour}}
 \renewcommand{\algorithmicendwhile}{\textbf{Fin du \og Tant que\fg }}
@@ -384,9 +385,10 @@ Une façon simple de modéliser des données peut être d'utiliser un arbre de d
 \end{center}
 \paragraph{}
 \paragraph{}
-Néanmoins cet algorithme pose le problème majeur d'être très instable (fléau de la dimension et sensibilité à l'échantillon). C'est donc pour palier à ce problème que nous allons utiliser l'algorithme de forêt aléatoire \textbf{Random Input}. Comme son nom l'indique, cette méthode consiste en une agrégation d'arbres : c'est un algorithme de \textbf{Bagging} (\textbf{B}ootsrap \textbf{agg}regat\textbf{ing}). 
+Néanmoins cet algorithme pose le problème majeur d'être très instable (fléau de la dimension et sensibilité à l'échantillon). C'est donc pour palier à ce problème que nous allons utiliser l'algorithme de forêt aléatoire \textbf{Random Input}. Comme son nom l'indique, cette méthode consiste en une agrégation d'arbres : c'est un algorithme de \textbf{Bagging} (\textbf{B}ootstrap \textbf{agg}regat\textbf{ing}). 
 \subsubsection{Le bagging}
-Le \textbf{bagging} s'applique à des algorithmes instables, de variance forte, ce qui est le cas des arbres \textbf{CART}. En utilisant un algorithme de \textbf{bagging}, le but va justement être de réduire la variance (quitte à introduire un petit peu plus de biais).
+\paragraph{}
+Le \textbf{bagging} s'applique à des algorithmes instables, de variance forte, ce qui est le cas des arbres \textbf{CART}. En utilisant un algorithme de \textbf{bagging}, le but va justement être de réduire la variance (quitte à introduire un peu de biais).
 En régression, on va agréger \textbf{B} algorithmes $\hat{\eta_1},...,\hat{\eta_B}$ sous la forme :
 \begin{center}
 $\hat{\eta}(x)=\frac{1}{B}\sum\limits_{b=1}^B \hat{\eta_b}(x)$
@@ -408,6 +410,7 @@ L'algorithme de de forêt aléatoire Random Input est donc une variante de la m�
 \STATE $d^{n}_{1}$ : l'échantillon observé
 \STATE $m$ : le nombre de variables explicatives sélectionnées à chaque nœud
 \STATE $B$ : le nombre d'itérations
+\ENSURE
 \FOR {b variant de 1 à B}
 \STATE Tirer un échantillon bootstrap $d^{*b}$ de $d^{n}_{1}$
 \STATE Construire un arbre maximal $\hat{\eta_b}$ sur l'échantillon bootstrap $d^{*b}$ par la variante de CART
@@ -416,7 +419,8 @@ L'algorithme de de forêt aléatoire Random Input est donc une variante de la m�
 \STATE Partitionner le nœud à partir de la \og meilleure \fg{} de ces $m$ variables
 \ENDFOR
 \ENDFOR
-\RETURN $\frac{1}{B}\sum\limits_{b=1}^B \hat{\eta_b}(x)$ .
+\RETURN $\frac{1}{B}\sum\limits_{b=1}^B \hat{\eta_b}(x)$
+\PRINT
 \end{algorithmic}
 \end{algorithm}
 \paragraph{}
@@ -434,8 +438,13 @@ RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
            min_weight_fraction_leaf=0.0, n_estimators=800, n_jobs=1,
            oob_score=False, random_state=None, verbose=0, warm_start=False)
 \end{verbatim}
-Pour les autres stations (Bordeaux, Rennes et Lille) le seul hyper-paramètre qui change est le nombre de variables explicatives sélectionnées à chaque nœud que l'on a appelé $m$ (\textit{max\_features} dans la fonction \textbf{RandomForestRegressor} de la librairie \textit{scikit-learn} en Python) qui vaut 13. Le nombre d'itérations optimal $B$ (ou \textit{n\_estimators} ici) est de 800. Les résultats procurés par cet estimateur sont les suivants :
-\newpage
+Pour les autres stations (Bordeaux, Rennes et Lille) le seul hyper-paramètre qui change est le nombre de variables explicatives sélectionnées à chaque nœud que l'on a appelé $m$ (\textit{max\_features} dans la fonction \textbf{RandomForestRegressor} de la librairie \textit{scikit-learn} en Python) qui vaut 13. Le nombre d'itérations optimal $B$ (ou \textit{n\_estimators} ici) est de 800. Les résultats procurés par cet estimateur sont les suivants :\\
+\includegraphics[scale=0.8]{Images/score_rf.png}
+\begin{center}
+\captionof{figure}{Le score de cet algorithme est légèrement meilleur que la baseline}
+\label{fig1}
+\end{center}
+Cet algorithme permet donc de franchir la \textbf{baseline}, cependant on s'aperçoit encore d'un écart important entre le score moyen d'entraînement sur les 7 stations et le score sur le fichier de test. Nous allons maintenant essayer d'autres algorithmes dont le fonctionnement est différent et regarder s'ils nous permettent de gagner en performance.
 \subsection{Boosting : l'algorithme XGBoost}
 \subsubsection{Rappels sur le fonctionnement du boosting}
 \paragraph{}
@@ -450,10 +459,61 @@ Si l'on se place dans un problème de discrimination, à chaque itérations on v
 \captionof{figure}{Illustration du boosting pour un problème de discrimination binaire dans $\mathbb{R}^2$}
 \end{center}
 \paragraph{}
-Il existe énormément de déclinaisons du boosting, dans cet étude nous allons nous focaliser sur un algorithme d'\textbf{eXtreme Gradient Boosting} (XGBoost) régularisé qui s'appuie sur un algorithme de minimisation du risque empirique (fonction de perte \textit{l}) par descente de gradient.
+Il existe énormément de déclinaisons du boosting, dans cet étude nous allons nous focaliser sur un algorithme d'\textbf{eXtreme Gradient Boosting} (XGBoost) régularisé qui s'appuie sur un algorithme de minimisation du risque empirique (fonction de perte \textit{l}) par descente de gradient. Nous avons choisi cet algorithme par rapport à sa popularité que ce soit au niveau de compétition de type \textit{Kaggle} ou en entreprise (plusieurs soutenances de stage d'élèves de Master 2 parlaient de cette méthode en 2016), mais également pour sa rapidité à être implémenté et tourner. La version régularisée doit nous permettre d'éviter ou en tout cas de limite le sur-apprentissage.
+\newpage
+\subsubsection{Descente de gradient stochastique : rappels}
+\begin{center}
+\includegraphics[scale=0.7]{Images/descente.png}
+\end{center}
+
+\begin{center}
+\captionof{figure}{Descente de gradient sur une fonction convexe simple}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.5]{Images/lr.jpg}
+\end{center}
+\begin{center}
+\captionof{figure}{Problème : le choix du pas est crucial}
+\end{center}
 \subsubsection{Fonctionnement du Gradient Boosting régularisé}
-\subsubsection{Descente de gradient stochastique}
+\paragraph{}
+Dans cette partie, nous allons détailler le fonctionnement de cette méthode de façon algorithmique puis en détaillant les étapes afin de bien comprendre le traitement effectué par cette opération. L'algorithme de gradient boosting régularisé en régression peut s'écrire de la façon suivante :
+\begin{algorithm}
+\caption{Gradient Boosting régularisé}
+\begin{algorithmic}
+\REQUIRE 
+\STATE $\phi_{\gamma}$ : algorithme faible de paramètre $\gamma$ à ajuster
+\STATE $\lambda \in $ $]0,1]$ : paramètre de régularisation\\
+\ENSURE
+\STATE Initialiser $\hat{\eta^0}(x)=\underset{c}{argmin}\sum\limits_{i=1}^n l(y_i,c)$
+\FOR {b variant de 1 à B}
+\STATE Calculer $z_{i}^b=-\frac{\partial}{\partial_{\eta(x_i)}}l(y_i,\eta(x_i))\vert_{\eta(x_i)=\hat{\eta}^{b-1}(x_i)}$
+\STATE Ajuster $\hat{\gamma}^b=\underset{\gamma}{argmin}\sum\limits_{i=1}^n(z_{i}^b-\phi_{\gamma}(x_i))^2$
+\STATE Calculer $\hat{\beta}_b=\underset{\beta}{argmin}\sum\limits_{i=1}^n l(y_i,\hat{\eta}^{b-1}(x_i)+\beta\phi_{\hat{\gamma}^b}(x_i))$
+\STATE Mettre à jour $\hat{\eta}^b(x)=\hat{\eta}^{b-1}(x)+\lambda\beta\phi_{\hat{\gamma}^b}(x)$
+\ENDFOR
+\RETURN $\hat{\eta}^B$
+\PRINT
+\end{algorithmic}
+\end{algorithm}
+\paragraph{}
+Nous allons à présent reprendre ces écritures afin de mieux comprendre les tâches effectuées par l'algorithme. Premièrement décrivons les entrées de cet algorithme :
+\begin{itemize}
+\item $\phi_{\gamma}$ va correspondre dans notre étude à un arbre. $\gamma$ sera le nombre de nœuds de cet arbre que l'on ajustera par validation croisée 5-blocs encore une fois
+\item $\lambda$ est l'hyper-paramètre qui va nous permettre d'effectuer de la régularisation. On l'appelle également le \textit{learning rate}, il peut être vu comme le taux d'apprentissage de l'algorithme à chaque itération. Puisque $\lambda \in$ $]0,1]$ on voit donc qu'il réduit/limite l'apprentissage de chaque itération, ce qui doit nous aider à nous prémunir du risque de sur-apprentissage
+\end{itemize}
+On entre ensuite au cœur du problème d'optimisation, qui dans le cas de la méthode \textbf{XGBoost} s'appuie sur une minimisation du risque empirique par descente de gradient. Dans notre cas ce sera même une descente de gradient stochastique, dans le but de réduire la variance mais au prix d'une augmentation du biais. Cela implique également le choix d'une fonction de perte $l$. Comme expliqué précédemment :
+\begin{itemize}
+\item on choisit un point de départ lors de l'initialisation, puis on procède à la descente de gradient (dans la direction de plus forte descente correspondant à $z_{i}^b$) dans le but de minimiser $l$
+\item on met à jour les poids en fonction de la qualité de prédiction du \og prédicteur faible \fg{}
+\item on actualise la prédiction $\hat{\eta}^b(x)$ de l'itération en fonction de la prédiction de l'itération précédente et de l'apprentissage effectué au cours de l'itération actuelle
+\item A la fin des \textbf{B} itérations que l'on s'est fixé, on renvoie la dernière prédiction.
+\end{itemize}
+On remarque également de par la configuration de la méthode de descente de gradient que le nombre d'itérations \textbf{B} et le learning rate $\lambda$ sont deux hyper-paramètres qui interagissent et qu'il va donc falloir calibrer de façon adéquate et simultanée. Cet ajustement va se faire par validation croisée et on va fixer l'un des paramètres en faisant varier l'autre. En ce qui nous concerne, le nombre d'itérations sera fixé et c'est le learning rate qui va varier.
+
 \subsubsection{Résultats obtenus}
+\newpage
 \subsection{Deep Learning : l'utilisation des réseaux de neurones}
 \paragraph{}
 Le Deep Learning permet de résoudre différents problèmes que nous pouvons rencontrer avec les réseaux de neurones comme la stabilité. Aujourd'hui il est souvent utilisé pour des problèmes divers avec des résultats parfois remarquable comme nous pouvons le voir avec le site de traduction DeepL, le plus abouti aujourd'hui pour le grand public ou encore pour des outils d'analyse des émotions par un visage photographié ou filmé.

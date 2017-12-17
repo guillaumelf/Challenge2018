@@ -20,8 +20,8 @@
 \BOOKMARK [3][-]{subsubsection.6.2.4}{R\351sultats obtenus}{subsection.6.2}% 20
 \BOOKMARK [2][-]{subsection.6.3}{Boosting : l'algorithme XGBoost}{section.6}% 21
 \BOOKMARK [3][-]{subsubsection.6.3.1}{Rappels sur le fonctionnement du boosting}{subsection.6.3}% 22
-\BOOKMARK [3][-]{subsubsection.6.3.2}{Fonctionnement du Gradient Boosting r\351gularis\351}{subsection.6.3}% 23
-\BOOKMARK [3][-]{subsubsection.6.3.3}{Descente de gradient stochastique}{subsection.6.3}% 24
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Descente de gradient stochastique : rappels}{subsection.6.3}% 23
+\BOOKMARK [3][-]{subsubsection.6.3.3}{Fonctionnement du Gradient Boosting r\351gularis\351}{subsection.6.3}% 24
 \BOOKMARK [3][-]{subsubsection.6.3.4}{R\351sultats obtenus}{subsection.6.3}% 25
 \BOOKMARK [2][-]{subsection.6.4}{Deep Learning : l'utilisation des r\351seaux de neurones}{section.6}% 26
 \BOOKMARK [1][-]{section.7}{Bilan}{}% 27
