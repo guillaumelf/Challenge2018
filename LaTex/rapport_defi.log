@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  17 DEC 2017 14:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.24)  18 DEC 2017 22:16
 entering extended mode
 **./rapport_defi.tex
 (rapport_defi.tex
@@ -1364,7 +1364,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [15 <./Images/descente.png (PNG copy)> <./Images/lr.jpg>]
-<Images/nonconvex-cost.png, id=322, 486.81876pt x 286.06876pt>
+<Images/nonconvex-cost.png, id=321, 486.81876pt x 286.06876pt>
 File: Images/nonconvex-cost.png Graphic file (type png)
 
 <use Images/nonconvex-cost.png>
@@ -1377,7 +1377,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 See the caption package documentation for explanation.
 
 [16 <./Images/nonconvex-cost.png>]
-<Images/score_boosting.png, id=344, 659.46375pt x 263.48438pt>
+<Images/score_boosting.png, id=333, 659.46375pt x 263.48438pt>
 File: Images/score_boosting.png Graphic file (type png)
 
 <use Images/score_boosting.png>
@@ -1415,7 +1415,7 @@ Here is how much of TeX's memory you used:
  15008 multiletter control sequences out of 15000+200000
  83592 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 53i,10n,92p,915b,738s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 53i,10n,92p,922b,738s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_d6jdyt.enc}{C:/Pr
 ogram Files/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{C:/Program Fi
 les/MiKTeX 2.9/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{C:/Program Files/MiKT
@@ -1438,7 +1438,7 @@ fonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
 cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/doublestroke/dsrom10.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eufm10.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on rapport_defi.pdf (19 pages, 1197280 bytes).
+Output written on rapport_defi.pdf (19 pages, 1197114 bytes).
 PDF statistics:
  457 PDF objects out of 1000 (max. 8388607)
  137 named destinations out of 1000 (max. 500000)

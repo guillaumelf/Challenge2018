@@ -463,7 +463,7 @@ Il existe énormément de déclinaisons du boosting, dans cet étude nous allons
 \newpage
 \subsubsection{Descente de gradient stochastique}
 \paragraph{}
-Avant d'expliquer le fonctionnement de l'algorithme \textbf{XGBoost} il est primordial d'effectuer un rappel sur l'algorithme d'optimisation qui en est la base : la descente de gradient. Nous avons même fait le choix d'utiliser une descente de gradient stochastique (on ne regarde qu'une partie des observations pour effectuer la mise à jour du gradient). Cela a pour propriété de réduire la variance au prix de rajouter du biais, mais les éléments de littérature laissent à penser que la réduction de variance est plus importante que l'introduction de biais, et que cela permet donc d'améliorer la performance de l'algorithme de prédiction. Dans le cas simple où l'on cherche à minimiser une fonction convexe, on se fixe un point de départ et on \og descend \fg{} le long de cette fonction en la différenciant jusqu'à atteindre le minimum global.
+Avant d'expliquer le fonctionnement de l'algorithme \textbf{XGBoost} il est primordial d'effectuer un rappel sur l'algorithme d'optimisation qui en est la base : la descente de gradient. Nous avons même fait le choix d'utiliser une descente de gradient stochastique (on ne regarde qu'une partie des observations pour effectuer la mise à jour du gradient). Cela a pour propriété de réduire la variance moyennant une augmentation du biais, mais les éléments de littérature laissent à penser que la réduction de variance est plus importante que l'introduction de biais, et que cela permet donc d'améliorer la performance de l'algorithme de prédiction. Dans le cas simple où l'on cherche à minimiser une fonction convexe, on se fixe un point de départ et on \og descend \fg{} le long de cette fonction en la différenciant jusqu'à atteindre le minimum global.
 \begin{center}
 \includegraphics[scale=0.7]{Images/descente.png}
 \end{center}
@@ -514,7 +514,7 @@ Dans cette partie, nous allons exprimer le fonctionnement de cette méthode de f
 Nous allons à présent reprendre ces écritures afin de mieux comprendre les tâches effectuées par l'algorithme. Premièrement décrivons les entrées de cet algorithme :
 \begin{itemize}
 \item $\phi_{\gamma}$ va correspondre dans notre étude à un arbre. $\gamma$ sera par exemple le nombre de nœuds de cet arbre que l'on ajustera par validation croisée 5-blocs encore une fois
-\item $\lambda$ est l'hyper-paramètre qui va nous permettre d'effectuer de la régularisation. On l'appelle également le \textit{learning rate}, c'est ce que nous avons décrit précédemment comme étant le pas de descente de gradient. Puisque $\lambda \in$ $]0,1]$ on voit donc qu'il réduit/limite l'apprentissage de chaque itération, ce qui doit nous aider à nous prémunir du risque de sur-apprentissage
+\item $\lambda$ est l'hyper-paramètre qui va nous permettre d'effectuer de la régularisation. On l'appelle également le \textit{learning rate}, c'est ce que nous avons décrit précédemment comme étant le pas de descente de gradient. Puisque $\lambda \in$ $]0,1]$ on voit donc qu'il réduit/limite l'apprentissage de chaque itération, ce qui doit nous aider à nous prémunir contre le risque de sur-apprentissage
 \end{itemize}
 On entre ensuite au cœur du problème d'optimisation, qui dans le cas de la méthode \textbf{XGBoost} s'appuie sur une minimisation du risque empirique par descente de gradient. Cela implique également le choix d'une fonction de perte $l$. Comme expliqué précédemment :
 \begin{itemize}

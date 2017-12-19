@@ -66,7 +66,7 @@
 \contentsline {paragraph}{}{16}{section*.44}
 \contentsline {subsubsection}{\numberline {6.3.3}Fonctionnement du Gradient Boosting r\IeC {\'e}gularis\IeC {\'e}}{16}{subsubsection.6.3.3}
 \contentsline {paragraph}{}{16}{section*.45}
-\contentsline {paragraph}{}{17}{section*.46}
+\contentsline {paragraph}{}{16}{section*.46}
 \contentsline {subsubsection}{\numberline {6.3.4}R\IeC {\'e}sultats obtenus}{17}{subsubsection.6.3.4}
 \contentsline {paragraph}{}{17}{section*.47}
 \contentsline {paragraph}{}{17}{section*.48}

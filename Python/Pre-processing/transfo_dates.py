@@ -35,8 +35,8 @@ for i in range(len(days_list)):
         values.append(base_num)
         base_num += pas
 
-### Creation des valeurs
-########################
+### Creation du dataframe
+#########################
 
 coef_saison = [math.cos(x) for x in values]   
 d = {'date' : pd.Series(date_clean),'coordonnees' : pd.Series(coef_saison)}

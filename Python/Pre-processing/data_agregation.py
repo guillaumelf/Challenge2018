@@ -33,7 +33,9 @@ On sépare les tâches pour aller plus vite dans l'importation des 36 fichiers c
 '''
 e = ThreadPoolExecutor()
 
-files = glob.glob('data_meteo/train_*.csv')
+#files = glob.glob('data_meteo/train_*.csv')
+#files = glob.glob('train_rf/*.csv')
+files = glob.glob('test_rf/*.csv')
 
 '''
 On applique le principe map reduce pour agréger tous les dataframes en un seul
@@ -45,5 +47,9 @@ df = reduce(concat_data,mapped_values)
 '''
 On crée le fichier csv avec les données agrégées dans un unique dataframe
 '''
+#name = 'data_meteo/data_agregated.csv'
+#df.to_csv(name,sep=';',header=True,decimal=',',encoding='utf-8')
 
-df.to_csv('data_meteo/data_agregated.csv',sep=';',header=True,decimal=',',encoding='utf-8')
+#name = 'data_train.csv'
+name = 'data_test.csv'
+df.to_csv(name,sep=';',header=True,decimal='.',encoding='utf-8',index=False)
