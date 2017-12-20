@@ -78,4 +78,5 @@ Best estimator for Paris :
 Best score for Paris : 0.8761544575467247
 ###########################################################################
 
+Score RMSE moyen sur les fichiers train : 0.98719
 Score RMSE sur le fichier test : 1.28939
