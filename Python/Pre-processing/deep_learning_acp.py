@@ -5,27 +5,19 @@ Created on Thu Dec 21 11:40:56 2017
 @author: Sylvie
 """
 
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Dec  1 13:13:01 2017
-
-@author: Guillaume
-"""
-
 ### Imports de librairies
 #########################
 
 import pandas as pd
-import numpy as np
 from sklearn.preprocessing import StandardScaler
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import RMSprop
 from keras.wrappers.scikit_learn import KerasRegressor
-from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import train_test_split
 from sklearn.model_selection import KFold, GridSearchCV
-import matplotlib.pyplot as plt
 from keras.callbacks import EarlyStopping
+from sklearn.preprocessing import label_binarize
 
 ### Définition locale de fonctions
 ###############################################################################
@@ -61,6 +53,13 @@ def my_scaler(X_train,X_test,scaler):
     X_test[col_quanti2]=test_scaled
     return X_train, X_test
 
+def label_month(df):
+    df_month = pd.DataFrame(label_binarize(df['mois'], classes=[i for i in range(1,13)]),columns=['mois'+str(i) for i in range(1,13)])
+    df = df.reset_index(drop=True)
+    df_month = df_month.reset_index(drop=True)
+    new_df = pd.concat([df,df_month],axis=1,ignore_index=True)
+    return new_df
+
 ### Corps principal du script
 #############################
 
@@ -87,60 +86,34 @@ X_train, X_test = my_scaler(X_train,X_test,scaler)
 X_train = pd.get_dummies(X_train, columns=['insee','ech','ddH10_rose4'])
 X_test = pd.get_dummies(X_test, columns=['insee','ech','ddH10_rose4'])
 
+X_train = label_month(X_train)
+X_test = label_month(X_test)
 
-# Création de l'algorithme
+# Création de la fonction qui construit le réseau de neurones
 
-premiere_couche = Dense(units=100, activation="relu", input_dim=83)
-couche_cachee1 = Dense(units=100, activation="relu")
-couche_cachee2 = Dense(units=64, activation="relu")
-couche_sortie = Dense(units=1)
 opti = RMSprop(lr=0.0001)
-
-def baseline_model():
+def baseline_model(lst_neurals=[128],drop_out_value=0.02):
     model = Sequential()
-    model.add(premiere_couche)
-    model.add(Dropout(0.02, noise_shape=None, seed=None))
-    model.add(couche_cachee1)
-    model.add(Dropout(0.02, noise_shape=None, seed=None))
-#    model.add(couche_cachee2)
-    model.add(couche_sortie)
-    model.compile(optimizer=opti, loss="mean_squared_error")
+    model.add(Dropout(drop_out_value, input_shape=(95,)))
+    for neural in lst_neurals:
+        model.add(Dense(neural, activation='relu'))
+        model.add(Dropout(drop_out_value))
+    model.add(Dense(1, activation = 'relu'))
+    model.compile(loss='mean_squared_error', optimizer=opti)
     return model
-
-# Représentation graphique
-
-model = baseline_model()
-#es = EarlyStopping(monitor='val_loss', min_delta=0, patience=0, verbose=0, mode='auto')
-hist = model.fit(X_train, y_train, validation_split=0.3,epochs=500,batch_size=500,verbose=2)
-loss = np.sqrt(hist.history['loss'])
-val_loss = np.sqrt(hist.history['val_loss'])
-n_iter = range(1,(len(hist.history['val_loss'])+1))
-y_pred = model.predict(X_test)
-print(y_pred[:5])
-
-
-fig=plt.figure(figsize=(10,5))
-plt.plot(n_iter,loss,c='b',label="train_loss")
-plt.plot(n_iter,val_loss,c='r',label="val_loss")
-plt.xlabel('itérations')
-plt.ylabel('MSE')
-plt.legend(loc=0)
-plt.title('Evolutions des scores au cours des itérations')
-plt.show()
 
 # Prédiction
 
-#seed = 7
-#np.random.seed(seed)
-#estimator = KerasRegressor(build_fn=baseline_model, epochs=100, verbose=2)
-#dict_params = {'batch_size' : [200,500]}
-#rg = GridSearchCV(estimator, param_grid=dict_params, cv=KFold(n_splits=5),refit=True,scoring='neg_mean_squared_error',verbose=2)
-#rg.fit(X_train, y_train)
-#
-#score = np.sqrt(abs(rg.best_score_))
-#print("Best score (RMSE) :\n {}".format(score))
-#y_pred = rg.predict(X_test)
-#print(y_pred[:20])
+es = EarlyStopping(monitor='val_loss', min_delta=0, patience=100, verbose=1, mode='auto')
+estimator = KerasRegressor(build_fn=baseline_model, epochs=750, verbose=1, batch_size=500)
+dict_params = {'lst_neurals' : [[100,100,64],[300,300,100],[200,200,100,50]],'drop_out_value':[0.02,0.05],'callbacks': [es]}
+clf = GridSearchCV(estimator, param_grid=dict_params, cv=KFold(n_splits=5),refit=False,verbose=1,n_jobs=-1)
+clf.fit(X_train, y_train) # On fit sur l'ensemble des données pour trouver les paramètres optimaux
+best = clf.best_estimator_
+x_train, x_val, Y_train, y_val = train_test_split(X_train, y_train, test_size=0.1)
+best.fit(X_train, Y_train) # On refit sur une partie des données train avec les paramètres optimaux
+y_pred = best.predict(X_test)
+print(y_pred[:5])
 
 # Ecriture des résultats
 
