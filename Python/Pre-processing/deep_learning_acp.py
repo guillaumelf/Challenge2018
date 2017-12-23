@@ -102,14 +102,16 @@ def baseline_model(lst_neurals=[128],drop_out_value=0.02):
     model.compile(loss='mean_squared_error', optimizer=opti)
     return model
 
-# Prédiction
+# Mise en oeuvre de l'algorithme de prédiction
 
-es = EarlyStopping(monitor='val_loss', min_delta=0, patience=100, verbose=1, mode='auto')
+es = EarlyStopping(monitor='loss', min_delta=0.01, patience=100, verbose=1, mode='auto')
+call_back = [es]
 estimator = KerasRegressor(build_fn=baseline_model, epochs=750, verbose=1, batch_size=500)
-dict_params = {'lst_neurals' : [[100,100,64],[300,300,100],[200,200,100,50]],'drop_out_value':[0.02,0.05],'callbacks': [es]}
-clf = GridSearchCV(estimator, param_grid=dict_params, cv=KFold(n_splits=5),refit=False,verbose=1,n_jobs=-1)
+dict_params = {'lst_neurals' : [[100,100,64],[300,300,100],[200,200,100,50]],'callbacks': [call_back]}
+clf = GridSearchCV(estimator, param_grid=dict_params, cv=KFold(n_splits=5),refit=False,verbose=1) 
 clf.fit(X_train, y_train) # On fit sur l'ensemble des données pour trouver les paramètres optimaux
 best = clf.best_estimator_
+print(best)
 x_train, x_val, Y_train, y_val = train_test_split(X_train, y_train, test_size=0.1)
 best.fit(X_train, Y_train) # On refit sur une partie des données train avec les paramètres optimaux
 y_pred = best.predict(X_test)
@@ -117,5 +119,12 @@ print(y_pred[:5])
 
 # Ecriture des résultats
 
+model_json = best.to_json()
+with open("Results/DeepLearning/model.json", "w") as json_file:
+    json_file.write(model_json)
+
+best.save_weights("Results/DeepLearning/model.h5")
+print("Saved model to disk")
+
 answer['tH2_obs']=y_pred
-answer.to_csv('test_filled.csv',sep=';',header=True,decimal='.',encoding='utf-8',index=False) 
+answer.to_csv('Results/DeepLearning/answer.csv',sep=';',header=True,decimal='.',encoding='utf-8',index=False) 
