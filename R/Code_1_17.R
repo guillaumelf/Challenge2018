@@ -22,7 +22,7 @@ for(d in 1:83){
     for(s in 1:7){
       for(i in 25:36){
         if(!isEmpty(data[data$date==dates[d] & data$insee==insee[s] & data$ech==i, ]$newpred) & 
-           !isEmpty(data[testf$date==dates[d]+1 & data$insee==insee[s] & data$ech==(i-24), ]$pred))
+           !isEmpty(data[data$date==dates[d]+1 & data$insee==insee[s] & data$ech==(i-24), ]$pred))
           data[data$date==dates[d] & data$insee==insee[s] & data$ech==i, ]$newpred <-
             data[data$date==dates[d]+1 & data$insee==insee[s] & data$ech==(i-24), ]$pred
       }
