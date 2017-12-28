@@ -562,6 +562,21 @@ Dans le modèle la combinaison pondérée, La fonction f représente la fonction
 $y_{i}=f(\beta_{0} + \sum\limits_{j} \beta_{j}x_{i,j}) + \varepsilon_{i}$
 \end{center}
 
+\paragraph{}
+Une fois que nous avons notre fonction d'activation, il est nécessaire comme dans tout problème d'optimisation de se fixer une fonction de coût à minimiser. Il s'agit ici d'un problème de descente de gradient comme vu précédemment dans la partie sur le Boosting.
+
+\begin{center}
+$L(\beta)=\sum\limits_{i}(y_{i}-a_{i})^{2}=\sum\limits_{i}(\beta)$
+\end{center}
+
+Puis exprimer le gradient de cette fonction de coût et choisir un pas $\eta$ pour effectuer les mises à jour.
+
+\paragraph{}
+Les réseaux neuronaux multicouches en aval sont constitués de plusieurs couches d'unités neuronales interconnectées (comme le montre l'image suivante), commençant par une couche d'entrée pour correspondre à l'espace d'entrée (notre nombre de variables), suivie de plusieurs couches non-linéaire, et se terminant par une régression linéaire ou une couche de classification pour correspondre à l'espace de sortie (une régression linéaire dans notre cas). Les entrées et les sorties des unités du modèle suivent la logique de base du neurone décrite ci-dessus.
+
+\paragraph{}
+Les poids reliant les neurones et les biais avec d'autres neurones déterminent entièrement la sortie de l'ensemble du réseau. L'apprentissage se produit lorsque ces poids sont adaptés pour minimiser l'erreur sur les données d'entraînement marquées.
+
 
 \section{Bilan}
 
