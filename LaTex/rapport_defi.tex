@@ -557,6 +557,10 @@ Le Deep Learning permet de résoudre différents problèmes que nous pouvons ren
 
 Le principe de base du modèle (montré dans l'image ci-dessous) est le neurone, un modèle d'inspiration biologique du neurone humain. Chez l'homme, les différents niveaux de puissance des signaux de sortie des neurones circulent le long des jonctions synaptiques et sont ensuite agrégés en entrée pour l'activation d'un neurone connecté. On appelle ce modèle le modèle \textbf{perceptron}.
 
+\begin{center}
+\includegraphics[scale=0.7]{Images/perceptron.png}
+\end{center}
+
 Dans le modèle la combinaison pondérée, La fonction f représente la fonction d'activation non linéaire utilisée dans tout le réseau et le biais $\beta_{0} $ représente le seuil d'activation du neurone. :
 \begin{center}
 $y_{i}=f(\beta_{0} + \sum\limits_{j} \beta_{j}x_{i,j}) + \varepsilon_{i}$
@@ -574,13 +578,17 @@ Puis exprimer le gradient de cette fonction de coût et choisir un pas $\eta$ po
 \paragraph{}
 Les réseaux neuronaux multicouches en aval sont constitués de plusieurs couches d'unités neuronales interconnectées (comme le montre l'image suivante), commençant par une couche d'entrée pour correspondre à l'espace d'entrée (notre nombre de variables), suivie de plusieurs couches non-linéaire, et se terminant par une régression linéaire ou une couche de classification pour correspondre à l'espace de sortie (une régression linéaire dans notre cas). Les entrées et les sorties des unités du modèle suivent la logique de base du neurone décrite ci-dessus.
 
+\begin{center}
+\includegraphics[scale=0.7]{Images/RN.png}
+\end{center}
+
 \paragraph{}
 Les poids reliant les neurones et les biais avec d'autres neurones déterminent entièrement la sortie de l'ensemble du réseau. L'apprentissage se produit lorsque ces poids sont adaptés pour minimiser l'erreur sur les données d'entraînement marquées.
 
 \textbf{Notre premier réseau de neurones}
 
 \paragraph{}
-Nous avons réalisé notre premier réseau de neurones rapidement dans la compétition en parallèle des autres méthodes essayées. Pour cela nous avons utilisé le package $H2O$ sous $R$. Nous avons pu tester un premier algorithme de Deep Learning sans grille pour comprendre tout les paramètres et hyper-paramètres qui vont rentrer en jeu ensuite pour avoir un résultat le plus poussé.
+Nous avons réalisé notre premier réseau de neurones rapidement dans la compétition en parallèle des autres méthodes essayées. Pour cela nous avons utilisé le package $H2O$ sous $R$. Nous avons pu tester un premier algorithme de Deep Learning sans grille pour comprendre tout les paramètres et hyper-paramètres qui vont rentrer en jeu ensuite pour avoir un résultat le plus poussé. Avec le package $H2O$ nous dénombrons plus de $60$ arguments. Quels arguments choisir et comment?
 
 \paragraph{}
 La première difficulté réside dans le fait de choisir notre réseau, un réseau avec beaucoup de couches sera-t-il meilleur pour notre problème, un réseau avec des grandes couches est mieux pour l'apprentissage mais à partir de quel moment sommes-nous dans le \textit{sur-apprentissage}.
