@@ -590,6 +590,9 @@ Les poids reliant les neurones et les biais avec d'autres neurones déterminent 
 
 \subsubsection{Notre premier réseau de neurones}
 
+\paragraph{}
+Nous avons réalisé notre premier réseau de neurones rapidement dans la compétition en parallèle des autres méthodes essayées. Pour cela nous avons utilisé le package $H2O$ sous $R$. Nous avons pu tester un premier algorithme de Deep Learning sans grille pour comprendre tout les paramètres et hyper-paramètres qui vont rentrer en jeu ensuite pour avoir un résultat le plus poussé. Avec le package $H2O$ nous dénombrons plus de $60$ arguments. Quels arguments choisir et comment?
+
 \begin{verbatim}
 model <- h2o.deeplearning(x=predictors, y=response,training_frame=train,
 validation_frame=valid,stopping_metric="RMSE",
@@ -600,14 +603,18 @@ hidden_dropout_ratios=c(0.2,0.2,0.2))
 
 Pour notre premier essai sur un réseau de neurones nous avons choisi un modèle simple à 3 couches cachés. Le modèle est effectué à l'aide d'une validation \textbf{hold-out}  $80-20$ pourcent avec un nombre d'epochs à 500.
 
--Le nombre d'epochs spécifie le nombre d'itérations sur le jeu de données d'entraînement.
-- Stopping metric correspond à la métrique utilisé pour utiliser un early stopping. Cela permet d'arrêter notre descente de gradient quand la tolérance relative de l'arrêt métrique pour arrêter la formation (si amélioration) est inférieure à cette valeur, ici c'est notre stopping tolerance.
-- Activation nous permet de choisir la fonction d'activation des neurones du réseau.
 
 
+\begin{itemize}
+\item Le nombre d'epochs spécifie le nombre d'itérations sur le jeu de données d'entraînement.
+\item Stopping metric correspond à la métrique utilisé pour utiliser un early stopping. Cela permet d'arrêter notre descente de gradient quand la tolérance relative de l'arrêt métrique pour arrêter la formation (si amélioration) est inférieure à cette valeur, ici c'est notre stopping tolerance.
+\item Stopping Rounds, le nombre d'itérations avant d'arrêter l'algorithme si nous avons convergence.
+\item  Activation nous permet de choisir la fonction d'activation des neurones du réseau, ici la fonction d'activation ReLU (rectified linear unit).
+\item l1, spécifie la régularisation l1 (L1 = lasso) qui contraint la valeur absolue des poids (peut ajouter de la stabilité et améliorer la généralisation, entraîne de nombreux poids à devenir 0).
+\item Rate permet de sélectionner le taux d'apprentissage,$\alpha$.  Des valeurs plus élevées conduisent à des modèles moins stables, tandis que des valeurs plus faibles entraînent une convergence plus lente.
+\item Hidden dropout ratios va permettre de diminuer le sur-apprentissage en omettant une fraction de chaque couche cachée.
+\end{itemize}
 
-\paragraph{}
-Nous avons réalisé notre premier réseau de neurones rapidement dans la compétition en parallèle des autres méthodes essayées. Pour cela nous avons utilisé le package $H2O$ sous $R$. Nous avons pu tester un premier algorithme de Deep Learning sans grille pour comprendre tout les paramètres et hyper-paramètres qui vont rentrer en jeu ensuite pour avoir un résultat le plus poussé. Avec le package $H2O$ nous dénombrons plus de $60$ arguments. Quels arguments choisir et comment?
 
 \paragraph{}
 La première difficulté réside dans le fait de choisir notre réseau, un réseau avec beaucoup de couches sera-t-il meilleur pour notre problème, un réseau avec des grandes couches est mieux pour l'apprentissage mais à partir de quel moment sommes-nous dans le \textit{sur-apprentissage}.
