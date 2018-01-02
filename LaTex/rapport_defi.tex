@@ -552,9 +552,12 @@ Les résultats obtenus grâce à cet estimateur sont les suivants :\\
 \label{fig1}
 \end{center}
 \subsection{Deep Learning : l'utilisation des réseaux de neurones}
+
+\subsubsection{Le contexte}
 \paragraph{}
 Le Deep Learning permet de résoudre différents problèmes que nous pouvons rencontrer avec les réseaux de neurones comme la stabilité. Aujourd'hui il est souvent utilisé pour des problèmes divers avec des résultats parfois remarquable comme nous pouvons le voir avec le site de traduction DeepL, le plus abouti aujourd'hui pour le grand public ou encore pour des outils d'analyse des émotions par un visage photographié ou filmé.
 
+\subsubsection{Le principe}
 Le principe de base du modèle (montré dans l'image ci-dessous) est le neurone, un modèle d'inspiration biologique du neurone humain. Chez l'homme, les différents niveaux de puissance des signaux de sortie des neurones circulent le long des jonctions synaptiques et sont ensuite agrégés en entrée pour l'activation d'un neurone connecté. On appelle ce modèle le modèle \textbf{perceptron}.
 
 \begin{center}
@@ -585,7 +588,7 @@ Les réseaux neuronaux multicouches en aval sont constitués de plusieurs couche
 \paragraph{}
 Les poids reliant les neurones et les biais avec d'autres neurones déterminent entièrement la sortie de l'ensemble du réseau. L'apprentissage se produit lorsque ces poids sont adaptés pour minimiser l'erreur sur les données d'entraînement marquées.
 
-\textbf{Notre premier réseau de neurones}
+\subsubsection{Notre premier réseau de neurones}
 
 \paragraph{}
 Nous avons réalisé notre premier réseau de neurones rapidement dans la compétition en parallèle des autres méthodes essayées. Pour cela nous avons utilisé le package $H2O$ sous $R$. Nous avons pu tester un premier algorithme de Deep Learning sans grille pour comprendre tout les paramètres et hyper-paramètres qui vont rentrer en jeu ensuite pour avoir un résultat le plus poussé. Avec le package $H2O$ nous dénombrons plus de $60$ arguments. Quels arguments choisir et comment?
