@@ -452,7 +452,7 @@ Le \textbf{boosting}, par opposition au bagging, s'applique à des algorithmes f
 \paragraph{}
 Ici on va combiner dans un algorithme itératif les prédictions de \textit{weak learners}, c'est-à-dire des classifieurs ou des régresseurs faibles, selon la nature du problème. Ces prédicteurs faibles sont encore une fois des arbres avec peu de nœuds (pour rester faibles et éviter le sur-apprentissage). 
 \paragraph{}
-Si l'on se place dans un problème de discrimination, à chaque itérations on va attribuer un poids au classifieur en fonction de sa qualité d'estimation (selon le critère du taux de bon classement par exemple). Les observations qui ont été mal classées se verront attribuer un poids plus fort afin d'être mieux prédites lors de la prochaine itération. La figure suivante résume le fonctionnement de ce type d'algorithmes : chaque \textit{Box} correspond à une itération, et les prédicteurs utilisés sont des arbres à 2 nœuds (encore appelés \textit{stumps})
+Si l'on se place dans un problème de discrimination, à chaque itérations on va attribuer un poids au classifieur en fonction de sa qualité d'estimation (selon le critère du taux de bon classement par exemple). Les observations qui ont été mal classées se verront attribuer un poids plus fort afin d'être mieux prédites lors de la prochaine itération. La figure suivante résume le fonctionnement de ce type d'algorithmes : chaque \textit{Box} correspond à une itération, et les prédicteurs utilisés sont des arbres à 2 nœuds (encore appelés \textit{stumps}).
 
 \includegraphics[width=19cm]{Images/boosting.png}
 \begin{center}
@@ -460,7 +460,6 @@ Si l'on se place dans un problème de discrimination, à chaque itérations on v
 \end{center}
 \paragraph{}
 Il existe énormément de déclinaisons du boosting, dans cet étude nous allons nous focaliser sur un algorithme d'\textbf{eXtreme Gradient Boosting} (XGBoost) régularisé qui s'appuie sur un algorithme de minimisation du risque empirique (fonction de perte \textit{l}) par descente de gradient. Nous avons choisi cet algorithme par rapport à sa popularité que ce soit au niveau des compétitions de type \textit{Kaggle} ou en entreprise (plusieurs soutenances de stage d'élèves de Master 2 parlaient de cette méthode en 2016), mais également pour sa rapidité à être implémenté. La version régularisée doit nous permettre d'éviter, ou en tout cas de limiter le sur-apprentissage.
-\newpage
 \subsubsection{Descente de gradient stochastique}
 \paragraph{}
 Avant d'expliquer le fonctionnement de l'algorithme \textbf{XGBoost} il est primordial d'effectuer un rappel sur l'algorithme d'optimisation qui en est la base : la descente de gradient. Nous avons même fait le choix d'utiliser une descente de gradient stochastique (on ne regarde qu'une partie des observations pour effectuer la mise à jour du gradient). Cela a pour propriété de réduire la variance moyennant une augmentation du biais, mais les éléments de littérature laissent à penser que la réduction de variance est plus importante que l'introduction de biais, et que cela permet donc d'améliorer la performance de l'algorithme de prédiction. Dans le cas simple où l'on cherche à minimiser une fonction convexe, on se fixe un point de départ et on \og descend \fg{} le long de cette fonction en la différenciant jusqu'à atteindre le minimum global.
@@ -491,7 +490,7 @@ Cela nous permet déjà de nous rendre compte que le nombre d'itérations de l'a
 L'enjeu va donc être de choisir un nombre d'itérations et un pas optimal afin de ne pas se retrouver \og coincé \fg{} dans un minimum local et de pouvoir atteindre le minimum global de la fonction de perte qu'on souhaite minimiser. Une autre solution plus complexe pourrait être de chercher un majorant convexe de la fonction de perte et de chercher à le minimiser. Ce principe est par exemple utilisé dans le cadre d'une SVM où l'on procède à une minimisation du risque empirique convexifié régularisé. 
 \subsubsection{Fonctionnement du Gradient Boosting régularisé}
 \paragraph{}
-Dans cette partie, nous allons exprimer le fonctionnement de cette méthode de façon algorithmique puis en détailler les étapes afin de bien comprendre le traitement effectué par cette opération. L'algorithme de gradient boosting régularisé en régression peut s'écrire de la façon suivante :
+Dans cette partie, nous allons exprimer le fonctionnement de cette méthode de façon algorithmique puis en détailler les étapes afin de bien comprendre le traitement effectué par cette opération. L'algorithme de gradient boosting régularisé en régression peut s'écrire de la façon suivante :\\
 \begin{algorithm}
 \caption{Gradient Boosting régularisé}
 \begin{algorithmic}
@@ -523,7 +522,7 @@ On entre ensuite au cœur du problème d'optimisation, qui dans le cas de la mé
 \item on actualise la prédiction $\hat{\eta}^b(x)$ de l'itération en fonction de la prédiction de l'itération précédente et de l'apprentissage effectué au cours de l'itération actuelle
 \item A la fin des \textbf{B} itérations que l'on s'est fixé, on renvoie la dernière prédiction.
 \end{itemize}
-Comme introduit précédemment, le nombre d'itérations \textbf{B} et le learning rate $\lambda$ sont deux hyper-paramètres qui interagissent et qu'il va donc falloir calibrer de façon simultanée. Cet ajustement va se faire par validation croisée 5-blocs et on va fixer l'un des paramètres en faisant varier l'autre. En ce qui nous concerne, le nombre d'itérations sera fixé et c'est le learning rate qui va varier.
+Comme introduit précédemment, le nombre d'itérations \textbf{B} et le learning rate \textbf{$\lambda$} sont deux hyper-paramètres qui interagissent et qu'il va donc falloir calibrer de façon simultanée. Cet ajustement va se faire par validation croisée 5-blocs et on va fixer l'un des paramètres en faisant varier l'autre. En ce qui nous concerne, le nombre d'itérations sera fixé et c'est le learning rate qui va varier.
 
 \subsubsection{Résultats obtenus}
 \paragraph{}
@@ -555,7 +554,7 @@ Les résultats obtenus grâce à cet estimateur sont les suivants :\\
 
 \subsubsection{Le contexte}
 \paragraph{}
-Le Deep Learning permet de résoudre différents problèmes que nous pouvons rencontrer avec les réseaux de neurones comme la stabilité. Aujourd'hui il est souvent utilisé pour des problèmes divers avec des résultats parfois remarquable comme nous pouvons le voir avec le site de traduction DeepL, le plus abouti aujourd'hui pour le grand public ou encore pour des outils d'analyse des émotions par un visage photographié ou filmé.
+Le Deep Learning permet de résoudre différents problèmes que nous pouvons rencontrer avec les réseaux de neurones comme la stabilité. Aujourd'hui il est souvent utilisé pour des problèmes divers avec des résultats parfois remarquables comme nous pouvons le voir avec le site de traduction \textit{DeepL}, le plus abouti aujourd'hui pour le grand public ou encore pour des outils d'analyse des émotions par un visage photographié ou filmé.
 
 \subsubsection{Le principe}
 Le principe de base du modèle (montré dans l'image ci-dessous) est le neurone, un modèle d'inspiration biologique du neurone humain. Chez l'homme, les différents niveaux de puissance des signaux de sortie des neurones circulent le long des jonctions synaptiques et sont ensuite agrégés en entrée pour l'activation d'un neurone connecté. On appelle ce modèle le modèle \textbf{perceptron}.
@@ -564,22 +563,22 @@ Le principe de base du modèle (montré dans l'image ci-dessous) est le neurone,
 \includegraphics[scale=0.7]{Images/perceptron.png}
 \end{center}
 
-Dans le modèle la fonction f représente la fonction d'activation non linéaire utilisée dans tout le réseau et le biais $\beta_{0} $ représente le seuil d'activation du neurone. :
+Dans le modèle, la fonction f représente la fonction d'activation non linéaire utilisée dans tout le réseau et le biais $\beta_{0} $ représente le seuil d'activation du neurone :
 \begin{center}
 $y_{i}=f(\beta_{0} + \sum\limits_{j} \beta_{j}x_{i,j}) + \varepsilon_{i}$
 \end{center}
 
 \paragraph{}
-Une fois que nous avons notre fonction d'activation, il est nécessaire comme dans tout problème d'optimisation de se fixer une fonction de coût à minimiser. Il s'agit ici d'un problème de descente de gradient comme vu précédemment dans la partie sur le Boosting.
+Une fois que nous avons choisi notre fonction d'activation, il est nécessaire comme dans tout problème d'optimisation de se fixer une fonction de coût à minimiser. Il s'agit ici d'un problème de descente de gradient comme vu précédemment dans la partie sur le Boosting.
 
 \begin{center}
 $L(\beta)=\sum\limits_{i}(y_{i}-a_{i})^{2}=\sum\limits_{i}(\beta)$
 \end{center}
 
-Puis exprimer le gradient de cette fonction de coût et choisir un pas $\eta$ pour effectuer les mises à jour.
+Il ne reste plus qu'à exprimer le gradient de cette fonction de coût et choisir un pas $\eta$ pour effectuer les mises à jour.
 
 \paragraph{}
-Les réseaux neuronaux multicouches en aval sont constitués de plusieurs couches d'unités neuronales interconnectées (comme le montre l'image suivante), commençant par une couche d'entrée pour correspondre à l'espace d'entrée (notre nombre de variables), suivie de plusieurs couches non-linéaire, et se terminant par une régression linéaire ou une couche de classification pour correspondre à l'espace de sortie (une régression linéaire dans notre cas). Les entrées et les sorties des unités du modèle suivent la logique de base du neurone décrite ci-dessus.
+Les réseaux neuronaux multicouches en aval sont constitués de plusieurs couches d'unités neuronales interconnectées (comme le montre l'image suivante), commençant par une couche d'entrée pour correspondre à l'espace d'entrée (le nombre de variables), suivie de plusieurs couches non-linéaire, et se terminant par une régression linéaire ou une couche de classification pour correspondre à l'espace de sortie (une régression linéaire dans notre cas). Les entrées et les sorties des unités du modèle suivent la logique de base du neurone décrite ci-dessus.
 
 \begin{center}
 \includegraphics[scale=0.7]{Images/RN.png}
@@ -591,7 +590,7 @@ Les poids reliant les neurones et les biais avec d'autres neurones déterminent 
 \subsubsection{Notre premier réseau de neurones}
 
 \paragraph{}
-Nous avons réalisé notre premier réseau de neurones rapidement dans la compétition en parallèle des autres méthodes essayées. Pour cela nous avons utilisé le package $H2O$ sous $R$. Nous avons pu tester un premier algorithme de Deep Learning sans grille pour comprendre tout les paramètres et hyper-paramètres qui vont rentrer en jeu ensuite pour avoir un résultat le plus poussé. Avec le package $H2O$ nous dénombrons plus de $60$ arguments. Quels arguments choisir et comment?
+Nous avons réalisé notre premier réseau de neurones rapidement dans la compétition en parallèle des autres méthodes essayées. Pour cela nous avons utilisé le package $H2O$ sous $R$. Nous avons pu tester un premier algorithme de Deep Learning sans grille pour comprendre tous les paramètres et hyper-paramètres qui vont rentrer en jeu ensuite pour avoir un résultat le plus poussé possible. Avec le package $H2O$ nous dénombrons plus de $60$ arguments. Quels arguments choisir et comment?
 
 \begin{verbatim}
 model <- h2o.deeplearning(x=predictors, y=response,training_frame=train,
@@ -601,29 +600,29 @@ epochs=500,l1=1e-7,stopping_rounds=100,rate=0.0001,
 hidden_dropout_ratios=c(0.2,0.2,0.2))
 \end{verbatim}
 
-Pour notre premier essai sur un réseau de neurones nous avons choisi un modèle simple à 3 couches cachés. Le modèle est effectué à l'aide d'une validation \textbf{hold-out}  $80-20$ pourcent avec un nombre d'epochs à 500.
+Pour notre premier essai sur un réseau de neurones nous avons choisi un modèle simple à 3 couches cachées. Le modèle est effectué à l'aide d'une validation croisée \textbf{Hold-Out}  $80-20$ pourcent avec un nombre d'epochs à 500.
 
 
 
 \begin{itemize}
-\item Le nombre d'epochs spécifie le nombre d'itérations sur le jeu de données d'entraînement.
-\item Stopping metric correspond à la métrique utilisé pour utiliser un early stopping. Cela permet d'arrêter notre descente de gradient quand la tolérance relative de l'arrêt métrique pour arrêter la formation (si amélioration) est inférieure à cette valeur, ici c'est notre stopping tolerance.
-\item Stopping Rounds, le nombre d'itérations avant d'arrêter l'algorithme si nous avons convergence.
-\item  Activation nous permet de choisir la fonction d'activation des neurones du réseau, ici la fonction d'activation ReLU (rectified linear unit).
-\item l1, spécifie la régularisation l1 (L1 = lasso) qui contraint la valeur absolue des poids (peut ajouter de la stabilité et améliorer la généralisation, entraîne de nombreux poids à devenir 0).
-\item Rate permet de sélectionner le taux d'apprentissage,$\alpha$.  Des valeurs plus élevées conduisent à des modèles moins stables, tandis que des valeurs plus faibles entraînent une convergence plus lente.
-\item Hidden dropout ratios va permettre de diminuer le sur-apprentissage en omettant une fraction de chaque couche cachée.
+\item Le nombre d'\textit{epochs} spécifie le nombre d'itérations sur le jeu de données d'entraînement.
+\item \textit{Stopping metric} correspond à la métrique employée pour utiliser un \textit{early stopping}. Cela permet d'arrêter notre descente de gradient quand la tolérance relative de l'arrêt métrique pour arrêter la formation (si amélioration) est inférieure à cette valeur, ici c'est notre \textit{stopping tolerance}.
+\item \textit{Stopping Rounds}; le nombre d'itérations avant d'arrêter l'algorithme si nous avons convergence.
+\item  \textit{Activation} nous permet de choisir la fonction d'activation des neurones du réseau, ici c'est la fonction d'activation \textit{ReLU} (rectified linear unit).
+\item \textit{l1}, spécifie la régularisation l1 (L1 = lasso) qui contraint la valeur absolue des poids (peut ajouter de la stabilité et améliorer la généralisation, entraîne de nombreux poids à devenir 0).
+\item \textit{Rate} permet de sélectionner le taux d'apprentissage $\alpha$.  Des valeurs plus élevées conduisent à des modèles moins stables, tandis que des valeurs plus faibles entraînent une convergence plus lente.
+\item \textit{Hidden dropout ratios} va permettre de diminuer le sur-apprentissage en omettant une fraction de chaque couche cachée.
 \end{itemize}
 
 
 \paragraph{}
-La première difficulté réside dans le fait de choisir notre réseau, un réseau avec beaucoup de couches sera-t-il meilleur pour notre problème, un réseau avec des grandes couches est mieux pour l'apprentissage mais à partir de quel moment sommes-nous dans le \textit{sur-apprentissage}.
+La première difficulté réside dans le fait de choisir notre réseau, un réseau avec beaucoup de couches sera-t-il meilleur pour notre problème ? Un réseau avec des couches larges est généralement meilleur pour l'apprentissage mais à partir de quel moment sommes-nous dans le \textit{sur-apprentissage} ?
 
 
 \subsubsection{Optimisation du choix des paramètres pour un réseau de neurones sous H2O}
 
 \paragraph{}
-Une fois notre premier modèle effectuer nous avons eu pour objectif d'avoir un modèle correspondant à notre problème. Pour une raison de temps et d'efficacité nous avons décidé de fixer certains paramètres tandis que d'autres rentreront dans une grille, ils seront nos hyperparamètres à optimiser.
+Une fois notre premier modèle effectué nous avons eu pour objectif d'avoir un modèle correspondant à notre problème. Pour une raison de temps et d'efficacité nous avons décidé de fixer certains paramètres tandis que d'autres rentreront dans une grille, ils seront nos hyper-paramètres à optimiser.
 
 \begin{verbatim}
     hyper_params <- list(
@@ -634,7 +633,7 @@ Une fois notre premier modèle effectuer nous avons eu pour objectif d'avoir un 
 \end{verbatim}
 
 \paragraph{}
-Nous utilisons nos paramètres vu dans le premier modèle complété par un \textbf{rate annealing}, son but est de diminuer le taux d'apprentissage (rate) au cours de l'avancement de l'algorithme. Ce paramètre permet de gagner du temps en ayant une plus forte chute de gradient au départ afin de se rapprocher de la zone du minimum, ensuite en diminuant le pas au fur et à mesure de l'avancement d'atteindre le minimum global. Cette technique suit le même principe que la dichotomie.
+Nous utilisons les paramètres vu dans le premier modèle complété par un \textbf{rate annealing}, son but est de diminuer le taux d'apprentissage (rate) au cours de l'avancement de l'algorithme. Ce paramètre permet de gagner du temps en ayant une plus forte descente de gradient au départ afin de se rapprocher de la zone du minimum, puis ensuite en diminuant le pas au fur et à mesure de l'avancement, d'atteindre le minimum global. Cette technique suit le même principe que la dichotomie.
 
 \paragraph{}
 Pour notre modèle nous avons fixé certains paramètres :
@@ -642,14 +641,14 @@ Pour notre modèle nous avons fixé certains paramètres :
     \item \textbf{epochs}, le nombre d'epochs est surtout un choix pour la rapidité du modèle, un grand nombre d'epochs sera toujours favorable.
     \item la régularisation \textbf{l1}.
     \item le paramètre \textbf{max w2}, il spécifie le maximum pour la somme des poids carrés entrants d'un neurone. C'est particulièrement utile quand nous utilisons une fonction d'activation telle que Rectifier (ReLU), cela permet d'éviter d'avoir trop de poids sur un neurone et de mieux répartir l'information.
-    \item \textbf{Momentum start}, l’ajout du paramètre de momentum permet de stabiliser l’apprentissage, tout en augmentant la descente de la courbe de la somme des erreurs carrées selon les itérations.
+    \item \textbf{Momentum start}, l'ajout du paramètre de momentum permet de stabiliser l'apprentissage, tout en augmentant la descente de la courbe de la somme des erreurs carrées (fonction de perte) selon les itérations.
 \end{itemize}
 
 PRECISER QUEL MODELE A ETE CHOISI (REFAIRE TOURNER UNE GRILLE)
 
 
 \paragraph{}
-Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois mais là est apparu une limite, en essayant d'améliorer notre modèle nous passions à chaque fois dans de l'overfitting.
+Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois. Cependant, nous nous sommes rapidement retrouvés face à un obstacle en essayant d'améliorer notre modèle : nous passions à chaque fois dans de l'overfitting.
 
 \subsection{Passage sous Keras}
 
