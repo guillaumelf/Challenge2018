@@ -564,7 +564,7 @@ Le principe de base du modèle (montré dans l'image ci-dessous) est le neurone,
 \includegraphics[scale=0.7]{Images/perceptron.png}
 \end{center}
 
-Dans le modèle la combinaison pondérée, La fonction f représente la fonction d'activation non linéaire utilisée dans tout le réseau et le biais $\beta_{0} $ représente le seuil d'activation du neurone. :
+Dans le modèle la fonction f représente la fonction d'activation non linéaire utilisée dans tout le réseau et le biais $\beta_{0} $ représente le seuil d'activation du neurone. :
 \begin{center}
 $y_{i}=f(\beta_{0} + \sum\limits_{j} \beta_{j}x_{i,j}) + \varepsilon_{i}$
 \end{center}
@@ -596,7 +596,7 @@ Nous avons réalisé notre premier réseau de neurones rapidement dans la compé
 \begin{verbatim}
 model <- h2o.deeplearning(x=predictors, y=response,training_frame=train,
 validation_frame=valid,stopping_metric="RMSE",
-stopping_tolerance=1e-7,activation="Rectifier",hidden=c(128,128,64), 
+stopping_tolerance=1e-7,activation="RectifierWithDropout",hidden=c(128,128,64), 
 epochs=500,l1=1e-7,stopping_rounds=100,rate=0.0001,
 hidden_dropout_ratios=c(0.2,0.2,0.2))
 \end{verbatim}
@@ -619,6 +619,31 @@ Pour notre premier essai sur un réseau de neurones nous avons choisi un modèle
 \paragraph{}
 La première difficulté réside dans le fait de choisir notre réseau, un réseau avec beaucoup de couches sera-t-il meilleur pour notre problème, un réseau avec des grandes couches est mieux pour l'apprentissage mais à partir de quel moment sommes-nous dans le \textit{sur-apprentissage}.
 
+
+\subsubsection{Optimisation du choix des paramètres pour un réseau de neurones sous H2O}
+
+\paragraph{}
+Une fois notre premier modèle effectuer nous avons eu pour objectif d'avoir un modèle correspondant à notre problème. Pour une raison de temps et d'efficacité nous avons décidé de fixer certains paramètres tandis que d'autres rentreront dans une grille, ils seront nos hyperparamètres à optimiser.
+
+\begin{verbatim}
+    hyper_params <- list(
+    hidden=list(c(32,32,32),c(64,64)),
+    input_dropout_ratio=c(0,0.05),
+    rate=c(0.01,0.02),
+    rate_annealing=c(1e-8,1e-7,1e-6))
+\end{verbatim}
+
+\paragraph{}
+Nous utilisons nos paramètres vu dans le premier modèle complété par un \textbf{rate annealing}, son but est de diminuer le taux d'apprentissage (rate) au cours de l'avancement de l'algorithme. Ce paramètre permet de gagner du temps en ayant une plus forte chute de gradient au départ afin de se rapprocher de la zone du minimum, ensuite en diminuant le pas au fur et à mesure de l'avancement d'atteindre le minimum global. Cette technique suit le même principe que la dichotomie.
+
+\paragraph{}
+Pour notre modèle nous avons fixé certains paramètres :
+\begin{itemize}
+    \item \textbf{epochs}, le nombre d'epochs est surtout un choix pour la rapidité du modèle, un grand nombre d'epochs sera toujours favorable.
+    \item la régularisation \textbf{l1}.
+    \item le paramètre \textbf{max w2}, il spécifie le maximum pour la somme des poids carrés entrants d'un neurone. C'est particulièrement utile quand nous utilisons une fonction d'activation telle que Rectifier (ReLU), cela permet d'éviter d'avoir trop de poids sur un neurone et de mieux répartir l'information.
+    \item \textbf{Momentum start}, l’ajout du paramètre de momentum permet de stabiliser l’apprentissage, tout en augmentant la descente de la courbe de la somme des erreurs carrées selon les itérations.
+\end{itemize}
 
 \section{Bilan}
 
