@@ -282,6 +282,12 @@ $\widehat{\mathcal{R}}(f_{D^{n}_{1}}) = \frac{1}{K} \sum\limits_{i=1}^K \widehat
 Il s'agit désormais d'utiliser la méthode de notre choix dans le but de trouver le meilleur compromis entre précision de l'algorithme et temps de calcul. Le domaine de la \textit{Data Science} fait interagir la théorie mathématique avec la réalisation informatique, il est donc important de prendre en compte ces deux aspects et d'optimiser leur utilisation conjointe au mieux.
 \section{Analyse des corrélations entre variables et visualisation}
 
+\subsection{Analyse en Composante Principale}
+
+\paragraph{}
+Dans un premier temps nous nous sommes intéressé aux liens existant entre nos variable quantitatives ainsi qu'à leurs importances. Pour cela nous avons réalisé une \textbf{ACP} (Analyse en Composante Principale). Cette technique repose sur la construction d'une représentation à une dimension réduite de nos variables. Le but est donc d'avoir un résumé le plus précis possible, sans modifier les distances entres individus et variables. Pour cela nous projetons notre problème sur des axes représentant une certaine partie de l'inertie de nos données.
+
+
 \newpage
 \section{Travail des données}
 \paragraph{}
@@ -644,8 +650,35 @@ Pour notre modèle nous avons fixé certains paramètres :
     \item \textbf{Momentum start}, l'ajout du paramètre de momentum permet de stabiliser l'apprentissage, tout en augmentant la descente de la courbe de la somme des erreurs carrées (fonction de perte) selon les itérations.
 \end{itemize}
 
-PRECISER QUEL MODELE A ETE CHOISI (REFAIRE TOURNER UNE GRILLE)
+\paragraph{}
+Cette grille nous a permis de déterminer le modèle le plus adapté parmi ceux proposés :
 
+\begin{verbatim}
+    model <- h2o.deeplearning(x=predictors, 
+                          y=response,
+                          training_frame=train,
+                          validation_frame=valid,
+                          stopping_metric="RMSE",
+                          stopping_tolerance=1e-3,
+                          activation="RectifierWithDropout",
+                          hidden=c(64,64),
+                          input_dropout_ratio=0.05,
+                          epochs=500, l1=1e-5,stopping_rounds=100,
+                          rate=0.01,rate_annealing=1e-7)
+\end{verbatim}
+
+RAJOUTER IMAGE SCORE
+
+\paragraph{}
+Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois mais là est apparu une limite, en essayant d'améliorer notre modèle nous passions à chaque fois dans de l'overfitting.
+
+\subsection{Passage sous Keras}
+
+\paragraph{}
+Suite à cette stagnation, nous avons décidé d'appliquer le cours de Mr Tavenard sur les réseaux de neurones en utilisant la bibliothéque \textit{Keras} sous python.
+
+\paragraph{}
+Pour réaliser notre premier réseau sous \textit{Keras}, nous avons utilisé nos données 
 
 \paragraph{}
 Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois. Cependant, nous nous sommes rapidement retrouvés face à un obstacle en essayant d'améliorer notre modèle : nous passions à chaque fois dans de l'overfitting.
