@@ -620,6 +620,9 @@ Pour notre premier essai sur un réseau de neurones nous avons choisi un modèle
 \item \textit{Hidden dropout ratios} va permettre de diminuer le sur-apprentissage en omettant une fraction de chaque couche cachée.
 \end{itemize}
 
+\begin{center}
+\includegraphics[scale=0.7]{Images/deep1h2o.png}
+\end{center}
 
 \paragraph{}
 La première difficulté réside dans le fait de choisir notre réseau, un réseau avec beaucoup de couches sera-t-il meilleur pour notre problème ? Un réseau avec des couches larges est généralement meilleur pour l'apprentissage mais à partir de quel moment sommes-nous dans le \textit{sur-apprentissage} ?
@@ -667,7 +670,10 @@ Cette grille nous a permis de déterminer le modèle le plus adapté parmi ceux 
                           rate=0.01,rate_annealing=1e-7)
 \end{verbatim}
 
-RAJOUTER IMAGE SCORE
+\begin{center}
+\includegraphics[scale=0.7]{Images/deeph2o.png}
+\end{center}
+
 
 \paragraph{}
 Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois mais là est apparu une limite, en essayant d'améliorer notre modèle nous passions à chaque fois dans de l'overfitting.
@@ -677,17 +683,91 @@ Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois mais là 
 \paragraph{}
 Suite à cette stagnation, nous avons décidé d'appliquer le cours de Mr Tavenard sur les réseaux de neurones en utilisant la bibliothéque \textit{Keras} sous python.
 
+\subsubsection{Premier modèle sous Keras}
 \paragraph{}
-Pour réaliser notre premier réseau sous \textit{Keras}, nous avons utilisé nos données 
+Pour réaliser notre premier réseau sous \textit{Keras}, nous avons utilisé nos données sans les variables \textit{capeinSOL0} et \textit{rr1SOL0} ainsi que la transformation sinusoïdale sur les dates. Cela nous permet une fois les valeurs manquantes enlevées d'avoir $177977$ individus sur $189280$ ainsi nous limitons la perte de données et cela nous permet de ne pas insérer du biais en faisant une estimation sur les valeurs non présentes.
 
 \paragraph{}
-Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois. Cependant, nous nous sommes rapidement retrouvés face à un obstacle en essayant d'améliorer notre modèle : nous passions à chaque fois dans de l'overfitting.
+Python et les data.frame \textit{pandas} ne prennent pas en compte les variables catégorielles de la même façon, là ou en \textit{R} il suffit de passer la colonne en facteur, sur \textit{Python} nous devons transformer notre data.frame en tableau disjonctif.
 
-\subsubsection{Passage sous Keras}
+\begin{quote}
+    Exemple de la transformation :
+\end{quote}
+\begin{center}
+\includegraphics[scale=0.7]{Images/tableaudisjonctif.png}
+\end{center}
 
+\paragraph{}
+Nous nous retrouvons donc avec un data.frame au dimension suivante $1777977x72$ et notre variable cible $1777977x1$. Puis dans un second temps nous standardisons nos variables explicatives pour le jeu de données train et test, pour cela on standardise d'abord notre jeu d'apprentissage puis nous appliquons la même transformation au jeu de test.
 
+\paragraph{}
+Notre premier modèle se veut simple et compréhensible afin d'effectuer nos premiers test sous \textit{Keras}. Pour cela nous prenons un modèle à $1$ couches cachées, nous incluons aussi un DropOut de ces couches pour limiter le sur-apprentissage comme sous \textit{H2O}, la fonction d'activation ReLU ainsi qu'un learning rate de $0.0001$.
 
+\begin{verbatim}
+premiere_couche = Dense(units=100, activation="relu", input_dim=72)
+couche_cachee1 = Dense(units=100, activation="relu")
+couche_sortie = Dense(units=1)
+opti = RMSprop(lr=0.0001)
 
+def baseline_model():
+    model = Sequential()
+    model.add(premiere_couche)
+    model.add(Dropout(0.02, noise_shape=None, seed=None))
+    model.add(couche_cachee1)
+    model.add(Dropout(0.02, noise_shape=None, seed=None))
+    model.add(couche_sortie)
+    model.compile(optimizer=opti, loss="mean_squared_error")
+    return model
+    
+model = baseline_model()
+hist = model.fit(X_train,y_train,
+validation_split=0.3,epochs=500,batch_size=500,verbose=2)
+\end{verbatim}
+
+\begin{center}
+\includegraphics[scale=0.7]{Images/deep1keras.png}
+\end{center}
+
+\paragraph{}
+Ce modèle nous a permis d'améliorer notre précèdent meilleur score et d'envisager des améliorations.
+
+\subsubsection{Notre meilleur score}
+\paragraph{}
+Suite à ce modèle nous décidâmes de réutiliser le même modèle avec un data.frame enrichi. Plusieurs pistes ont été envisagées puis testées :
+\begin{itemize}
+    \item Rajouter les coordonnées de l'ACP précédemment calculées,
+    \item Rajouter les coordonnées de l'ACM sur nos jeux de données,
+    \item Rajouter des variables par intéractions.
+\end{itemize}
+
+\paragraph{}
+Le but étant de rajouter de l'information à nos jeux de données en ajoutant des variables même si elles sont corrélées aux variables initiales en prenant le principe simple de la grande dimension :
+\begin{quote}
+    "Rajouter de l'information ne sera jamais préjudiciable, dans le meilleur des cas nous améliorons notre score, dans le pire nous n'améliorons pas notre modèle mais nous ne le pénalisons pas non plus.
+\end{quote}
+\paragraph{}
+La complexité reposera principalement sur le fait de réussir à adapter notre modèle aux nouvelles variables.
+
+\paragraph{}
+\textbf{Premièrement} nous allons ajouter les coordonnées des individus sur les principaux axes de l'ACP. Cette manoeuvre sera composé de plusieurs étapes :
+\begin{itemize}
+    \item Effectuer une ACP sur le jeu de données train sans la variable cible.
+    \item Récupérer les coordonnées des individus sur les axes représentant $80$ pourcent de l'inertie, au delà nous considérons que c'est du bruit.
+    \item Projeter nos individus du jeu test sur nos axes calculés précédemment.
+\end{itemize}
+
+\paragraph{}
+Avec ce procédé nous agrémentons nos jeux de données de 11 variables correspondant aux axes représentant $82$ pourcent de l'inertie. Nous effectuons le même modèle que précédemment en adaptant la dimension d'entrée du réseau, en passant de $72$ à $83$. Les résultats dépassent nos premières attentes :
+
+\begin{center}
+\includegraphics[scale=0.7]{Images/deep2keras.png}
+\end{center}
+
+\paragraph{}
+\textbf{Deuxièmement} nous allons compléter nos data.frames avec les coordonnées de l'ACM (sur les données qualitatives). Pour la réalisation de cette étape nous procédons de la même façon.
+
+\paragraph{}
+Lors de la réalisation de cette ACM, les premiers axes portent peu d'inertie ce qui implique que pour avoir $80$ pourcent de l'inertie nous devons prendre les $44$ premiers axes. 
 
 \section{Bilan}
 
