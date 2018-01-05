@@ -767,7 +767,49 @@ Avec ce procédé nous agrémentons nos jeux de données de 11 variables corresp
 \textbf{Deuxièmement} nous allons compléter nos data.frames avec les coordonnées de l'ACM (sur les données qualitatives). Pour la réalisation de cette étape nous procédons de la même façon.
 
 \paragraph{}
-Lors de la réalisation de cette ACM, les premiers axes portent peu d'inertie ce qui implique que pour avoir $80$ pourcent de l'inertie nous devons prendre les $44$ premiers axes. 
+Lors de la réalisation de cette ACM, les premiers axes portent peu d'inertie ce qui implique que pour avoir $80$ pourcent de l'inertie nous devons prendre les $44$ premiers axes. Nous rajoutons ces $44$ variables aux données déjà complété par les coordonnées de l'ACP.
+
+\paragraph{}
+En adaptant les dimensions d'entrées du réseau de neurones, lors de l'avancement du réseau nous apercevons un décrochage entre le score (RMSE) de la partie apprentissage et la partie validation. Ce décrochage est synonyme de sur-apprentissage, cela se valide sur le jeu de données test comme nous pouvons le voir ci-dessous.
+
+\begin{center}
+\includegraphics[scale=0.7]{Images/deepacm.png}
+\end{center}
+
+\paragraph{}
+Le modèle n'est plus adapté et l'information apportée par les axes de l'ACM est trop faible. Par conséquent on ne retient pas cette méthode.
+
+\paragraph{}
+\textbf{Troisièmement} nous procédons à la création de nouvelles variables par interaction en réalisant le produit de chaque variable quantitative et explicative avec les autres.
+
+\paragraph{}
+La création de nouvelles variable peut permettre d'utiliser le lien qu'il existe entre les variables. Nous agrémentons notre jeu de données de $600$ nouvelles variables.
+
+\paragraph{}
+La limite de cette méthode apparaît rapidement lors de nos premiers réseaux, on note un fort décalage entre le score sur la partie \textit{train} et la partie \textit{valid}. Nous sommes clairement dans de \textbf{l'overfitting}.
+
+AJOUTER PHOTO COURBE TRAIN VALID
+
+\paragraph{}
+\textbf{En conclusion} nous prenons la décision de ne garder que nos data.frame enrichi des coordonnées des $11$ premiers axes de l'ACP.
+
+\subsubsection{Optimisation de notre meilleur modèle}
+\paragraph{}
+Le modèle ayant obtenu le meilleur score possède des paramètres choisis arbitrairement. Nous allons donc essayer de faire varier différents paramètre en les incluant dans une grille. Pour effectuer le choix nous utiliserons une validation croisée \textit{5-folds}. Nous incluons aussi un \textit{early-stopping} afin de garder en mémoire le meilleur score lors de la descente de gradient et non la dernière itération comme précédemment.
+
+\paragraph{}
+On fait varier la \textit{longueur} et la \textit{largeur} du réseau.
+\begin{verbatim}
+    dict_params = {'lst_neurals' : [[100,100,64],[300,300,100],[200,200,100,50]]}
+\end{verbatim}
+
+\paragraph{}
+L'algorithme choisi finalement le réseau initial $100-100-64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci:
+
+\begin{verbatim}
+    
+\end{verbatim}
+
 
 \section{Bilan}
 
