@@ -773,7 +773,7 @@ Lors de la réalisation de cette ACM, les premiers axes portent peu d'inertie ce
 En adaptant les dimensions d'entrées du réseau de neurones, lors de l'avancement du réseau nous apercevons un décrochage entre le score (RMSE) de la partie apprentissage et la partie validation. Ce décrochage est synonyme de sur-apprentissage, cela se valide sur le jeu de données test comme nous pouvons le voir ci-dessous.
 
 \begin{center}
-\includegraphics[scale=0.7]{Images/deepacm.png}
+\includegraphics[scale=0.5]{Images/deepacm.png}
 \end{center}
 
 \paragraph{}
@@ -807,9 +807,15 @@ On fait varier la \textit{longueur} et la \textit{largeur} du réseau.
 L'algorithme choisi finalement le réseau initial $100-100-64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci:
 
 \begin{verbatim}
-    
+REFAIRE TOURNER UN CODE 
 \end{verbatim}
 
+\subsubsection{Conclusion sur le Deep Learning/Réseau de neurones (à mettre dans le BILAN ??)}
+\paragraph{}
+Le principal point positif des réseaux de neurones dans notre étude est le fait d'avoir réussi à atteindre nos meilleurs scores sur des réseaux simples sans avoir à effectuer beaucoup de transformations sur nos données. La première analyse d'un réseau est simple et visuel cependant l'effet \textbf{boite noire} apparaît rapidement, nous ne pouvons aujourd'hui expliquer par quelles raisonnement ces algorithmes nous permet d'avoir de bons scores. Nous savons ce qu'il se passe à l'entrée du réseau, connaissons la sortie du réseau mais le parcours entre les deux nous est inconnue.
+
+\paragraph{}
+Cet effet boite noire ne nous permet pas d'avoir de réel argument pour choisir nos paramètres à optimiser. \textbf{L'overfitting} est toujours très proche de ces méthodes quand nous testons des réseaux plus complexes. Un point négatif supplémentaire est le côté "chronophage" de cette méthode.
 
 \section{Bilan}
 
