@@ -50,6 +50,9 @@
 }\item }{\end{list}}
 %%%% fin macro %%%%
 
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
 \begin{document}
 
 \begin{titlepage}
@@ -376,7 +379,51 @@ $MSE(\hat{\Theta})=Biais(\hat{\Theta})^2+Var(\hat{\Theta})$
 \end{center}
 C'est donc sur ces deux aspects que nous allons tenter de jouer par la suite. Afin d'obtenir la \og meilleure \fg{} performance possible, il faudra trouver le \og meilleur \fg{} compromis biais/variance.
 \subsection{Premiers algorithmes : la régression linéaire et ses variantes}
-
+\subsubsection{Le modèle linéaire gaussien}
+\paragraph{}
+Si par la suite nous allons utiliser des méthodes compliquées, dites \og boîtes noires \fg{} , nous souhaitions tout d'abord poser une base, un modèle de référence, en utilisant une méthode simple. Pour cette raison, le premier modèle que nous avons appliqué à nos données était un modèle de régression linéaire multiple. On définit un tel modèle à $p$ variables explicatives de la façon suivante pour une observation $y_i$ :
+\begin{center}
+$y_{i}=\beta_{0}+\beta_{1}x_{i,1}+...+\beta_{k}x_{i,p}+\varepsilon_{i}$
+\end{center}
+En généralisant avec l'écriture matricielle, on obtient :
+\begin{center}
+$\mathbb{Y}=\mathbb{X}\beta+\varepsilon$\\
+\bigskip
+avec $\mathbb{Y} = \begin{pmatrix} Y_1 \\ \vdots \\ Y_n \end{pmatrix} \in \mathbb{R}^n \qquad\mathbb{X} = \begin{pmatrix} 1 & X_{1,1} & \cdots & X_{1,p} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & X_{n,1} & \cdots & X_{n,p} \end{pmatrix} \in \mathbb{R}^{n\times(p+1)} \qquad \mathbb{\beta} = \begin{pmatrix} \beta_0 \\ \vdots \\ \beta_p \end{pmatrix} \in \mathbb{R}^{p+1}\qquad \varepsilon = \begin{pmatrix} \varepsilon_1 \\ \vdots \\ \varepsilon_n \end{pmatrix} \in \mathbb{R}^n$\\
+\end{center}
+On rappelle que ce modèle requiert de poser certaines hypothèses fortes telles que la linéarité des données, ou encore concernant les erreurs $\varepsilon$ :
+\begin{itemize}
+\item $ \varepsilon \independent \mathbb{X}$
+\item $\varepsilon \sim \mathcal{N}_n(0,\sigma^2I_n)$ avec $I_n$ la matrice identité de taille $n \times n$
+\end{itemize}
+Cela définit ainsi le modèle linéaire gaussien. Cette méthode présente l'avantage premièrement d'être facilement compréhensible, même lorsqu'on n'est plus en dimension 2. L'estimation des paramètres est également assez \og simple \fg{} : en effet pour trouver les paramètres optimaux on va résoudre un problème d'optimisation dont il existe une solution analytique qui est connue. Si l'on note l'estimation de $\beta$ : 
+\begin{center}
+$\hat{\beta} = \underset{\beta\in\mathbb{R}^{p+1} }{argmin}\sum\limits_{i=1}^n(Y_i-\beta^TX_i)^2$
+\end{center}
+Cela correspond à l'estimateur des Moindres Carrés Ordinaires (MCO) dont la solution lorsqu'on résout le problème d'optimisation précédent vaut :
+\begin{center}
+$\hat{\beta} = (\mathbb{X}^T\mathbb{X})^{-1}\mathbb{X}^T\mathbb{Y}$
+\end{center}
+On remarque au passage qu'il y a un point essentiel : il faut que $(\mathbb{X}^T\mathbb{X})$ soit \textbf{inversible} ce qui peut poser problème en \textbf{grande dimension}, nous reviendrons sur ce point par la suite. En appliquant le modèle linéaire gaussien à chaque station, et en utilisant une validation croisée Hold-Out, nous avons obtenu ces résultats en guise de première référence :
+\subsubsection{Les variantes pour la grande dimension}
+Etant donné le nombre de variables dont nous disposons, une des questions que l'on peut se poser naturellement serait : sommes-nous en grande dimension ? En effet, il est difficile de quantifier le nombre de variables qui font que l'on bascule dans cette fameuse \og grande dimension \fg{}. Nous parlions tout à l'heure d'inversibilité de la matrice $(\mathbb{X}^T\mathbb{X})$, pour cela il faut que le rang de cette matrice soit égal à $p+1$. Or, si $p+1 > n$, la matrice n'est plus de plein rang et donc plus inversible. Mais bien avant d'en arriver là, lorsque le nombre de variables devient trop important, on dit que la matrice est mal conditionnée, ce qui rend problématique l'inversion de la matrice, et il devient donc compliqué voire impossible de calculer l'estimateur des \textbf{MCO}. Pour contrer ce \og \textbf{fléau de la dimension} \fg{}, il existe des variantes de la régression linéaire : la régression \textbf{Ridge}, la régression \textbf{Lasso} ou encore un compromis des deux appelé \textbf{Elastic Net}.
+\paragraph{}
+Dans cette étude nous allons présenter seulement la régression Lasso car nous n'avons pas utilisé les autres méthodes. Nous avons fait ce choix car la régression Lasso a pour propriété de faire de la sélection de variables. Nous avons pu voir à partir du cercle des corrélations, en faisant notre ACP, qu'il y avait certains groupes de variables qui n'évoluaient pas dans le même sens que la variable cible \textbf{tH2\_obs}. Il y a peut-être donc des variables \og inutiles \fg{}, qui viennent bruiter l'information et qui pourraient donc être éliminées à l'aide d'une régression Lasso. Nous allons désormais expliquer en quoi la régression Lasso diffère de la régression linéaire, et pourquoi elle permet de faire de la sélection de variables. Premièrement, nous avons vu que le problème des MCO venait de la dimension, car la variabilité de l'estimateur \og explose \fg{} en grande dimension . Une solution pour palier à ce problème consiste donc à contraindre cet estimateur à avoir une \og petite \fg{} norme. Dans le cas de la régression Lasso on choisit la norme $|.|_1$ et le problème d'optimisation devient :
+\begin{center}
+$$
+\left\{
+    \begin{array}{ll}
+        min \parallel \mathbb{Y} - \mathbb{X}\beta \parallel^2  \\
+        s.c  \mid\beta\mid\leq t
+    \end{array}
+\right.
+$$
+\end{center}
+Avec $t>0$. Ainsi, l'estimateur Lasso peut se réécrire :
+\begin{center}
+$\hat{\beta}_{LASSO}(\lambda) = \underset{\beta\in\mathbb{R}^{p+1} }{argmin}\parallel \mathbb{Y} - \mathbb{X}\beta \parallel^2_2 + \lambda |\beta|_1 \qquad$ avec $|\beta|_1 = \sum\limits_{j=1}^p|\beta_j|$ et $\lambda > 0$ (multiplicateur de Lagrange)
+\end{center}
+Avec cette écriture, on se rend compte que l'on introduit un paramètre supplémentaire ($\lambda$) que l'on va calibrer (comme souvent) par validation croisée.
 \subsection{Forêt aléatoire : l'algorithme Random Forest}
 \subsubsection{Rappels sur le fonctionnement de la méthode CART}
 \paragraph{}
@@ -676,9 +723,9 @@ Cette grille nous a permis de déterminer le modèle le plus adapté parmi ceux 
 
 
 \paragraph{}
-Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois mais là est apparu une limite, en essayant d'améliorer notre modèle nous passions à chaque fois dans de l'overfitting.
+Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois. Cependant, nous nous sommes rapidement retrouvés face à un obstacle en essayant d'améliorer notre modèle : nous passions à chaque fois dans de l'overfitting.
 
-\subsection{Passage sous Keras}
+\subsubsection{Passage sous Keras}
 
 \paragraph{}
 Suite à cette stagnation, nous avons décidé d'appliquer le cours de Mr Tavenard sur les réseaux de neurones en utilisant la bibliothéque \textit{Keras} sous python.
@@ -743,7 +790,7 @@ Suite à ce modèle nous décidâmes de réutiliser le même modèle avec un dat
 \paragraph{}
 Le but étant de rajouter de l'information à nos jeux de données en ajoutant des variables même si elles sont corrélées aux variables initiales en prenant le principe simple de la grande dimension :
 \begin{quote}
-    "Rajouter de l'information ne sera jamais préjudiciable, dans le meilleur des cas nous améliorons notre score, dans le pire nous n'améliorons pas notre modèle mais nous ne le pénalisons pas non plus.
+    \og Rajouter de l'information ne sera jamais préjudiciable, dans le meilleur des cas nous améliorons notre score, dans le pire nous n'améliorons pas notre modèle mais nous ne le pénalisons pas non plus, à condition que ce ne soit pas trop corrélé.\fg{}
 \end{quote}
 \paragraph{}
 La complexité reposera principalement sur le fait de réussir à adapter notre modèle aux nouvelles variables.
@@ -773,7 +820,7 @@ Lors de la réalisation de cette ACM, les premiers axes portent peu d'inertie ce
 En adaptant les dimensions d'entrées du réseau de neurones, lors de l'avancement du réseau nous apercevons un décrochage entre le score (RMSE) de la partie apprentissage et la partie validation. Ce décrochage est synonyme de sur-apprentissage, cela se valide sur le jeu de données test comme nous pouvons le voir ci-dessous.
 
 \begin{center}
-\includegraphics[scale=0.5]{Images/deepacm.png}
+\includegraphics[scale=0.7]{Images/deepacm.png}
 \end{center}
 
 \paragraph{}
@@ -804,7 +851,7 @@ On fait varier la \textit{longueur} et la \textit{largeur} du réseau.
 \end{verbatim}
 
 \paragraph{}
-L'algorithme choisi finalement le réseau initial $100-100-64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci:
+L'algorithme choisi finalement le réseau initial $100$-$100$-$64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci:
 
 \begin{verbatim}
 REFAIRE TOURNER UN CODE 
@@ -815,7 +862,7 @@ REFAIRE TOURNER UN CODE
 Le principal point positif des réseaux de neurones dans notre étude est le fait d'avoir réussi à atteindre nos meilleurs scores sur des réseaux simples sans avoir à effectuer beaucoup de transformations sur nos données. La première analyse d'un réseau est simple et visuel cependant l'effet \textbf{boite noire} apparaît rapidement, nous ne pouvons aujourd'hui expliquer par quelles raisonnement ces algorithmes nous permet d'avoir de bons scores. Nous savons ce qu'il se passe à l'entrée du réseau, connaissons la sortie du réseau mais le parcours entre les deux nous est inconnue.
 
 \paragraph{}
-Cet effet boite noire ne nous permet pas d'avoir de réel argument pour choisir nos paramètres à optimiser. \textbf{L'overfitting} est toujours très proche de ces méthodes quand nous testons des réseaux plus complexes. Un point négatif supplémentaire est le côté "chronophage" de cette méthode.
+Cet effet boite noire ne nous permet pas d'avoir de réel argument pour choisir nos paramètres à optimiser. \textbf{L'overfitting} est toujours très proche de ces méthodes quand nous testons des réseaux plus complexes. Un point négatif supplémentaire est le côté \og chronophage \fg{} de cette méthode.
 
 \section{Bilan}
 
