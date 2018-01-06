@@ -187,12 +187,33 @@ Un premier travail a consisté à agréger les données des 36 fichiers $train\_
 \begin{itemize}
 \item L'intuition : sachant qu'il existe plusieurs types de climats (océaniques, continental, méditerranéen) et qu'on les retrouve à travers les stations présentes dans les données, il ne paraît pas anormal d'essayer de prédire chaque station indépendamment des autres. Ne perdons pas de vue que les chiffres sont là pour quantifier la réalité, l'objectif est donc de les utiliser pour représenter au mieux les phénomènes réels.
 \item Un indice lâché par les organisateurs du concours qui ont laissé entendre qu'il pouvait exister un biais lié à chaque station.
-\item L'analyse du comportement des indicateurs par station.
-\end{itemize}
+\item L'analyse du comportement des indicateurs par station.\\
 \includegraphics[width=17cm]{Images/fllat.png}
 \begin{center}
 \captionof{figure}{Exemple du flux de chaleur latente dont le comportement diffère d'une station à une autre}
 \label{fig1}
+\end{center}
+\item le biais de prédiction
+\end{itemize}
+En effet, un modèle climatique est une simplification d'un système énormément plus complexe. De nombreux biais viennent donc entacher les résultats de ces modèles.\\
+L'ampleur de ces biais varie suivant les variables d'intérêts. Ces différences sont liées à la capacité des modèles à plus ou moins bien représenter les processus physiques contrôlant l'évolution des variables climatiques dans le temps.\\
+Le biais de prédiction est calculé par la différence entre les vraies observations de la température (variable \textbf{tH2\_obs}) et les températures prédites par le modèle climatique (variable \textbf{tH2}).
+Dans cette étude, on constate que la répartition de ce biais diffère d'une station à l'autre.
+\begin{center}
+\includegraphics[width=17cm]{Images/biais_nice.png}
+\end{center}
+La figure ci-dessus présente les deux courbes de températures observées et prédites par le modèle climatique pour la station Nice à l'échéance +1h.\\
+On constate que le biais (\textbf{tH2\_obs} – \textbf{tH2}) reste négatif tout au long de la période d'observation, ce qui est traduit par la position relative des deux courbes. Ce biais négatif constitue une sur-prévision de la température par le modèle climatique. Ce biais est plus fort en hiver et moins remarqué pour des températures élevées en été. Cette saisonnalité est plus apparente dans la $2^{ème}$ figure, qui représente l'évolution du biais dans le temps.
+\begin{center}
+\includegraphics[width=17cm]{Images/evol_biais.png}
+\end{center}
+Pour d'autres stations, comme Strasbourg (nous avons d'ailleurs pu observer que les prédictions sur cette station étaient constamment plus mauvaises que sur les autres), le biais n'est pas du même signe pendant la période d'observation. On prend ici l'échéance +20h par exemple, la courbe des prévisions (rouge) passe au-dessus de la courbe des vraies observations pendant les mois d'été, tandis que le modèle sous-prédit la température effective pendant les mois d'hiver.
+\begin{center}
+\includegraphics[width=17cm]{Images/biais_stras.png}
+\end{center}
+Le biais est donc représenté sous forme d'un bruit presque centré (moyenne proche de zéro), et un écart-type qui augmente quand on s'éloigne dans les échéances de 1h à 36h.
+\begin{center}
+\includegraphics[width=17cm]{Images/bias.png}
 \end{center}
 \paragraph{}
 Dans la suite, nous verrons que le gros jeu de données ($189281$ lignes) ou les fichiers par stations seront utilisés en fonction de l'algorithme choisi. Une autre option aurait pu être de découper les données par station et par échéance. Cependant en procédant de la sorte, on se retrouverait avec 252 modèles à estimer, et l'on s'exposerait également au risque de sur-apprentissage (\textit{overfitting} en anglais). La dimension des données va également impacter le choix de la méthode d'estimation des paramètres et d'estimation de la performance de l'algorithme : la \textbf{validation croisée}. Nous allons donc effectuer quelques rappels sur ces différents concepts.
@@ -283,14 +304,8 @@ $\widehat{\mathcal{R}}(f_{D^{n}_{1}}) = \frac{1}{K} \sum\limits_{i=1}^K \widehat
 \end{center}
 \paragraph{}
 Il s'agit désormais d'utiliser la méthode de notre choix dans le but de trouver le meilleur compromis entre précision de l'algorithme et temps de calcul. Le domaine de la \textit{Data Science} fait interagir la théorie mathématique avec la réalisation informatique, il est donc important de prendre en compte ces deux aspects et d'optimiser leur utilisation conjointe au mieux.
-\section{Analyse des corrélations entre variables et visualisation}
 
-\subsection{Analyse en Composante Principale}
-
-\paragraph{}
-Dans un premier temps nous nous sommes intéressé aux liens existant entre nos variable quantitatives ainsi qu'à leurs importances. Pour cela nous avons réalisé une \textbf{ACP} (Analyse en Composante Principale). Cette technique repose sur la construction d'une représentation à une dimension réduite de nos variables. Le but est donc d'avoir un résumé le plus précis possible, sans modifier les distances entres individus et variables. Pour cela nous projetons notre problème sur des axes représentant une certaine partie de l'inertie de nos données.
-
-
+ 
 \newpage
 \section{Travail des données}
 \paragraph{}
@@ -330,6 +345,19 @@ Parmi les méthodes d'imputation essayées, nous retrouvons :
 \end{center}
 \paragraph{}
 Le graphe précédent nous permet d'observer que c'est la méthode \textbf{missForest} qui nous procure le moins d'erreur, c'est donc celle-là que nous avons choisi. L'imputation s'est faite par station, pour les raisons exposées dans la partie \og \textbf{Structuration des données} \fg{}.
+\subsection{Corrélations entre variables et visualisation : l'Analyse en Composante Principale}
+
+\paragraph{}
+Dans un premier temps nous nous sommes intéressé aux liens existants entre nos variables quantitatives ainsi qu'à leurs importances. Pour cela nous avons réalisé une \textbf{ACP} (Analyse en Composante Principale). Cette technique repose sur la construction d'une représentation à une dimension réduite de nos variables. Le but est donc d'avoir un résumé le plus précis possible, sans modifier les distances entres individus et variables. Pour cela nous projetons notre problème sur des axes représentant une certaine partie de l'inertie de nos données. Le choix de la part d'inertie que l'on conserve est arbitraire. Il ne faut pas tout conserver car sinon on se retrouve à analyser du bruit statistique (en général on considère qu'au-dessus de 95\% de l'inertie on analyse du bruit), mais il faut également conserver une part importante afin de bien résumer l'information. Nous avons donc choisi de retenir les 11 premiers axes principaux, qui représentent $80.56$\% de l'inertie totale. L'analyse des individus ne nous intéresse pas (ils sont trop nombreux), ici nous allons focaliser notre attention sur les variables.
+\paragraph{}
+La première raison pour laquelle nous avons fait une ACP était de tenter de déceler les tendances, les corrélations entre variables. On retrouve ci-après le cercle des corrélations qui permet de résumer les contributions et le sens des variables dans le repère des deux premiers axes  :\\
+\begin{center}
+\includegraphics[width=18cm]{Images/ACP.png}
+\end{center}
+Sans surprise, il semblerait que les variables \textbf{tH2} et \textbf{tH2\_obs} soient très liées, elles contribuent fortement à la création des premiers axes, et ce dans le même sens. Ce graphe fait également apparaître le fait que des variables comme \textbf{tH2\_XGrad}, \textbf{tH2\_YGrad} ou encore \textbf{rr1SOL0} (que l'on enlève de toute façon à cause des valeurs manquantes) contribuent faiblement et dans des directions opposées. On pourra éventuellement se poser la question de leur utilité dans l'analyse, et procéder à de la \textbf{sélection de variable} (nous reviendront sur ce point plus tard).
+
+\paragraph{}
+La deuxième utilité de l'ACP dans ce projet aura été d'exploiter les coordonnées des individus sur les 11 premiers axes principaux, et de rajouter ces colonnes dans l'analyse. On peut penser que cela rajoute de la corrélation, cependant nous avons constaté que cet apport enrichissait l'analyse, puisque nous avons réussi à progresser de $0.02$ sur tous les modèles que nous avons utilisé après avoir rajouté ces $11$ colonnes. Nous avons vu dans la partie précédente sur les valeurs manquantes que l'on était obligé d'omettre les variables \textbf{capeinsSOL0} et \textbf{rr1SOL0}, et comme la première semble avoir de l'importance dans l'analyse, cela permet quand même de capter une part de l'information qu'elle fournit. Cela peut expliquer en partie la progression des scores quand on ajoute les coordonnées issues de l'ACP. Cela permet peut-être également de refléter la proximité ou non des individus au niveau temporel. Pour compléter cet aspect, nous allons transformer à son tour la date en une coordonnée, afin d'exploiter au mieux l'information temporelle qu'elle renferme.
 \newpage 
 \subsection{Transformation de la date}
 \paragraph{}
@@ -405,8 +433,14 @@ Cela correspond à l'estimateur des Moindres Carrés Ordinaires (MCO) dont la so
 $\hat{\beta} = (\mathbb{X}^T\mathbb{X})^{-1}\mathbb{X}^T\mathbb{Y}$
 \end{center}
 On remarque au passage qu'il y a un point essentiel : il faut que $(\mathbb{X}^T\mathbb{X})$ soit \textbf{inversible} ce qui peut poser problème en \textbf{grande dimension}, nous reviendrons sur ce point par la suite. En appliquant le modèle linéaire gaussien à chaque station, et en utilisant une validation croisée Hold-Out, nous avons obtenu ces résultats en guise de première référence :
+\includegraphics[scale=0.8]{Images/regression.png}
+\begin{center}
+\captionof{figure}{La première référence reste au-dessus de la baseline}
+\label{fig1}
+\end{center}
+Comme nous l'avions avancé précédemment, ce type de modèle est \og simple \fg{} dans le sens où il n'y a pas d'hyper-paramètres à calibrer de façon judicieuse (comme ce sera le cas dans les modèles présentés plus tard dans cette étude), et il présente également le gros avantage de tourner rapidement. En effet, les organisateurs du concours ont une exigence particulière au niveau du temps de calcul : \textbf{ils imposent que le temps de calcul soit inférieur à 15 minutes} (sans pour autant préciser avec quel type de machine...). Il se trouve que ce modèle de régression linéaire multiple appliqué sur chaque station séparément renvoie l'ensemble des résultats en moins d'une minute, il est donc très rapide. Cependant, on rappelle que pour que ce modèle soit juste, il faut que l'hypothèse de linéarité des données soit respectée, sinon on tombe rapidement dans de l'\textbf{underfitting} (le graphe de la partie \textbf{3.2} illustre parfaitement ce point). Un autre problème peut également être causé par la \textbf{dimension}. Nous allons donc tenter de voir dans la suite en fonction de ces différents aspects, si nous pouvons améliorer la performance du modèle linéaire en utilisant une variante.
 \subsubsection{Les variantes pour la grande dimension}
-Etant donné le nombre de variables dont nous disposons, une des questions que l'on peut se poser naturellement serait : sommes-nous en grande dimension ? En effet, il est difficile de quantifier le nombre de variables qui font que l'on bascule dans cette fameuse \og grande dimension \fg{}. Nous parlions tout à l'heure d'inversibilité de la matrice $(\mathbb{X}^T\mathbb{X})$, pour cela il faut que le rang de cette matrice soit égal à $p+1$. Or, si $p+1 > n$, la matrice n'est plus de plein rang et donc plus inversible. Mais bien avant d'en arriver là, lorsque le nombre de variables devient trop important, on dit que la matrice est mal conditionnée, ce qui rend problématique l'inversion de la matrice, et il devient donc compliqué voire impossible de calculer l'estimateur des \textbf{MCO}. Pour contrer ce \og \textbf{fléau de la dimension} \fg{}, il existe des variantes de la régression linéaire : la régression \textbf{Ridge}, la régression \textbf{Lasso} ou encore un compromis des deux appelé \textbf{Elastic Net}.
+Etant donné le nombre de variables dont nous disposons, une des questions que l'on peut se poser naturellement serait : sommes-nous en grande dimension ? En effet, il est difficile de quantifier le nombre de variables qui font que l'on bascule dans cette fameuse \og grande dimension \fg{}. Nous parlions tout à l'heure d'inversibilité de la matrice $(\mathbb{X}^T\mathbb{X})$, pour cela il faut que le rang de cette matrice soit égal à $p+1$. Or, si $p+1 > n$, la matrice n'est plus de plein rang et donc plus inversible. Mais bien avant d'en arriver là, lorsque le nombre de variables devient trop important, on dit que la matrice est mal conditionnée, ce qui rend problématique l'inversion de la matrice, et il devient donc compliqué voire impossible de calculer l'estimateur des \textbf{MCO}. Pour contrer ce \og \textbf{fléau de la dimension} \fg{}, il existe des variantes de la régression linéaire : la régression \textbf{Ridge}, la régression \textbf{Lasso} ou encore un compromis des deux appelé \textbf{Elastic Net}, qui appartiennent à la famille des méthodes de \textbf{régression pénalisée}.
 \paragraph{}
 Dans cette étude nous allons présenter seulement la régression Lasso car nous n'avons pas utilisé les autres méthodes. Nous avons fait ce choix car la régression Lasso a pour propriété de faire de la sélection de variables. Nous avons pu voir à partir du cercle des corrélations, en faisant notre ACP, qu'il y avait certains groupes de variables qui n'évoluaient pas dans le même sens que la variable cible \textbf{tH2\_obs}. Il y a peut-être donc des variables \og inutiles \fg{}, qui viennent bruiter l'information et qui pourraient donc être éliminées à l'aide d'une régression Lasso. Nous allons désormais expliquer en quoi la régression Lasso diffère de la régression linéaire, et pourquoi elle permet de faire de la sélection de variables. Premièrement, nous avons vu que le problème des MCO venait de la dimension, car la variabilité de l'estimateur \og explose \fg{} en grande dimension . Une solution pour palier à ce problème consiste donc à contraindre cet estimateur à avoir une \og petite \fg{} norme. Dans le cas de la régression Lasso on choisit la norme $|.|_1$ et le problème d'optimisation devient :
 \begin{center}
@@ -423,7 +457,32 @@ Avec $t>0$. Ainsi, l'estimateur Lasso peut se réécrire :
 \begin{center}
 $\hat{\beta}_{LASSO}(\lambda) = \underset{\beta\in\mathbb{R}^{p+1} }{argmin}\parallel \mathbb{Y} - \mathbb{X}\beta \parallel^2_2 + \lambda |\beta|_1 \qquad$ avec $|\beta|_1 = \sum\limits_{j=1}^p|\beta_j|$ et $\lambda > 0$ (multiplicateur de Lagrange)
 \end{center}
-Avec cette écriture, on se rend compte que l'on introduit un paramètre supplémentaire ($\lambda$) que l'on va calibrer (comme souvent) par validation croisée.
+Avec cette écriture, on se rend compte que l'on introduit un paramètre supplémentaire ($\lambda$) que l'on va calibrer (comme souvent) par validation croisée. Nous utiliserons la validation croisée 10-blocs, qui est implémentée par défaut dans la fonction \textit{cv.glmnet} de R. Le choix de $\lambda$ est crucial : quand $\lambda \nearrow$ $ \Rightarrow$ le biais $\nearrow$ tandis que la variance $\searrow$ (et inversement quand $\lambda \searrow$). On se retrouve encore une fois à chercher le \og meilleur \fg{} compromis biais/variance afin d'optimiser notre modèle. L'augmentation de $\lambda$ et donc du biais entraîne également une augmentation simultanée du nombre de coefficients nuls : c'est ici qu'intervient la sélection de variables. Pour mieux le voir (on ne fera pas la démonstration), après quelques calculs on observe que finalement l'estimateur Lasso est une transformation de l'estimateur des MCO, en fonction de $\lambda$ :
+\begin{center}
+$[\hat{\beta}_{LASSO}(\lambda)]_j = \left\{
+    \begin{array}{ll}
+        0 & \mbox{si } |[\hat{\beta}_{MCO}]_j|\leq \frac{\lambda}{2} \\
+        1\times[\hat{\beta}_{MCO}]_{j}-\frac{\lambda}{2} & \mbox{sinon.}
+    \end{array}
+\right.$
+\end{center}
+Avec cette écriture, il est donc plus facile de comprendre d'où vient le biais (on retire $\frac{\lambda}{2}$ au coefficient des MCO) ainsi que la sélection de variables. On parle dans ce cas de \og \textbf{seuillage doux} \fg{}. La figure suivante permet d'illustrer le propos.
+\begin{center}
+\includegraphics[width=18cm]{Images/shrinkage.png}
+\end{center}
+L'estimateur Ridge rajoute seulement du biais, tandis que l'estimateur Lasso ajoute du biais \textbf{OU} annule certains coefficients. Cela a pour but de réduire la variance, et donc le risque.
+\paragraph{}
+On réduit au préalable la matrice de design avant d'appliquer la régression Lasso puis on lance la validation croisée pour sélectionner le $\lambda$ optimal. En utilisant cette méthode, nous obtenons le meilleur estimateur suivant pour Toulouse, Bordeaux, Nice et Strasbourg :
+\begin{verbatim}
+Lasso(alpha=0.0003, copy_X=True, fit_intercept=True, max_iter=20000,
+   normalize=False, positive=False, precompute=False, random_state=None,
+   selection='cyclic', tol=0.0001, warm_start=False)
+\end{verbatim}
+Pour Rennes, Lille et Paris, le paramètre alpha ($\lambda$ dans les écritures mathématiques) vaut $0.0005$. En ce qui concerne les scores, voici les résultats que l'on obtient :
+\begin{center}
+\includegraphics[scale=0.8]{Images/score_lasso.png}
+\end{center}
+On remarque que par rapport à la régression linéaire, le score moyen sur les fichiers d'apprentissage est légèrement moins bon, cependant le score sur le fichier test est meilleur : \textbf{cela illustre parfaitement le principe de la régression pénalisée qui est plus robuste, et donc moins sujette à l'overfitting}. En revanche, la baseline n'est toujours pas franchie, pour cette raison, nous allons nous pencher vers d'autres types d'algorithmes afin d'améliorer nos scores.
 \subsection{Forêt aléatoire : l'algorithme Random Forest}
 \subsubsection{Rappels sur le fonctionnement de la méthode CART}
 \paragraph{}
@@ -866,9 +925,13 @@ On fait varier la \textit{longueur} et la \textit{largeur} du réseau.
 \end{verbatim}
 
 \paragraph{}
+<<<<<<< HEAD
+L'algorithme choisi finalement le réseau initial $100$-$100$-$64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci:
+=======
 L'algorithme choisi finalement le réseau initial $100$-$100$-$64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci :
 
 Nous le faisons réapprendre une fois la selection faite avec une validation hold-out à $10$ pourcent.
+>>>>>>> 49e6b9f8aa7cad9b54f159fe9461013b3396c5c1
 
 \begin{verbatim}
     premiere_couche = Dense(units=100, activation="relu", input_dim=83)
@@ -895,12 +958,12 @@ es = EarlyStopping(monitor='val_loss', min_delta=0.001, patience=75, verbose=1, 
 hist = model.fit(X_train, y_train, validation_split=0.1,epochs=100,batch_size=500,verbose=2,callbacks=[es])
 \end{verbatim}
 
-\subsubsection{Conclusion sur le Deep Learning/Réseau de neurones (à mettre dans le BILAN ??)}
+\subsubsection{Conclusion sur le Deep Learning/Réseaux de neurones}
 \paragraph{}
-Le principal point positif des réseaux de neurones dans notre étude est le fait d'avoir réussi à atteindre nos meilleurs scores sur des réseaux simples sans avoir à effectuer beaucoup de transformations sur nos données. La première analyse d'un réseau est simple et visuel cependant l'effet \textbf{boite noire} apparaît rapidement, nous ne pouvons aujourd'hui expliquer par quelles raisonnement ces algorithmes nous permet d'avoir de bons scores. Nous savons ce qu'il se passe à l'entrée du réseau, connaissons la sortie du réseau mais le parcours entre les deux nous est inconnue.
+Le principal point positif des réseaux de neurones dans notre étude est le fait d'avoir réussi à atteindre nos meilleurs scores sur des réseaux simples sans avoir à effectuer beaucoup de transformations sur nos données. La première analyse d'un réseau est simple et visuelle cependant l'effet \textbf{boite noire} apparaît rapidement, nous ne pouvons aujourd'hui expliquer par quels raisonnements ces algorithmes nous permettent d'avoir de bons scores. Nous savons ce qu'il se passe à l'entrée du réseau, connaissons la sortie du réseau mais le parcours entre les deux nous est inconnu.
 
 \paragraph{}
-Cet effet boite noire ne nous permet pas d'avoir de réel argument pour choisir nos paramètres à optimiser. \textbf{L'overfitting} est toujours très proche de ces méthodes quand nous testons des réseaux plus complexes. Un point négatif supplémentaire est le côté \og chronophage \fg{} de cette méthode.
+Cet effet boite noire ne nous permet pas d'avoir de réel argument pour choisir nos hyper-paramètres à optimiser. \textbf{L'overfitting} est toujours très proche de ces méthodes quand nous testons des réseaux plus complexes. Un point négatif supplémentaire est le côté \og chronophage \fg{} de cette méthode, qui ne nous permet pas d'être en adéquation avec les exigences élevées des organisateurs du concours en terme de temps de calcul.
 
 \section{Bilan}
 
