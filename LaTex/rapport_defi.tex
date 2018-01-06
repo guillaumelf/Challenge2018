@@ -732,6 +732,20 @@ Suite à cette stagnation, nous avons décidé d'appliquer le cours de Mr Tavena
 
 \subsubsection{Premier modèle sous Keras}
 \paragraph{}
+Un avantage notable sous \textit{Keras} est le fait de pouvoir visualiser l'évolution de notre score au fil des itérations que ça soit pour la partie apprentissage ou validation. On peut donc visualiser le moment ou nous passons dans du \textbf{sur-apprentissage}.
+
+Exemple d'un cas idéal, la courbe du score de la partie apprentissage et celle de la partie validation sont proches :
+
+\begin{center}
+\includegraphics[scale=0.7]{Images/evo_score2.png}
+\end{center}
+
+Ce qu'il faut éviter, c'est d'avoir un décrochage entre ces deux courbes comme ci-dessous, cette image représente un zoom sur les 100 dernières échéances d'un modèle en sur-apprentissage. Dans ce cas notre modèle n'est pas adapté.
+
+\begin{center}
+\includegraphics[scale=0.7]{Images/evo_score3.png}
+\end{center}
+
 Pour réaliser notre premier réseau sous \textit{Keras}, nous avons utilisé nos données sans les variables \textit{capeinSOL0} et \textit{rr1SOL0} ainsi que la transformation sinusoïdale sur les dates. Cela nous permet une fois les valeurs manquantes enlevées d'avoir $177977$ individus sur $189280$ ainsi nous limitons la perte de données et cela nous permet de ne pas insérer du biais en faisant une estimation sur les valeurs non présentes.
 
 \paragraph{}
@@ -748,7 +762,7 @@ Python et les data.frame \textit{pandas} ne prennent pas en compte les variables
 Nous nous retrouvons donc avec un data.frame au dimension suivante $1777977x72$ et notre variable cible $1777977x1$. Puis dans un second temps nous standardisons nos variables explicatives pour le jeu de données train et test, pour cela on standardise d'abord notre jeu d'apprentissage puis nous appliquons la même transformation au jeu de test.
 
 \paragraph{}
-Notre premier modèle se veut simple et compréhensible afin d'effectuer nos premiers test sous \textit{Keras}. Pour cela nous prenons un modèle à $1$ couches cachées, nous incluons aussi un DropOut de ces couches pour limiter le sur-apprentissage comme sous \textit{H2O}, la fonction d'activation ReLU ainsi qu'un learning rate de $0.0001$.
+Notre premier modèle se veut simple et compréhensible afin d'effectuer nos premiers test sous \textit{Keras}. Pour cela nous prenons un modèle à $2$ couches cachées, nous incluons aussi un DropOut de ces couches pour limiter le sur-apprentissage comme sous \textit{H2O}, la fonction d'activation ReLU ainsi qu'un learning rate de $0.0001$.
 
 \begin{verbatim}
 premiere_couche = Dense(units=100, activation="relu", input_dim=72)
@@ -761,6 +775,8 @@ def baseline_model():
     model.add(premiere_couche)
     model.add(Dropout(0.02, noise_shape=None, seed=None))
     model.add(couche_cachee1)
+    model.add(Dropout(0.02, noise_shape=None, seed=None))
+    model.add(couche_cachee2)
     model.add(Dropout(0.02, noise_shape=None, seed=None))
     model.add(couche_sortie)
     model.compile(optimizer=opti, loss="mean_squared_error")
@@ -835,7 +851,6 @@ La création de nouvelles variable peut permettre d'utiliser le lien qu'il exist
 \paragraph{}
 La limite de cette méthode apparaît rapidement lors de nos premiers réseaux, on note un fort décalage entre le score sur la partie \textit{train} et la partie \textit{valid}. Nous sommes clairement dans de \textbf{l'overfitting}.
 
-AJOUTER PHOTO COURBE TRAIN VALID
 
 \paragraph{}
 \textbf{En conclusion} nous prenons la décision de ne garder que nos data.frame enrichi des coordonnées des $11$ premiers axes de l'ACP.
@@ -851,10 +866,33 @@ On fait varier la \textit{longueur} et la \textit{largeur} du réseau.
 \end{verbatim}
 
 \paragraph{}
-L'algorithme choisi finalement le réseau initial $100$-$100$-$64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci:
+L'algorithme choisi finalement le réseau initial $100$-$100$-$64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci :
+
+Nous le faisons réapprendre une fois la selection faite avec une validation hold-out à $10$ pourcent.
 
 \begin{verbatim}
-REFAIRE TOURNER UN CODE 
+    premiere_couche = Dense(units=100, activation="relu", input_dim=83)
+couche_cachee1 = Dense(units=100, activation="relu")
+couche_cachee2 = Dense(units=64, activation="relu")
+couche_sortie = Dense(units=1)
+opti = RMSprop(lr=0.0001)
+
+def baseline_model():
+    model = Sequential()
+    model.add(premiere_couche)
+    model.add(Dropout(0.02, noise_shape=None, seed=None))
+    model.add(couche_cachee1)
+    model.add(Dropout(0.02, noise_shape=None, seed=None))
+    model.add(couche_cachee2)
+    model.add(Dropout(0.02, noise_shape=None, seed=None))
+    model.add(couche_sortie)
+    model.compile(optimizer=opti, loss="mean_squared_error")
+    return model
+
+model = baseline_model()
+
+es = EarlyStopping(monitor='val_loss', min_delta=0.001, patience=75, verbose=1, mode='auto')
+hist = model.fit(X_train, y_train, validation_split=0.1,epochs=100,batch_size=500,verbose=2,callbacks=[es])
 \end{verbatim}
 
 \subsubsection{Conclusion sur le Deep Learning/Réseau de neurones (à mettre dans le BILAN ??)}
