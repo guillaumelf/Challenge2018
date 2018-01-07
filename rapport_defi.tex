@@ -342,24 +342,34 @@ Parmi les méthodes d'imputation essayées, nous retrouvons :
 \paragraph{}
 Le graphe précédent nous permet d'observer que c'est la méthode \textbf{missForest} qui nous procure le moins d'erreur, c'est donc celle-là que nous avons choisi. L'imputation s'est faite par station, pour les raisons exposées dans la partie \og \textbf{Structuration des données} \fg{}.
 \paragraph{}
-Néanmoins, après avoir effectué des tests avec les nouveaux datasets contenant des valeurs imputées, les résultats étaient très mauvais, nous avons donc abandonné cette méthode. Le fichier test contient 14 valeurs manquantes pour chacune des variables \textbf{flir1SOL0}, \textbf{fllat1SOL0}, \textbf{flsen1SOL0} et \textbf{flvis1SOL0}. Nous avons donc remplacé ces valeurs manquantes par celles de la même station et date à l'échéance suivante. Pour le reste, nous ferons l'analyse sans les variables qui contiennent trop de \textit{NA} : \textbf{capeinsSOL0} et \textbf{rr1SOL0}. Enfin, nous ne conserverons dans le fichier train que les \og complete cases \fg{}, c'est-à-dire les lignes ne contenant aucune valeur manquante. Cela nous permet d'avoir encore environ $177000$ pour l'apprentissage.
+Néanmoins, après avoir effectué des tests avec les nouveaux datasets contenant des valeurs imputées, les résultats étaient très mauvais, nous avons donc abandonné cette méthode. Le fichier test contient 14 valeurs manquantes pour chacune des variables \textbf{flir1SOL0}, \textbf{fllat1SOL0}, \textbf{flsen1SOL0} et \textbf{flvis1SOL0}. Nous avons donc remplacé ces valeurs manquantes par celles de la même station et date à l'échéance suivante. Pour le reste, nous ferons l'analyse sans les variables qui contiennent trop de \textit{NA} : \textbf{capeinsSOL0} et \textbf{rr1SOL0}. Enfin, nous ne conserverons dans le fichier train que les \og complete cases \fg{}, c'est-à-dire les lignes ne contenant aucune valeur manquante. Cela nous permet d'avoir encore environ $178000$ lignes pour l'apprentissage.
 \subsection{Corrélations entre variables et visualisation : l'Analyse en Composante Principale}
 
 \paragraph{}
-Dans un premier temps nous nous sommes intéressé aux liens existants entre nos variables quantitatives ainsi qu'à leurs importances. Pour cela nous avons réalisé une \textbf{ACP} (Analyse en Composante Principale). Cette technique repose sur la construction d'une représentation à une dimension réduite de nos variables. Le but est donc d'avoir un résumé le plus précis possible, sans modifier les distances entres individus et variables. Pour cela nous projetons notre problème sur des axes représentant une certaine partie de l'inertie de nos données. Le choix de la part d'inertie que l'on conserve est arbitraire. Il ne faut pas tout conserver car sinon on se retrouve à analyser du bruit statistique (en général on considère qu'au-dessus de 95\% de l'inertie on analyse du bruit), mais il faut également conserver une part importante afin de bien résumer l'information. Nous avons donc choisi de retenir les 11 premiers axes principaux, qui représentent $80.56$\% de l'inertie totale. L'analyse des individus ne nous intéresse pas (ils sont trop nombreux), ici nous allons focaliser notre attention sur les variables.
+Dans un premier temps nous nous sommes intéressé aux liens existants entre nos variables quantitatives ainsi qu'à leurs importances. Pour cela nous avons réalisé une \textbf{ACP} (Analyse en Composante Principale). Cette technique repose sur la construction d'une représentation à une dimension réduite de nos variables. Le but est donc d'avoir un résumé le plus précis possible, sans modifier les distances entres individus et variables. Pour cela nous projetons notre problème sur des axes représentant une certaine part de l'inertie de nos données. Le choix de la part d'inertie que l'on conserve est arbitraire. Il ne faut pas tout conserver car sinon on se retrouve à analyser du bruit statistique (en général on considère qu'au-dessus de 95\% de l'inertie on analyse du bruit), mais il faut également conserver une part importante afin de bien résumer l'information. Nous avons donc choisi de retenir les 11 premiers axes principaux, qui représentent $80.56$\% de l'inertie totale. L'analyse des individus ne nous intéresse pas (ils sont trop nombreux), ici nous allons focaliser notre attention sur les variables.
 \paragraph{}
-La première raison pour laquelle nous avons fait une ACP était de tenter de déceler les tendances, les corrélations entre variables. On retrouve ci-après le cercle des corrélations qui permet de résumer les contributions et le sens des variables dans le repère des deux premiers axes.
+La première raison pour laquelle nous avons fait une ACP était de tenter de déceler les tendances, les corrélations entre variables. On retrouve ci-après le cercle des corrélations qui permet de résumer les contributions et le sens des variables dans le repère des deux premiers axes principaux.
 \begin{center}
-\includegraphics[width=18cm]{Images/ACP.png}
+\includegraphics[scale=1]{Images/ACP.png}
 \end{center}
-Sans surprise, il semblerait que les variables \textbf{tH2} et \textbf{tH2\_obs} soient très liées, elles contribuent fortement à la création des premiers axes, et ce dans le même sens. Ce graphe fait également apparaître le fait que des variables comme \textbf{tH2\_XGrad}, \textbf{tH2\_YGrad} ou encore \textbf{rr1SOL0} (que l'on enlève de toute façon à cause des valeurs manquantes) contribuent faiblement et dans des directions opposées. On pourra éventuellement se poser la question de leur utilité dans l'analyse, et procéder à de la \textbf{sélection de variable} (nous reviendront sur ce point plus tard).
+Sans surprise, il semblerait que les variables \textbf{tH2} et \textbf{tH2\_obs} soient très liées, elles contribuent fortement à la création des premiers axes, et ce dans le même sens. Ce graphe fait également apparaître le fait que des variables comme \textbf{tH2\_XGrad}, \textbf{tH2\_YGrad} ou encore \textbf{rr1SOL0} (que l'on enlève de toute façon à cause des valeurs manquantes) contribuent faiblement et dans des directions opposées. On pourra éventuellement se poser la question de leur utilité dans l'analyse, et procéder à de la \textbf{sélection de variables} (nous reviendrons sur ce point plus tard).
 
 \paragraph{}
-La deuxième utilité de l'ACP dans ce projet aura été d'exploiter les coordonnées des individus sur les 11 premiers axes principaux, et de rajouter ces colonnes dans l'analyse. On peut penser que cela rajoute de la corrélation, cependant nous avons constaté que cet apport enrichissait l'analyse, puisque nous avons réussi à progresser de $0.02$ sur tous les modèles que nous avons utilisé après avoir rajouté ces $11$ colonnes. Nous avons vu dans la partie précédente sur les valeurs manquantes que l'on était obligé d'omettre les variables \textbf{capeinsSOL0} et \textbf{rr1SOL0}, et comme la première semble avoir de l'importance dans l'analyse, cela permet quand même de capter une part de l'information qu'elle fournit. Cela peut expliquer en partie la progression des scores quand on ajoute les coordonnées issues de l'ACP. Cela permet peut-être également de refléter la proximité ou non des individus au niveau temporel. Pour compléter cet aspect, nous allons transformer à son tour la date en une coordonnée, afin d'exploiter au mieux l'information temporelle qu'elle renferme.
-\newpage 
+La deuxième utilité de l'ACP dans ce projet aura été d'exploiter les coordonnées des individus. Pour cela nous réalisons une nouvelle ACP sans la variable cible \textbf{tH2\_obs}. Nous obtenons le cercle des corrélations ci-dessous pour les deux premiers axes représentant $33.8$\% de l'inertie.
+
+\begin{center}
+\includegraphics[scale=1]{Images/ACP2.png}
+\end{center}
+\paragraph{}
+Nous nous intéressons aux $11$ premiers axes principaux, représentant $83.62$\% de l'inertie, on agrémente nos données d'apprentissage avec les coordonnées des individus sur ces $11$ axes. Nous réalisons une projection des individus de la partie test sur les axes calculés précédemment pour avoir une cohérence au niveau des coordonnées.
+ 
+\paragraph{}
+On peut penser que cela rajoute de la corrélation, cependant nous avons constaté que cet apport enrichissait les données de base, puisque nous avons réussi à progresser de $0.02$ environ au niveau du score \textbf{RMSE} sur tous les modèles que nous avons utilisé après avoir rajouté ces $11$ colonnes. Nous avons vu dans la partie précédente sur les valeurs manquantes que l'on était obligé d'omettre les variables \textbf{capeinsSOL0} et \textbf{rr1SOL0}, et comme la première semble avoir de l'importance dans l'analyse, cela permet quand même de capter une part de l'information qu'elle fournit. Cela peut expliquer en partie la progression des scores quand on ajoute les coordonnées issues de l'ACP. Cela permet peut-être également de refléter la proximité ou non des individus au niveau temporel. Pour compléter cet aspect, nous allons transformer à son tour la date en une coordonnée, afin d'exploiter au mieux l'information temporelle qu'elle renferme. 
 \subsection{Transformation de la date}
 \paragraph{}
-Si l'on demandait à une personne de prédire la température, intuitivement la date va forcément faire partie des variables déterminantes dans sa décision. Il paraît évident que l'on ne va pas prédire la même température pour un 15 janvier que pour un 15 juillet. En revanche, on pourrait être tenté de prédire environ la même température pour un 15 avril et pour un 15 octobre, le printemps et l'automne étant assez similaires selon ce critère de température. En revanche, l'été et l'hiver s'opposent. On saisit donc que la variable date va avoir son importance dans l'explication de la température, seulement cette information n'est pas exploitable de façon brute : il va falloir la transformer. Comment choisir cette transformation ? Les critères suivants peuvent nous aider :
+Si l'on demandait à une personne de prédire la température, intuitivement la date va forcément faire partie des variables déterminantes dans sa décision. Il paraît évident que l'on ne va pas prédire la même température pour un 15 janvier que pour un 15 juillet. En revanche, on pourrait être tenté de prédire environ la même température pour un 15 avril et pour un 15 octobre, le printemps et l'automne étant assez similaires selon ce critère de température. En revanche, l'été et l'hiver s'opposent. On saisit donc que la variable date va avoir son importance dans l'explication de la température, seulement cette information n'est pas exploitable de façon brute : il va falloir la transformer. Comment choisir cette transformation ?\\
+\paragraph{}
+Les critères suivants peuvent nous aider :
 \begin{itemize}
 \item La transformation doit être capable de représenter l'opposition entre l'hiver et l'été, tout en tenant compte du caractère similaire de l'automne et du printemps
 \item Elle doit également prendre en compte le fait que le $31$ décembre d'une année et le $1^{er}$ janvier de l'année suivante sont 2 jours similaires
@@ -376,16 +386,14 @@ $t_{i+1}=t_{i}+ \frac{2\pi}{N}$
 où $N$ correspond au nombre de jours que contient chaque année (cette étude contient une année bissextile dont il a fallu prendre compte)
 \item enfin, il ne reste plus qu'à prendre le cosinus de chaque coordonnée et l'on obtient la représentation qui suit :
 \end{itemize}
-\includegraphics[width=17cm]{Images/date.png}
 \begin{center}
-\captionof{figure}{A chaque date correspond une coordonnée indiquant sa position dans la saison}
-\label{fig1}
+\includegraphics[scale=0.4]{Images/date.png}
 \end{center}
 \paragraph{}
 Les transformations et ajustements étant faits, nous pouvons à présent démarrer la partie de modélisation dans le but de prédire les températures.
 \section{Choix et application d'algorithmes d'apprentissage supervisé}
 \paragraph{}
-Dans cette section, nous allons détailler les différents algorithmes que nous avons utilisé pour modéliser les données et effectuer nos prédictions. Etant donné qu'il n'existe pas une méthode universelle assurant qu'un algorithme est meilleur que les autres pour un type de problème donné, il faut en tester plusieurs (\og No free lunch theorems \fg{}). Toutefois, nous pouvons d'ores et déjà enlever les \textbf{SVM} de la liste des algorithmes qui seront testés. Nous avons fait ce choix pour des raisons techniques : l'algorithme utilise la matrice de Gram définie de la façon suivante :
+Dans cette section, nous allons détailler les différents algorithmes que nous avons utilisé pour modéliser les données et effectuer nos prédictions. Etant donné qu'il n'existe pas une méthode universelle assurant qu'un algorithme est meilleur que les autres pour un type de problème donné, il faut en tester plusieurs (\og No free lunch theorems \fg{}). Toutefois, nous pouvons d'ores et déjà enlever les \textbf{SVM} de la liste des algorithmes qui seront testés. Nous avons fait ce choix pour des raisons techniques : l'algorithme utilise la matrice de Gram.
 \begin{center}
 $G = \begin{pmatrix} <x_1,x_1> & \cdots & <x_1,x_n> \\ \vdots & \ddots & \vdots \\ <x_n,x_1> & \cdots & <x_n,x_n> \end{pmatrix}$
 \end{center}
@@ -409,24 +417,26 @@ C'est donc sur ces deux aspects que nous allons tenter de jouer par la suite. Af
 \paragraph{}
 Si par la suite nous allons utiliser des méthodes compliquées, dites \og boîtes noires \fg{} , nous souhaitions tout d'abord poser une base, un modèle de référence, en utilisant une méthode simple. Pour cette raison, le premier modèle que nous avons appliqué à nos données était un modèle de régression linéaire multiple. On définit un tel modèle à $p$ variables explicatives de la façon suivante pour une observation $y_i$ :
 \begin{center}
-$y_{i}=\beta_{0}+\beta_{1}x_{i,1}+...+\beta_{k}x_{i,p}+\varepsilon_{i}$
+$y_{i}=\beta_{0}+\beta_{1}x_{i,1}+...+\beta_{p}x_{i,p}+\varepsilon_{i}$
 \end{center}
 En généralisant avec l'écriture matricielle, on obtient :
 \begin{center}
 $\mathbb{Y}=\mathbb{X}\beta+\varepsilon$\\
 \bigskip
+\bigskip
 avec $\mathbb{Y} = \begin{pmatrix} Y_1 \\ \vdots \\ Y_n \end{pmatrix} \in \mathbb{R}^n \qquad\mathbb{X} = \begin{pmatrix} 1 & X_{1,1} & \cdots & X_{1,p} \\ \vdots & \vdots & \ddots & \vdots \\ 1 & X_{n,1} & \cdots & X_{n,p} \end{pmatrix} \in \mathbb{R}^{n\times(p+1)} \qquad \mathbb{\beta} = \begin{pmatrix} \beta_0 \\ \vdots \\ \beta_p \end{pmatrix} \in \mathbb{R}^{p+1}\qquad \varepsilon = \begin{pmatrix} \varepsilon_1 \\ \vdots \\ \varepsilon_n \end{pmatrix} \in \mathbb{R}^n$\\
 \end{center}
+\paragraph{}
 On rappelle que ce modèle requiert de poser certaines hypothèses fortes telles que la linéarité des données, ou encore concernant les erreurs $\varepsilon$ :
 \begin{itemize}
 \item $ \varepsilon \independent \mathbb{X}$
 \item $\varepsilon \sim \mathcal{N}_n(0,\sigma^2I_n)$ avec $I_n$ la matrice identité de taille $n \times n$
 \end{itemize}
-Cela définit ainsi le modèle linéaire gaussien. Cette méthode présente l'avantage premièrement d'être facilement compréhensible, même lorsqu'on n'est plus en dimension 2. L'estimation des paramètres est également assez \og simple \fg{} : en effet pour trouver les paramètres optimaux on va résoudre un problème d'optimisation dont il existe une solution analytique qui est connue. Si l'on note l'estimation de $\beta$ : 
+Cela définit ainsi le modèle linéaire gaussien. Cette méthode présente l'avantage premièrement d'être facilement compréhensible, même lorsqu'on n'est plus en dimension 2. L'estimation des paramètres est également assez \og simple \fg{} : pour trouver les paramètres optimaux on va résoudre un problème d'optimisation dont il existe une solution analytique qui est connue. Si l'on note l'estimateur de $\beta$ : 
 \begin{center}
 $\hat{\beta} = \underset{\beta\in\mathbb{R}^{p+1} }{argmin}\sum\limits_{i=1}^n(Y_i-\beta^TX_i)^2$
 \end{center}
-Cela correspond à l'estimateur des Moindres Carrés Ordinaires (MCO) dont la solution lorsqu'on résout le problème d'optimisation précédent vaut :
+Cela correspond à l'estimateur des Moindres Carrés Ordinaires (MCO). On rappelle que cet estimateur a le bon goût d'être sans biais. Comme expliqué précédemment, on connait la forme analytique de cet estimateur qui correspond à l'estimateur du maximum de vraisemblance, et dont la solution lorsqu'on résout le problème d'optimisation précédent vaut :
 \begin{center}
 $\hat{\beta} = (\mathbb{X}^T\mathbb{X})^{-1}\mathbb{X}^T\mathbb{Y}$
 \end{center}
@@ -438,12 +448,14 @@ On remarque au passage qu'il y a un point essentiel : il faut que $(\mathbb{X}^T
 \end{center}
 Comme nous l'avions avancé précédemment, ce type de modèle est \og simple \fg{} dans le sens où il n'y a pas d'hyper-paramètres à calibrer de façon judicieuse (comme ce sera le cas dans les modèles présentés plus tard dans cette étude), et il présente également le gros avantage de tourner rapidement. En effet, les organisateurs du concours ont une exigence particulière au niveau du temps de calcul : \textbf{ils imposent que le temps de calcul soit inférieur à 15 minutes} (sans pour autant préciser avec quel type de machine...). Il se trouve que ce modèle de régression linéaire multiple appliqué sur chaque station séparément renvoie l'ensemble des résultats en moins d'une minute, il est donc très rapide. Cependant, on rappelle que pour que ce modèle soit juste, il faut que l'hypothèse de linéarité des données soit respectée, sinon on tombe rapidement dans de l'\textbf{underfitting} (le graphe de la partie \textbf{3.2} illustre parfaitement ce point). Un autre problème peut également être causé par la \textbf{dimension}. Nous allons donc tenter de voir dans la suite en fonction de ces différents aspects, si nous pouvons améliorer la performance du modèle linéaire en utilisant une variante.
 \subsubsection{Les variantes pour la grande dimension}
-Etant donné le nombre de variables dont nous disposons, une des questions que l'on peut se poser naturellement serait : sommes-nous en grande dimension ? En effet, il est difficile de quantifier le nombre de variables qui font que l'on bascule dans cette fameuse \og grande dimension \fg{}. Nous parlions tout à l'heure d'inversibilité de la matrice $(\mathbb{X}^T\mathbb{X})$, pour cela il faut que le rang de cette matrice soit égal à $p+1$. Or, si $p+1 > n$, la matrice n'est plus de plein rang et donc plus inversible. Mais bien avant d'en arriver là, lorsque le nombre de variables devient trop important, on dit que la matrice est mal conditionnée, ce qui rend problématique l'inversion de la matrice, et il devient donc compliqué voire impossible de calculer l'estimateur des \textbf{MCO}. Pour contrer ce \og \textbf{fléau de la dimension} \fg{}, il existe des variantes de la régression linéaire : la régression \textbf{Ridge}, la régression \textbf{Lasso} ou encore un compromis des deux appelé \textbf{Elastic Net}, qui appartiennent à la famille des méthodes de \textbf{régression pénalisée}.
+Etant donné le nombre de variables dont nous disposons (on arrive à 72 colonnes en entrée après avoir passé les variables catégorielles en \textit{dummies}), une des questions que l'on peut se poser naturellement serait : sommes-nous en grande dimension ? En effet, il est difficile de quantifier le nombre de variables qui font que l'on bascule dans cette fameuse \og grande dimension \fg{}. Nous parlions tout à l'heure d'inversibilité de la matrice $(\mathbb{X}^T\mathbb{X})$, pour cela il faut que le rang de cette matrice soit égal à $p+1$. Or, si $p+1 > n$, la matrice n'est plus de plein rang et donc plus inversible (cela ne sera pas le cas dans nore étude puisque le nombre de lignes $n$ est conséquent). Mais bien avant d'en arriver là, lorsque le nombre de variables devient trop important, on dit que la matrice est mal conditionnée, ce qui rend problématique l'inversion de la matrice, et il devient donc compliqué voire impossible de calculer l'estimateur des \textbf{MCO}. Pour contrer ce \og \textbf{fléau de la dimension} \fg{}, il existe des variantes de la régression linéaire : la régression \textbf{Ridge}, la régression \textbf{Lasso} ou encore un compromis des deux appelé \textbf{Elastic Net}, qui appartiennent à la famille des méthodes de \textbf{régression pénalisée}.
 \paragraph{}
-Dans cette étude nous allons présenter seulement la régression Lasso car nous n'avons pas utilisé les autres méthodes. Nous avons fait ce choix car la régression Lasso a pour propriété de faire de la sélection de variables. Nous avons pu voir à partir du cercle des corrélations, en faisant notre ACP, qu'il y avait certains groupes de variables qui n'évoluaient pas dans le même sens que la variable cible \textbf{tH2\_obs}. Il y a peut-être donc des variables \og inutiles \fg{}, qui viennent bruiter l'information et qui pourraient donc être éliminées à l'aide d'une régression Lasso. Nous allons désormais expliquer en quoi la régression Lasso diffère de la régression linéaire, et pourquoi elle permet de faire de la sélection de variables. Premièrement, nous avons vu que le problème des MCO venait de la dimension, car la variabilité de l'estimateur \og explose \fg{} en grande dimension . Une solution pour palier à ce problème consiste donc à contraindre cet estimateur à avoir une \og petite \fg{} norme. Dans le cas de la régression Lasso on choisit la norme $|.|_1$ et le problème d'optimisation devient :
+Dans cette étude nous allons présenter seulement la régression Lasso car nous n'avons pas utilisé les autres méthodes. Nous avons fait ce choix car la régression Lasso a pour propriété de faire de la sélection de variables. Nous avons pu voir à partir du cercle des corrélations, en faisant notre ACP, qu'il y avait certains groupes de variables qui n'évoluaient pas dans le même sens que la variable cible \textbf{tH2\_obs}. Il y a peut-être donc des variables \og inutiles \fg{}, qui viennent bruiter l'information et qui pourraient être éliminées à l'aide d'une régression Lasso.
+\paragraph{}
+Nous allons désormais expliquer en quoi la régression Lasso diffère de la régression linéaire, et pourquoi elle permet de faire de la sélection de variables. Premièrement, nous avons vu que le problème des MCO venait de la dimension, car la variabilité de l'estimateur \og explose \fg{} en grande dimension . Une solution pour palier à ce problème consiste donc à contraindre cet estimateur à avoir une \og petite \fg{} norme. Dans le cas de la régression Lasso on choisit la norme $|.|_1$ et le problème (primal) d'optimisation devient :
 \begin{center}
 $$
-\left\{
+(P) :\left\{
     \begin{array}{ll}
         min \parallel \mathbb{Y} - \mathbb{X}\beta \parallel^2  \\
         s.c  \mid\beta\mid\leq t
@@ -455,7 +467,7 @@ Avec $t>0$. Ainsi, l'estimateur Lasso peut se réécrire :
 \begin{center}
 $\hat{\beta}_{LASSO}(\lambda) = \underset{\beta\in\mathbb{R}^{p+1} }{argmin}\parallel \mathbb{Y} - \mathbb{X}\beta \parallel^2_2 + \lambda |\beta|_1 \qquad$ avec $|\beta|_1 = \sum\limits_{j=1}^p|\beta_j|$ et $\lambda > 0$ (multiplicateur de Lagrange)
 \end{center}
-Avec cette écriture, on se rend compte que l'on introduit un paramètre supplémentaire ($\lambda$) que l'on va calibrer (comme souvent) par validation croisée. Nous utiliserons la validation croisée 10-blocs, qui est implémentée par défaut dans la fonction \textit{cv.glmnet} de R. Le choix de $\lambda$ est crucial : quand $\lambda \nearrow$ $ \Rightarrow$ le biais $\nearrow$ tandis que la variance $\searrow$ (et inversement quand $\lambda \searrow$). On se retrouve encore une fois à chercher le \og meilleur \fg{} compromis biais/variance afin d'optimiser notre modèle. L'augmentation de $\lambda$ et donc du biais entraîne également une augmentation simultanée du nombre de coefficients nuls : c'est ici qu'intervient la sélection de variables. Pour mieux le voir (on ne fera pas la démonstration), après quelques calculs on observe que finalement l'estimateur Lasso est une transformation de l'estimateur des MCO, en fonction de $\lambda$ :
+Avec cette écriture, on se rend compte que l'on introduit un paramètre supplémentaire ($\lambda$) que l'on va calibrer (comme souvent) par validation croisée. Nous utiliserons pour cela la validation croisée 10-blocs, puisque le modèle tourne rapidement. Le choix de $\lambda$ est crucial : quand $\lambda \nearrow$ $ \Rightarrow$ le biais $\nearrow$ tandis que la variance $\searrow$ (et inversement quand $\lambda \searrow$). On se retrouve encore une fois à chercher le \og meilleur \fg{} compromis biais/variance afin d'optimiser notre modèle. L'augmentation de $\lambda$ et donc du biais entraîne également une augmentation simultanée du nombre de coefficients nuls : c'est ici qu'intervient la sélection de variables. Pour mieux le voir (on ne fera pas la démonstration), après quelques calculs on observe que finalement l'estimateur Lasso est une transformation de l'estimateur des MCO, en fonction de $\lambda$ :
 \begin{center}
 $[\hat{\beta}_{LASSO}(\lambda)]_j = \left\{
     \begin{array}{ll}
@@ -464,7 +476,7 @@ $[\hat{\beta}_{LASSO}(\lambda)]_j = \left\{
     \end{array}
 \right.$
 \end{center}
-Avec cette écriture, il est donc plus facile de comprendre d'où vient le biais (on retire $\frac{\lambda}{2}$ au coefficient des MCO) ainsi que la sélection de variables. On parle dans ce cas de \og \textbf{seuillage doux} \fg{}. La figure suivante permet d'illustrer le propos.
+Avec cette écriture, il est donc plus facile de comprendre d'où vient le biais (on soustrait $\frac{\lambda}{2}$ au coefficient des MCO) ainsi que la sélection de variables. On parle dans ce cas de \og \textbf{seuillage doux} \fg{}. La figure suivante permet d'illustrer le propos.
 \begin{center}
 \includegraphics[width=18cm]{Images/shrinkage.png}
 \end{center}
@@ -484,13 +496,9 @@ On remarque que par rapport à la régression linéaire, le score moyen sur les 
 \subsection{Forêt aléatoire : l'algorithme Random Forest}
 \subsubsection{Rappels sur le fonctionnement de la méthode CART}
 \paragraph{}
-Une façon simple de modéliser des données peut être d'utiliser un arbre de décision \textbf{CART} (\textbf{C}lassification \textbf{A}nd \textbf{R}egression \textbf{T}ree). C'est un algorithme de prédiction par moyenne locale, par partition, dont la partition est construite par divisions successives au moyen d'hyperplans orthogonaux aux axes du nœud racine $\mathfrak{X}=\mathbb{R}^{p}$, dépendant des $(X_i,Y_i)$. Chaque division est effectuée à partir du choix conjoint d'une variable explicative et d'une valeur seuil pour cette variable, de sorte que la découpe effectuée minimise la variance en régression ou l'impureté dans le nœud en discrimination.
+Une façon simple de modéliser des données peut être d'utiliser un arbre de décision \textbf{CART} (\textbf{C}lassification \textbf{A}nd \textbf{R}egression \textbf{T}ree). C'est un algorithme de prédiction par moyenne locale, par partition, dont la partition est construite par divisions successives au moyen d'hyperplans orthogonaux aux axes du nœud racine $\mathfrak{X}=\mathbb{R}^{p}$, dépendant des $(X_i,Y_i)$. Chaque division est effectuée à partir du choix conjoint d'une variable explicative et d'une valeur seuil pour cette variable, de sorte que la découpe effectuée minimise la variance en régression ou l'impureté dans le nœud en discrimination. La figure suivante permet d'illustre le fonctionnement de l'algorithme CART pour un problème de discrimination binaire dans $\mathbb{R}^2$.
 \begin{center}
 \includegraphics[scale=0.55]{Images/cart.png}
-\end{center}
-\begin{center}
-\captionof{figure}{Illustration de l'algorithme CART pour un problème de discrimination binaire dans $\mathbb{R}^2$}
-\label{fig1}
 \end{center}
 \paragraph{}
 Néanmoins cet algorithme pose le problème majeur d'être très instable (fléau de la dimension et sensibilité à l'échantillon). C'est donc pour palier à ce problème que nous allons utiliser l'algorithme de forêt aléatoire \textbf{Random Input}. Comme son nom l'indique, cette méthode consiste en une agrégation d'arbres : c'est un algorithme de \textbf{Bagging} (\textbf{B}ootstrap \textbf{agg}regat\textbf{ing}). 
@@ -508,6 +516,7 @@ $Var(\hat{\eta}(x))=\rho(x)Var(\hat{\eta_b}(x))+\frac{1-\rho(x)}{B}Var(\hat{\eta
 d'où il vient : $\lim_{B \to \infty} Var(\hat{\eta}(x)) = \rho(x)Var(\hat{\eta_b}(x))$
 \end{center}
 Cela illustre donc le fait que le bagging va réduire la variance de l'estimateur. En revanche, on introduit un terme de corrélation : la solution de \textbf{Breiman} pour construire des algorithmes peu corrélés entre eux consiste à utiliser non pas l'échantillon $D^{n}_{1}$ mais plutôt des échantillons \textbf{bootstrap} de $D^{n}_{1}$, c'est-à-dire que l'on va tirer de façon aléatoire et avec remise des lignes parmi l'échantillon $D^{n}_{1}$.
+\newpage
 \subsubsection{L'algorithme Random Forest RI}
 L'algorithme de forêt aléatoire Random Input est donc une variante de la méthode CART qui s'appuie sur les techniques de bagging. Son fonctionnement est le suivant :\\
 \begin{algorithm}
@@ -546,7 +555,8 @@ RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
            min_weight_fraction_leaf=0.0, n_estimators=800, n_jobs=1,
            oob_score=False, random_state=None, verbose=0, warm_start=False)
 \end{verbatim}
-Pour les autres stations (Bordeaux, Rennes et Lille) le seul hyper-paramètre qui change est le nombre de variables explicatives sélectionnées à chaque nœud que l'on a appelé $m$ (\textit{max\_features} dans la fonction \textbf{RandomForestRegressor} de la librairie \textit{scikit-learn} en Python) qui vaut 13. Le nombre d'itérations optimal $B$ (ou \textit{n\_estimators} ici) est de 800. Les résultats procurés par cet estimateur sont les suivants :\\
+\paragraph{}
+Pour les autres stations (Bordeaux, Rennes et Lille) le seul hyper-paramètre qui change est le nombre de variables explicatives sélectionnées à chaque nœud que l'on a appelé $m$ (\textit{max\_features} dans la fonction \textbf{RandomForestRegressor} de la librairie \textit{scikit-learn} en Python) qui vaut 13. Le nombre d'itérations optimal $B$ (ou \textit{n\_estimators} ici) est de 800. Les résultats procurés par cet estimateur sont à la page suivante\\
 \begin{center}
 \includegraphics[width=18cm]{Images/score_rf.png}
 \end{center}
@@ -558,23 +568,19 @@ Cet algorithme permet donc de franchir la \textbf{baseline}, cependant on s'aper
 \subsection{Boosting : l'algorithme XGBoost}
 \subsubsection{Rappels sur le fonctionnement du boosting}
 \paragraph{}
-Le \textbf{boosting}, par opposition au bagging, s'applique à des algorithmes fortements biaisés, mais de faible variance. Le principe est donc bien différent de celui d'une forêt aléatoire où l'on va agréger les prédictions de plusieurs arbres pour en faire la moyenne.
-\paragraph{}
-Ici on va combiner dans un algorithme itératif les prédictions de \textit{weak learners}, c'est-à-dire des classifieurs ou des régresseurs faibles, selon la nature du problème. Ces prédicteurs faibles sont encore une fois des arbres avec peu de nœuds (pour rester faibles et éviter le sur-apprentissage). 
-\paragraph{}
-Si l'on se place dans un problème de discrimination, à chaque itérations on va attribuer un poids au classifieur en fonction de sa qualité d'estimation (selon le critère du taux de bon classement par exemple). Les observations qui ont été mal classées se verront attribuer un poids plus fort afin d'être mieux prédites lors de la prochaine itération. La figure suivante résume le fonctionnement de ce type d'algorithmes : chaque \textit{Box} correspond à une itération, et les prédicteurs utilisés sont des arbres à 2 nœuds (encore appelés \textit{stumps}).
-
-\includegraphics[width=19cm]{Images/boosting.png}
+Le \textbf{boosting}, par opposition au bagging, s'applique à des algorithmes fortement biaisés, mais de faible variance. Le principe est donc bien différent de celui d'une forêt aléatoire où l'on va agréger les prédictions de plusieurs arbres pour en faire la moyenne.\\
+Ici on va combiner dans un algorithme itératif les prédictions de \textit{weak learners}, c'est-à-dire des classifieurs ou des régresseurs faibles, selon la nature du problème. Ces prédicteurs faibles sont encore une fois des arbres avec peu de nœuds (pour rester faibles et éviter le sur-apprentissage).\\
+Si l'on se place dans un problème de discrimination, à chaque itérations on va attribuer un poids au classifieur en fonction de sa qualité d'estimation (selon le critère du taux de bon classement par exemple). Les observations qui ont été mal classées se verront attribuer un poids plus fort afin d'être mieux prédites lors de la prochaine itération. La figure suivante résume le fonctionnement de ce type d'algorithmes pour un problème de discrimination binaire dans $\mathbb{R}^2$: chaque \textit{Box} correspond à une itération, et les prédicteurs utilisés sont des arbres à 2 nœuds (encore appelés \textit{stumps}).
 \begin{center}
-\captionof{figure}{Illustration du boosting pour un problème de discrimination binaire dans $\mathbb{R}^2$}
+\includegraphics[scale=0.55]{Images/boosting.png}
 \end{center}
 \paragraph{}
 Il existe énormément de déclinaisons du boosting, dans cet étude nous allons nous focaliser sur un algorithme d'\textbf{eXtreme Gradient Boosting} (XGBoost) régularisé qui s'appuie sur un algorithme de minimisation du risque empirique (fonction de perte \textit{l}) par descente de gradient. Nous avons choisi cet algorithme par rapport à sa popularité que ce soit au niveau des compétitions de type \textit{Kaggle} ou en entreprise (plusieurs soutenances de stage d'élèves de Master 2 parlaient de cette méthode en 2016), mais également pour sa rapidité à être implémenté. La version régularisée doit nous permettre d'éviter, ou en tout cas de limiter le sur-apprentissage.
 \subsubsection{Descente de gradient stochastique}
 \paragraph{}
-Avant d'expliquer le fonctionnement de l'algorithme \textbf{XGBoost} il est primordial d'effectuer un rappel sur l'algorithme d'optimisation qui en est la base : la descente de gradient. Nous avons même fait le choix d'utiliser une descente de gradient stochastique (on ne regarde qu'une partie des observations pour effectuer la mise à jour du gradient). Cela a pour propriété de réduire la variance moyennant une augmentation du biais, mais les éléments de littérature laissent à penser que la réduction de variance est plus importante que l'introduction de biais, et que cela permet donc d'améliorer la performance de l'algorithme de prédiction. Dans le cas simple où l'on cherche à minimiser une fonction convexe, on se fixe un point de départ et on \og descend \fg{} le long de cette fonction en la différenciant jusqu'à atteindre le minimum global.
+Avant d'expliquer le fonctionnement de l'algorithme \textbf{XGBoost} il est primordial d'effectuer un rappel sur l'algorithme d'optimisation qui en est la base : la descente de gradient. Nous avons même fait le choix d'utiliser une descente de gradient stochastique (on ne regarde qu'une partie des observations pour effectuer la mise à jour du gradient). Cela a pour propriété de réduire la variance moyennant une augmentation du biais, mais les éléments de littérature laissent à penser que la réduction de variance est plus importante que l'introduction de biais, et que cela permet donc d'améliorer la performance globale de l'algorithme de prédiction. Dans le cas simple où l'on cherche à minimiser une fonction convexe, on se fixe un point de départ et on \og descend \fg{} le long de cette fonction en la différenciant jusqu'à atteindre le minimum global.
 \begin{center}
-\includegraphics[scale=0.7]{Images/descente.png}
+\includegraphics[scale=0.5]{Images/descente.png}
 \end{center}
 \begin{center}
 \captionof{figure}{Descente de gradient sur une fonction convexe simple dans le plan}
@@ -583,7 +589,7 @@ Avant d'expliquer le fonctionnement de l'algorithme \textbf{XGBoost} il est prim
 Cependant, un paramètre essentiel à choisir dans cette méthode va être le \textbf{pas de descente}. Un pas trop grand va mener à une irrégularité et à des résultats très mauvais car le minimum ne sera jamais atteint.\\
 Au contraire, un pas trop petit va premièrement avoir pour effet de ralentir le temps de calcul de l'algorithme, et deuxièmement nous exposer au risque de ne jamais atteindre le minimum si l'on s'arrête trop tôt au niveau du nombre d'itérations de l'algorithme.
 \begin{center}
-\includegraphics[scale=0.5]{Images/lr.jpg}
+\includegraphics[scale=0.4]{Images/lr.jpg}
 \end{center}
 \begin{center}
 \captionof{figure}{Problème : le choix du pas est crucial}
@@ -622,7 +628,7 @@ Dans cette partie, nous allons exprimer le fonctionnement de cette méthode de f
 \paragraph{}
 Nous allons à présent reprendre ces écritures afin de mieux comprendre les tâches effectuées par l'algorithme. Premièrement décrivons les entrées de cet algorithme :
 \begin{itemize}
-\item $\phi_{\gamma}$ va correspondre dans notre étude à un arbre. $\gamma$ sera par exemple le nombre de nœuds de cet arbre que l'on ajustera par validation croisée 5-blocs encore une fois
+\item $\phi_{\gamma}$ va correspondre dans notre étude à un arbre, ce que nous avons appelé précédemment un \og prédicteur faible \fg{}. On en choisira le nombre de nœuds par validation croisée 5-blocs
 \item $\lambda$ est l'hyper-paramètre qui va nous permettre d'effectuer de la régularisation. On l'appelle également le \textit{learning rate}, c'est ce que nous avons décrit précédemment comme étant le pas de descente de gradient. Puisque $\lambda \in$ $]0,1]$ on voit donc qu'il réduit/limite l'apprentissage de chaque itération, ce qui doit nous aider à nous prémunir contre le risque de sur-apprentissage
 \end{itemize}
 On entre ensuite au cœur du problème d'optimisation, qui dans le cas de la méthode \textbf{XGBoost} s'appuie sur une minimisation du risque empirique par descente de gradient. Cela implique également le choix d'une fonction de perte $l$. Comme expliqué précédemment :
@@ -639,7 +645,7 @@ Comme introduit précédemment, le nombre d'itérations \textbf{B} et le learnin
 La sortie en Python correspondant au meilleur estimateur, que nous allons détailler, est la suivante :
 \begin{verbatim}
 GradientBoostingRegressor(alpha=0.9, criterion='friedman_mse', init=None,
-             learning_rate=0.05, loss='ls', max_depth=8, max_features=None,
+             learning_rate=0.05, loss='ls', max_depth=4, max_features=None,
              max_leaf_nodes=None, min_impurity_split=1e-07,
              min_samples_leaf=1, min_samples_split=2,
              min_weight_fraction_leaf=0.0, n_estimators=1200,
@@ -651,7 +657,7 @@ Les hyper-paramètres optimaux sont les mêmes pour toutes les stations, parmi c
 \begin{itemize}
 \item un nombre d'itérations (\textit{n\_estimators}) de $1200$ associé à un pas de descente (\textit{learning\_rate}) de $0.05$
 \item la fonction de perte (\textit{loss}) classique, à savoir \og ls \fg{} pour \textit{least squares regression}. La fonction \textbf{Huber} réputée plus robuste dans certains articles n'apportait pas plus de performance
-\item une profondeur d'arbre (\textit{max\_depth}) de 8. On souhaite garder un arbre peu profond afin qu'il reste faible et qu'on évite le sur-apprentissage, cependant les \textit{stumps} (arbres à 2 nœuds) procuraient de moins bons résultats finaux.
+\item une profondeur d'arbre (\textit{max\_depth}) de 4. On souhaite garder un arbre peu profond afin qu'il reste faible et qu'on évite le sur-apprentissage, cependant les \textit{stumps} (arbres à 2 nœuds) procuraient de moins bons résultats.
 \item une proportion d'observations (\textit{subsample}) utilisées pour effectuer les mises à jour de gradient de $0.9$ : c'est ce paramètre qui permet d'effectuer une descente de gradient stochastique
 \end{itemize}
 Les résultats obtenus grâce à cet estimateur sont les suivants :\\
@@ -660,6 +666,7 @@ Les résultats obtenus grâce à cet estimateur sont les suivants :\\
 \captionof{figure}{La performance est meilleure par rapport aux algorithmes précédents}
 \label{fig1}
 \end{center}
+L'algorithme \textbf{XGBoost} nous a donc permis d'améliorer encore un peu plus la performance de prédiction par rapport aux méthodes précédentes. Nous allons à présent voir si nous pouvons faire encore mieux en utilisant une méthode se basant sur le même algorithme d'optimisation (descente de gradient).
 \subsection{Deep Learning : l'utilisation des réseaux de neurones}
 
 \subsubsection{Le contexte}
@@ -679,12 +686,10 @@ $y_{i}=f(\beta_{0} + \sum\limits_{j} \beta_{j}x_{i,j}) + \varepsilon_{i}$
 \end{center}
 
 \paragraph{}
-Une fois que nous avons choisi notre fonction d'activation, il est nécessaire comme dans tout problème d'optimisation de se fixer une fonction de coût à minimiser. Il s'agit ici d'un problème de descente de gradient comme vu précédemment dans la partie sur le Boosting.
-
+Une fois que nous avons choisi notre fonction d'activation, il est nécessaire comme dans tout problème d'optimisation de se fixer une fonction de coût à minimiser. Il s'agit ici d'un problème de descente de gradient comme vu précédemment dans la partie sur le Boosting. On note ainsi la fonction de coût utilisée :
 \begin{center}
 $L(\beta)=\sum\limits_{i}(y_{i}-a_{i})^{2}=\sum\limits_{i}(\beta)$
 \end{center}
-
 Il ne reste plus qu'à exprimer le gradient de cette fonction de coût et choisir un pas $\eta$ pour effectuer les mises à jour.
 
 \paragraph{}
@@ -710,7 +715,7 @@ epochs=500,l1=1e-7,stopping_rounds=100,rate=0.0001,
 hidden_dropout_ratios=c(0.2,0.2,0.2))
 \end{verbatim}
 
-Pour notre premier essai sur un réseau de neurones nous avons choisi un modèle simple à 3 couches cachées. Le modèle est effectué à l'aide d'une validation croisée \textbf{Hold-Out}  $80-20$ pourcent avec un nombre d'epochs à 500.
+Pour notre premier essai sur un réseau de neurones nous avons choisi un modèle simple à 3 couches cachées. Le modèle est effectué à l'aide d'une validation croisée \textbf{Hold-Out}  $80-20$\% avec un nombre d'epochs fixé à 500.
 
 
 
@@ -735,7 +740,7 @@ La première difficulté réside dans le fait de choisir notre réseau, un rése
 \subsubsection{Optimisation du choix des paramètres pour un réseau de neurones sous H2O}
 
 \paragraph{}
-Une fois notre premier modèle effectué nous avons eu pour objectif d'avoir un modèle correspondant à notre problème. Pour une raison de temps et d'efficacité nous avons décidé de fixer certains paramètres tandis que d'autres rentreront dans une grille, ils seront nos hyper-paramètres à optimiser.
+Une fois notre premier modèle effectué nous avons eu pour objectif d'avoir un modèle correspondant à notre problème. Pour une question de temps et d'efficacité nous avons décidé de fixer certains paramètres tandis que d'autres rentreront dans une grille, ils seront nos hyper-paramètres à optimiser.
 
 \begin{verbatim}
     hyper_params <- list(
@@ -756,7 +761,6 @@ Pour notre modèle nous avons fixé certains paramètres :
     \item le paramètre \textbf{max w2}, il spécifie le maximum pour la somme des poids carrés entrants d'un neurone. C'est particulièrement utile quand nous utilisons une fonction d'activation telle que Rectifier (ReLU), cela permet d'éviter d'avoir trop de poids sur un neurone et de mieux répartir l'information.
     \item \textbf{Momentum start}, l'ajout du paramètre de momentum permet de stabiliser l'apprentissage, tout en augmentant la descente de la courbe de la somme des erreurs carrées (fonction de perte) selon les itérations.
 \end{itemize}
-
 \paragraph{}
 Cette grille nous a permis de déterminer le modèle le plus adapté parmi ceux proposés :
 
@@ -777,10 +781,7 @@ Cette grille nous a permis de déterminer le modèle le plus adapté parmi ceux 
 \begin{center}
 \includegraphics[scale=0.7]{Images/deeph2o.png}
 \end{center}
-
-
-\paragraph{}
-Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois. Cependant, nous nous sommes rapidement retrouvés face à un obstacle en essayant d'améliorer notre modèle : nous passions à chaque fois dans de l'overfitting.
+Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois (battu par la suite par le modèle de Boosting présenté précédemment). Cependant, nous nous sommes rapidement retrouvés face à un obstacle en essayant d'améliorer notre modèle : nous passions à chaque fois dans de l'overfitting.
 
 \subsubsection{Passage sous Keras}
 
@@ -789,24 +790,21 @@ Suite à cette stagnation, nous avons décidé d'appliquer le cours de Mr Tavena
 
 \subsubsection{Premier modèle sous Keras}
 \paragraph{}
-Un avantage notable sous \textit{Keras} est le fait de pouvoir visualiser l'évolution de notre score au fil des itérations que ça soit pour la partie apprentissage ou validation. On peut donc visualiser le moment ou nous passons dans du \textbf{sur-apprentissage}.
-
-Exemple d'un cas idéal, la courbe du score de la partie apprentissage et celle de la partie validation sont proches :
-
+Un avantage notable sous \textit{Keras} est le fait de pouvoir visualiser l'évolution de notre score au fil des itérations que ça soit pour la partie apprentissage ou validation. On peut donc visualiser le moment ou nous passons dans du \textbf{sur-apprentissage}. Prenons l'exemple d'un cas idéal, où la courbe du score de la partie apprentissage et celle de la partie validation sont proches :
 \begin{center}
-\includegraphics[scale=0.7]{Images/evo_score2.png}
+\includegraphics[scale=0.54]{Images/evo_score2.png}
 \end{center}
 
 Ce qu'il faut éviter, c'est d'avoir un décrochage entre ces deux courbes comme ci-dessous, cette image représente un zoom sur les 100 dernières échéances d'un modèle en sur-apprentissage. Dans ce cas notre modèle n'est pas adapté.
 
 \begin{center}
-\includegraphics[scale=0.7]{Images/evo_score3.png}
+\includegraphics[scale=0.54]{Images/evo_score3.png}
 \end{center}
 
-Pour réaliser notre premier réseau sous \textit{Keras}, nous avons utilisé nos données sans les variables \textit{capeinSOL0} et \textit{rr1SOL0} ainsi que la transformation sinusoïdale sur les dates. Cela nous permet une fois les valeurs manquantes enlevées d'avoir $177977$ individus sur $189280$ ainsi nous limitons la perte de données et cela nous permet de ne pas insérer du biais en faisant une estimation sur les valeurs non présentes.
+Pour réaliser notre premier réseau sous \textit{Keras}, nous avons utilisé les données sans les variables \textbf{capeinSOL0} et \textbf{rr1SOL0} ainsi que la transformation sinusoïdale sur les dates (comme pour les algorithmes de régression, forêt aléatoire ou boosting). Cela nous permet une fois les valeurs manquantes enlevées d'avoir $177977$ individus sur $189280$ ainsi nous limitons la perte de données et cela nous permet de ne pas insérer du biais (ou d'augmenter l'erreur) en faisant une estimation sur les valeurs non présentes.
 
 \paragraph{}
-Python et les data.frame \textit{pandas} ne prennent pas en compte les variables catégorielles de la même façon, là ou en \textit{R} il suffit de passer la colonne en facteur, sur \textit{Python} nous devons transformer notre data.frame en tableau disjonctif.
+Python et les dataframe \textit{pandas} ne prennent pas en compte les variables catégorielles de la même façon, là ou en \textit{R} il suffit de passer la colonne en facteur, sur \textit{Python} nous devons transformer notre dataframe en tableau disjonctif.
 
 \begin{quote}
     Exemple de la transformation :
@@ -816,10 +814,10 @@ Python et les data.frame \textit{pandas} ne prennent pas en compte les variables
 \end{center}
 
 \paragraph{}
-Nous nous retrouvons donc avec un data.frame au dimension suivante $1777977x72$ et notre variable cible $1777977x1$. Puis dans un second temps nous standardisons nos variables explicatives pour le jeu de données train et test, pour cela on standardise d'abord notre jeu d'apprentissage puis nous appliquons la même transformation au jeu de test.
+Nous nous retrouvons donc avec un dataframe aux dimensions suivantes : $1777977\times72$ et notre variable cible : $1777977\times1$. Puis dans un second temps, nous standardisons nos variables explicatives pour les jeux de données train et test. Pour cela, on standardise d'abord notre jeu d'apprentissage puis nous appliquons la même transformation au jeu de test. Cela permet de ne pas donner trop d'importance à certaines variables en fonction de leur échelle, et améliore grandement la qualité de prédiction.
 
 \paragraph{}
-Notre premier modèle se veut simple et compréhensible afin d'effectuer nos premiers test sous \textit{Keras}. Pour cela nous prenons un modèle à $2$ couches cachées, nous incluons aussi un DropOut de ces couches pour limiter le sur-apprentissage comme sous \textit{H2O}, la fonction d'activation ReLU ainsi qu'un learning rate de $0.0001$.
+Notre premier modèle se veut simple et compréhensible afin d'effectuer nos premiers tests sous \textit{Keras}. Pour cela nous prenons un modèle à $2$ couches cachées, nous incluons aussi un \textit{DropOut} de ces couches pour limiter le sur-apprentissage comme sous \textit{H2O}, la fonction d'activation \textit{ReLU} ainsi qu'un \textit{learning rate} de $0.0001$.
 
 \begin{verbatim}
 premiere_couche = Dense(units=100, activation="relu", input_dim=72)
@@ -853,44 +851,44 @@ Ce modèle nous a permis d'améliorer notre précèdent meilleur score et d'envi
 
 \subsubsection{Notre meilleur score}
 \paragraph{}
-Suite à ce modèle nous décidâmes de réutiliser le même modèle avec un data.frame enrichi. Plusieurs pistes ont été envisagées puis testées :
+Suite à ce modèle nous décidâmes de réutiliser le même modèle avec un dataframe enrichi. Plusieurs pistes ont été envisagées puis testées :
 \begin{itemize}
     \item Rajouter les coordonnées de l'ACP précédemment calculées,
     \item Rajouter les coordonnées de l'ACM sur nos jeux de données,
-    \item Rajouter des variables par intéractions.
+    \item Rajouter des variables par interactions.
 \end{itemize}
 
 \paragraph{}
 Le but étant de rajouter de l'information à nos jeux de données en ajoutant des variables même si elles sont corrélées aux variables initiales en prenant le principe simple de la grande dimension :
 \begin{quote}
-    \og Rajouter de l'information ne sera jamais préjudiciable, dans le meilleur des cas nous améliorons notre score, dans le pire nous n'améliorons pas notre modèle mais nous ne le pénalisons pas non plus, à condition que ce ne soit pas trop corrélé.\fg{}
+    \og Rajouter de l'information ne sera jamais préjudiciable, dans le meilleur des cas nous améliorerons notre score, dans le pire nous n'améliorerons pas notre modèle mais nous ne le pénaliserons pas non plus, à condition que ce ne soit pas trop corrélé.\fg{}
 \end{quote}
 \paragraph{}
 La complexité reposera principalement sur le fait de réussir à adapter notre modèle aux nouvelles variables.
 
 \paragraph{}
-\textbf{Premièrement} nous allons ajouter les coordonnées des individus sur les principaux axes de l'ACP. Cette manoeuvre sera composé de plusieurs étapes :
+\textbf{Premièrement} nous allons ajouter les coordonnées des individus sur les principaux axes de l'ACP. Cette manœuvre sera composée de plusieurs étapes :
 \begin{itemize}
     \item Effectuer une ACP sur le jeu de données train sans la variable cible.
-    \item Récupérer les coordonnées des individus sur les axes représentant $80$ pourcent de l'inertie, au delà nous considérons que c'est du bruit.
-    \item Projeter nos individus du jeu test sur nos axes calculés précédemment.
+    \item Récupérer les coordonnées des individus sur les axes représentant $80$\% de l'inertie, au delà nous considérons que c'est du bruit.
+    \item Projeter nos individus du jeu test sur les axes calculés précédemment.
 \end{itemize}
 
 \paragraph{}
-Avec ce procédé nous agrémentons nos jeux de données de 11 variables correspondant aux axes représentant $82$ pourcent de l'inertie. Nous effectuons le même modèle que précédemment en adaptant la dimension d'entrée du réseau, en passant de $72$ à $83$. Les résultats dépassent nos premières attentes :
+Avec ce procédé nous agrémentons nos jeux de données de 11 variables correspondant aux axes représentant $82$\% de l'inertie. Nous effectuons le même modèle que précédemment en adaptant la dimension d'entrée du réseau, en passant de $72$ à $83$. Les résultats dépassent nos premières attentes :
 
 \begin{center}
 \includegraphics[scale=0.7]{Images/deep2keras.png}
 \end{center}
 
 \paragraph{}
-\textbf{Deuxièmement} nous allons compléter nos data.frames avec les coordonnées de l'ACM (sur les données qualitatives). Pour la réalisation de cette étape nous procédons de la même façon.
+\textbf{Deuxièmement} nous allons compléter nos dataframes avec les coordonnées de l'ACM (sur les données qualitatives). Pour la réalisation de cette étape nous procédons de la même façon.
 
 \paragraph{}
-Lors de la réalisation de cette ACM, les premiers axes portent peu d'inertie ce qui implique que pour avoir $80$ pourcent de l'inertie nous devons prendre les $44$ premiers axes. Nous rajoutons ces $44$ variables aux données déjà complété par les coordonnées de l'ACP.
+Lors de la réalisation de cette ACM, les premiers axes portent peu d'inertie ce qui implique que pour avoir $80$\% de l'inertie nous devons prendre les $44$ premiers axes. Nous rajoutons ces $44$ variables aux données déjà complétées par les coordonnées de l'ACP.
 
 \paragraph{}
-En adaptant les dimensions d'entrées du réseau de neurones, lors de l'avancement du réseau nous apercevons un décrochage entre le score (RMSE) de la partie apprentissage et la partie validation. Ce décrochage est synonyme de sur-apprentissage, cela se valide sur le jeu de données test comme nous pouvons le voir ci-dessous.
+En adaptant les dimensions d'entrée du réseau de neurones, lors de l'avancement du réseau nous apercevons un décrochage entre le score (RMSE) de la partie apprentissage et la partie validation. Ce décrochage est synonyme de sur-apprentissage, cela se valide sur le jeu de données test comme nous pouvons le voir ci-dessous.
 
 \begin{center}
 \includegraphics[scale=0.7]{Images/deepacm.png}
@@ -903,18 +901,18 @@ Le modèle n'est plus adapté et l'information apportée par les axes de l'ACM e
 \textbf{Troisièmement} nous procédons à la création de nouvelles variables par interaction en réalisant le produit de chaque variable quantitative et explicative avec les autres.
 
 \paragraph{}
-La création de nouvelles variable peut permettre d'utiliser le lien qu'il existe entre les variables. Nous agrémentons notre jeu de données de $600$ nouvelles variables.
+La création de nouvelles variables peut permettre d'utiliser le lien qui existe entre elles. Nous agrémentons notre jeu de données de $600$ nouvelles variables.
 
 \paragraph{}
 La limite de cette méthode apparaît rapidement lors de nos premiers réseaux, on note un fort décalage entre le score sur la partie \textit{train} et la partie \textit{valid}. Nous sommes clairement dans de \textbf{l'overfitting}.
 
 
 \paragraph{}
-\textbf{En conclusion} nous prenons la décision de ne garder que nos data.frame enrichi des coordonnées des $11$ premiers axes de l'ACP.
+\textbf{En conclusion} nous prenons la décision de ne garder que nos dataframes enrichis des coordonnées des $11$ premiers axes de l'ACP.
 
 \subsubsection{Optimisation de notre meilleur modèle}
 \paragraph{}
-Le modèle ayant obtenu le meilleur score possède des paramètres choisis arbitrairement. Nous allons donc essayer de faire varier différents paramètre en les incluant dans une grille. Pour effectuer le choix nous utiliserons une validation croisée \textit{5-folds}. Nous incluons aussi un \textit{early-stopping} afin de garder en mémoire le meilleur score lors de la descente de gradient et non la dernière itération comme précédemment.
+Le modèle ayant obtenu le meilleur score possède des hyper-paramètres choisis arbitrairement. Nous allons donc essayer de faire varier différents hyper-paramètres en les incluant dans une grille. Pour effectuer le choix nous utiliserons une validation croisée \textit{5-folds}. Nous incluons aussi un \textit{early-stopping} afin de garder en mémoire le meilleur score lors de la descente de gradient et non la dernière itération comme précédemment.
 
 \paragraph{}
 On fait varier la \textit{longueur} et la \textit{largeur} du réseau.
@@ -923,16 +921,12 @@ On fait varier la \textit{longueur} et la \textit{largeur} du réseau.
 \end{verbatim}
 
 \paragraph{}
-<<<<<<< HEAD
-L'algorithme choisi finalement le réseau initial $100$-$100$-$64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci:
-=======
-L'algorithme choisi finalement le réseau initial $100$-$100$-$64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci :
+L'algorithme choisit finalement le réseau initial $100$-$100$-$64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci :
 
-Nous le faisons réapprendre une fois la selection faite avec une validation hold-out à $10$ pourcent.
->>>>>>> 49e6b9f8aa7cad9b54f159fe9461013b3396c5c1
+Nous le faisons réapprendre une fois la sélection faite avec une validation Hold-Out à $10$\%.
 
 \begin{verbatim}
-    premiere_couche = Dense(units=100, activation="relu", input_dim=83)
+premiere_couche = Dense(units=100, activation="relu", input_dim=83)
 couche_cachee1 = Dense(units=100, activation="relu")
 couche_cachee2 = Dense(units=64, activation="relu")
 couche_sortie = Dense(units=1)
@@ -952,27 +946,37 @@ def baseline_model():
 
 model = baseline_model()
 
-es = EarlyStopping(monitor='val_loss', min_delta=0.001, patience=75, verbose=1, mode='auto')
-hist = model.fit(X_train, y_train, validation_split=0.1,epochs=100,batch_size=500,verbose=2,callbacks=[es])
+es = EarlyStopping(monitor='val_loss', min_delta=0.001,
+ patience=75, verbose=1, mode='auto')
+hist = model.fit(X_train,y_train,validation_split=0.1,epochs=100
+,batch_size=500,verbose=2,callbacks=[es])
 \end{verbatim}
 
 \subsubsection{Conclusion sur le Deep Learning/Réseaux de neurones}
 \paragraph{}
-Le principal point positif des réseaux de neurones dans notre étude est le fait d'avoir réussi à atteindre nos meilleurs scores sur des réseaux simples sans avoir à effectuer beaucoup de transformations sur nos données. La première analyse d'un réseau est simple et visuelle cependant l'effet \textbf{boite noire} apparaît rapidement, nous ne pouvons aujourd'hui expliquer par quels raisonnements ces algorithmes nous permettent d'avoir de bons scores. Nous savons ce qu'il se passe à l'entrée du réseau, connaissons la sortie du réseau mais le parcours entre les deux nous est inconnu.
+Le principal point positif des réseaux de neurones dans notre étude est le fait d'avoir réussi à atteindre nos meilleurs scores sur des réseaux simples sans avoir à effectuer beaucoup de transformations sur nos données. La première analyse d'un réseau est simple et visuelle cependant l'effet \og \textbf{boite noire} \fg{} apparaît rapidement, nous ne pouvons aujourd'hui expliquer par quels raisonnements ces algorithmes nous permettent d'avoir de bons scores. Nous savons ce qu'il se passe à l'entrée du réseau, connaissons la sortie du réseau mais le parcours entre les deux nous est inconnu.
 
 \paragraph{}
-Cet effet boite noire ne nous permet pas d'avoir de réel argument pour choisir nos hyper-paramètres à optimiser. \textbf{L'overfitting} est toujours très proche de ces méthodes quand nous testons des réseaux plus complexes. Un point négatif supplémentaire est le côté \og chronophage \fg{} de cette méthode, qui ne nous permet pas d'être en adéquation avec les exigences élevées des organisateurs du concours en terme de temps de calcul.
+Cet effet \og boite noire \fg{} ne nous permet pas d'avoir de réel argument pour choisir nos hyper-paramètres à optimiser. \textbf{L'overfitting} est toujours très proche de ces méthodes quand nous testons des réseaux plus complexes. Un point négatif supplémentaire est le côté \og chronophage \fg{} de cette méthode, qui ne nous permet pas d'être en adéquation avec les exigences élevées des organisateurs du concours en terme de temps de calcul.
 
 \section{Bilan}
-
-\section{Bibliographie et sources}
+\paragraph{}
+Il est temps désormais de faire un retour sur les différentes méthodes que nous avons utilisé durant ce projet, et d'en énoncer les avantages et inconvénients :
+\begin{center}
+\includegraphics[scale=0.55]{Images/bilan.png}
+\end{center}
+\paragraph{}
+Ce projet aura également été l'occasion pour nous de mener un projet de \textit{A à Z}, de travailler en groupe, d'utiliser et d'appliquer les connaissances que nous avons acquis au cours de notre cursus universitaire. Que ce soit en termes de logiciels utilisés, de méthodes pour préparer les données, les modéliser, ce projet nous aura fait utiliser la plupart des outils mis à notre disposition durant le Master. Cela nous donne également un aperçu de la vie en entreprise qui nous attend prochainement, et nous prépare contre certaines erreurs telles que le sur-apprentissage dont nous avons pu prendre conscience à travers ce défi.
+\section{Bibliographie et ressources}
 
 \begin{flushleft}
 - \textbf{WikiStat}, \href{https://www.math.univ-toulouse.fr/~besse/Wikistat/pdf/st-scenar-app-idm.pdf}{\textit{\textcolor{blue}{Scénario: Imputation de données manquantes}}}\\
 \medskip
 - \textbf{Documentation de scikit-learn}, \href{http://scikit-learn.org/stable/supervised_learning.html#supervised-learning}{\textit{\textcolor{blue}{Librairies pour faire de l'apprentissage supervisé en Python}}}\\
 \medskip
-- \textbf{Jason Brownlee}, \href{https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/}{\textit{\textcolor{blue}{A Gentle Introduction to the Gradient Boosting Algorithm for Machine Learning}}}\\
+- \textbf{Jason Brownlee}, \href{https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/}{\textit{\textcolor{blue}{A Gentle Introduction to the Gradient Boosting Algorithm for Machine Learning (machinelearningmastery.com)}}}\\
+\medskip
+- \textbf{Jason Brownlee}, \href{https://machinelearningmastery.com/regression-tutorial-keras-deep-learning-library-python/}{\textit{\textcolor{blue}{Regression Tutorial with the Keras Deep Learning Library in Python (machinelearningmastery.com)}}}\\
 \end{flushleft}
 
 \end{document}
