@@ -342,7 +342,7 @@ Parmi les méthodes d'imputation essayées, nous retrouvons :
 \paragraph{}
 Le graphe précédent nous permet d'observer que c'est la méthode \textbf{missForest} qui nous procure le moins d'erreur, c'est donc celle-là que nous avons choisi. L'imputation s'est faite par station, pour les raisons exposées dans la partie \og \textbf{Structuration des données} \fg{}.
 \paragraph{}
-Néanmoins, après avoir effectué des tests avec les nouveaux datasets contenant des valeurs imputées, les résultats étaient très mauvais, nous avons donc abandonné cette méthode. Le fichier test contient 14 valeurs manquantes pour chacune des variables \textbf{flir1SOL0}, \textbf{fllat1SOL0}, \textbf{flsen1SOL0} et \textbf{flvis1SOL0}. Nous avons donc remplacé ces valeurs manquantes par celles de la même station et date à l'échéance suivante. Pour le reste, nous ferons l'analyse sans les variables qui contiennent trop de \textit{NA} : \textbf{capeinsSOL0} et \textbf{rr1SOL0}. Enfin, nous ne conserverons dans le fichier train que les \og complete cases \fg{}, c'est-à-dire les lignes ne contenant aucune valeur manquante. Cela nous permet d'avoir encore environ $177000$ lignes pour l'apprentissage.
+Néanmoins, après avoir effectué des tests avec les nouveaux datasets contenant des valeurs imputées, les résultats étaient très mauvais, nous avons donc abandonné cette méthode. Le fichier test contient 14 valeurs manquantes pour chacune des variables \textbf{flir1SOL0}, \textbf{fllat1SOL0}, \textbf{flsen1SOL0} et \textbf{flvis1SOL0}. Nous avons donc remplacé ces valeurs manquantes par celles de la même station et date à l'échéance suivante. Pour le reste, nous ferons l'analyse sans les variables qui contiennent trop de \textit{NA} : \textbf{capeinsSOL0} et \textbf{rr1SOL0}. Enfin, nous ne conserverons dans le fichier train que les \og complete cases \fg{}, c'est-à-dire les lignes ne contenant aucune valeur manquante. Cela nous permet d'avoir encore environ $178000$ lignes pour l'apprentissage.
 \subsection{Corrélations entre variables et visualisation : l'Analyse en Composante Principale}
 
 \paragraph{}
@@ -761,7 +761,6 @@ Pour notre modèle nous avons fixé certains paramètres :
     \item le paramètre \textbf{max w2}, il spécifie le maximum pour la somme des poids carrés entrants d'un neurone. C'est particulièrement utile quand nous utilisons une fonction d'activation telle que Rectifier (ReLU), cela permet d'éviter d'avoir trop de poids sur un neurone et de mieux répartir l'information.
     \item \textbf{Momentum start}, l'ajout du paramètre de momentum permet de stabiliser l'apprentissage, tout en augmentant la descente de la courbe de la somme des erreurs carrées (fonction de perte) selon les itérations.
 \end{itemize}
-
 \paragraph{}
 Cette grille nous a permis de déterminer le modèle le plus adapté parmi ceux proposés :
 
@@ -782,10 +781,7 @@ Cette grille nous a permis de déterminer le modèle le plus adapté parmi ceux 
 \begin{center}
 \includegraphics[scale=0.7]{Images/deeph2o.png}
 \end{center}
-
-
-\paragraph{}
-Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois. Cependant, nous nous sommes rapidement retrouvés face à un obstacle en essayant d'améliorer notre modèle : nous passions à chaque fois dans de l'overfitting.
+Avec ce modèle nous avons atteint notre meilleur score pendant 1 mois (battu par la suite par le modèle de Boosting présenté précédemment). Cependant, nous nous sommes rapidement retrouvés face à un obstacle en essayant d'améliorer notre modèle : nous passions à chaque fois dans de l'overfitting.
 
 \subsubsection{Passage sous Keras}
 
@@ -794,24 +790,21 @@ Suite à cette stagnation, nous avons décidé d'appliquer le cours de Mr Tavena
 
 \subsubsection{Premier modèle sous Keras}
 \paragraph{}
-Un avantage notable sous \textit{Keras} est le fait de pouvoir visualiser l'évolution de notre score au fil des itérations que ça soit pour la partie apprentissage ou validation. On peut donc visualiser le moment ou nous passons dans du \textbf{sur-apprentissage}.
-
-Exemple d'un cas idéal, la courbe du score de la partie apprentissage et celle de la partie validation sont proches :
-
+Un avantage notable sous \textit{Keras} est le fait de pouvoir visualiser l'évolution de notre score au fil des itérations que ça soit pour la partie apprentissage ou validation. On peut donc visualiser le moment ou nous passons dans du \textbf{sur-apprentissage}. Prenons l'exemple d'un cas idéal, où la courbe du score de la partie apprentissage et celle de la partie validation sont proches :
 \begin{center}
-\includegraphics[scale=0.7]{Images/evo_score2.png}
+\includegraphics[scale=0.54]{Images/evo_score2.png}
 \end{center}
 
 Ce qu'il faut éviter, c'est d'avoir un décrochage entre ces deux courbes comme ci-dessous, cette image représente un zoom sur les 100 dernières échéances d'un modèle en sur-apprentissage. Dans ce cas notre modèle n'est pas adapté.
 
 \begin{center}
-\includegraphics[scale=0.7]{Images/evo_score3.png}
+\includegraphics[scale=0.54]{Images/evo_score3.png}
 \end{center}
 
-Pour réaliser notre premier réseau sous \textit{Keras}, nous avons utilisé nos données sans les variables \textit{capeinSOL0} et \textit{rr1SOL0} ainsi que la transformation sinusoïdale sur les dates. Cela nous permet une fois les valeurs manquantes enlevées d'avoir $177977$ individus sur $189280$ ainsi nous limitons la perte de données et cela nous permet de ne pas insérer du biais en faisant une estimation sur les valeurs non présentes.
+Pour réaliser notre premier réseau sous \textit{Keras}, nous avons utilisé les données sans les variables \textbf{capeinSOL0} et \textbf{rr1SOL0} ainsi que la transformation sinusoïdale sur les dates (comme pour les algorithmes de régression, forêt aléatoire ou boosting). Cela nous permet une fois les valeurs manquantes enlevées d'avoir $177977$ individus sur $189280$ ainsi nous limitons la perte de données et cela nous permet de ne pas insérer du biais (ou d'augmenter l'erreur) en faisant une estimation sur les valeurs non présentes.
 
 \paragraph{}
-Python et les data.frame \textit{pandas} ne prennent pas en compte les variables catégorielles de la même façon, là ou en \textit{R} il suffit de passer la colonne en facteur, sur \textit{Python} nous devons transformer notre data.frame en tableau disjonctif.
+Python et les dataframe \textit{pandas} ne prennent pas en compte les variables catégorielles de la même façon, là ou en \textit{R} il suffit de passer la colonne en facteur, sur \textit{Python} nous devons transformer notre dataframe en tableau disjonctif.
 
 \begin{quote}
     Exemple de la transformation :
@@ -821,10 +814,10 @@ Python et les data.frame \textit{pandas} ne prennent pas en compte les variables
 \end{center}
 
 \paragraph{}
-Nous nous retrouvons donc avec un data.frame au dimension suivante $1777977x72$ et notre variable cible $1777977x1$. Puis dans un second temps nous standardisons nos variables explicatives pour le jeu de données train et test, pour cela on standardise d'abord notre jeu d'apprentissage puis nous appliquons la même transformation au jeu de test.
+Nous nous retrouvons donc avec un dataframe aux dimensions suivantes : $1777977\times72$ et notre variable cible : $1777977\times1$. Puis dans un second temps, nous standardisons nos variables explicatives pour les jeux de données train et test. Pour cela, on standardise d'abord notre jeu d'apprentissage puis nous appliquons la même transformation au jeu de test. Cela permet de ne pas donner trop d'importance à certaines variables en fonction de leur échelle, et améliore grandement la qualité de prédiction.
 
 \paragraph{}
-Notre premier modèle se veut simple et compréhensible afin d'effectuer nos premiers test sous \textit{Keras}. Pour cela nous prenons un modèle à $2$ couches cachées, nous incluons aussi un DropOut de ces couches pour limiter le sur-apprentissage comme sous \textit{H2O}, la fonction d'activation ReLU ainsi qu'un learning rate de $0.0001$.
+Notre premier modèle se veut simple et compréhensible afin d'effectuer nos premiers tests sous \textit{Keras}. Pour cela nous prenons un modèle à $2$ couches cachées, nous incluons aussi un \textit{DropOut} de ces couches pour limiter le sur-apprentissage comme sous \textit{H2O}, la fonction d'activation \textit{ReLU} ainsi qu'un \textit{learning rate} de $0.0001$.
 
 \begin{verbatim}
 premiere_couche = Dense(units=100, activation="relu", input_dim=72)
@@ -858,44 +851,44 @@ Ce modèle nous a permis d'améliorer notre précèdent meilleur score et d'envi
 
 \subsubsection{Notre meilleur score}
 \paragraph{}
-Suite à ce modèle nous décidâmes de réutiliser le même modèle avec un data.frame enrichi. Plusieurs pistes ont été envisagées puis testées :
+Suite à ce modèle nous décidâmes de réutiliser le même modèle avec un dataframe enrichi. Plusieurs pistes ont été envisagées puis testées :
 \begin{itemize}
     \item Rajouter les coordonnées de l'ACP précédemment calculées,
     \item Rajouter les coordonnées de l'ACM sur nos jeux de données,
-    \item Rajouter des variables par intéractions.
+    \item Rajouter des variables par interactions.
 \end{itemize}
 
 \paragraph{}
 Le but étant de rajouter de l'information à nos jeux de données en ajoutant des variables même si elles sont corrélées aux variables initiales en prenant le principe simple de la grande dimension :
 \begin{quote}
-    \og Rajouter de l'information ne sera jamais préjudiciable, dans le meilleur des cas nous améliorons notre score, dans le pire nous n'améliorons pas notre modèle mais nous ne le pénalisons pas non plus, à condition que ce ne soit pas trop corrélé.\fg{}
+    \og Rajouter de l'information ne sera jamais préjudiciable, dans le meilleur des cas nous améliorerons notre score, dans le pire nous n'améliorerons pas notre modèle mais nous ne le pénaliserons pas non plus, à condition que ce ne soit pas trop corrélé.\fg{}
 \end{quote}
 \paragraph{}
 La complexité reposera principalement sur le fait de réussir à adapter notre modèle aux nouvelles variables.
 
 \paragraph{}
-\textbf{Premièrement} nous allons ajouter les coordonnées des individus sur les principaux axes de l'ACP. Cette manoeuvre sera composé de plusieurs étapes :
+\textbf{Premièrement} nous allons ajouter les coordonnées des individus sur les principaux axes de l'ACP. Cette manœuvre sera composée de plusieurs étapes :
 \begin{itemize}
     \item Effectuer une ACP sur le jeu de données train sans la variable cible.
-    \item Récupérer les coordonnées des individus sur les axes représentant $80$ pourcent de l'inertie, au delà nous considérons que c'est du bruit.
-    \item Projeter nos individus du jeu test sur nos axes calculés précédemment.
+    \item Récupérer les coordonnées des individus sur les axes représentant $80$\% de l'inertie, au delà nous considérons que c'est du bruit.
+    \item Projeter nos individus du jeu test sur les axes calculés précédemment.
 \end{itemize}
 
 \paragraph{}
-Avec ce procédé nous agrémentons nos jeux de données de 11 variables correspondant aux axes représentant $82$ pourcent de l'inertie. Nous effectuons le même modèle que précédemment en adaptant la dimension d'entrée du réseau, en passant de $72$ à $83$. Les résultats dépassent nos premières attentes :
+Avec ce procédé nous agrémentons nos jeux de données de 11 variables correspondant aux axes représentant $82$\% de l'inertie. Nous effectuons le même modèle que précédemment en adaptant la dimension d'entrée du réseau, en passant de $72$ à $83$. Les résultats dépassent nos premières attentes :
 
 \begin{center}
 \includegraphics[scale=0.7]{Images/deep2keras.png}
 \end{center}
 
 \paragraph{}
-\textbf{Deuxièmement} nous allons compléter nos data.frames avec les coordonnées de l'ACM (sur les données qualitatives). Pour la réalisation de cette étape nous procédons de la même façon.
+\textbf{Deuxièmement} nous allons compléter nos dataframes avec les coordonnées de l'ACM (sur les données qualitatives). Pour la réalisation de cette étape nous procédons de la même façon.
 
 \paragraph{}
-Lors de la réalisation de cette ACM, les premiers axes portent peu d'inertie ce qui implique que pour avoir $80$ pourcent de l'inertie nous devons prendre les $44$ premiers axes. Nous rajoutons ces $44$ variables aux données déjà complété par les coordonnées de l'ACP.
+Lors de la réalisation de cette ACM, les premiers axes portent peu d'inertie ce qui implique que pour avoir $80$\% de l'inertie nous devons prendre les $44$ premiers axes. Nous rajoutons ces $44$ variables aux données déjà complétées par les coordonnées de l'ACP.
 
 \paragraph{}
-En adaptant les dimensions d'entrées du réseau de neurones, lors de l'avancement du réseau nous apercevons un décrochage entre le score (RMSE) de la partie apprentissage et la partie validation. Ce décrochage est synonyme de sur-apprentissage, cela se valide sur le jeu de données test comme nous pouvons le voir ci-dessous.
+En adaptant les dimensions d'entrée du réseau de neurones, lors de l'avancement du réseau nous apercevons un décrochage entre le score (RMSE) de la partie apprentissage et la partie validation. Ce décrochage est synonyme de sur-apprentissage, cela se valide sur le jeu de données test comme nous pouvons le voir ci-dessous.
 
 \begin{center}
 \includegraphics[scale=0.7]{Images/deepacm.png}
@@ -908,18 +901,18 @@ Le modèle n'est plus adapté et l'information apportée par les axes de l'ACM e
 \textbf{Troisièmement} nous procédons à la création de nouvelles variables par interaction en réalisant le produit de chaque variable quantitative et explicative avec les autres.
 
 \paragraph{}
-La création de nouvelles variable peut permettre d'utiliser le lien qu'il existe entre les variables. Nous agrémentons notre jeu de données de $600$ nouvelles variables.
+La création de nouvelles variables peut permettre d'utiliser le lien qui existe entre elles. Nous agrémentons notre jeu de données de $600$ nouvelles variables.
 
 \paragraph{}
 La limite de cette méthode apparaît rapidement lors de nos premiers réseaux, on note un fort décalage entre le score sur la partie \textit{train} et la partie \textit{valid}. Nous sommes clairement dans de \textbf{l'overfitting}.
 
 
 \paragraph{}
-\textbf{En conclusion} nous prenons la décision de ne garder que nos data.frame enrichi des coordonnées des $11$ premiers axes de l'ACP.
+\textbf{En conclusion} nous prenons la décision de ne garder que nos dataframes enrichis des coordonnées des $11$ premiers axes de l'ACP.
 
 \subsubsection{Optimisation de notre meilleur modèle}
 \paragraph{}
-Le modèle ayant obtenu le meilleur score possède des paramètres choisis arbitrairement. Nous allons donc essayer de faire varier différents paramètre en les incluant dans une grille. Pour effectuer le choix nous utiliserons une validation croisée \textit{5-folds}. Nous incluons aussi un \textit{early-stopping} afin de garder en mémoire le meilleur score lors de la descente de gradient et non la dernière itération comme précédemment.
+Le modèle ayant obtenu le meilleur score possède des hyper-paramètres choisis arbitrairement. Nous allons donc essayer de faire varier différents hyper-paramètres en les incluant dans une grille. Pour effectuer le choix nous utiliserons une validation croisée \textit{5-folds}. Nous incluons aussi un \textit{early-stopping} afin de garder en mémoire le meilleur score lors de la descente de gradient et non la dernière itération comme précédemment.
 
 \paragraph{}
 On fait varier la \textit{longueur} et la \textit{largeur} du réseau.
@@ -928,16 +921,12 @@ On fait varier la \textit{longueur} et la \textit{largeur} du réseau.
 \end{verbatim}
 
 \paragraph{}
-<<<<<<< HEAD
-L'algorithme choisi finalement le réseau initial $100$-$100$-$64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci:
-=======
-L'algorithme choisi finalement le réseau initial $100$-$100$-$64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci :
+L'algorithme choisit finalement le réseau initial $100$-$100$-$64$ par rapport à un modèle plus large ou plus profond. Pour conclure notre meilleur modèle est donc celui-ci :
 
-Nous le faisons réapprendre une fois la selection faite avec une validation hold-out à $10$ pourcent.
->>>>>>> 49e6b9f8aa7cad9b54f159fe9461013b3396c5c1
+Nous le faisons réapprendre une fois la sélection faite avec une validation Hold-Out à $10$\%.
 
 \begin{verbatim}
-    premiere_couche = Dense(units=100, activation="relu", input_dim=83)
+premiere_couche = Dense(units=100, activation="relu", input_dim=83)
 couche_cachee1 = Dense(units=100, activation="relu")
 couche_cachee2 = Dense(units=64, activation="relu")
 couche_sortie = Dense(units=1)
@@ -957,27 +946,37 @@ def baseline_model():
 
 model = baseline_model()
 
-es = EarlyStopping(monitor='val_loss', min_delta=0.001, patience=75, verbose=1, mode='auto')
-hist = model.fit(X_train, y_train, validation_split=0.1,epochs=100,batch_size=500,verbose=2,callbacks=[es])
+es = EarlyStopping(monitor='val_loss', min_delta=0.001,
+ patience=75, verbose=1, mode='auto')
+hist = model.fit(X_train,y_train,validation_split=0.1,epochs=100
+,batch_size=500,verbose=2,callbacks=[es])
 \end{verbatim}
 
 \subsubsection{Conclusion sur le Deep Learning/Réseaux de neurones}
 \paragraph{}
-Le principal point positif des réseaux de neurones dans notre étude est le fait d'avoir réussi à atteindre nos meilleurs scores sur des réseaux simples sans avoir à effectuer beaucoup de transformations sur nos données. La première analyse d'un réseau est simple et visuelle cependant l'effet \textbf{boite noire} apparaît rapidement, nous ne pouvons aujourd'hui expliquer par quels raisonnements ces algorithmes nous permettent d'avoir de bons scores. Nous savons ce qu'il se passe à l'entrée du réseau, connaissons la sortie du réseau mais le parcours entre les deux nous est inconnu.
+Le principal point positif des réseaux de neurones dans notre étude est le fait d'avoir réussi à atteindre nos meilleurs scores sur des réseaux simples sans avoir à effectuer beaucoup de transformations sur nos données. La première analyse d'un réseau est simple et visuelle cependant l'effet \og \textbf{boite noire} \fg{} apparaît rapidement, nous ne pouvons aujourd'hui expliquer par quels raisonnements ces algorithmes nous permettent d'avoir de bons scores. Nous savons ce qu'il se passe à l'entrée du réseau, connaissons la sortie du réseau mais le parcours entre les deux nous est inconnu.
 
 \paragraph{}
-Cet effet boite noire ne nous permet pas d'avoir de réel argument pour choisir nos hyper-paramètres à optimiser. \textbf{L'overfitting} est toujours très proche de ces méthodes quand nous testons des réseaux plus complexes. Un point négatif supplémentaire est le côté \og chronophage \fg{} de cette méthode, qui ne nous permet pas d'être en adéquation avec les exigences élevées des organisateurs du concours en terme de temps de calcul.
+Cet effet \og boite noire \fg{} ne nous permet pas d'avoir de réel argument pour choisir nos hyper-paramètres à optimiser. \textbf{L'overfitting} est toujours très proche de ces méthodes quand nous testons des réseaux plus complexes. Un point négatif supplémentaire est le côté \og chronophage \fg{} de cette méthode, qui ne nous permet pas d'être en adéquation avec les exigences élevées des organisateurs du concours en terme de temps de calcul.
 
 \section{Bilan}
-
-\section{Bibliographie et sources}
+\paragraph{}
+Il est temps désormais de faire un retour sur les différentes méthodes que nous avons utilisé durant ce projet, et d'en énoncer les avantages et inconvénients :
+\begin{center}
+\includegraphics[scale=0.55]{Images/bilan.png}
+\end{center}
+\paragraph{}
+Ce projet aura également été l'occasion pour nous de mener un projet de \textit{A à Z}, de travailler en groupe, d'utiliser et d'appliquer les connaissances que nous avons acquis au cours de notre cursus universitaire. Que ce soit en termes de logiciels utilisés, de méthodes pour préparer les données, les modéliser, ce projet nous aura fait utiliser la plupart des outils mis à notre disposition durant le Master. Cela nous donne également un aperçu de la vie en entreprise qui nous attend prochainement, et nous prépare contre certaines erreurs telles que le sur-apprentissage dont nous avons pu prendre conscience à travers ce défi.
+\section{Bibliographie et ressources}
 
 \begin{flushleft}
 - \textbf{WikiStat}, \href{https://www.math.univ-toulouse.fr/~besse/Wikistat/pdf/st-scenar-app-idm.pdf}{\textit{\textcolor{blue}{Scénario: Imputation de données manquantes}}}\\
 \medskip
 - \textbf{Documentation de scikit-learn}, \href{http://scikit-learn.org/stable/supervised_learning.html#supervised-learning}{\textit{\textcolor{blue}{Librairies pour faire de l'apprentissage supervisé en Python}}}\\
 \medskip
-- \textbf{Jason Brownlee}, \href{https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/}{\textit{\textcolor{blue}{A Gentle Introduction to the Gradient Boosting Algorithm for Machine Learning}}}\\
+- \textbf{Jason Brownlee}, \href{https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/}{\textit{\textcolor{blue}{A Gentle Introduction to the Gradient Boosting Algorithm for Machine Learning (machinelearningmastery.com)}}}\\
+\medskip
+- \textbf{Jason Brownlee}, \href{https://machinelearningmastery.com/regression-tutorial-keras-deep-learning-library-python/}{\textit{\textcolor{blue}{Regression Tutorial with the Keras Deep Learning Library in Python (machinelearningmastery.com)}}}\\
 \end{flushleft}
 
 \end{document}
