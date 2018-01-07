@@ -122,7 +122,7 @@ Le \og Défi Grosses Data \fg{} est donc un challenge mettant en confrontation u
 L'objectif de ce projet est simple : prédire au mieux les températures de 7 stations sur un horizon de 36 heures. Pour ce faire, 36 fichiers $train\_H.csv$ $(H=1,..,36)$, ont été mis à notre disposition. Ces fichiers contiennent les variables issues des modèles physiques décrits dans le préambule à un horizon de +H heures. Leur contenu est le suivant :
 \begin{itemize}
 \item les lignes correspondent à chaque jour sur une période allant du $1^{er}$ janvier 2014 au 30 mai 2016.
-\item les colonnes contiennent 30 variables (température, nébulosité, vent, humidité ..)
+\item les colonnes contiennent 30 variables (température, nébulosité, vent, humidité,...)
 \end{itemize}
 Nous allons détailler ces variables afin de bien comprendre quelles sont les mesures à notre disposition :
 \begin{itemize}
@@ -148,7 +148,7 @@ Nous allons détailler ces variables afin de bien comprendre quelles sont les me
 \item \textbf{flvis1SOL0} : Flux visible en J/$m^2$
 \item \textbf{hcoulimSOL0} : Hauteur de la couche limite en mètres
 \item \textbf{huH2} : Humidité 2mètres en \%
-\item \textbf{iwcSOL0} : Réservoir neige kg/$m^2$ (équivalent en eau liquide des chutes de neige
+\item \textbf{iwcSOL0} : Réservoir neige kg/$m^2$ (équivalent en eau liquide des chutes de neige)
 \item \textbf{nbSOL0\_HMoy} : Nébulosité basse (moyenne sur les 6 points de grille autour de la station) (fraction en octat du ciel occulté)
 \item \textbf{ntSOL0\_HMoy} : Nébulosité totale (moyenne sur les 6 points de grille autour de la station)
 \item \textbf{tH2} : Température à 2 mètres du modèle \textbf{AROME}
@@ -186,24 +186,23 @@ Afin d'effectuer l'analyse la plus fine et pertinente possible, il est primordia
 Un premier travail a consisté à agréger les données des 36 fichiers $train\_H.csv$ $(H=1,..,36)$ dans un seul jeu de données : cela aboutit à une matrice de $189 281$ lignes et $31$ colonnes. Dans un deuxième temps, nous avons divisé ce fichier en $7$ sous-fichiers : un fichier regroupant les prédictions aux 36 échéances de chaque station. Ce choix a été guidé par 3 éléments :
 \begin{itemize}
 \item L'intuition : sachant qu'il existe plusieurs types de climats (océaniques, continental, méditerranéen) et qu'on les retrouve à travers les stations présentes dans les données, il ne paraît pas anormal d'essayer de prédire chaque station indépendamment des autres. Ne perdons pas de vue que les chiffres sont là pour quantifier la réalité, l'objectif est donc de les utiliser pour représenter au mieux les phénomènes réels.
-\item Un indice lâché par les organisateurs du concours qui ont laissé entendre qu'il pouvait exister un biais lié à chaque station.
+\item Un indice lâché par les organisateurs du concours qui ont laissé entendre qu'il pouvait exister un biais de prédiction lié à chaque station.
 \item L'analyse du comportement des indicateurs par station.\\
 \includegraphics[width=17cm]{Images/fllat.png}
 \begin{center}
 \captionof{figure}{Exemple du flux de chaleur latente dont le comportement diffère d'une station à une autre}
 \label{fig1}
 \end{center}
-\item le biais de prédiction
 \end{itemize}
-En effet, un modèle climatique est une simplification d'un système énormément plus complexe. De nombreux biais viennent donc entacher les résultats de ces modèles.\\
+Developpons l'idée sur le biais de prédiction. Un modèle climatique est une simplification d'un système bien plus complexe. De nombreux biais viennent donc entacher les résultats de ces modèles.\\
 L'ampleur de ces biais varie suivant les variables d'intérêts. Ces différences sont liées à la capacité des modèles à plus ou moins bien représenter les processus physiques contrôlant l'évolution des variables climatiques dans le temps.\\
 Le biais de prédiction est calculé par la différence entre les vraies observations de la température (variable \textbf{tH2\_obs}) et les températures prédites par le modèle climatique (variable \textbf{tH2}).
 Dans cette étude, on constate que la répartition de ce biais diffère d'une station à l'autre.
 \begin{center}
 \includegraphics[width=17cm]{Images/biais_nice.png}
 \end{center}
-La figure ci-dessus présente les deux courbes de températures observées et prédites par le modèle climatique pour la station Nice à l'échéance +1h.\\
-On constate que le biais (\textbf{tH2\_obs} – \textbf{tH2}) reste négatif tout au long de la période d'observation, ce qui est traduit par la position relative des deux courbes. Ce biais négatif constitue une sur-prévision de la température par le modèle climatique. Ce biais est plus fort en hiver et moins remarqué pour des températures élevées en été. Cette saisonnalité est plus apparente dans la $2^{ème}$ figure, qui représente l'évolution du biais dans le temps.
+La figure ci-dessus présente les deux courbes de températures observées et prédites par le modèle climatique pour la station de Nice à l'échéance +1h.\\
+On constate que le biais (\textbf{tH2\_obs} – \textbf{tH2}) reste négatif tout au long de la période d'observation, ce qui est traduit par la position relative des deux courbes. Ce biais négatif constitue une sur-prévision de la température par le modèle climatique. Ce biais est plus fort en hiver et moins remarqué pour des températures élevées en été. Cette saisonnalité est plus apparente dans la $2^{eme}$ figure, qui représente l'évolution du biais dans le temps.
 \begin{center}
 \includegraphics[width=17cm]{Images/evol_biais.png}
 \end{center}
@@ -220,14 +219,14 @@ Dans la suite, nous verrons que le gros jeu de données ($189281$ lignes) ou les
 
 \subsection{Notions d'overfitting/underfitting}
 \paragraph{}
-Comme introduit brièvement un peu plus haut dans ce rapport, l'un des enjeux de ce projet dans le but d'obtenir les meilleures prédictions possibles, selon le critère du \textbf{RMSE}, et donc d'éviter de se retrouver en situation sur-apprentissage ou de sous-apprentissage (respectivement \textit{overfitting} et \textit{underfitting}). En ce sens, on va chercher à construire un estimateur (une fonction) optimal, robuste qui conservera un pouvoir de prédiction de qualité sur un nouvel échantillon. Prenons le dessin suivant qui sera un peu plus parlant.
+Comme introduit brièvement un peu plus haut dans ce rapport, l'un des enjeux de ce projet dans le but d'obtenir les meilleures prédictions possibles, selon le critère du \textbf{RMSE}, est d'éviter de se retrouver en situation sur-apprentissage ou de sous-apprentissage (respectivement \textit{overfitting} et \textit{underfitting}). En ce sens, on va chercher à construire un estimateur (une fonction) optimal, robuste qui conservera un pouvoir de prédiction de qualité sur un nouvel échantillon. Prenons le dessin suivant qui sera un peu plus parlant.
 \paragraph{}
 \includegraphics[width=17cm]{Images/overfitting.png}
 \begin{center}
 \captionof{figure}{Illustration de ces notions à partir d'un exemple simple dans $\mathbb{R}^2$}
 \label{fig1}
 \end{center}
-On s'aperçoit que sur le graphe de gauche, l'estimateur est trop rigide, il ne \og colle \fg{} pas assez aux données. Sur le graphe de droite c'est le contraire, l'estimateur est beaucoup trop sensible aux valeurs, et lorsque les données changeront, les prédictions ne seront donc plus aussi précises. Nous souhaitons donc trouver une fonction ayant une allure similaire à celle du graphe du milieu, qui sera plus \og robuste \fg{} que les deux autres.
+On s'aperçoit que sur le graphe de gauche, l'estimateur est trop rigide, il ne \og colle \fg{} pas assez aux données. Sur le graphe de droite c'est le contraire, l'estimateur est beaucoup trop sensible aux valeurs, et lorsque les données changeront, les prédictions ne seront plus aussi précises. Nous souhaitons donc trouver une fonction ayant une allure similaire à celle du graphe du milieu, qui sera plus \og robuste \fg{} que les deux autres.
 
 
 Nous verrons dans la suite que pour remédier au problème de l'overfitting, nous pouvons utiliser des formes de \textbf{régularisation}, encore appelées pénalités et qui se traduiront par des contraintes dans le problème d'optimisation d'une certaine \textbf{fonction de perte} que l'on va choisir.\\
@@ -236,7 +235,7 @@ Une façon de vérifier que le modèle est robuste peut-être de procéder à de
  
 \subsection{Validation croisée}
 \paragraph{}
-Comme énoncé précédemment, nous allons utiliser des méthodes de validation croisée à la fois pour contrôler la performance et la robustesse de l'algorithme mis en œuvre, mais également pour calibrer des hyper-paramètres dans le cas de modèles complexes. Nous allons donc dans la suite effectuer quelques rappels théoriques afin de bien comprendre pourquoi nous utilisons ces méthodes ainsi qu'une présentation des deux types de validation croisée que nous avons choisi d'employer.
+Comme énoncé précédemment, nous allons utiliser des méthodes de validation croisée à la fois pour contrôler la performance et la robustesse de l'algorithme mis en œuvre, mais également pour calibrer des hyper-paramètres dans le cas de modèles complexes. Nous allons ainsi effectuer quelques rappels théoriques afin de bien comprendre pourquoi nous utilisons ces méthodes ainsi qu'une présentation des deux types de validation croisée que nous avons choisi d'employer.
 
 \subsubsection{Contexte théorique}
 \paragraph{}
@@ -254,7 +253,7 @@ $\widehat{\mathcal{R}}_n(f_{D^{n}_{1}}) = \frac{1}{n} \sum\limits_{i=1}^n l(Y_i,
 \end{center}
 
 \paragraph{}
-Le problème de cet estimateur est l'absence d'indépendance : en effet, pour effectuer ses prédictions il se sert des mêmes données qui ont servi à faire l'algorithme d'apprentissage. En ce sens, notre algorithme risque de trop \og coller \fg{} aux données d'apprentissage, puisqu'il aura acquis l'information à partir de ces données il sera capable de bien prédire la variable réponse, mais risque de ne pas être aussi performant à l'avenir sur un nouveau jeu de données. C'est ce qu'on nous avons défini comme étant l'\textit{overfitting}. C'est donc pour corriger ce problème que nous allons avoir recours à d'autres méthodes d'estimation du \textbf{risque}, qui sont meilleures : les méthodes de \textbf{validation croisée}.
+Le problème de cet estimateur est l'absence d'indépendance : en effet, pour effectuer ses prédictions il se sert des mêmes données qui ont servi à faire l'algorithme d'apprentissage. En ce sens, notre algorithme risque de trop \og coller \fg{} aux données d'apprentissage, puisqu'il aura acquis l'information à partir de ces données il sera capable de bien prédire la variable réponse, mais risque de ne pas être aussi performant à l'avenir sur un nouvel échantillon. C'est ce qu'on nous avons défini comme étant l'\textit{overfitting}. C'est donc pour corriger ce problème que nous allons avoir recours à d'autres méthodes d'estimation du \textbf{risque}, qui sont meilleures : les méthodes de \textbf{validation croisée}.
 
 \subsubsection{La validation croisée Hold-Out}
 \paragraph{}
@@ -278,8 +277,7 @@ $\widehat{\mathcal{R}}(f_{D^{n}_{1}}) = \frac{1}{|\mathcal{V}|} \sum\limits_{(x_
 \end{center}
  avec $|\mathcal{V}|$ le cardinal de $\mathcal{V}$ (autrement dit, le nombre de lignes de l'échantillon de validation) et $f_{\mathcal{A}}(x_i)$ les prédictions de l'algorithme $f$ sur les observations $x_i \in \mathcal{A}$, l'échantillon d'apprentissage.
 \paragraph{}
-Dans le cadre de nos travaux, l'utilisation de cette méthode va nous permettre de gagner du temps si l'on utilise la matrice de travail contenant toutes les stations. La méthode suivante que nous allons présenter prendra plus de temps mais peut apporter plus de stabilité dans les résultats.
-\newpage
+Dans le cadre de nos travaux, l'utilisation de cette méthode va nous permettre de gagner du temps si l'on utilise la matrice de travail contenant toutes les stations. La méthode que nous allons maintenant présenter prendra plus de temps mais peut apporter plus de stabilité dans les résultats.
 \subsubsection{La validation croisée K-Fold}
 \paragraph{}
 La validation croisée \textbf{K-Fold} est une variante de la méthode vue précédemment, qui on le rappelle était adaptée aux jeux de données de taille suffisamment grande. Cependant sur des jeux de données plus petits, comme c'est le cas de nos fichiers par station qui font environ $27000$ lignes chacun,ce type de validation croisée peut également s'avérer efficace. Le fonctionnement de cette méthode itérative est le suivant :
@@ -305,11 +303,9 @@ $\widehat{\mathcal{R}}(f_{D^{n}_{1}}) = \frac{1}{K} \sum\limits_{i=1}^K \widehat
 \paragraph{}
 Il s'agit désormais d'utiliser la méthode de notre choix dans le but de trouver le meilleur compromis entre précision de l'algorithme et temps de calcul. Le domaine de la \textit{Data Science} fait interagir la théorie mathématique avec la réalisation informatique, il est donc important de prendre en compte ces deux aspects et d'optimiser leur utilisation conjointe au mieux.
 
- 
-\newpage
 \section{Travail des données}
 \paragraph{}
-Avant de lancer différents algorithmes sur nos données, il est important de travailler sur des données \og propres \fg{}. Nous allons donc dans la suite détailler les différentes étapes de nettoyage et de tranformation de certaines données.
+Avant de lancer différents algorithmes sur nos données, il est important de travailler sur des données \og propres \fg{}. Nous allons donc dans la suite détailler les différentes étapes de nettoyage et de transformation de certaines données.
 \subsection{Gestion et remplacement des valeurs manquantes}
 \paragraph{}
 Une partie clé de cette étude aura été la gestion des valeurs manquantes. En effet, tous les fichiers $train\_H.csv$ $(H=1,..,36)$, en contiennent, ce qui nous a donc amené à nous poser les questions suivantes : faut-il éliminer les lignes contenant des \textit{NA} ? Faut-il remplacer ces valeurs manquantes ? Si oui, pour quelles variables, de quelle façon et à quel coût ? Nous allons détailler l'analyse qui nous a permis de répondre à ces différentes interrogations et de prendre nos décisions.
@@ -325,7 +321,7 @@ Premièrement nous avons regardé s'il était possible de remplacer les valeurs 
 Clairement, ce graphique fait ressortir un problème pour les variables \textbf{flir1SOL0}, \textbf{fllat1SOL0}, \textbf{flsen1SOL0}, \textbf{flvis1SOL0} et dans une moindre mesure pour les variables \textbf{hcoulimSOL0} et \textbf{capeinsSOL0}. Nous avons donc décider de ne pas remplacer les valeurs manquantes pour ces variables, puisque les remplacer pourrait potentiellement fausser la qualité de notre analyse.
 \paragraph{}
 Suite à ce constat, nous allons donc nous pencher plus en détail sur les variables restantes en testant plusieurs méthodes d'imputation de valeurs. Pour réaliser nos tests, nous avons sélectionné les lignes complètes du fichier regroupant les observations pour la station de Toulouse, puis nous avons tiré 2000 lignes de façon aléatoire et sans remise pour former notre échantillon de test. Ensuite, nous avons créé une copie de ce sous-échantillon dans lequel nous avons remplacé 50\% des valeurs par des valeurs manquantes, encore une fois de façon aléatoire. Il ne reste plus qu'à tester différentes méthodes et les comparer.
-\newpage
+\paragraph{}
 Parmi les méthodes d'imputation essayées, nous retrouvons :
 \begin{itemize}
 \item L'imputation \textbf{LOCF} (Last Observation Carry Forward) qui est similaire à notre décalage temporel sauf que l'on considère la dernière observation pour effectuer le remplacement
@@ -345,23 +341,26 @@ Parmi les méthodes d'imputation essayées, nous retrouvons :
 \end{center}
 \paragraph{}
 Le graphe précédent nous permet d'observer que c'est la méthode \textbf{missForest} qui nous procure le moins d'erreur, c'est donc celle-là que nous avons choisi. L'imputation s'est faite par station, pour les raisons exposées dans la partie \og \textbf{Structuration des données} \fg{}.
+\paragraph{}
+Néanmoins, après avoir effectué des tests avec les nouveaux datasets contenant des valeurs imputées, les résultats étaient très mauvais, nous avons donc abandonné cette méthode. Le fichier test contient 14 valeurs manquantes pour chacune des variables \textbf{flir1SOL0}, \textbf{fllat1SOL0}, \textbf{flsen1SOL0} et \textbf{flvis1SOL0}. Nous avons donc remplacé ces valeurs manquantes par celles de la même station et date à l'échéance suivante. Pour le reste, nous ferons l'analyse sans les variables qui contiennent trop de \textit{NA} : \textbf{capeinsSOL0} et \textbf{rr1SOL0}. Enfin, nous ne conserverons dans le fichier train que les \og complete cases \fg{}, c'est-à-dire les lignes ne contenant aucune valeur manquante. Cela nous permet d'avoir encore environ $177000$ lignes pour l'apprentissage.
 \subsection{Corrélations entre variables et visualisation : l'Analyse en Composante Principale}
 
 \paragraph{}
-Dans un premier temps nous nous sommes intéressé aux liens existants entre nos variables quantitatives ainsi qu'à leurs importances. Pour cela nous avons réalisé une \textbf{ACP} (Analyse en Composante Principale). Cette technique repose sur la construction d'une représentation à une dimension réduite de nos variables. Le but est donc d'avoir un résumé le plus précis possible, sans modifier les distances entres individus et variables. Pour cela nous projetons notre problème sur des axes représentant une certaine partie de l'inertie de nos données. Le choix de la part d'inertie que l'on conserve est arbitraire. Il ne faut pas tout conserver car sinon on se retrouve à analyser du bruit statistique (en général on considère qu'au-dessus de 95\% de l'inertie on analyse du bruit), mais il faut également conserver une part importante afin de bien résumer l'information. Nous avons donc choisi de retenir les 11 premiers axes principaux, qui représentent $80.56$\% de l'inertie totale. L'analyse des individus ne nous intéresse pas (ils sont trop nombreux), ici nous allons focaliser notre attention sur les variables.
+Dans un premier temps nous nous sommes intéressé aux liens existants entre nos variables quantitatives ainsi qu'à leurs importances. Pour cela nous avons réalisé une \textbf{ACP} (Analyse en Composante Principale). Cette technique repose sur la construction d'une représentation à une dimension réduite de nos variables. Le but est donc d'avoir un résumé le plus précis possible, sans modifier les distances entres individus et variables. Pour cela nous projetons notre problème sur des axes représentant une certaine part de l'inertie de nos données. Le choix de la part d'inertie que l'on conserve est arbitraire. Il ne faut pas tout conserver car sinon on se retrouve à analyser du bruit statistique (en général on considère qu'au-dessus de 95\% de l'inertie on analyse du bruit), mais il faut également conserver une part importante afin de bien résumer l'information. Nous avons donc choisi de retenir les 11 premiers axes principaux, qui représentent $80.56$\% de l'inertie totale. L'analyse des individus ne nous intéresse pas (ils sont trop nombreux), ici nous allons focaliser notre attention sur les variables.
 \paragraph{}
-La première raison pour laquelle nous avons fait une ACP était de tenter de déceler les tendances, les corrélations entre variables. On retrouve ci-après le cercle des corrélations qui permet de résumer les contributions et le sens des variables dans le repère des deux premiers axes  :\\
+La première raison pour laquelle nous avons fait une ACP était de tenter de déceler les tendances, les corrélations entre variables. On retrouve ci-après le cercle des corrélations qui permet de résumer les contributions et le sens des variables dans le repère des deux premiers axes principaux.
 \begin{center}
 \includegraphics[width=18cm]{Images/ACP.png}
 \end{center}
-Sans surprise, il semblerait que les variables \textbf{tH2} et \textbf{tH2\_obs} soient très liées, elles contribuent fortement à la création des premiers axes, et ce dans le même sens. Ce graphe fait également apparaître le fait que des variables comme \textbf{tH2\_XGrad}, \textbf{tH2\_YGrad} ou encore \textbf{rr1SOL0} (que l'on enlève de toute façon à cause des valeurs manquantes) contribuent faiblement et dans des directions opposées. On pourra éventuellement se poser la question de leur utilité dans l'analyse, et procéder à de la \textbf{sélection de variable} (nous reviendront sur ce point plus tard).
+Sans surprise, il semblerait que les variables \textbf{tH2} et \textbf{tH2\_obs} soient très liées, elles contribuent fortement à la création des premiers axes, et ce dans le même sens. Ce graphe fait également apparaître le fait que des variables comme \textbf{tH2\_XGrad}, \textbf{tH2\_YGrad} ou encore \textbf{rr1SOL0} (que l'on enlève de toute façon à cause des valeurs manquantes) contribuent faiblement et dans des directions opposées. On pourra éventuellement se poser la question de leur utilité dans l'analyse, et procéder à de la \textbf{sélection de variables} (nous reviendrons sur ce point plus tard).
 
 \paragraph{}
-La deuxième utilité de l'ACP dans ce projet aura été d'exploiter les coordonnées des individus sur les 11 premiers axes principaux, et de rajouter ces colonnes dans l'analyse. On peut penser que cela rajoute de la corrélation, cependant nous avons constaté que cet apport enrichissait l'analyse, puisque nous avons réussi à progresser de $0.02$ sur tous les modèles que nous avons utilisé après avoir rajouté ces $11$ colonnes. Nous avons vu dans la partie précédente sur les valeurs manquantes que l'on était obligé d'omettre les variables \textbf{capeinsSOL0} et \textbf{rr1SOL0}, et comme la première semble avoir de l'importance dans l'analyse, cela permet quand même de capter une part de l'information qu'elle fournit. Cela peut expliquer en partie la progression des scores quand on ajoute les coordonnées issues de l'ACP. Cela permet peut-être également de refléter la proximité ou non des individus au niveau temporel. Pour compléter cet aspect, nous allons transformer à son tour la date en une coordonnée, afin d'exploiter au mieux l'information temporelle qu'elle renferme.
-\newpage 
+La deuxième utilité de l'ACP dans ce projet aura été d'exploiter les coordonnées des individus sur les 11 premiers axes principaux, et de rajouter ces colonnes dans l'analyse. On peut penser que cela rajoute de la corrélation, cependant nous avons constaté que cet apport enrichissait les données de base, puisque nous avons réussi à progresser de $0.02$ environ au niveau du score \textbf{RMSE} sur tous les modèles que nous avons utilisé après avoir rajouté ces $11$ colonnes. Nous avons vu dans la partie précédente sur les valeurs manquantes que l'on était obligé d'omettre les variables \textbf{capeinsSOL0} et \textbf{rr1SOL0}, et comme la première semble avoir de l'importance dans l'analyse, cela permet quand même de capter une part de l'information qu'elle fournit. Cela peut expliquer en partie la progression des scores quand on ajoute les coordonnées issues de l'ACP. Cela permet peut-être également de refléter la proximité ou non des individus au niveau temporel. Pour compléter cet aspect, nous allons transformer à son tour la date en une coordonnée, afin d'exploiter au mieux l'information temporelle qu'elle renferme. 
 \subsection{Transformation de la date}
 \paragraph{}
-Si l'on demandait à une personne de prédire la température, intuitivement la date va forcément faire partie des variables déterminantes dans sa décision. Il paraît évident que l'on ne va pas prédire la même température pour un 15 janvier que pour un 15 juillet. En revanche, on pourrait être tenté de prédire environ la même température pour un 15 avril et pour un 15 octobre, le printemps et l'automne étant assez similaires selon ce critère de température. En revanche, l'été et l'hiver s'opposent. On saisit donc que la variable date va avoir son importance dans l'explication de la température, seulement cette information n'est pas exploitable de façon brute : il va falloir la transformer. Comment choisir cette transformation ? Les critères suivants peuvent nous aider :
+Si l'on demandait à une personne de prédire la température, intuitivement la date va forcément faire partie des variables déterminantes dans sa décision. Il paraît évident que l'on ne va pas prédire la même température pour un 15 janvier que pour un 15 juillet. En revanche, on pourrait être tenté de prédire environ la même température pour un 15 avril et pour un 15 octobre, le printemps et l'automne étant assez similaires selon ce critère de température. En revanche, l'été et l'hiver s'opposent. On saisit donc que la variable date va avoir son importance dans l'explication de la température, seulement cette information n'est pas exploitable de façon brute : il va falloir la transformer. Comment choisir cette transformation ?\\
+\paragraph{}
+Les critères suivants peuvent nous aider :
 \begin{itemize}
 \item La transformation doit être capable de représenter l'opposition entre l'hiver et l'été, tout en tenant compte du caractère similaire de l'automne et du printemps
 \item Elle doit également prendre en compte le fait que le $31$ décembre d'une année et le $1^{er}$ janvier de l'année suivante sont 2 jours similaires
@@ -387,7 +386,7 @@ où $N$ correspond au nombre de jours que contient chaque année (cette étude c
 Les transformations et ajustements étant faits, nous pouvons à présent démarrer la partie de modélisation dans le but de prédire les températures.
 \section{Choix et application d'algorithmes d'apprentissage supervisé}
 \paragraph{}
-Dans cette section, nous allons détailler les différents algorithmes que nous avons utilisé pour modéliser les données et effectuer nos prédictions. Etant donné qu'il n'existe pas une méthode universelle assurant qu'un algorithme est meilleur que les autres pour un type de problème donné, il faut en tester plusieurs (\og No free lunch theorems \fg{}). Toutefois, nous pouvons d'ores et déjà enlever les \textbf{SVM} de la liste des algorithmes qui seront testés. Nous avons fait ce choix pour des raisons techniques : l'algorithme utilise la matrice de Gram définie de la façon suivante :
+Dans cette section, nous allons détailler les différents algorithmes que nous avons utilisé pour modéliser les données et effectuer nos prédictions. Etant donné qu'il n'existe pas une méthode universelle assurant qu'un algorithme est meilleur que les autres pour un type de problème donné, il faut en tester plusieurs (\og No free lunch theorems \fg{}). Toutefois, nous pouvons d'ores et déjà enlever les \textbf{SVM} de la liste des algorithmes qui seront testés. Nous avons fait ce choix pour des raisons techniques : l'algorithme utilise la matrice de Gram.
 \begin{center}
 $G = \begin{pmatrix} <x_1,x_1> & \cdots & <x_1,x_n> \\ \vdots & \ddots & \vdots \\ <x_n,x_1> & \cdots & <x_n,x_n> \end{pmatrix}$
 \end{center}
@@ -411,7 +410,7 @@ C'est donc sur ces deux aspects que nous allons tenter de jouer par la suite. Af
 \paragraph{}
 Si par la suite nous allons utiliser des méthodes compliquées, dites \og boîtes noires \fg{} , nous souhaitions tout d'abord poser une base, un modèle de référence, en utilisant une méthode simple. Pour cette raison, le premier modèle que nous avons appliqué à nos données était un modèle de régression linéaire multiple. On définit un tel modèle à $p$ variables explicatives de la façon suivante pour une observation $y_i$ :
 \begin{center}
-$y_{i}=\beta_{0}+\beta_{1}x_{i,1}+...+\beta_{k}x_{i,p}+\varepsilon_{i}$
+$y_{i}=\beta_{0}+\beta_{1}x_{i,1}+...+\beta_{p}x_{i,p}+\varepsilon_{i}$
 \end{center}
 En généralisant avec l'écriture matricielle, on obtient :
 \begin{center}
@@ -424,11 +423,11 @@ On rappelle que ce modèle requiert de poser certaines hypothèses fortes telles
 \item $ \varepsilon \independent \mathbb{X}$
 \item $\varepsilon \sim \mathcal{N}_n(0,\sigma^2I_n)$ avec $I_n$ la matrice identité de taille $n \times n$
 \end{itemize}
-Cela définit ainsi le modèle linéaire gaussien. Cette méthode présente l'avantage premièrement d'être facilement compréhensible, même lorsqu'on n'est plus en dimension 2. L'estimation des paramètres est également assez \og simple \fg{} : en effet pour trouver les paramètres optimaux on va résoudre un problème d'optimisation dont il existe une solution analytique qui est connue. Si l'on note l'estimation de $\beta$ : 
+Cela définit ainsi le modèle linéaire gaussien. Cette méthode présente l'avantage premièrement d'être facilement compréhensible, même lorsqu'on n'est plus en dimension 2. L'estimation des paramètres est également assez \og simple \fg{} : pour trouver les paramètres optimaux on va résoudre un problème d'optimisation dont il existe une solution analytique qui est connue. Si l'on note l'estimateur de $\beta$ : 
 \begin{center}
 $\hat{\beta} = \underset{\beta\in\mathbb{R}^{p+1} }{argmin}\sum\limits_{i=1}^n(Y_i-\beta^TX_i)^2$
 \end{center}
-Cela correspond à l'estimateur des Moindres Carrés Ordinaires (MCO) dont la solution lorsqu'on résout le problème d'optimisation précédent vaut :
+Cela correspond à l'estimateur des Moindres Carrés Ordinaires (MCO). On rappelle que cet estimateur a le bon goût d'être sans biais. Comme expliqué précédemment, on connait la forme analytique de cet estimateur qui correspond à l'estimateur du maximum de vraisemblance, et dont la solution lorsqu'on résout le problème d'optimisation précédent vaut :
 \begin{center}
 $\hat{\beta} = (\mathbb{X}^T\mathbb{X})^{-1}\mathbb{X}^T\mathbb{Y}$
 \end{center}
@@ -440,12 +439,14 @@ On remarque au passage qu'il y a un point essentiel : il faut que $(\mathbb{X}^T
 \end{center}
 Comme nous l'avions avancé précédemment, ce type de modèle est \og simple \fg{} dans le sens où il n'y a pas d'hyper-paramètres à calibrer de façon judicieuse (comme ce sera le cas dans les modèles présentés plus tard dans cette étude), et il présente également le gros avantage de tourner rapidement. En effet, les organisateurs du concours ont une exigence particulière au niveau du temps de calcul : \textbf{ils imposent que le temps de calcul soit inférieur à 15 minutes} (sans pour autant préciser avec quel type de machine...). Il se trouve que ce modèle de régression linéaire multiple appliqué sur chaque station séparément renvoie l'ensemble des résultats en moins d'une minute, il est donc très rapide. Cependant, on rappelle que pour que ce modèle soit juste, il faut que l'hypothèse de linéarité des données soit respectée, sinon on tombe rapidement dans de l'\textbf{underfitting} (le graphe de la partie \textbf{3.2} illustre parfaitement ce point). Un autre problème peut également être causé par la \textbf{dimension}. Nous allons donc tenter de voir dans la suite en fonction de ces différents aspects, si nous pouvons améliorer la performance du modèle linéaire en utilisant une variante.
 \subsubsection{Les variantes pour la grande dimension}
-Etant donné le nombre de variables dont nous disposons, une des questions que l'on peut se poser naturellement serait : sommes-nous en grande dimension ? En effet, il est difficile de quantifier le nombre de variables qui font que l'on bascule dans cette fameuse \og grande dimension \fg{}. Nous parlions tout à l'heure d'inversibilité de la matrice $(\mathbb{X}^T\mathbb{X})$, pour cela il faut que le rang de cette matrice soit égal à $p+1$. Or, si $p+1 > n$, la matrice n'est plus de plein rang et donc plus inversible. Mais bien avant d'en arriver là, lorsque le nombre de variables devient trop important, on dit que la matrice est mal conditionnée, ce qui rend problématique l'inversion de la matrice, et il devient donc compliqué voire impossible de calculer l'estimateur des \textbf{MCO}. Pour contrer ce \og \textbf{fléau de la dimension} \fg{}, il existe des variantes de la régression linéaire : la régression \textbf{Ridge}, la régression \textbf{Lasso} ou encore un compromis des deux appelé \textbf{Elastic Net}, qui appartiennent à la famille des méthodes de \textbf{régression pénalisée}.
+Etant donné le nombre de variables dont nous disposons (on arrive à 72 colonnes en entrée après avoir passé les variables catégorielles en \textit{dummies}), une des questions que l'on peut se poser naturellement serait : sommes-nous en grande dimension ? En effet, il est difficile de quantifier le nombre de variables qui font que l'on bascule dans cette fameuse \og grande dimension \fg{}. Nous parlions tout à l'heure d'inversibilité de la matrice $(\mathbb{X}^T\mathbb{X})$, pour cela il faut que le rang de cette matrice soit égal à $p+1$. Or, si $p+1 > n$, la matrice n'est plus de plein rang et donc plus inversible (cela ne sera pas le cas dans nore étude puisque le nombre de lignes $n$ est conséquent). Mais bien avant d'en arriver là, lorsque le nombre de variables devient trop important, on dit que la matrice est mal conditionnée, ce qui rend problématique l'inversion de la matrice, et il devient donc compliqué voire impossible de calculer l'estimateur des \textbf{MCO}. Pour contrer ce \og \textbf{fléau de la dimension} \fg{}, il existe des variantes de la régression linéaire : la régression \textbf{Ridge}, la régression \textbf{Lasso} ou encore un compromis des deux appelé \textbf{Elastic Net}, qui appartiennent à la famille des méthodes de \textbf{régression pénalisée}.
 \paragraph{}
-Dans cette étude nous allons présenter seulement la régression Lasso car nous n'avons pas utilisé les autres méthodes. Nous avons fait ce choix car la régression Lasso a pour propriété de faire de la sélection de variables. Nous avons pu voir à partir du cercle des corrélations, en faisant notre ACP, qu'il y avait certains groupes de variables qui n'évoluaient pas dans le même sens que la variable cible \textbf{tH2\_obs}. Il y a peut-être donc des variables \og inutiles \fg{}, qui viennent bruiter l'information et qui pourraient donc être éliminées à l'aide d'une régression Lasso. Nous allons désormais expliquer en quoi la régression Lasso diffère de la régression linéaire, et pourquoi elle permet de faire de la sélection de variables. Premièrement, nous avons vu que le problème des MCO venait de la dimension, car la variabilité de l'estimateur \og explose \fg{} en grande dimension . Une solution pour palier à ce problème consiste donc à contraindre cet estimateur à avoir une \og petite \fg{} norme. Dans le cas de la régression Lasso on choisit la norme $|.|_1$ et le problème d'optimisation devient :
+Dans cette étude nous allons présenter seulement la régression Lasso car nous n'avons pas utilisé les autres méthodes. Nous avons fait ce choix car la régression Lasso a pour propriété de faire de la sélection de variables. Nous avons pu voir à partir du cercle des corrélations, en faisant notre ACP, qu'il y avait certains groupes de variables qui n'évoluaient pas dans le même sens que la variable cible \textbf{tH2\_obs}. Il y a peut-être donc des variables \og inutiles \fg{}, qui viennent bruiter l'information et qui pourraient être éliminées à l'aide d'une régression Lasso.
+\paragraph{}
+Nous allons désormais expliquer en quoi la régression Lasso diffère de la régression linéaire, et pourquoi elle permet de faire de la sélection de variables. Premièrement, nous avons vu que le problème des MCO venait de la dimension, car la variabilité de l'estimateur \og explose \fg{} en grande dimension . Une solution pour palier à ce problème consiste donc à contraindre cet estimateur à avoir une \og petite \fg{} norme. Dans le cas de la régression Lasso on choisit la norme $|.|_1$ et le problème (primal) d'optimisation devient :
 \begin{center}
 $$
-\left\{
+(P) :\left\{
     \begin{array}{ll}
         min \parallel \mathbb{Y} - \mathbb{X}\beta \parallel^2  \\
         s.c  \mid\beta\mid\leq t
@@ -457,7 +458,7 @@ Avec $t>0$. Ainsi, l'estimateur Lasso peut se réécrire :
 \begin{center}
 $\hat{\beta}_{LASSO}(\lambda) = \underset{\beta\in\mathbb{R}^{p+1} }{argmin}\parallel \mathbb{Y} - \mathbb{X}\beta \parallel^2_2 + \lambda |\beta|_1 \qquad$ avec $|\beta|_1 = \sum\limits_{j=1}^p|\beta_j|$ et $\lambda > 0$ (multiplicateur de Lagrange)
 \end{center}
-Avec cette écriture, on se rend compte que l'on introduit un paramètre supplémentaire ($\lambda$) que l'on va calibrer (comme souvent) par validation croisée. Nous utiliserons la validation croisée 10-blocs, qui est implémentée par défaut dans la fonction \textit{cv.glmnet} de R. Le choix de $\lambda$ est crucial : quand $\lambda \nearrow$ $ \Rightarrow$ le biais $\nearrow$ tandis que la variance $\searrow$ (et inversement quand $\lambda \searrow$). On se retrouve encore une fois à chercher le \og meilleur \fg{} compromis biais/variance afin d'optimiser notre modèle. L'augmentation de $\lambda$ et donc du biais entraîne également une augmentation simultanée du nombre de coefficients nuls : c'est ici qu'intervient la sélection de variables. Pour mieux le voir (on ne fera pas la démonstration), après quelques calculs on observe que finalement l'estimateur Lasso est une transformation de l'estimateur des MCO, en fonction de $\lambda$ :
+Avec cette écriture, on se rend compte que l'on introduit un paramètre supplémentaire ($\lambda$) que l'on va calibrer (comme souvent) par validation croisée. Nous utiliserons pour cela la validation croisée 10-blocs, puisque le modèle tourne rapidement. Le choix de $\lambda$ est crucial : quand $\lambda \nearrow$ $ \Rightarrow$ le biais $\nearrow$ tandis que la variance $\searrow$ (et inversement quand $\lambda \searrow$). On se retrouve encore une fois à chercher le \og meilleur \fg{} compromis biais/variance afin d'optimiser notre modèle. L'augmentation de $\lambda$ et donc du biais entraîne également une augmentation simultanée du nombre de coefficients nuls : c'est ici qu'intervient la sélection de variables. Pour mieux le voir (on ne fera pas la démonstration), après quelques calculs on observe que finalement l'estimateur Lasso est une transformation de l'estimateur des MCO, en fonction de $\lambda$ :
 \begin{center}
 $[\hat{\beta}_{LASSO}(\lambda)]_j = \left\{
     \begin{array}{ll}
@@ -466,7 +467,7 @@ $[\hat{\beta}_{LASSO}(\lambda)]_j = \left\{
     \end{array}
 \right.$
 \end{center}
-Avec cette écriture, il est donc plus facile de comprendre d'où vient le biais (on retire $\frac{\lambda}{2}$ au coefficient des MCO) ainsi que la sélection de variables. On parle dans ce cas de \og \textbf{seuillage doux} \fg{}. La figure suivante permet d'illustrer le propos.
+Avec cette écriture, il est donc plus facile de comprendre d'où vient le biais (on soustrait $\frac{\lambda}{2}$ au coefficient des MCO) ainsi que la sélection de variables. On parle dans ce cas de \og \textbf{seuillage doux} \fg{}. La figure suivante permet d'illustrer le propos.
 \begin{center}
 \includegraphics[width=18cm]{Images/shrinkage.png}
 \end{center}
@@ -486,13 +487,9 @@ On remarque que par rapport à la régression linéaire, le score moyen sur les 
 \subsection{Forêt aléatoire : l'algorithme Random Forest}
 \subsubsection{Rappels sur le fonctionnement de la méthode CART}
 \paragraph{}
-Une façon simple de modéliser des données peut être d'utiliser un arbre de décision \textbf{CART} (\textbf{C}lassification \textbf{A}nd \textbf{R}egression \textbf{T}ree). C'est un algorithme de prédiction par moyenne locale, par partition, dont la partition est construite par divisions successives au moyen d'hyperplans orthogonaux aux axes du nœud racine $\mathfrak{X}=\mathbb{R}^{p}$, dépendant des $(X_i,Y_i)$. Chaque division est effectuée à partir du choix conjoint d'une variable explicative et d'une valeur seuil pour cette variable, de sorte que la découpe effectuée minimise la variance en régression ou l'impureté dans le nœud en discrimination.
+Une façon simple de modéliser des données peut être d'utiliser un arbre de décision \textbf{CART} (\textbf{C}lassification \textbf{A}nd \textbf{R}egression \textbf{T}ree). C'est un algorithme de prédiction par moyenne locale, par partition, dont la partition est construite par divisions successives au moyen d'hyperplans orthogonaux aux axes du nœud racine $\mathfrak{X}=\mathbb{R}^{p}$, dépendant des $(X_i,Y_i)$. Chaque division est effectuée à partir du choix conjoint d'une variable explicative et d'une valeur seuil pour cette variable, de sorte que la découpe effectuée minimise la variance en régression ou l'impureté dans le nœud en discrimination. La figure suivante permet d'illustre le fonctionnement de l'algorithme CART pour un problème de discrimination binaire dans $\mathbb{R}^2$.
 \begin{center}
 \includegraphics[scale=0.55]{Images/cart.png}
-\end{center}
-\begin{center}
-\captionof{figure}{Illustration de l'algorithme CART pour un problème de discrimination binaire dans $\mathbb{R}^2$}
-\label{fig1}
 \end{center}
 \paragraph{}
 Néanmoins cet algorithme pose le problème majeur d'être très instable (fléau de la dimension et sensibilité à l'échantillon). C'est donc pour palier à ce problème que nous allons utiliser l'algorithme de forêt aléatoire \textbf{Random Input}. Comme son nom l'indique, cette méthode consiste en une agrégation d'arbres : c'est un algorithme de \textbf{Bagging} (\textbf{B}ootstrap \textbf{agg}regat\textbf{ing}). 
